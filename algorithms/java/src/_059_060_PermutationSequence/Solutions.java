@@ -12,6 +12,14 @@ public class Solutions {
 
 class Solution {
 //	https://leetcode.com/problems/permutation-sequence/discuss/22507/%22Explain-like-I'm-five%22-Java-Solution-in-O(n)
+//	"123"
+//	"132"
+//	"213"
+//	"231"
+//	"312"
+//	"321"
+//	Input: n = 3, k = 3
+//	Output: "213"
 	public String getPermutation(int n, int k) {
 		int pos = 0;
 		List<Integer> numbers = new ArrayList<>();
