@@ -61,3 +61,4 @@
 |058|[059 Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii)||[Java](./algorithms/java/src/_058_059_SpiralMatrixII/Solutions.java)|44.8%|Medium|
 |059|[060 Permutation Sequence](https://leetcode.com/problems/permutation-sequence)||[Java](./algorithms/java/src/_059_060_PermutationSequence/Solutions.java)|31.8%|Medium|
 |060|[061 Rotate List](https://leetcode.com/problems/rotate-list)||[Java](./algorithms/java/src/_060_061_RotateList/Solutions.java)|26.2%|Medium|
+|061|[062 Unique Paths](https://leetcode.com/problems/unique-paths)||[Java](./algorithms/java/src/_061_062_Unique_Paths/Solutions.java)|45.8%|Medium|
