@@ -3,6 +3,11 @@ package _061_062_Unique_Paths;
 public class Solutions {
 	public static void main(String[] args) {
 		Solution so = new Solution();
+		SolutionDP sdp = new SolutionDP();
+		int m = 3;
+		int n = 3;
+		int nums = sdp.uniquePaths(m, n);
+		System.out.println(nums);
 
 	}
 }
