@@ -63,3 +63,6 @@
 |060|[061 Rotate List](https://leetcode.com/problems/rotate-list)||[Java](./algorithms/java/src/_060_061_RotateList/Solutions.java)|26.2%|Medium|
 |061|[062 Unique Paths](https://leetcode.com/problems/unique-paths)||[Java](./algorithms/java/src/_061_062_Unique_Paths/Solutions.java)|45.8%|Medium|
 |062|[063 Unique Paths II](https://leetcode.com/problems/unique-paths-ii)|[OF](https://leetcode.com/articles/unique-paths-ii)|[Java](./algorithms/java/src/_062_063_Unique_PathsII/Solutions.java), [Python](./algorithms/python/_062_063_Unique_PathsII/Solutions.py)|33.2%|Medium|
+|063|[064 Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum)|[OF](https://leetcode.com/articles/minimum-path-sum)|[Java](./algorithms/java/src/_063_064_MinimumPathSum/Solutions.java)|45.0%|Medium|
+|064|[066 Plus One](https://leetcode.com/problems/plus-one)||[Java](./algorithms/java/src/_064_066_PlusOne/Solutions.java)|40.5%|Easy|
+|065|[067 Add Binary](https://leetcode.com/problems/add-binary)||[Java](./algorithms/java/src/_065_067_AddBinary/Solutions.java)|37.4%|Easy|

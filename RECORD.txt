@@ -60,3 +60,6 @@ _059_060_PermutationSequence
 _060_061_RotateList
 _061_062_Unique_Paths
 _062_063_Unique_PathsII
+_063_064_MinimumPathSum
+_064_066_PlusOne
+_065_067_AddBinary
