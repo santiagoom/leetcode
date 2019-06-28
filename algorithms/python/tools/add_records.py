@@ -21,6 +21,19 @@ readme_path = home_path + "/README.md"
 record_txt = home_path + "/RECORD.txt"
 record_path = home_path + "/RECORD.md"
 
+JAVA_HEADER = '''
+public class Solutions {
+	public static void main(String[] args) {
+	    Solution so = new Solution();
+
+	}
+}
+
+class Solution{
+
+}
+'''
+
 
 def add_java_records():
     with open(record_txt) as file:
@@ -99,28 +112,42 @@ def add_java_records():
             pass
             # print(e)
 
+        # java so
         if solution_python == "" and solution_cpp == "" and solution_java != "":
             output = "|" + record_num + "|" + new_title + "|" + slices[
                 3] + "|" + solution_java + "" + solution_python + "|" + \
                      slices[4] + slices[
                          5] + "|" + slices[6] + "|"
+
+        # java and python
         elif solution_python != "" and solution_cpp == "" and solution_java != "":
             output = "|" + record_num + "|" + new_title + "|" + slices[
                 3] + "|" + solution_java + ", " + solution_python + "|" + \
                      slices[4] + slices[
                          5] + "|" + slices[6] + "|"
+
+        # java and python and cpp
+        elif solution_python != "" and solution_cpp != "" and solution_java != "":
+            output = "|" + record_num + "|" + new_title + "|" + slices[
+                3] + "|" + solution_java + ", " + solution_python + "," + solution_cpp + "|" + \
+                     slices[4] + slices[
+                         5] + "|" + slices[6] + "|"
+
+        # java and python
         elif solution_python == "" and solution_cpp != "" and solution_java != "":
             output = "|" + record_num + "|" + new_title + "|" + slices[
                 3] + "|" + solution_java + ", " + solution_cpp + "|" + \
                      slices[4] + slices[
                          5] + "|" + slices[6] + "|"
+
+        # java and python
         elif solution_python != "" and solution_cpp == "" and solution_java == "":
             output = "|" + record_num + "|" + new_title + "|" + slices[
                 3] + "|" + solution_python + "|" + \
                      slices[4] + slices[
                          5] + "|" + slices[6] + "|"
 
-        # print(output)
+        print(output)
         record_file.write(output + "\n")
 
 
@@ -128,47 +155,40 @@ def generate_folders(lists):
     with open(record_txt) as file:
         records = file.readlines()
 
-    current = records[-1][:-1]
-    print(current)
+    # current = records[-1][:-1]
+    # print(current)
 
-    for each in lists:
-        if (each == 1):
-            java_dir = java_path + current
+    for record in records:
+        current = record[:-1]
+        for each in lists:
+            if (each == 1):
+                java_dir = java_path + current
 
-            content = '''
-public class Solutions {
-	public static void main(String[] args) {
-	    Solution so = new Solution();
-	    
-	}
-}
+                if not os.path.exists(java_dir):
+                    os.mkdir(java_dir)
+                solutison_java = os.path.join(java_dir, "Solutions.java")
+                if not os.path.exists(solutison_java):
+                    with open(solutison_java, "w") as file:
+                        file.write("package " + current + ";\n")
+                        file.write(JAVA_HEADER)
 
-class Solution{
+            if (each == 2):
+                python_dir = python_path + current
+                if not os.path.exists(python_dir):
+                    os.mkdir(python_dir)
+                solutison_python = os.path.join(python_dir, "Solutions.py")
+                if not os.path.exists(solutison_python):
+                    with open(solutison_python, "w") as file:
+                        file.write("")
 
-}
-'''
-            if not os.path.exists(java_dir):
-                os.mkdir(java_dir)
-            solutison_java = os.path.join(java_dir, "Solutions.java")
-            with open(solutison_java, "a") as file:
-                file.write("package " + current + ";\n")
-                file.write(content)
-
-        if (each == 2):
-            python_dir = python_path + current
-            if not os.path.exists(python_dir):
-                os.mkdir(python_dir)
-            solutison_python = os.path.join(python_dir, "Solutions.py")
-            with open(solutison_python, "a") as file:
-                file.write("")
-
-        if (each == 3):
-            cpp_dir = cpp_path + current
-            if not os.path.exists(cpp_dir):
-                os.mkdir(cpp_dir)
-            solutison_cpp = os.path.join(cpp_dir, "Solutions.cpp")
-            with open(solutison_cpp, "a") as file:
-                file.write("")
+            if (each == 3):
+                cpp_dir = cpp_path + current
+                if not os.path.exists(cpp_dir):
+                    os.mkdir(cpp_dir)
+                solutison_cpp = os.path.join(cpp_dir, "Solutions.cpp")
+                if not os.path.exists(solutison_cpp):
+                    with open(solutison_cpp, "w") as file:
+                        file.write("")
 
 
 def Run():
@@ -180,7 +200,7 @@ def Run():
     # lists = [1]
     # generate_folders(lists)
 
-    # add_java_records()
+    add_java_records()
 
 
 if __name__ == "__main__":
