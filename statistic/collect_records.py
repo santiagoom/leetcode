@@ -11,7 +11,8 @@ def load_html():
     local = True
 
     if local:
-        html_path = "html.html"
+        # html_path = "html.html"
+        html_path = "top145.html"
         with open(html_path, mode="r", encoding='utf8') as file:
             html = file.read()
 
@@ -62,12 +63,11 @@ def parse_html(html):
     tbodys = soup.select('tbody')
     tbodys_0 = tbodys[0]
     md_head = '''
-| # | Title | OF | Self | AC | DF |
+| # | Title | OF | SO | AC | DF |
 |---| ----- | -------- | ---- | ---------- | ---------- |
-|a| b | c | d | e | f |
 '''
     trs = tbodys_0.select('tr')
-    output_filename = "leetcode_add.md"
+    output_filename = "leetcode_top145.md"
     file = open(output_filename, mode='w', encoding='utf8')
     file.write(md_head)
 
