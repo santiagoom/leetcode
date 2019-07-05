@@ -8,10 +8,10 @@ flag = False
 
 if flag:
     # win path
-    home_path = "D:/repos/leetcode-root"
+    home_path = "D:/repos/leetcode_zero"
 else:
     # mac path
-    home_path = "/Users/tianm/repos/leetcode-root"
+    home_path = "/Users/tianm/repos/leetcode_zero"
 
 java_path = home_path + "/algorithms/java/src/"
 cpp_path = home_path + "/algorithms/cpp/"
@@ -38,6 +38,7 @@ class Solution{
 def add_java_records():
     with open(record_txt) as file:
         records = file.readlines()
+    # print(records)
 
     head = '''
 | # | Title | Solution | Difficulty |
@@ -50,18 +51,21 @@ def add_java_records():
         problem = problem[:-1]
         pieces = problem.split("_")
         print(pieces)
-        record_num = pieces[1]
-        problem_num = pieces[2]
+        # record_num = pieces[1]
+        problem_num = pieces[1]
 
         with open(readme_path) as file:
             readme_records = file.readlines()
 
         for record in readme_records[3:]:
             slices = record.split("|")
+            # print(slices)
+            # print(slices[1])
+            # print(problem_num)
             if (slices[1] == problem_num):
                 print("hh")
                 # new_title = "[" + slices[1] + " " + slices[2][1:]
-                record_num = slices[1]
+                record_num = problem_num
                 new_title = "[" + slices[2][1:]
                 break
 

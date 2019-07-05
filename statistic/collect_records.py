@@ -11,8 +11,8 @@ def load_html():
     local = True
 
     if local:
-        # html_path = "html.html"
-        html_path = "1107.html"
+        html_path = "html.html"
+        # html_path = "1107.html"
         with open(html_path, mode="r", encoding='utf8') as file:
             html = file.read()
 
@@ -67,7 +67,7 @@ def parse_html(html):
 |---| ----- | -------- | ---- | ---------- | ---------- |
 '''
     trs = tbodys_0.select('tr')
-    output_filename = "leetcode_1107.md"
+    output_filename = "leetcode_980.md"
     file = open(output_filename, mode='w', encoding='utf8')
     file.write(md_head)
 
@@ -109,12 +109,28 @@ def parse_html(html):
         print(i_tag)
 
         if article_url != "" and i_tag == "":
+            if (len(num) == 1):
+                num = "00" + num
+            if (len(num) == 2):
+                num = "0" + num
             output = "|" + num + "|[" + title + "](" + title_url + ")|[OF](" + article_url + ")|" + Solution + "|" + Acceptance + "|" + Difficulty + "|\n"
         elif article_url != "" and i_tag != "":
+            if (len(num) == 1):
+                num = "00" + num
+            if (len(num) == 2):
+                num = "0" + num
             output = "|" + num + "|[" + title + "](" + title_url + ")  (Lock)|[OF](" + article_url + ")|" + Solution + "|" + Acceptance + "|" + Difficulty + "|\n"
         elif article_url == "" and i_tag == "":
+            if (len(num) == 1):
+                num = "00" + num
+            if (len(num) == 2):
+                num = "0" + num
             output = "|" + num + "|[" + title + "](" + title_url + ")|" + "|" + Solution + "|" + Acceptance + "|" + Difficulty + "|\n"
         elif article_url == "" and i_tag != "":
+            if (len(num) == 1):
+                num = "00" + num
+            if (len(num) == 2):
+                num = "0" + num
 
             output = "|" + num + "|[" + title + "](" + title_url + ")  (Lock)|" + "|" + Solution + "|" + Acceptance + "|" + Difficulty + "|\n"
 
