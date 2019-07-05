@@ -1,6 +1,15 @@
 
+import os
+def folder_rename():
+    path = "/Users/tianm/repos/leetcode-root/algorithms/java/src"
 
-def folder
+
+    for dir in os.listdir():
+        pass
+
+
+
+    pass
 
 
 
