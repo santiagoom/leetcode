@@ -12,7 +12,7 @@ def load_html():
 
     if local:
         # html_path = "html.html"
-        html_path = "top145.html"
+        html_path = "1107.html"
         with open(html_path, mode="r", encoding='utf8') as file:
             html = file.read()
 
@@ -67,7 +67,7 @@ def parse_html(html):
 |---| ----- | -------- | ---- | ---------- | ---------- |
 '''
     trs = tbodys_0.select('tr')
-    output_filename = "leetcode_top145.md"
+    output_filename = "leetcode_1107.md"
     file = open(output_filename, mode='w', encoding='utf8')
     file.write(md_head)
 

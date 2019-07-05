@@ -49,6 +49,7 @@ def add_java_records():
         print(problem[:-1])
         problem = problem[:-1]
         pieces = problem.split("_")
+        print(pieces)
         record_num = pieces[1]
         problem_num = pieces[2]
 
@@ -58,6 +59,7 @@ def add_java_records():
         for record in readme_records[3:]:
             slices = record.split("|")
             if (slices[1] == problem_num):
+                print("hh")
                 # new_title = "[" + slices[1] + " " + slices[2][1:]
                 record_num = slices[1]
                 new_title = "[" + slices[2][1:]
@@ -86,14 +88,15 @@ def add_java_records():
         solution_python = ""
         try:
             for solution in os.listdir(problem_python):
-                abs = os.path.join(problem_python, solution)
-                if flag:
-                    solution_python = "[Python](." + abs[22:] + ")"
-                    solution_python = solution_python.replace("\\", "/")
-                else:
-                    solution_python = "[Python](." + abs[32:] + ")"
-                    solution_python = solution_python.replace("\\", "/")
-                # print(solution_python)
+                if solution.startswith("So"):
+                    abs = os.path.join(problem_python, solution)
+                    if flag:
+                        solution_python = "[Python](." + abs[22:] + ")"
+                        solution_python = solution_python.replace("\\", "/")
+                    else:
+                        solution_python = "[Python](." + abs[32:] + ")"
+                        solution_python = solution_python.replace("\\", "/")
+                    # print(solution_python)
         except Exception as e:
             # print(e)
             pass
@@ -103,13 +106,14 @@ def add_java_records():
         solution_cpp = ""
         try:
             for solution in os.listdir(problem_cpp):
-                abs = os.path.join(problem_cpp, solution)
-                if flag:
-                    solution_cpp = " [C++](." + abs[32:] + ")"
-                    solution_cpp = solution_cpp.replace("\\", "/")
-                else:
-                    solution_cpp = " [C++](." + abs[32:] + ")"
-                    solution_cpp = solution_cpp.replace("\\", "/")
+                if solution.startswith("So"):
+                    abs = os.path.join(problem_cpp, solution)
+                    if flag:
+                        solution_cpp = " [C++](." + abs[32:] + ")"
+                        solution_cpp = solution_cpp.replace("\\", "/")
+                    else:
+                        solution_cpp = " [C++](." + abs[32:] + ")"
+                        solution_cpp = solution_cpp.replace("\\", "/")
         except Exception as e:
             pass
             # print(e)
