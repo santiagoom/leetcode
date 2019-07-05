@@ -40,8 +40,8 @@ def add_java_records():
         records = file.readlines()
 
     head = '''
-| # | Title | OF | Self | AC | DF |
-|---| ----- | -------- | ---- | ---------- | ---------- |
+| # | Title | Solution | Difficulty |
+|---| ----- | -------- | ---- |
 '''
     record_file = open(record_path, "w")
     record_file.write(head)
@@ -58,7 +58,9 @@ def add_java_records():
         for record in readme_records[3:]:
             slices = record.split("|")
             if (slices[1] == problem_num):
-                new_title = "[" + slices[1] + " " + slices[2][1:]
+                # new_title = "[" + slices[1] + " " + slices[2][1:]
+                record_num = slices[1]
+                new_title = "[" + slices[2][1:]
                 break
 
         problem_java = os.path.join(java_path, problem)
@@ -112,40 +114,10 @@ def add_java_records():
             pass
             # print(e)
 
-        # java so
-        if solution_python == "" and solution_cpp == "" and solution_java != "":
-            output = "|" + record_num + "|" + new_title + "|" + slices[
-                3] + "|" + solution_java + "" + solution_python + "|" + \
-                     slices[4] + slices[
-                         5] + "|" + slices[6] + "|"
-
-        # java and python
-        elif solution_python != "" and solution_cpp == "" and solution_java != "":
-            output = "|" + record_num + "|" + new_title + "|" + slices[
-                3] + "|" + solution_java + ", " + solution_python + "|" + \
-                     slices[4] + slices[
-                         5] + "|" + slices[6] + "|"
-
         # java and python and cpp
-        elif solution_python != "" and solution_cpp != "" and solution_java != "":
-            output = "|" + record_num + "|" + new_title + "|" + slices[
-                3] + "|" + solution_java + ", " + solution_python + "," + solution_cpp + "|" + \
-                     slices[4] + slices[
-                         5] + "|" + slices[6] + "|"
-
-        # java and python
-        elif solution_python == "" and solution_cpp != "" and solution_java != "":
-            output = "|" + record_num + "|" + new_title + "|" + slices[
-                3] + "|" + solution_java + ", " + solution_cpp + "|" + \
-                     slices[4] + slices[
-                         5] + "|" + slices[6] + "|"
-
-        # java and python
-        elif solution_python != "" and solution_cpp == "" and solution_java == "":
-            output = "|" + record_num + "|" + new_title + "|" + slices[
-                3] + "|" + solution_python + "|" + \
-                     slices[4] + slices[
-                         5] + "|" + slices[6] + "|"
+        if solution_python != "" and solution_cpp != "" and solution_java != "":
+            output = "|" + record_num + "|" + new_title + "|" + solution_java + ", " + solution_python + "," + solution_cpp + "|" + \
+                     slices[6] + "|"
 
         print(output)
         record_file.write(output + "\n")
