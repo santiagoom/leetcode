@@ -13,3 +13,9 @@ temp.py
 temp.txt
 .DS_Store
 *.html
+
+
+CMakeLists.txt
+cmake-build-debug/
+config.txt
+main.cpp
