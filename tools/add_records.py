@@ -19,6 +19,7 @@ python_path = home_path + "/algorithms/python/"
 readme_path = home_path + "/leetcode_980.md"
 
 record_txt = home_path + "/record.txt"
+to_leet_record = home_path + "/to_leet_record.txt"
 record_path = home_path + "/readme.md"
 
 JAVA_HEADER = '''
@@ -35,16 +36,26 @@ class Solution{
 '''
 
 
-def add_java_records():
-    with open(record_txt) as file:
+def add_java_records(isleet=False):
+    if isleet:
+        path = to_leet_record
+    else:
+        path = record_txt
+    with open(path) as file:
         records = file.readlines()
     # print(records)
+
+    ahead = """
+# LeetCode Solutions   
+ 
+    """
 
     head = '''
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---- |
 '''
     record_file = open(record_path, "w")
+    record_file.write(ahead)
     record_file.write(head)
     for problem in records:
         print(problem[:-1])
@@ -63,7 +74,6 @@ def add_java_records():
             # print(slices[1])
             # print(problem_num)
             if (slices[1] == problem_num):
-                print("hh")
                 # new_title = "[" + slices[1] + " " + slices[2][1:]
                 record_num = problem_num
                 new_title = "[" + slices[2][1:]
@@ -180,7 +190,8 @@ def Run():
     # lists = [1]
     # generate_folders(lists)
 
-    add_java_records()
+    add_java_records(True)
+    # add_java_records(False)
 
 
 if __name__ == "__main__":
