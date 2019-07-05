@@ -116,7 +116,7 @@ def add_java_records():
 
         # java and python and cpp
         if solution_python != "" and solution_cpp != "" and solution_java != "":
-            output = "|" + record_num + "|" + new_title + "|" + solution_java + ", " + solution_python + "," + solution_cpp + "|" + \
+            output = "|" + record_num + "|" + new_title + "|" + solution_cpp + ", " + solution_python + "," + solution_java + "|" + \
                      slices[6] + "|"
 
         print(output)
