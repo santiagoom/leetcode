@@ -88,10 +88,10 @@ def add_java_records():
             for solution in os.listdir(problem_python):
                 abs = os.path.join(problem_python, solution)
                 if flag:
-                    solution_python = "[Py](." + abs[22:] + ")"
+                    solution_python = "[Python](." + abs[22:] + ")"
                     solution_python = solution_python.replace("\\", "/")
                 else:
-                    solution_python = "[Py](." + abs[32:] + ")"
+                    solution_python = "[Python](." + abs[32:] + ")"
                     solution_python = solution_python.replace("\\", "/")
                 # print(solution_python)
         except Exception as e:
