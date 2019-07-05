@@ -16,10 +16,10 @@ else:
 java_path = home_path + "/algorithms/java/src/"
 cpp_path = home_path + "/algorithms/cpp/"
 python_path = home_path + "/algorithms/python/"
-readme_path = home_path + "/README.md"
+readme_path = home_path + "/leetcode_980.md"
 
-record_txt = home_path + "/RECORD.txt"
-record_path = home_path + "/RECORD.md"
+record_txt = home_path + "/record.txt"
+record_path = home_path + "/readme.md"
 
 JAVA_HEADER = '''
 public class Solutions {
@@ -78,10 +78,10 @@ def add_java_records():
                     abs = os.path.join(problem_java, solution)
 
                     if flag:
-                        solution_java = "[Java](." + abs[22:] + ")"
+                        solution_java = " [Java](." + abs[22:] + ")"
                         solution_java = solution_java.replace("\\", "/")
                     else:
-                        solution_java = "[Java](." + abs[32:] + ")"
+                        solution_java = " [Java](." + abs[32:] + ")"
                         solution_java = solution_java.replace("\\", "/")
 
                     # print(solution_java)
@@ -113,10 +113,10 @@ def add_java_records():
                 if solution.startswith("So"):
                     abs = os.path.join(problem_cpp, solution)
                     if flag:
-                        solution_cpp = " [C++](." + abs[32:] + ")"
+                        solution_cpp = "[C++](." + abs[32:] + ")"
                         solution_cpp = solution_cpp.replace("\\", "/")
                     else:
-                        solution_cpp = " [C++](." + abs[32:] + ")"
+                        solution_cpp = "[C++](." + abs[32:] + ")"
                         solution_cpp = solution_cpp.replace("\\", "/")
         except Exception as e:
             pass
