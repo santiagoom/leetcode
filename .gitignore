@@ -17,5 +17,4 @@ temp.txt
 
 CMakeLists.txt
 cmake-build-debug/
-config.txt
 main.cpp

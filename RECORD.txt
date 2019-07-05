@@ -1,5 +1,2 @@
 _705_DesignHashSet
 _706_DesignHashMap
-_002_AddTwoNumbers
-_003_LongestSubstringWithoutRepeatingCharacters
-_001_TwoSum
