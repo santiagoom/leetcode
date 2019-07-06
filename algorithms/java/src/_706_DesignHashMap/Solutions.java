@@ -1,4 +1,4 @@
-package _002_706_DesignHashMap;
+package _706_DesignHashMap;
 
 /*
  * 

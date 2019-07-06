@@ -1,4 +1,6 @@
-package _001_705_DesignHashSet;
+package _705_DesignHashSet;
+
+
 
 /*
  * Note:

@@ -1,0 +1,38 @@
+26
+
+You have to make sure that your .java files are in the .src folder in eclipse. I had the same exact problem until I got it figured out.
+
+shareedit
+answered Feb 29 '12 at 14:40
+
+ultra99
+38811 gold badge77 silver badges1111 bronze badges
+add a comment
+
+22
+
+
+
+
+A simpler way is to close the project and reopen it.
+
+
+
+
+
+shareedit
+edited Apr 10 at 19:31
+
+z3p5e6
+922 bronze badges
+answered Jul 22 '10 at 22:43
+
+static
+22122 silver badges22 bronze badges
+show 1 more comment
+
+18
+
+Just make sure that the folder you work in is added to the built path:
+
+right-click your folder --> build Path --> Use as source Folder
