@@ -16,3 +16,8 @@ Have a nice coding
 3. 回溯算法
 ```
 
+
+
+## Hashing
+
+哈希函数避免进入死循环。
