@@ -19,4 +19,5 @@ CMakeLists.txt
 cmake-build-debug/
 main.cpp
 
-java.iml
+*.iml
+out/

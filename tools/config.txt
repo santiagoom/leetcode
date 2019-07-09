@@ -16,3 +16,19 @@ find_library(TEST_LIBRARY test_library lib)
 target_link_libraries(cmake_testapp LINK_PUBLIC ${TEST_LIBRARY})
 
 add_subdirectory(test)
+
+
+cmake_minimum_required(VERSION 3.14)
+project(algorithms)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_subdirectory(test)
+
+
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
