@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class _705_DesignHashSet_debug {
+public class Test {
     public static void main(String[] args) {
-        System.out.println("_705_DesignHashSet_debug");
+        System.out.println("test");
 
         int a = 2;
 //        int b = a  >>> 16;

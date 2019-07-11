@@ -1,6 +1,10 @@
 package _705_DesignHashSet;
 
-public class Solutions {
+public class UsingBooleanArray {
+}
+
+
+class Solutions {
 	/*
 	using boolean array
 	table_style = [

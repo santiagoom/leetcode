@@ -1,6 +1,8 @@
 class MyHashSet:
     """
+    Open Addressing
     using Double Hashing to implement
+    index1 = (index1 + i1 * index2) % self.capacity
     """
 
     def __init__(self, ):
@@ -96,4 +98,34 @@ if __name__ == "__main__":
     for i in range(len(contain)):
         print(myHashSet.contains(contain[i]))
 
-    myHashSet.displayHash()
+    # output
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # True      1     True
+    # True      1     True
+    # False     0     False
+    # False     0     False
+    # True      1     True
+    # True      1     True
+    # True      1     True
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # False     0     False
+    # True      1     True
+    # True      1     True
+    # False     0     False
+    # True      1     True
+    # False     0     False
+    # True      1     True
+    # False     0     False
+    # True      1     True
+    # False     0     False
+    # False     0     False
+    # False     0     False
