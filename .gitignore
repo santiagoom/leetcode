@@ -14,10 +14,5 @@ temp.txt
 .DS_Store
 *.html
 
-
-CMakeLists.txt
 cmake-build-debug/
-main.cpp
-
-*.iml
 out/
