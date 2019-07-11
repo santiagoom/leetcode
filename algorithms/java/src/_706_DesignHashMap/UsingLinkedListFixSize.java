@@ -12,10 +12,10 @@ package _706_DesignHashMap;
  * Collisions are resolved using linked list
  */
 
-public class _706_DesignHashMap_1 {
+public class UsingLinkedListFixSize {
 
     public static void main(String[] args) {
-        _706_DesignHashMap_1 mhp = new _706_DesignHashMap_1();
+        UsingLinkedListFixSize mhp = new UsingLinkedListFixSize();
 
         mhp.put(23, 56);
         mhp.put(20023, 56);

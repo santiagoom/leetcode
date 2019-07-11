@@ -1,6 +1,6 @@
 package _706_DesignHashMap;
 
-public class _706_DesignHashMap_3 {
+public class MapWithRehashing {
 }
 
 class MyHashMap {

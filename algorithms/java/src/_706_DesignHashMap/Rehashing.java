@@ -115,7 +115,8 @@ class Map<K, V> {
         System.out.println("Size of Map: " + numBuckets + "\n");
     }
 
-    private void rehash() {
+    private void
+    rehash() {
 
         System.out.println("\n***Rehashing Started***\n");
 
@@ -176,7 +177,7 @@ class Map<K, V> {
     }
 }
 
-public class _706_DesignHashMap_2 {
+public class Rehashing {
 
     public static void main(String[] args) {
 

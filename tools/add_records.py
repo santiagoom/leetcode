@@ -47,8 +47,14 @@ def add_java_records(isleet=False):
 
     ahead = """
 # LeetCode Solutions   
+
+**Reference**
+
+- [GeeksforGeeks](https://www.geeksforgeeks.org/)
+
+- [Discuss](https://leetcode.com/discuss/)
  
-    """
+"""
 
     head = '''
 | # | Title | Solution | Difficulty |
@@ -132,9 +138,14 @@ def add_java_records(isleet=False):
             pass
             # print(e)
 
-        # java and python and cpp
+        # cpp and python and java
         if solution_python != "" and solution_cpp != "" and solution_java != "":
             output = "|" + record_num + "|" + new_title + "|" + solution_cpp + ", " + solution_python + "," + solution_java + "|" + \
+                     slices[6] + "|"
+
+        # cpp and python
+        if solution_python != "" and solution_cpp != "" and solution_java == "":
+            output = "|" + record_num + "|" + new_title + "|" + solution_cpp + ", " + solution_python + "|" + \
                      slices[6] + "|"
 
         print(output)

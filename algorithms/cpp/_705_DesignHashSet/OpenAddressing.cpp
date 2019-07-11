@@ -24,28 +24,7 @@ public:
             this->table[i] = -1;
     }
 
-    int myhash(int key) {
-        return key % this->capacity;
-    }
-
     void add(int key) {
-        if (float(this->size) / this->capacity >= 0.75) {
-            this->capacity <<= 1;
-            int *newTable = new int[this->capacity];
-            for (int i = 0; i < this->capacity; i++)
-                newTable[i] = -1;
-
-            for (int i = 0; i < this->capacity >> 1; i++) {
-                if ((this->table[i] != -1) && (this->table[i] != -2)) {
-                    int index = this->myhash(this->table[i]);
-                    while (newTable[index] != -1)
-                        index = (5 * index + 1) % this->capacity;
-                    newTable[index] = this->table[i];
-                }
-            }
-            this->table = newTable;
-        }
-
         int index = this->myhash(key);
         if (this->table[index] == key)
             return;
@@ -57,6 +36,9 @@ public:
         }
         this->table[index] = key;
         this->size += 1;
+
+        if (float(this->size) / this->capacity >= this->load_factor)
+            rehash();
     }
 
     void remove(int key) {
@@ -82,13 +64,33 @@ public:
         return false;
     }
 
+    int myhash(int key) {
+        return key % this->capacity;
+    }
+
+    void rehash() {
+        this->capacity <<= 1;
+        int *newTable = new int[this->capacity];
+        for (int i = 0; i < this->capacity; i++)
+            newTable[i] = -1;
+
+        for (int i = 0; i < this->capacity >> 1; i++) {
+            if ((this->table[i] != -1) && (this->table[i] != -2)) {
+                int index = this->myhash(this->table[i]);
+                while (newTable[index] != -1)
+                    index = (5 * index + 1) % this->capacity;
+                newTable[index] = this->table[i];
+            }
+        }
+        this->table = newTable;
+    }
+
     void displayHash() {
         for (int i = 0; i < this->capacity; i++) {
             cout << i << " --> " << this->table[i] << endl;
         }
     }
 };
-
 
 int main() {
     auto *obj = new MyHashSet();
@@ -112,40 +114,36 @@ int main() {
 
     for (int c: contain)
         cout << obj->contains(c) << endl;
-
-    obj->displayHash();
-
-//    output
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    True      1     True
-//    True      1     True
-//    False     0     False
-//    False     0     False
-//    True      1     True
-//    True      1     True
-//    True      1     True
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    False     0     False
-//    True      1     True
-//    True      1     True
-//    False     0     False
-//    True      1     True
-//    False     0     False
-//    True      1     True
-//    False     0     False
-//    True      1     True
-//    False     0     False
-//    False     0     False
-//    False     0     False
     return 0;
+//    output:
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    1    True     true
+//    1    True     true
+//    0    False    false
+//    0    False    false
+//    1    True     true
+//    1    True     true
+//    1    True     true
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    0    False    false
+//    1    True     true
+//    1    True     true
+//    0    False    false
+//    1    True     true
+//    0    False    false
+//    1    True     true
+//    0    False    false
+//    1    True     true
+//    0    False    false
+//    0    False    false
+//    0    False    false
 }
-

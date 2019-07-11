@@ -1,10 +1,8 @@
 package _705_DesignHashSet;
 
-public class UsingBooleanArray {
-}
 
 
-class Solutions {
+class UsingBooleanArray {
 	/*
 	using boolean array
 	table_style = [
@@ -16,7 +14,7 @@ class Solutions {
 	 */
 
     public static void main(String[] args) {
-        Solutions so = new Solutions();
+        UsingBooleanArray so = new UsingBooleanArray();
         so.add(1);
         so.add(9);
         so.add(5);
@@ -34,7 +32,7 @@ class Solutions {
     private int itemsPerBucket = 1001;
     private boolean[][] table;
 
-    public Solutions() {
+    public UsingBooleanArray() {
         table = new boolean[buckets][];
     }
 
