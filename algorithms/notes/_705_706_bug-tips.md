@@ -71,3 +71,10 @@ for (Node head = dummyHead; head.next != null; head = head.next) {
     nodes[index] = dummyHead.next;
 ```
 
+
+
+```python
+# self.nodes = [Node(-1, -1)] * self.capacity
+self.nodes = [Node(-1, -1) for _ in range(self.capacity)]
+```
+

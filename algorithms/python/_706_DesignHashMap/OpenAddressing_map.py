@@ -11,7 +11,6 @@ class MyHashMap:
         self.capacity = 1 << 3
         self.load_factor = 0.75
         self.size = 0
-        # self.nodes = [Node(-1, -1)] * self.capacity
         self.nodes = [Node(-1, -1) for _ in range(self.capacity)]
 
     def put(self, key, value):
@@ -42,7 +41,6 @@ class MyHashMap:
         while (self.nodes[index1].key != -1):
             if (self.nodes[index1].key == key):
                 return self.nodes[index1].value
-                # return self.nodes[index1].key
             index1 = (5 * index1 + 1) % self.capacity
         return -1
 
