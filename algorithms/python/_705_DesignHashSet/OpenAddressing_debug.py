@@ -27,7 +27,6 @@ class MyHashSet(object):
         :rtype: void
         """
         if float(self.size) / self.capacity >= self.lf:
-
             self.capacity <<= 1
             ns = [None] * self.capacity
             for i in range(self.capacity >> 1):
@@ -40,6 +39,7 @@ class MyHashSet(object):
 
         h = self.myhash(key)
         while self.s[h] is not None:
+            # print(h)
             if self.s[h] == key:
                 return
             h = (5 * h + 1) % self.capacity
@@ -70,13 +70,23 @@ class MyHashSet(object):
         h = self.myhash(key)
         while self.s[h] is not None:
             if self.s[h] == key:
-                return True
+                # return True
+                return key
             h = (5 * h + 1) % self.capacity
         return False
 
-    def displayHash(self):
+    def displaySet(self):
+        set = []
         for i in range(self.capacity):
-            print(str(i) + " --> " + str(self.s[i]))
+            if (self.s[i] is not None and self.s[i] != "==TOMBSTONE=="):
+                set.append(self.s[i])
+
+        print("len(set): ", len(set))
+
+        print("{", end="")
+        for ele in sorted(set):
+            print(str(ele), end=" ")
+        print("}")
 
 
 if __name__ == "__main__":
@@ -94,14 +104,28 @@ if __name__ == "__main__":
     for i in range(len(add)):
         myHashSet.add(add[i])
 
-    # for i in range(len(rv)):
-    #     myHashSet.remove(rv[i])
-    #
+    myHashSet.displaySet()
+    print(myHashSet.size)
+
+    for i in range(len(rv)):
+        myHashSet.remove(rv[i])
+
+    myHashSet.displaySet()
+    print(myHashSet.size)
+
     # for i in range(len(contain)):
-    #     print(myHashSet.contains(contain[i]))
-    #
-    # myHashSet.displayHash()
-    #
-    # print(myHashSet.size)
+    #     if myHashSet.contains(contain[i]) != False:
+    #         print(myHashSet.contains(contain[i]))
 
     # myHashSet.displayHash()
+
+    # print(myHashSet.size)
+    #
+    # myHashSet.displayHash()
+
+    # for i in range(100000):
+    #     myHashSet = MyHashSet()
+    #     for j in range(8):
+    #         data = np.random.randint(0, 100000)
+    #         myHashSet.add(data)
+    #     myHashSet.displayHash()

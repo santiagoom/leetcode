@@ -21,3 +21,11 @@ Have a nice coding
 ## Hashing
 
 哈希函数避免进入死循环。
+
+注意下列语句的差别
+
+```python
+self.nodes = [Node(-1, -1)] * self.capacity  # 同一个节点
+self.nodes = [Node(-1, -1) for _ in range(self.capacity)]
+```
+

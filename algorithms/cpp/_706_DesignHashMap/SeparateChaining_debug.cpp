@@ -62,7 +62,8 @@ public:
 
         while (head != NULL) {
             if (head->key == key) {
-                return head->value;
+//                return head->value;
+                return head->key;
             }
             head = head->next;
         }
@@ -77,11 +78,12 @@ public:
         for (Node *head = dummyHead; head->next != NULL; head = head->next) {
             if (head->next->key == key) {
                 head->next = head->next->next;
-                this->size -= 1;
-                break;
+                return;
             }
         }
+
         nodes[index] = dummyHead->next;
+        this->size -= 1;
     }
 
     int myhash(int key) {
@@ -125,8 +127,7 @@ int main() {
     int value[] = {60, 15, 36, 35, 62, 82, 17, 61, 35, 1, 19, 97, 85, 58, 85, 44, 26, 18, 47, 55, 74, 81, 96, 66, 81, 5,
                    56, 88, 57, 33, 96, 64, 80, 74, 94, 17, 10, 68, 95, 89, 36, 59, 92, 85, 54, 20, 73, 0, 63, 95};
 
-    int remove[] = {9, 53, 5, 81, 84, 33, 24, 62, 55, 23, 10, 63, 98, 15, 36, 69, 30, 35, 26, 53, 81, 42, 98, 45, 43,
-                    78, 19, 42, 74, 77};
+    int remove[] = {9, 53, 5, 81, 84, 33, 24, 62, 55, 23, 10, 63, 98, 15, 36, 69, 30, 35, 26, 53, 81, 42, 98, 45, 43,78, 19, 42, 74, 77};
 
     int get[] = {87, 71, 85, 60, 72, 78, 1, 29, 83, 95, 57, 70, 70, 71, 43, 76, 47, 75, 77, 93, 79, 42, 16, 71, 48,
                  3, 61, 71, 76, 49};
@@ -138,45 +139,10 @@ int main() {
         obj->remove(r);
 
     for (int g: get)
-        cout << obj->get(g) << endl;
+        if (obj->get(g) != -1)
+            cout << obj->get(g) << endl;
 
     cout << "size: " << obj->size << endl;
     return 0;
-/*
- * output:
-cpp      	  py
--1            -1
--1            -1
--1            -1
--1            -1
--1            -1
--1            -1
-18            18
-59            59
--1            -1
--1            -1
-89            89
-85            85
-85            85
--1            -1
--1            -1
--1            -1
--1            -1
--1            -1
--1            -1
-68            68
-36            36
--1            -1
-66            66
--1            -1
-17            17
--1            -1
-10            10
--1            -1
--1            -1
--1            -1
-size: 30      size:  30
- */
-
 }
 

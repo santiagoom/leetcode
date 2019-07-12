@@ -1,1 +1,2 @@
+_706_DesignHashMap
 _705_DesignHashSet

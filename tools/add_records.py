@@ -19,7 +19,7 @@ python_path = home_path + "/algorithms/python/"
 readme_path = home_path + "/leetcode_980.md"
 
 record_txt = home_path + "/record.txt"
-to_leet_record = home_path + "/to_leet_record.txt"
+to_leet_record = home_path + "/record_to_leet.txt"
 record_path = home_path + "/readme.md"
 
 JAVA_HEADER = '''
@@ -47,9 +47,7 @@ def add_java_records(isleet=False):
 
     ahead = """
 # LeetCode Solutions   
-
 **Reference**
-
 - [GeeksforGeeks](https://www.geeksforgeeks.org/)
 - [Discuss](https://leetcode.com/discuss/)
 - [Articles](https://leetcode.com/articles/)

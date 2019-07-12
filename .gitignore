@@ -14,5 +14,10 @@ temp.txt
 .DS_Store
 *.html
 
+
 cmake-build-debug/
 out/
+
+
+algorithms/java/classes/
+algorithms/java/java.iml

@@ -1,3 +1,4 @@
+import numpy as np
 class MyHashSet:
     """
     Open Addressing for handling Collisions
@@ -64,7 +65,7 @@ class MyHashSet:
         """
         index1 = self.myhash1(key)
         if self.table[index1] == key:
-            return True
+            return key
 
         if self.table[index1] is not None and self.table[index1] != "==TOMBSTONE==":
             index2 = self.myhash2(key)
@@ -73,7 +74,7 @@ class MyHashSet:
                 new_index = (index1 + i * index2) % self.capacity
                 if self.table[new_index] is not None:
                     if self.table[new_index] == key:
-                        return True
+                        return key
                     i += 1
                 else:
                     return False
@@ -128,10 +129,23 @@ if __name__ == "__main__":
     for i in range(len(rv)):
         myHashSet.remove(rv[i])
 
-    for i in range(len(contain)):
-        print(myHashSet.contains(contain[i]))
+    # for i in range(len(contain)):
+    #     print(myHashSet.contains(contain[i]))
 
-    print("size: " + str(myHashSet.size))
+    # print("size: " + str(myHashSet.size))
+
+    for i in range(len(contain)):
+        if myHashSet.contains(contain[i]) != False:
+            print(myHashSet.contains(contain[i]))
+
+    # for i in range(100000):
+    #     myHashSet = MyHashSet()
+    #     for j in range(8):
+    #         data = np.random.randint(0, 100000)
+    #         myHashSet.add(data)
+    #     myHashSet.displayHash()
+
+
 
     # output:
     # 0    False    false

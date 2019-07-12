@@ -3,3 +3,116 @@ Note:
 All keys and values will be in the range of [0, 1000000].
 The number of operations will be in the range of [1, 10000].
 Please do not use the built-in HashMap library.
+
+
+
+java std
+1
+29
+57
+70
+70
+93
+79
+16
+48
+61
+
+cpp
+78
+1
+29
+57
+70
+70
+77
+93
+79
+16
+48
+61
+
+cpp
+1
+29
+57
+70
+70
+93
+79
+16
+48
+61
+
+py single
+1
+29
+57
+70
+70
+93
+79
+16
+48
+61
+
+py double
+1
+29
+57
+70
+70
+93
+79
+16
+48
+61
+
+
+
+java
+78
+1
+29
+57
+70
+70
+77
+93
+79
+16
+48
+61
+
+
+false       0
+false       0
+false       0
+false       0
+false       0
+false       0
+true       1
+true       1
+false       0
+false       0
+true       1
+true       1
+true       1
+false       0
+false       0
+false       0
+false       0
+false       0
+false       0
+true       1
+true       1
+false       0
+true       1
+false       0
+true       1
+false       0
+true       1
+false       0
+false       0
+false       0
+size: 14
