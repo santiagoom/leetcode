@@ -51,8 +51,8 @@ def add_java_records(isleet=False):
 **Reference**
 
 - [GeeksforGeeks](https://www.geeksforgeeks.org/)
-
 - [Discuss](https://leetcode.com/discuss/)
+- [Articles](https://leetcode.com/articles/)
  
 """
 
