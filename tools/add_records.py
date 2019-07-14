@@ -23,14 +23,14 @@ to_leet_record = home_path + "/record_to_leet.txt"
 record_path = home_path + "/readme.md"
 
 JAVA_HEADER = '''
-public class Solutions {
+public class %s {
 	public static void main(String[] args) {
-	    Solution so = new Solution();
+	    %s so = new %s();
 
 	}
 }
 
-class Solution{
+class %s {
 
 }
 '''
@@ -48,11 +48,11 @@ def add_java_records(isleet=False):
     ahead = """
 # LeetCode Solutions   
 **Reference**
-- [GeeksforGeeks](https://www.geeksforgeeks.org/)
 - [Discuss](https://leetcode.com/discuss/)
 - [Articles](https://leetcode.com/articles/)
  
 """
+    # - [GeeksforGeeks](https: // www.geeksforgeeks.org /)
 
     head = '''
 | # | Title | Solution | Difficulty |
@@ -150,7 +150,7 @@ def add_java_records(isleet=False):
         record_file.write(output + "\n")
 
 
-def generate_folders(lists):
+def generate_folders_all(lists):
     with open(record_txt) as file:
         records = file.readlines()
 
@@ -169,7 +169,7 @@ def generate_folders(lists):
                 if not os.path.exists(solutison_java):
                     with open(solutison_java, "w") as file:
                         file.write("package " + current + ";\n")
-                        file.write(JAVA_HEADER)
+                        file.write(JAVA_HEADER.format())
 
             if (each == 2):
                 python_dir = python_path + current
@@ -190,16 +190,93 @@ def generate_folders(lists):
                         file.write("")
 
 
+def generate_folders_individual_current(lists):
+    with open(record_txt) as file:
+        records = file.readlines()
+
+    current = records[-1][:-1]
+    print(current)
+
+    for each in lists:
+        if (each == 1):
+            java_dir = java_path + current
+
+            if not os.path.exists(java_dir):
+                os.mkdir(java_dir)
+            solutison_java = os.path.join(java_dir, current + ".java")
+            if not os.path.exists(solutison_java):
+                with open(solutison_java, "w") as file:
+                    file.write("package " + current + ";\n")
+                    file.write(JAVA_HEADER % (current, current + "_", current + "_", current + "_"))
+
+        if (each == 2):
+            python_dir = python_path + current
+            if not os.path.exists(python_dir):
+                os.mkdir(python_dir)
+            solutison_python = os.path.join(python_dir, current + ".py")
+            if not os.path.exists(solutison_python):
+                with open(solutison_python, "w") as file:
+                    file.write("")
+
+        if (each == 3):
+            cpp_dir = cpp_path + current
+            if not os.path.exists(cpp_dir):
+                os.mkdir(cpp_dir)
+            solutison_cpp = os.path.join(cpp_dir, current + ".cpp")
+            if not os.path.exists(solutison_cpp):
+                with open(solutison_cpp, "w") as file:
+                    file.write("")
+
+
+def generate_folders_individual_so(lists):
+    with open(record_txt) as file:
+        records = file.readlines()
+
+    current = records[-1][:-1]
+    print(current)
+
+    for each in lists:
+        if (each == 1):
+            java_dir = java_path + current
+
+            if not os.path.exists(java_dir):
+                os.mkdir(java_dir)
+            solutison_java = os.path.join(java_dir, "Solutions.java")
+            if not os.path.exists(solutison_java):
+                with open(solutison_java, "w") as file:
+                    file.write("package " + current + ";\n")
+                    file.write(JAVA_HEADER % ("Solutions", "Solution", "Solution", "Solution"))
+
+        if (each == 2):
+            python_dir = python_path + current
+            if not os.path.exists(python_dir):
+                os.mkdir(python_dir)
+            solutison_python = os.path.join(python_dir, "Solutions.py")
+            if not os.path.exists(solutison_python):
+                with open(solutison_python, "w") as file:
+                    file.write("")
+
+        if (each == 3):
+            cpp_dir = cpp_path + current
+            if not os.path.exists(cpp_dir):
+                os.mkdir(cpp_dir)
+            solutison_cpp = os.path.join(cpp_dir, "Solutions.cpp")
+            if not os.path.exists(solutison_cpp):
+                with open(solutison_cpp, "w") as file:
+                    file.write("")
+
+
 def Run():
     if (len(sys.argv) != 1):
         print("args error ...")
         sys.exit(0)
 
-    # lists = [1, 2, 3]
-    # lists = [1]
-    # generate_folders(lists)
+    list_current = [1, 2, 3]
+    list_so = [1, 2, 3]
+    generate_folders_individual_current(list_current)
+    generate_folders_individual_so(list_so)
 
-    add_java_records(True)
+    # add_java_records(True)
     # add_java_records(False)
 
 

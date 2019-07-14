@@ -1,0 +1,9 @@
+
+python中binary search time cplex 应该是 nlog(n)
+
+
+
+
+
+# binary search 方法与Java给出的所谓的log(n)时间负责度的，
+原理是一样的, 时间复杂度都是nlog(n),
