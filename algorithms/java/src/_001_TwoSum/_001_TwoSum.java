@@ -3,11 +3,11 @@ package _001_TwoSum;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solutions {
+public class _001_TwoSum {
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
         int target = 26;
-        Solutions so = new Solutions();
+        _001_TwoSum so = new _001_TwoSum();
         int[] res = so.twoSumOnePassHashTable(nums, target);
         for (int x : res)
             System.out.println(x);

@@ -35,6 +35,17 @@ class %s {
 }
 '''
 
+CPP_HEADER = '''
+# include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "new file!" << endl;
+    return 0;
+}
+'''
+
 
 def add_java_records(isleet=False):
     if isleet:
@@ -141,9 +152,19 @@ def add_java_records(isleet=False):
             output = "|" + record_num + "|" + new_title + "|" + solution_cpp + ", " + solution_python + "," + solution_java + "|" + \
                      slices[6] + "|"
 
+        # cpp and java
+        if solution_python == "" and solution_cpp != "" and solution_java != "":
+            output = "|" + record_num + "|" + new_title + "|" + solution_cpp + "," + solution_java + "|" + \
+                     slices[6] + "|"
+
         # cpp and python
         if solution_python != "" and solution_cpp != "" and solution_java == "":
             output = "|" + record_num + "|" + new_title + "|" + solution_cpp + ", " + solution_python + "|" + \
+                     slices[6] + "|"
+
+        # cpp
+        if solution_python == "" and solution_cpp != "" and solution_java == "":
+            output = "|" + record_num + "|" + new_title + "|" + solution_cpp + "|" + \
                      slices[6] + "|"
 
         print(output)
@@ -225,7 +246,7 @@ def generate_folders_individual_current(lists):
             solutison_cpp = os.path.join(cpp_dir, current + ".cpp")
             if not os.path.exists(solutison_cpp):
                 with open(solutison_cpp, "w") as file:
-                    file.write("")
+                    file.write(CPP_HEADER)
 
 
 def generate_folders_individual_so(lists):
@@ -263,7 +284,7 @@ def generate_folders_individual_so(lists):
             solutison_cpp = os.path.join(cpp_dir, "Solutions.cpp")
             if not os.path.exists(solutison_cpp):
                 with open(solutison_cpp, "w") as file:
-                    file.write("")
+                    file.write(CPP_HEADER)
 
 
 def Run():
@@ -271,12 +292,12 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    list_current = [1, 2, 3]
-    list_so = [1, 2, 3]
-    generate_folders_individual_current(list_current)
-    generate_folders_individual_so(list_so)
+    # list_current = [1, 2, 3]
+    # list_so = [1, 2, 3]
+    # generate_folders_individual_current(list_current)
+    # generate_folders_individual_so(list_so)
 
-    # add_java_records(True)
+    add_java_records(True)
     # add_java_records(False)
 
 

@@ -2,9 +2,8 @@ class Solution:
     def twoSum(self, nums, target):
         map = {}
         for i in range(len(nums)):
-            complement = target - nums[i]
-            if map.get(complement) is not None:
-                return map.get(complement), i
+            if target - nums[i] in map:
+                return map.get(target - nums[i]), i
             map[nums[i]] = i
 
         raise SyntaxError('No two sum solution')

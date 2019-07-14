@@ -1,2 +1,4 @@
 _706_DesignHashMap
 _705_DesignHashSet
+_001_TwoSum
+_167_TwoSumII_InputArrayIsSorted

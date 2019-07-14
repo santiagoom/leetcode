@@ -9,9 +9,8 @@ public:
     vector<int> twoSum(vector<int> &nums, int target) {
         map<int, int> m;
         for (int i = 0; i < nums.size(); i++) {
-            int complement = target - nums[i];
-            if (m.find(complement) != m.end()) {
-                return vector<int>{(*m.find(complement)).second, i};
+            if (m.find(target - nums[i]) != m.end()) {
+                return vector<int>{(*m.find(target - nums[i])).second, i};
             }
             m.insert({nums[i], i});
         }
