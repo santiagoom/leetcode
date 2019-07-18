@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_170_TwoSumIII_DataStructureDesign _170_TwoSumIII_DataStructureDesign.cpp)
+add_executable(_170_TwoSumIII_DataStructureDesign_1 _170_TwoSumIII_DataStructureDesign_1.cpp)
+add_executable(Solutions_170 Solutions.cpp)
