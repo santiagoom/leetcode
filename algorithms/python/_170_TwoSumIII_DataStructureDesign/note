@@ -1,0 +1,8 @@
+
+
+for num, count in self.nums.items():
+    if value - num in self.nums and (value != 2 * num or count > 1):
+        return True
+return False
+
+value - num in self.nums 并且要不是两倍，要么不是，选1个。
