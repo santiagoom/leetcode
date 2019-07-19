@@ -1,0 +1,9 @@
+
+
+
+smaller
+
+ if (sum3 >= target)
+
+
+ not  if (sum3 > target)
