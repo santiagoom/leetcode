@@ -1,0 +1,11 @@
+
+when nums[i] + nums[j] + nums[k] == 0
+need to handle duplicates ,sepratly. i,j,k;
+
+vector<int> nums{};
+cout << nums.size() << endl;
+cout << nums.size() - 2 << endl;
+
+output:
+0
+18446744073709551614
