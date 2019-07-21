@@ -4,6 +4,8 @@
 using namespace std;
 
 class Solution {
+//    start: 2019-07-21 17:08:37
+//    end: 2019-07-21 17:23:47
 public:
     vector<vector<int>> fourSum(vector<int> &nums, int target) {
         vector<vector<int>> res;
@@ -36,8 +38,8 @@ public:
 };
 
 int main() {
-    vector<int> nums{1, 0, -1, 0, -2, 2};
-//    vector<int> nums{};
+//    vector<int> nums{1, 0, -1, 0, -2, 2};
+    vector<int> nums{};
     int target = 0;
 
     auto *so = new Solution();
@@ -47,5 +49,6 @@ int main() {
             cout << x << " ";
         cout << endl;
     }
+//    cout << "new file!" << endl;
     return 0;
 }

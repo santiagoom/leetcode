@@ -1,0 +1,7 @@
+
+
+ if (i && nums[i - 1] == nums[i]) continue;
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (j != i + 1 && nums[j - 1] == nums[j]) continue;
+
+ not nums[i] == nums[i+1]  or nums[j] == nums[j+1]
