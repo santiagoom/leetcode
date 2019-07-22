@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_445_AddTwoNumbersII_practise_reverse _445_AddTwoNumbersII_practise_reverse.cpp)
+add_executable(_445_AddTwoNumbersII_practise_stack _445_AddTwoNumbersII_practise_stack.cpp)
+add_executable(Solutions_445 Solutions.cpp)
+add_executable(_445_AddTwoNumbersII_std_debug _445_AddTwoNumbersII_std_debug.cpp)
