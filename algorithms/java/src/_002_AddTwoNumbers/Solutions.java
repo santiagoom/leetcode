@@ -1,4 +1,4 @@
-package _003_002_AddTwoNumbers;
+package _002_AddTwoNumbers;
 
 /*
  * Definition for singly-linked list.
