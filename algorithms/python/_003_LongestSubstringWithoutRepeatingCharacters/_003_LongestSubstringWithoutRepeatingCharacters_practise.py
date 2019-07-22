@@ -1,4 +1,6 @@
 class Solution:
+    # start: 2019-07-22 18:34:48
+    # end : 2019-07-22 18:46:24
     def lengthOfLongestSubstring(self, s):
         length, i, res = len(s), 0, 0
         map = {}
