@@ -2,3 +2,14 @@ _706_DesignHashMap
 _705_DesignHashSet
 _001_TwoSum
 _167_TwoSumII_InputArrayIsSorted
+_170_TwoSumIII_DataStructureDesign
+_653_TwoSumIV_InputIsA_BST
+_1099_TwoSumLessThanK
+_015_3Sum
+_016_3SumClosest
+_259_3SumSmaller
+_018_4Sum
+_454_4SumII
+_002_AddTwoNumbers
+_445_AddTwoNumbersII
+_003_LongestSubstringWithoutRepeatingCharacters

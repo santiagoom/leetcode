@@ -16,7 +16,7 @@ else:
 java_path = home_path + "/algorithms/java/src/"
 cpp_path = home_path + "/algorithms/cpp/"
 python_path = home_path + "/algorithms/python/"
-readme_path = home_path + "/leetcode_980.md"
+readme_path = home_path + "/leetcode_1127.md"
 
 record_txt = home_path + "/record.txt"
 to_leet_record = home_path + "/record_to_leet.txt"
@@ -57,10 +57,12 @@ def add_java_records(isleet=False):
     # print(records)
 
     ahead = """
-# LeetCode Solutions   
+# Leetcode Solutions   
 **Reference**
 - [Discuss](https://leetcode.com/discuss/)
 - [Articles](https://leetcode.com/articles/)
+
+(*) means that you need a LeetCode subscription.
  
 """
     # - [GeeksforGeeks](https: // www.geeksforgeeks.org /)
@@ -91,6 +93,7 @@ def add_java_records(isleet=False):
             if (slices[1] == problem_num):
                 # new_title = "[" + slices[1] + " " + slices[2][1:]
                 record_num = problem_num
+                print("record_num: ", record_num)
                 new_title = "[" + slices[2][1:]
                 break
 
@@ -111,8 +114,8 @@ def add_java_records(isleet=False):
 
                     # print(solution_java)
         except Exception as e:
-            # print(e)
             pass
+
         problem_python = os.path.join(python_path, problem)
         solution_python = ""
         try:
@@ -127,11 +130,9 @@ def add_java_records(isleet=False):
                         solution_python = solution_python.replace("\\", "/")
                     # print(solution_python)
         except Exception as e:
-            # print(e)
             pass
 
         problem_cpp = os.path.join(cpp_path, problem)
-
         solution_cpp = ""
         try:
             for solution in os.listdir(problem_cpp):
@@ -145,8 +146,8 @@ def add_java_records(isleet=False):
                         solution_cpp = solution_cpp.replace("\\", "/")
         except Exception as e:
             pass
-            # print(e)
 
+        output = ""
         # cpp and python and java
         if solution_python != "" and solution_cpp != "" and solution_java != "":
             output = "|" + record_num + "|" + new_title + "|" + solution_cpp + ", " + solution_python + "," + solution_java + "|" + \
@@ -165,6 +166,11 @@ def add_java_records(isleet=False):
         # cpp
         if solution_python == "" and solution_cpp != "" and solution_java == "":
             output = "|" + record_num + "|" + new_title + "|" + solution_cpp + "|" + \
+                     slices[6] + "|"
+
+        # python and java
+        if solution_python != "" and solution_cpp == "" and solution_java != "":
+            output = "|" + record_num + "|" + new_title + "|" + solution_python + "," + solution_java + "|" + \
                      slices[6] + "|"
 
         print(output)
@@ -224,28 +230,58 @@ def generate_folders_individual_current(lists):
 
             if not os.path.exists(java_dir):
                 os.mkdir(java_dir)
-            solutison_java = os.path.join(java_dir, current + ".java")
-            if not os.path.exists(solutison_java):
-                with open(solutison_java, "w") as file:
+            solutison_java_std = os.path.join(java_dir, current + "_std.java")
+            solutison_java_practise = os.path.join(java_dir, current + "_practise.java")
+            solutison_java_std_debug = os.path.join(java_dir, current + "_std_debug.java")
+            if not os.path.exists(solutison_java_std):
+                with open(solutison_java_std, "w") as file:
                     file.write("package " + current + ";\n")
-                    file.write(JAVA_HEADER % (current, current + "_", current + "_", current + "_"))
+                    file.write(JAVA_HEADER % (
+                        current + "_std", current + "_std_", current + "_std_", current + "_std_"))
+            if not os.path.exists(solutison_java_practise):
+                with open(solutison_java_practise, "w") as file:
+                    file.write("package " + current + ";\n")
+                    file.write(JAVA_HEADER % (
+                        current + "_practise", current + "_practise_", current + "_practise_", current + "_practise_"))
+            if not os.path.exists(solutison_java_std_debug):
+                with open(solutison_java_std_debug, "w") as file:
+                    file.write("package " + current + ";\n")
+                    file.write(JAVA_HEADER % (
+                        current + "_std_debug", current + "_std_debug_", current + "_std_debug_",
+                        current + "_std_debug_"))
 
         if (each == 2):
             python_dir = python_path + current
             if not os.path.exists(python_dir):
                 os.mkdir(python_dir)
-            solutison_python = os.path.join(python_dir, current + ".py")
-            if not os.path.exists(solutison_python):
-                with open(solutison_python, "w") as file:
+            solutison_python_std = os.path.join(python_dir, current + "_std.py")
+            solutison_python_std_debug = os.path.join(python_dir, current + "_std_debug.py")
+            solutison_python_practise = os.path.join(python_dir, current + "_practise.py")
+            if not os.path.exists(solutison_python_std):
+                with open(solutison_python_std, "w") as file:
+                    file.write("")
+            if not os.path.exists(solutison_python_std_debug):
+                with open(solutison_python_std_debug, "w") as file:
+                    file.write("")
+            if not os.path.exists(solutison_python_practise):
+                with open(solutison_python_practise, "w") as file:
                     file.write("")
 
         if (each == 3):
             cpp_dir = cpp_path + current
             if not os.path.exists(cpp_dir):
                 os.mkdir(cpp_dir)
-            solutison_cpp = os.path.join(cpp_dir, current + ".cpp")
-            if not os.path.exists(solutison_cpp):
-                with open(solutison_cpp, "w") as file:
+            solutison_cpp_std = os.path.join(cpp_dir, current + "_std.cpp")
+            solutison_cpp_std_debug = os.path.join(cpp_dir, current + "_std_debug.cpp")
+            solutison_cpp_practise = os.path.join(cpp_dir, current + "_practise.cpp")
+            if not os.path.exists(solutison_cpp_std):
+                with open(solutison_cpp_std, "w") as file:
+                    file.write(CPP_HEADER)
+            if not os.path.exists(solutison_cpp_std_debug):
+                with open(solutison_cpp_std_debug, "w") as file:
+                    file.write(CPP_HEADER)
+            if not os.path.exists(solutison_cpp_practise):
+                with open(solutison_cpp_practise, "w") as file:
                     file.write(CPP_HEADER)
 
 
@@ -292,9 +328,10 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    # list_current = [1, 2, 3]
-    # list_so = [1, 2, 3]
-    # generate_folders_individual_current(list_current)
+    list_current = [1, 2, 3]
+    generate_folders_individual_current(list_current)
+
+    # list_so = [1, 2]
     # generate_folders_individual_so(list_so)
 
     add_java_records(True)
