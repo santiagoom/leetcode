@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_340_LongestSubstringWithAtMostKDistinctCharacters_practise _340_LongestSubstringWithAtMostKDistinctCharacters_practise.cpp)
+add_executable(Solutions_340 Solutions.cpp)

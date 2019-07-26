@@ -331,8 +331,8 @@ def Run():
     list_current = [1, 2, 3]
     generate_folders_individual_current(list_current)
 
-    # list_so = [1, 2]
-    # generate_folders_individual_so(list_so)
+    list_so = [3]
+    generate_folders_individual_so(list_so)
 
     add_java_records(True)
     # add_java_records(False)
