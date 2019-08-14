@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_004_MedianOfTwoSortedArrays_std _004_MedianOfTwoSortedArrays_std.cpp)
+add_executable(_004_MedianOfTwoSortedArrays_std_debug _004_MedianOfTwoSortedArrays_std_debug.cpp)
+add_executable(_004_MedianOfTwoSortedArrays_practise _004_MedianOfTwoSortedArrays_practise.cpp)
+add_executable(Solutions_004 Solutions.cpp)
