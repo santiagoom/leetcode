@@ -46,6 +46,13 @@ int main() {
 }
 '''
 
+CMakeLists = '''cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+'''
+
 
 def add_java_records(isleet=False):
     if isleet:
@@ -274,6 +281,8 @@ def generate_folders_individual_current(lists):
             solutison_cpp_std = os.path.join(cpp_dir, current + "_std.cpp")
             solutison_cpp_std_debug = os.path.join(cpp_dir, current + "_std_debug.cpp")
             solutison_cpp_practise = os.path.join(cpp_dir, current + "_practise.cpp")
+            solutison_cpp_CMakeLists = os.path.join(cpp_dir, "CMakeLists.txt")
+
             if not os.path.exists(solutison_cpp_std):
                 with open(solutison_cpp_std, "w") as file:
                     file.write(CPP_HEADER)
@@ -283,7 +292,13 @@ def generate_folders_individual_current(lists):
             if not os.path.exists(solutison_cpp_practise):
                 with open(solutison_cpp_practise, "w") as file:
                     file.write(CPP_HEADER)
-
+            if not os.path.exists(solutison_cpp_CMakeLists):
+                with open(solutison_cpp_CMakeLists, "w") as file:
+                    file.write(CMakeLists)
+                    file.write("add_executable(" + current + "_std " + current + "_std.cpp)\n")
+                    file.write("add_executable(" + current + "_std_debug " + current + "_std_debug.cpp)\n")
+                    file.write("add_executable(" + current + "_practise " + current + "_practise.cpp)\n")
+                    file.write("add_executable(" + "Solutions" + current[:4] + " Solutions.cpp)\n")
 
 def generate_folders_individual_so(lists):
     with open(record_txt) as file:
@@ -331,8 +346,8 @@ def Run():
     list_current = [1, 2, 3]
     generate_folders_individual_current(list_current)
 
-    list_so = [3]
-    generate_folders_individual_so(list_so)
+    # list_so = [3]
+    # generate_folders_individual_so(list_so)
 
     add_java_records(True)
     # add_java_records(False)
