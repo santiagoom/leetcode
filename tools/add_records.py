@@ -15,6 +15,7 @@ else:
 
 java_path = home_path + "/algorithms/java/src/"
 cpp_path = home_path + "/algorithms/cpp/"
+cmake_path = home_path + "/algorithms/"
 python_path = home_path + "/algorithms/python/"
 readme_path = home_path + "/leetcode_1127.md"
 
@@ -283,6 +284,10 @@ def generate_folders_individual_current(lists):
             solutison_cpp_practise = os.path.join(cpp_dir, current + "_practise.cpp")
             solutison_cpp_CMakeLists = os.path.join(cpp_dir, "CMakeLists.txt")
 
+            cpp_CMakeLists = os.path.join(cmake_path, "CMakeLists.txt")
+            with open(cpp_CMakeLists, "a") as file:
+                file.write("add_subdirectory(cpp/" + current + ")\n")
+
             if not os.path.exists(solutison_cpp_std):
                 with open(solutison_cpp_std, "w") as file:
                     file.write(CPP_HEADER)
@@ -299,6 +304,7 @@ def generate_folders_individual_current(lists):
                     file.write("add_executable(" + current + "_std_debug " + current + "_std_debug.cpp)\n")
                     file.write("add_executable(" + current + "_practise " + current + "_practise.cpp)\n")
                     file.write("add_executable(" + "Solutions" + current[:4] + " Solutions.cpp)\n")
+
 
 def generate_folders_individual_so(lists):
     with open(record_txt) as file:
@@ -346,7 +352,7 @@ def Run():
     list_current = [1, 2, 3]
     generate_folders_individual_current(list_current)
 
-    # list_so = [3]
+    # list_so = [1,3]
     # generate_folders_individual_so(list_so)
 
     add_java_records(True)

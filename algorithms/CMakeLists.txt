@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 #include_directories(algorithms/cpp)
 
-
 add_subdirectory(cpp/_706_DesignHashMap)
 add_subdirectory(cpp/_705_DesignHashSet)
 add_subdirectory(cpp/_001_TwoSum/)
@@ -22,3 +21,7 @@ add_subdirectory(cpp/_002_AddTwoNumbers)
 add_subdirectory(cpp/_445_AddTwoNumbersII)
 add_subdirectory(cpp/_395_LongestSubstringWithAtLeastKRepeatingCharacters)
 add_subdirectory(cpp/_340_LongestSubstringWithAtMostKDistinctCharacters)
+add_subdirectory(cpp/_004_MedianOfTwoSortedArrays)
+add_subdirectory(cpp/_005_LongestPalindromicSubstring)
+add_subdirectory(cpp/_000_Algos/DynamicProgramming/LongestCommonSubsequence)add_subdirectory(cpp/_005_LongestPalindromicSubstring)
+add_subdirectory(cpp/_005_LongestPalindromicSubstring)
