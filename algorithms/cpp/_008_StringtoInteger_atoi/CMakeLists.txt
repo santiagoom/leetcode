@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_008_StringtoInteger_atoi_std _008_StringtoInteger_atoi_std.cpp)
+add_executable(_008_StringtoInteger_atoi_std_debug _008_StringtoInteger_atoi_std_debug.cpp)
+add_executable(_008_StringtoInteger_atoi_practise _008_StringtoInteger_atoi_practise.cpp)
+add_executable(Solutions_008 Solutions.cpp)

@@ -18,3 +18,4 @@ _004_MedianOfTwoSortedArrays
 _005_LongestPalindromicSubstring
 _516_LongestPalindromicSubsequence
 _007_ReverseInteger
+_008_StringtoInteger_atoi

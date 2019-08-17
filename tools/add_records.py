@@ -37,11 +37,16 @@ class %s {
 '''
 
 CPP_HEADER = '''
-# include <iostream>
+#include <iostream>
 
 using namespace std;
 
+class Solution {
+
+};
+
 int main() {
+    auto *so = new Solution();
     cout << "new file!" << endl;
     return 0;
 }
@@ -351,9 +356,9 @@ def Run():
 
     # list_current = [3]
     # generate_folders_individual_current(list_current)
-
-    list_so = [3]
-    generate_folders_individual_so(list_so)
+    #
+    # list_so = [3]
+    # generate_folders_individual_so(list_so)
 
     add_java_records(True)
     # add_java_records(False)
