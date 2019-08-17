@@ -22,5 +22,8 @@ _340_LongestSubstringWithAtMostKDistinctCharacters
 _395_LongestSubstringWithAtLeastKRepeatingCharacters   --- not
 
 _004_MedianOfTwoSortedArrays
+
 _005_LongestPalindromicSubstring
 _516_LongestPalindromicSubsequence
+
+_007_ReverseInteger

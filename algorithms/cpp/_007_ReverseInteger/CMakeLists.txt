@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(Solutions_007 Solutions.cpp)
+add_executable(_007_ReverseInteger_std _007_ReverseInteger_std.cpp)
+add_executable(_007_ReverseInteger_std_debug _007_ReverseInteger_std_debug.cpp)
+add_executable(_007_ReverseInteger_practise _007_ReverseInteger_practise.cpp)
