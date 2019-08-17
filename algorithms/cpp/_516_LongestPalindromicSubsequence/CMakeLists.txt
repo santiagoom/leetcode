@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_516_LongestPalindromicSubsequence_std _516_LongestPalindromicSubsequence_std.cpp)
+add_executable(_516_LongestPalindromicSubsequence_std_debug _516_LongestPalindromicSubsequence_std_debug.cpp)
+add_executable(_516_LongestPalindromicSubsequence_practise _516_LongestPalindromicSubsequence_practise.cpp)
+add_executable(Solutions_516 Solutions.cpp)
