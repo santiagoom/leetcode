@@ -288,6 +288,7 @@ def generate_folders_individual_current(lists):
             solutison_cpp_std_debug = os.path.join(cpp_dir, current + "_std_debug.cpp")
             solutison_cpp_practise = os.path.join(cpp_dir, current + "_practise.cpp")
             solutison_cpp_CMakeLists = os.path.join(cpp_dir, "CMakeLists.txt")
+            solutison_info = os.path.join(cpp_dir, "info.txt")
 
             cpp_CMakeLists = os.path.join(cmake_path, "CMakeLists.txt")
             with open(cpp_CMakeLists, "a") as file:
@@ -309,7 +310,9 @@ def generate_folders_individual_current(lists):
                     file.write("add_executable(" + current + "_std_debug " + current + "_std_debug.cpp)\n")
                     file.write("add_executable(" + current + "_practise " + current + "_practise.cpp)\n")
                     file.write("add_executable(" + "Solutions" + current[:4] + " Solutions.cpp)\n")
-
+            if not os.path.exists(solutison_info):
+                with open(solutison_info, "w") as file:
+                    file.write("")
 
 def generate_folders_individual_so(lists):
     with open(record_txt) as file:
@@ -354,11 +357,11 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    # list_current = [3]
-    # generate_folders_individual_current(list_current)
+    list_current = [3]
+    generate_folders_individual_current(list_current)
     #
-    # list_so = [3]
-    # generate_folders_individual_so(list_so)
+    list_so = [3]
+    generate_folders_individual_so(list_so)
 
     add_java_records(True)
     # add_java_records(False)

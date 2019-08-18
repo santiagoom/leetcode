@@ -19,3 +19,4 @@ _005_LongestPalindromicSubstring
 _516_LongestPalindromicSubsequence
 _007_ReverseInteger
 _008_StringtoInteger_atoi
+_190_ReverseBits
