@@ -38,3 +38,6 @@ Accepted
 193,989
 Submissions
 597,547
+
+
+Number of 1 Bits

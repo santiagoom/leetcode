@@ -29,3 +29,4 @@ _516_LongestPalindromicSubsequence
 _007_ReverseInteger
 _008_StringtoInteger_atoi
 _190_ReverseBits
+_191_Numberof_1_Bits
