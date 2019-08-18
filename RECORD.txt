@@ -30,3 +30,8 @@ _007_ReverseInteger
 _008_StringtoInteger_atoi
 _190_ReverseBits
 _191_Numberof_1_Bits
+
+_010_Regular_Expression_Matching
+
+_011_ContainerWithMostWater
+_042_TrappingRainWater

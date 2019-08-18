@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_011_ContainerWithMostWater_std _011_ContainerWithMostWater_std.cpp)
+add_executable(_011_ContainerWithMostWater_std_debug _011_ContainerWithMostWater_std_debug.cpp)
+add_executable(_011_ContainerWithMostWater_practise _011_ContainerWithMostWater_practise.cpp)
+add_executable(Solutions_011 Solutions.cpp)

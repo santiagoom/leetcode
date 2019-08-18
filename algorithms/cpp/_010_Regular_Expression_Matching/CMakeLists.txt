@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_10_Regular_Expression_Matching_std _10_Regular_Expression_Matching_std.cpp)
+add_executable(_10_Regular_Expression_Matching_std_debug _10_Regular_Expression_Matching_std_debug.cpp)
+add_executable(_10_Regular_Expression_Matching_practise _10_Regular_Expression_Matching_practise.cpp)
+add_executable(Solutions_10_ Solutions.cpp)
