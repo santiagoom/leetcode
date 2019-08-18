@@ -291,8 +291,13 @@ def generate_folders_individual_current(lists):
             solutison_info = os.path.join(cpp_dir, "info.txt")
 
             cpp_CMakeLists = os.path.join(cmake_path, "CMakeLists.txt")
-            with open(cpp_CMakeLists, "a") as file:
-                file.write("add_subdirectory(cpp/" + current + ")\n")
+            with open(cpp_CMakeLists, "r") as file:
+                lastline = file.readlines()[-1]
+                last_id = lastline[lastline.index("/") + 1:-2]
+                # print(last_id)
+                if (last_id != current):
+                    with open(cpp_CMakeLists, "a") as file:
+                        file.write("add_subdirectory(cpp/" + current + ")\n")
 
             if not os.path.exists(solutison_cpp_std):
                 with open(solutison_cpp_std, "w") as file:
@@ -313,6 +318,7 @@ def generate_folders_individual_current(lists):
             if not os.path.exists(solutison_info):
                 with open(solutison_info, "w") as file:
                     file.write("")
+
 
 def generate_folders_individual_so(lists):
     with open(record_txt) as file:
@@ -360,10 +366,10 @@ def Run():
     list_current = [3]
     generate_folders_individual_current(list_current)
     #
-    list_so = [3]
-    generate_folders_individual_so(list_so)
+    # list_so = [3]
+    # generate_folders_individual_so(list_so)
 
-    add_java_records(True)
+    # add_java_records(True)
     # add_java_records(False)
 
 
