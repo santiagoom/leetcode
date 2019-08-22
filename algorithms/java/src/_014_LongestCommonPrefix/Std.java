@@ -1,8 +1,5 @@
-package _015_014_LongestCommonPrefix;
+package _014_LongestCommonPrefix;
 
-public class Solutions {
-
-}
 
 class SolutionHorizontalScanning {
 	public String longestCommonPrefix(String[] strs) {

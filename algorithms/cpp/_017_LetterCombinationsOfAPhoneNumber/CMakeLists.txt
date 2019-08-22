@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_017_LetterCombinationsOfAPhoneNumber_std _017_LetterCombinationsOfAPhoneNumber_std.cpp)
+add_executable(_017_LetterCombinationsOfAPhoneNumber_std_debug _017_LetterCombinationsOfAPhoneNumber_std_debug.cpp)
+add_executable(_017_LetterCombinationsOfAPhoneNumber_practise _017_LetterCombinationsOfAPhoneNumber_practise.cpp)
+add_executable(Solutions_017 Solutions.cpp)

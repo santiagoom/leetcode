@@ -1,6 +1,6 @@
-package _010_008_StringtoInteger_atoi;
+package _008_StringtoInteger_atoi;
 
-public class Solutions {
+ class Solutions {
 	public static void main(String[] args) {
 		Solutions so = new Solutions();
 		String s = "         -10";

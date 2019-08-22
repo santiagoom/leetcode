@@ -1,11 +1,11 @@
-package _018_017_LetterCombinationsOfAPhoneNumber;
+package _017_LetterCombinationsOfAPhoneNumber;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solutions {
+public class Std {
 	public static void main(String[] args) {
 		Solution so = new Solution();
 		String s1 = "237";

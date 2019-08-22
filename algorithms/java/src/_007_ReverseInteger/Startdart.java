@@ -1,8 +1,6 @@
-package _009_007_ReverseInteger;
+package _007_ReverseInteger;
 
-public class Solutions {
 
-}
 
 class Solution {
 	/*
