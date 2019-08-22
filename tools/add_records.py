@@ -8,10 +8,10 @@ flag = False
 
 if flag:
     # win path
-    home_path = "D:/repos/leetcode_zero"
+    home_path = "D:/repos/leetcode-zero"
 else:
     # mac path
-    home_path = "/Users/tianm/repos/leetcode_zero"
+    home_path = "/Users/tianm/repos/leetcode-zero"
 
 java_path = home_path + "/algorithms/java/src/"
 cpp_path = home_path + "/algorithms/cpp/"
@@ -363,7 +363,7 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    list_current = [2,3]
+    list_current = [3]
     generate_folders_individual_current(list_current)
     #
     list_so = [3]

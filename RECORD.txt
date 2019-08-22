@@ -31,9 +31,13 @@ _008_StringtoInteger_atoi
 _190_ReverseBits
 _191_Numberof_1_Bits
 
-_010_Regular_Expression_Matching
+_010_Regular_Expression_Matching   --- not
+_044_WildcardMatching   --- not
+
 
 _011_ContainerWithMostWater
 _042_TrappingRainWater
 
 _013_RomantoInteger
+
+_014_LongestCommonPrefix

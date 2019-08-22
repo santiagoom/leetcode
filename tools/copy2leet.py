@@ -11,10 +11,10 @@ flag = False
 
 if flag:
     # win path
-    home_path = "D:/repos/leetcode_zero"
+    home_path = "D:/repos/leetcode-zero"
 else:
     # mac path
-    home_path = "/Users/tianm/repos/leetcode_zero/"
+    home_path = "/Users/tianm/repos/leetcode-zero/"
 
 leetcode_path = "/Users/tianm/repos/leetcode/"
 
