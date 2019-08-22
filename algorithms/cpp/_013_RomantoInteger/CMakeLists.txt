@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_013_RomantoInteger_std _013_RomantoInteger_std.cpp)
+add_executable(_013_RomantoInteger_std_debug _013_RomantoInteger_std_debug.cpp)
+add_executable(_013_RomantoInteger_practise _013_RomantoInteger_practise.cpp)
+add_executable(Solutions_013 Solutions.cpp)

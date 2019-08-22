@@ -363,7 +363,7 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    list_current = [1,3]
+    list_current = [2,3]
     generate_folders_individual_current(list_current)
     #
     list_so = [3]
