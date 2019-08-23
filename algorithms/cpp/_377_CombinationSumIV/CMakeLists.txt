@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_377_CombinationSumIV_std _377_CombinationSumIV_std.cpp)
+add_executable(_377_CombinationSumIV_std_debug _377_CombinationSumIV_std_debug.cpp)
+add_executable(_377_CombinationSumIV_practise _377_CombinationSumIV_practise.cpp)
+add_executable(_377_CombinationSumIV_practise_v2 _377_CombinationSumIV_practise_v2.cpp)
+add_executable(Solutions_377 Solutions.cpp)

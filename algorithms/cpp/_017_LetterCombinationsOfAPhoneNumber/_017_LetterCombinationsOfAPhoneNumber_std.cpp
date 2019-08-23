@@ -13,6 +13,9 @@ class Solution {
 * Copyright is reserved. Please indicate the source for forwarding
 */
 
+//Time complexity : 3**n * 4**N
+//Space complexity : 3**n * 4**N
+
 class Solution1 {
 public:
     const vector<string> keyboard{"", "", "abc", "def",     // '0','1','2',...

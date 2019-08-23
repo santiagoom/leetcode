@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_040_CombinationSumII_std _040_CombinationSumII_std.cpp)
+add_executable(_040_CombinationSumII_std_debug _040_CombinationSumII_std_debug.cpp)
+add_executable(_040_CombinationSumII_practise _040_CombinationSumII_practise.cpp)
+add_executable(Solutions_040 Solutions.cpp)

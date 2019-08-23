@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_047_Permutations_II_std _047_Permutations_II_std.cpp)
+add_executable(_047_Permutations_II_std_debug _047_Permutations_II_std_debug.cpp)
+add_executable(_047_Permutations_II_practise _047_Permutations_II_practise.cpp)
+add_executable(Solutions_047 Solutions.cpp)

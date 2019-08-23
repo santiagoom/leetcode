@@ -1,4 +1,4 @@
-package _040_047_Permutations_II;
+package _047_Permutations_II;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,7 +41,7 @@ public class _047_PermutationsII {
 				System.out.println("i: " + i);
 				boolean f = used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1];
 				System.out.println(f);
-				if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+				if (used[i] || i > 0 && nums[i] == nums[i - 1] && used[i - 1]) {
 					System.out.println("continue: " + tempList);
 					continue;
 				}

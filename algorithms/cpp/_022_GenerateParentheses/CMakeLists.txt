@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_022_GenerateParentheses_std _022_GenerateParentheses_std.cpp)
+add_executable(_022_GenerateParentheses_std_debug _022_GenerateParentheses_std_debug.cpp)
+add_executable(_022_GenerateParentheses_practise _022_GenerateParentheses_practise.cpp)
+add_executable(Solutions_022 Solutions.cpp)

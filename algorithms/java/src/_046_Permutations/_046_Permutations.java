@@ -1,4 +1,4 @@
-package _039_046_Permutations;
+package _046_Permutations;
 
 import java.util.ArrayList;
 import java.util.List;

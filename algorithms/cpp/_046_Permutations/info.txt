@@ -1,0 +1,35 @@
+46. Permutations
+Medium
+
+2303
+
+71
+
+Favorite
+
+Share
+Given a collection of distinct integers, return all possible permutations.
+
+Example:
+
+Input: [1,2,3]
+Output:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+Accepted
+419,881
+Submissions
+738,667
+
+
+Next Permutation
+Permutations II
+Permutation Sequence
+Combinations
+
