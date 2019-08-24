@@ -47,3 +47,4 @@
 |077|[Combinations](https://leetcode.com/problems/combinations)|[C++](./algorithms/cpp/_077_Combinations/Solutions.cpp)|Medium|
 |216|[Combination Sum III](https://leetcode.com/problems/combination-sum-iii)|[C++](./algorithms/cpp/_216_CombinationSumIII/Solutions.cpp)|Medium|
 |377|[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv)|[C++](./algorithms/cpp/_377_CombinationSumIV/Solutions.cpp)|Medium|
+|131|[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning)|[C++](./algorithms/cpp/_131_PalindromePartitioning/Solutions.cpp)|Medium|

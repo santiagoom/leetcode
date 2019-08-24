@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_131_PalindromePartitioning_std _131_PalindromePartitioning_std.cpp)
+add_executable(_131_PalindromePartitioning_std_debug _131_PalindromePartitioning_std_debug.cpp)
+add_executable(_131_PalindromePartitioning_practise _131_PalindromePartitioning_practise.cpp)
+add_executable(Solutions_131 Solutions.cpp)

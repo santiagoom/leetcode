@@ -1,9 +1,9 @@
-package _043_131_PalindromePartitioning;
+package _131_PalindromePartitioning;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solutions {
+public class Std {
 	public static void main(String[] args) {
 		Solution so = new Solution();
 		String s = "abbaabba";

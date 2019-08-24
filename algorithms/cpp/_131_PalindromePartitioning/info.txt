@@ -1,0 +1,29 @@
+131. Palindrome Partitioning
+Medium
+
+1061
+
+42
+
+Favorite
+
+Share
+Given a string s, partition s such that every substring of the partition is a palindrome.
+
+Return all possible palindrome partitioning of s.
+
+Example:
+
+Input: "aab"
+Output:
+[
+  ["aa","b"],
+  ["a","a","b"]
+]
+Accepted
+176,966
+Submissions
+418,641
+
+
+Palindrome Partitioning II

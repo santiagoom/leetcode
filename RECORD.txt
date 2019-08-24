@@ -34,7 +34,6 @@ _191_Numberof_1_Bits
 _010_Regular_Expression_Matching   --- not
 _044_WildcardMatching   --- not
 
-
 _011_ContainerWithMostWater
 _042_TrappingRainWater
 
@@ -53,7 +52,7 @@ _040_CombinationSumII
 _077_Combinations
 _216_CombinationSumIII
 _377_CombinationSumIV
-_131_PalindromePartitioning  --- not
+_131_PalindromePartitioning
 
 Backpack_I
 Backpack_II
