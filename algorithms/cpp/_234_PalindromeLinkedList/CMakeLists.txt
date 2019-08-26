@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_234_PalindromeLinkedList_std _234_PalindromeLinkedList_std.cpp)
+add_executable(_234_PalindromeLinkedList_std_debug _234_PalindromeLinkedList_std_debug.cpp)
+add_executable(_234_PalindromeLinkedList_practise _234_PalindromeLinkedList_practise.cpp)
+add_executable(Solutions_234 Solutions.cpp)

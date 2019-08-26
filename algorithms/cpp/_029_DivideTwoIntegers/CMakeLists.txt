@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_029_DivideTwoIntegers_std _029_DivideTwoIntegers_std.cpp)
+add_executable(_029_DivideTwoIntegers_std_debug _029_DivideTwoIntegers_std_debug.cpp)
+add_executable(_029_DivideTwoIntegers_practise _029_DivideTwoIntegers_practise.cpp)
+add_executable(Solutions_029 Solutions.cpp)

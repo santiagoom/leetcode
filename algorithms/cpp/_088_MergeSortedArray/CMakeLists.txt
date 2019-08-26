@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_088_MergeSortedArray_std _088_MergeSortedArray_std.cpp)
+add_executable(_088_MergeSortedArray_std_debug _088_MergeSortedArray_std_debug.cpp)
+add_executable(_088_MergeSortedArray_practise _088_MergeSortedArray_practise.cpp)
+add_executable(Solutions_088 Solutions.cpp)

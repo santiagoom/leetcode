@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_027_RemoveElement_std _027_RemoveElement_std.cpp)
+add_executable(_027_RemoveElement_std_debug _027_RemoveElement_std_debug.cpp)
+add_executable(_027_RemoveElement_practise _027_RemoveElement_practise.cpp)
+add_executable(Solutions_027 Solutions.cpp)

@@ -37,3 +37,7 @@ _077_Combinations
 _216_CombinationSumIII
 _377_CombinationSumIV
 _131_PalindromePartitioning
+_019_RemoveNthNodeFromEndOfList
+_234_PalindromeLinkedList
+_206_ReverseLinkedList
+_092_ReverseLinkedListII

@@ -1,4 +1,4 @@
-package _029_028_ImplementstrStr;
+package _028_ImplementstrStr;
 
 public class Solutions {
 }

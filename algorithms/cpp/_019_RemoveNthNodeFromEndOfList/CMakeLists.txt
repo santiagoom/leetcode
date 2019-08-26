@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_019_RemoveNthNodeFromEndOfList_std _019_RemoveNthNodeFromEndOfList_std.cpp)
+add_executable(_019_RemoveNthNodeFromEndOfList_std_debug _019_RemoveNthNodeFromEndOfList_std_debug.cpp)
+add_executable(_019_RemoveNthNodeFromEndOfList_practise _019_RemoveNthNodeFromEndOfList_practise.cpp)
+add_executable(Solutions_019 Solutions.cpp)

@@ -1,4 +1,4 @@
-package _031_031_NextPermutation;
+package _031_NextPermutation;
 
 public class Solutions {
 }
