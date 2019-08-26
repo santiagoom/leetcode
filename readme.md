@@ -52,3 +52,14 @@
 |234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list)|[C++](./algorithms/cpp/_234_PalindromeLinkedList/Solutions.cpp)|Easy|
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list)|[C++](./algorithms/cpp/_206_ReverseLinkedList/Solutions.cpp), [Java](./algorithms/java/src/_206_ReverseLinkedList/Solutions.java)|Easy|
 |092|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii)|[C++](./algorithms/cpp/_092_ReverseLinkedListII/Solutions.cpp)|Medium|
+|020|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses)|[C++](./algorithms/cpp/_020_ValidParentheses/Solutions.cpp)|Easy|
+|088|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array)|[C++](./algorithms/cpp/_088_MergeSortedArray/Solutions.cpp)|Easy|
+|021|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)|[C++](./algorithms/cpp/_021_MergeTwoSortedLists/Solutions.cpp)|Easy|
+|023|[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)|[C++](./algorithms/cpp/_023_MergekSortedLists/Solutions.cpp)|Hard|
+|026|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)|[C++](./algorithms/cpp/_026_RemoveDuplicatesFromSortedArray/Solutions.cpp)|Easy|
+|027|[Remove Element](https://leetcode.com/problems/remove-element)|[C++](./algorithms/cpp/_027_RemoveElement/Solutions.cpp)|Easy|
+|080|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii)|[C++](./algorithms/cpp/_080_RemoveDuplicatesfromSortedArrayII/Solutions.cpp)|Medium|
+|028|[Implement strStr()](https://leetcode.com/problems/implement-strstr)|[C++](./algorithms/cpp/_028_ImplementstrStr/Solutions.cpp)|Easy|
+|029|[Divide Two Integers](https://leetcode.com/problems/divide-two-integers)|[C++](./algorithms/cpp/_029_DivideTwoIntegers/Solutions.cpp)|Medium|
+|050|[Pow(x, n)](https://leetcode.com/problems/powx-n)|[C++](./algorithms/cpp/_050_Pow_x_n/Solutions.cpp)|Medium|
+|069|[Sqrt(x)](https://leetcode.com/problems/sqrtx)|[C++](./algorithms/cpp/_069_Sqrt_x/Solutions.cpp)|Easy|

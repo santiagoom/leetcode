@@ -41,3 +41,14 @@ _019_RemoveNthNodeFromEndOfList
 _234_PalindromeLinkedList
 _206_ReverseLinkedList
 _092_ReverseLinkedListII
+_020_ValidParentheses
+_088_MergeSortedArray
+_021_MergeTwoSortedLists
+_023_MergekSortedLists
+_026_RemoveDuplicatesFromSortedArray
+_027_RemoveElement
+_080_RemoveDuplicatesfromSortedArrayII
+_028_ImplementstrStr
+_029_DivideTwoIntegers
+_050_Pow_x_n
+_069_Sqrt_x
