@@ -1,6 +1,6 @@
-package _052_053_MaximumSubarray;
+package _053_MaximumSubarray;
 
-public class Solutions {
+public class Std {
 	public static void main(String[] args) {
 		SolutionDP so = new SolutionDP();
 		SolutionDP1 so1 = new SolutionDP1();
@@ -76,7 +76,7 @@ class SolutionDC {
 
 class SolutionDP1 {
 	/*
-	 * Kadane¡¯s Algorithm
+	 * Kadaneï¿½ï¿½s Algorithm
 	 * 
 	 * Initialize: max_so_far = 0 max_ending_here = 0
 	 * 
