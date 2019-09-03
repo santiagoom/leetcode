@@ -37,6 +37,7 @@ class %s {
 '''
 
 CPP_HEADER = '''#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -230,132 +231,144 @@ def generate_folders_all(lists):
                         file.write("")
 
 
-def generate_folders_individual_current(lists):
+def generate_folders_individual_current(lists, num=1):
     with open(record_txt) as file:
         records = file.readlines()
 
-    current = records[-1][:-1]
-    print(current)
+    selects = records[-(num):]
 
-    for each in lists:
-        if (each == 1):
-            java_dir = java_path + current
+    for current in selects:
+        current = current[:-1]
+        print(current)
 
-            if not os.path.exists(java_dir):
-                os.mkdir(java_dir)
-            solutison_java_std = os.path.join(java_dir, current + "_std.java")
-            solutison_java_practise = os.path.join(java_dir, current + "_practise.java")
-            solutison_java_std_debug = os.path.join(java_dir, current + "_std_debug.java")
-            if not os.path.exists(solutison_java_std):
-                with open(solutison_java_std, "w") as file:
-                    file.write("package " + current + ";\n")
-                    file.write(JAVA_HEADER % (
-                        current + "_std", current + "_std_", current + "_std_", current + "_std_"))
-            if not os.path.exists(solutison_java_practise):
-                with open(solutison_java_practise, "w") as file:
-                    file.write("package " + current + ";\n")
-                    file.write(JAVA_HEADER % (
-                        current + "_practise", current + "_practise_", current + "_practise_", current + "_practise_"))
-            if not os.path.exists(solutison_java_std_debug):
-                with open(solutison_java_std_debug, "w") as file:
-                    file.write("package " + current + ";\n")
-                    file.write(JAVA_HEADER % (
-                        current + "_std_debug", current + "_std_debug_", current + "_std_debug_",
-                        current + "_std_debug_"))
+        for each in lists:
+            if (each == 1):
+                java_dir = java_path + current
 
-        if (each == 2):
-            python_dir = python_path + current
-            if not os.path.exists(python_dir):
-                os.mkdir(python_dir)
-            solutison_python_std = os.path.join(python_dir, current + "_std.py")
-            solutison_python_std_debug = os.path.join(python_dir, current + "_std_debug.py")
-            solutison_python_practise = os.path.join(python_dir, current + "_practise.py")
-            if not os.path.exists(solutison_python_std):
-                with open(solutison_python_std, "w") as file:
-                    file.write("")
-            if not os.path.exists(solutison_python_std_debug):
-                with open(solutison_python_std_debug, "w") as file:
-                    file.write("")
-            if not os.path.exists(solutison_python_practise):
-                with open(solutison_python_practise, "w") as file:
-                    file.write("")
+                if not os.path.exists(java_dir):
+                    os.mkdir(java_dir)
+                solutison_java_std = os.path.join(java_dir, current + "_std.java")
+                solutison_java_practise = os.path.join(java_dir, current + "_practise.java")
+                solutison_java_std_debug = os.path.join(java_dir, current + "_std_debug.java")
+                if not os.path.exists(solutison_java_std):
+                    with open(solutison_java_std, "w") as file:
+                        file.write("package " + current + ";\n")
+                        file.write(JAVA_HEADER % (
+                            current + "_std", current + "_std_", current + "_std_", current + "_std_"))
+                if not os.path.exists(solutison_java_practise):
+                    with open(solutison_java_practise, "w") as file:
+                        file.write("package " + current + ";\n")
+                        file.write(JAVA_HEADER % (
+                            current + "_practise", current + "_practise_", current + "_practise_",
+                            current + "_practise_"))
+                if not os.path.exists(solutison_java_std_debug):
+                    with open(solutison_java_std_debug, "w") as file:
+                        file.write("package " + current + ";\n")
+                        file.write(JAVA_HEADER % (
+                            current + "_std_debug", current + "_std_debug_", current + "_std_debug_",
+                            current + "_std_debug_"))
 
-        if (each == 3):
-            cpp_dir = cpp_path + current
-            if not os.path.exists(cpp_dir):
-                os.mkdir(cpp_dir)
-            solutison_cpp_std = os.path.join(cpp_dir, current + "_std.cpp")
-            solutison_cpp_std_debug = os.path.join(cpp_dir, current + "_std_debug.cpp")
-            solutison_cpp_practise = os.path.join(cpp_dir, current + "_practise.cpp")
-            solutison_cpp_CMakeLists = os.path.join(cpp_dir, "CMakeLists.txt")
-            solutison_info = os.path.join(cpp_dir, "info.txt")
+            if (each == 2):
+                python_dir = python_path + current
+                if not os.path.exists(python_dir):
+                    os.mkdir(python_dir)
+                solutison_python_std = os.path.join(python_dir, current + "_std.py")
+                solutison_python_std_debug = os.path.join(python_dir, current + "_std_debug.py")
+                solutison_python_practise = os.path.join(python_dir, current + "_practise.py")
+                if not os.path.exists(solutison_python_std):
+                    with open(solutison_python_std, "w") as file:
+                        file.write("")
+                if not os.path.exists(solutison_python_std_debug):
+                    with open(solutison_python_std_debug, "w") as file:
+                        file.write("")
+                if not os.path.exists(solutison_python_practise):
+                    with open(solutison_python_practise, "w") as file:
+                        file.write("")
 
-            cpp_CMakeLists = os.path.join(cmake_path, "CMakeLists.txt")
-            with open(cpp_CMakeLists, "r") as file:
-                lastline = file.readlines()[-1]
-                last_id = lastline[lastline.index("/") + 1:-2]
-                # print(last_id)
-                if (last_id != current):
-                    with open(cpp_CMakeLists, "a") as file:
-                        file.write("add_subdirectory(cpp/" + current + ")\n")
+            if (each == 3):
+                cpp_dir = cpp_path + current
+                if not os.path.exists(cpp_dir):
+                    os.mkdir(cpp_dir)
+                solutison_cpp_std = os.path.join(cpp_dir, current + "_std.cpp")
+                solutison_cpp_std_debug = os.path.join(cpp_dir, current + "_std_debug.cpp")
+                solutison_cpp_practise = os.path.join(cpp_dir, current + "_practise.cpp")
+                solutison_cpp_CMakeLists = os.path.join(cpp_dir, "CMakeLists.txt")
+                solutison_info = os.path.join(cpp_dir, "info.txt")
 
-            if not os.path.exists(solutison_cpp_std):
-                with open(solutison_cpp_std, "w") as file:
-                    file.write(CPP_HEADER)
-            if not os.path.exists(solutison_cpp_std_debug):
-                with open(solutison_cpp_std_debug, "w") as file:
-                    file.write(CPP_HEADER)
-            if not os.path.exists(solutison_cpp_practise):
-                with open(solutison_cpp_practise, "w") as file:
-                    file.write(CPP_HEADER)
-            if not os.path.exists(solutison_cpp_CMakeLists):
-                with open(solutison_cpp_CMakeLists, "w") as file:
-                    file.write(CMakeLists)
-                    file.write("add_executable(" + current + "_std " + current + "_std.cpp)\n")
-                    file.write("add_executable(" + current + "_std_debug " + current + "_std_debug.cpp)\n")
-                    file.write("add_executable(" + current + "_practise " + current + "_practise.cpp)\n")
-                    file.write("add_executable(" + "Solutions" + current[:4] + " Solutions.cpp)\n")
-            if not os.path.exists(solutison_info):
-                with open(solutison_info, "w") as file:
-                    file.write("")
+                cpp_CMakeLists_path = os.path.join(cmake_path, "CMakeLists.txt")
+                with open(cpp_CMakeLists_path, "r") as file:
+                    lines = file.readlines()
+                    cpp_CMakeLists = []
+                    for line in lines:
+                        try:
+                            log = line[:-1][line.index("/") + 1:-1]
+                            cpp_CMakeLists.append(log)
+                        except:
+                            pass
+                    if current not in cpp_CMakeLists:
+                        with open(cpp_CMakeLists_path, "a") as file:
+                            file.write("add_subdirectory(cpp/" + current + ")\n")
+
+                if not os.path.exists(solutison_cpp_std):
+                    with open(solutison_cpp_std, "w") as file:
+                        file.write(CPP_HEADER)
+                if not os.path.exists(solutison_cpp_std_debug):
+                    with open(solutison_cpp_std_debug, "w") as file:
+                        file.write(CPP_HEADER)
+                if not os.path.exists(solutison_cpp_practise):
+                    with open(solutison_cpp_practise, "w") as file:
+                        file.write(CPP_HEADER)
+                if not os.path.exists(solutison_cpp_CMakeLists):
+                    with open(solutison_cpp_CMakeLists, "w") as file:
+                        file.write(CMakeLists)
+                        file.write("add_executable(" + current + "_std " + current + "_std.cpp)\n")
+                        file.write("add_executable(" + current + "_std_debug " + current + "_std_debug.cpp)\n")
+                        file.write("add_executable(" + current + "_practise " + current + "_practise.cpp)\n")
+                        file.write("add_executable(" + "Solutions" + current[:4] + " Solutions.cpp)\n")
+                if not os.path.exists(solutison_info):
+                    with open(solutison_info, "w") as file:
+                        file.write("")
 
 
-def generate_folders_individual_so(lists):
+def generate_folders_individual_so(lists, num=1):
     with open(record_txt) as file:
         records = file.readlines()
 
-    current = records[-1][:-1]
-    print(current)
+    selects = records[-(num):]
 
-    for each in lists:
-        if (each == 1):
-            java_dir = java_path + current
+    for current in selects:
+        current = current[:-1]
+        print(current)
 
-            if not os.path.exists(java_dir):
-                os.mkdir(java_dir)
-            solutison_java = os.path.join(java_dir, "Solutions.java")
-            if not os.path.exists(solutison_java):
-                with open(solutison_java, "w") as file:
-                    file.write("package " + current + ";\n")
-                    file.write(JAVA_HEADER % ("Solutions", "Solution", "Solution", "Solution"))
+        for each in lists:
+            if (each == 1):
+                java_dir = java_path + current
 
-        if (each == 2):
-            python_dir = python_path + current
-            if not os.path.exists(python_dir):
-                os.mkdir(python_dir)
-            solutison_python = os.path.join(python_dir, "Solutions.py")
-            if not os.path.exists(solutison_python):
-                with open(solutison_python, "w") as file:
-                    file.write("")
+                if not os.path.exists(java_dir):
+                    os.mkdir(java_dir)
+                solutison_java = os.path.join(java_dir, "Solutions.java")
+                if not os.path.exists(solutison_java):
+                    with open(solutison_java, "w") as file:
+                        file.write("package " + current + ";\n")
+                        file.write(JAVA_HEADER % ("Solutions", "Solution", "Solution", "Solution"))
 
-        if (each == 3):
-            cpp_dir = cpp_path + current
-            if not os.path.exists(cpp_dir):
-                os.mkdir(cpp_dir)
-            solutison_cpp = os.path.join(cpp_dir, "Solutions.cpp")
-            if not os.path.exists(solutison_cpp):
-                with open(solutison_cpp, "w") as file:
-                    file.write(CPP_HEADER)
+            if (each == 2):
+                python_dir = python_path + current
+                if not os.path.exists(python_dir):
+                    os.mkdir(python_dir)
+                solutison_python = os.path.join(python_dir, "Solutions.py")
+                if not os.path.exists(solutison_python):
+                    with open(solutison_python, "w") as file:
+                        file.write("")
+
+            if (each == 3):
+                cpp_dir = cpp_path + current
+                if not os.path.exists(cpp_dir):
+                    os.mkdir(cpp_dir)
+                solutison_cpp = os.path.join(cpp_dir, "Solutions.cpp")
+                if not os.path.exists(solutison_cpp):
+                    with open(solutison_cpp, "w") as file:
+                        file.write(CPP_HEADER)
 
 
 def Run():
@@ -363,11 +376,12 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    list_current = [3]
-    generate_folders_individual_current(list_current)
+    num = 1
+    list_current = [1,2,3]
+    generate_folders_individual_current(list_current, num)
     #
     list_so = [3]
-    generate_folders_individual_so(list_so)
+    generate_folders_individual_so(list_so, num)
 
     add_java_records(True)
     # add_java_records(False)

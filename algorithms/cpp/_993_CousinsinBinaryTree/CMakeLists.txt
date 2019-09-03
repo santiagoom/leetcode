@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_993_CousinsinBinaryTree_std _993_CousinsinBinaryTree_std.cpp)
+add_executable(_993_CousinsinBinaryTree_std_debug _993_CousinsinBinaryTree_std_debug.cpp)
+add_executable(_993_CousinsinBinaryTree_practise _993_CousinsinBinaryTree_practise.cpp)
+add_executable(Solutions_993 Solutions.cpp)
