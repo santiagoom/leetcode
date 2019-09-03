@@ -52,3 +52,7 @@ _028_ImplementstrStr
 _029_DivideTwoIntegers
 _050_Pow_x_n
 _069_Sqrt_x
+_053_MaximumSubarray
+_094_BinaryTreeInorderTraversal
+_144_BinaryTreePreorderTraversal
+_145_BinaryTreePostorderTraversal

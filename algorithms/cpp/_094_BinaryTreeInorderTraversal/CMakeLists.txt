@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_094_BinaryTreeInorderTraversal_std _094_BinaryTreeInorderTraversal_std.cpp)
+add_executable(_094_BinaryTreeInorderTraversal_std_debug _094_BinaryTreeInorderTraversal_std_debug.cpp)
+add_executable(_094_BinaryTreeInorderTraversal_practise _094_BinaryTreeInorderTraversal_practise.cpp)
+add_executable(Solutions_094 Solutions.cpp)
