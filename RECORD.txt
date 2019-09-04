@@ -98,4 +98,6 @@ _314_BinaryTreeVerticalOrderTraversal
 _111_MinimumDepthofBinaryTree
 _993_CousinsinBinaryTree
 
-so
+_334_IncreasingTripletSubsequence
+_121_BestTimetoBuyandSellStock
+_122_BestTimetoBuyandSellStockII
