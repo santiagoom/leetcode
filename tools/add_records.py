@@ -235,6 +235,8 @@ def generate_folders_individual_current(lists, num=1):
     with open(record_txt) as file:
         records = file.readlines()
 
+    if (num == 0 or num > 3):
+        raise IndexError
     selects = records[-(num):]
 
     for current in selects:
@@ -334,6 +336,9 @@ def generate_folders_individual_so(lists, num=1):
     with open(record_txt) as file:
         records = file.readlines()
 
+    if (num == 0 or num > 3):
+        raise IndexError
+
     selects = records[-(num):]
 
     for current in selects:
@@ -376,8 +381,8 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    num = 1
-    list_current = [1,2,3]
+    num = 3
+    list_current = [3]
     generate_folders_individual_current(list_current, num)
     #
     list_so = [3]
