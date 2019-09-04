@@ -1,1 +1,0 @@
-vector<int> records(2, INT_MAX)  !=  vector<int> records{2, INT_MAX};
