@@ -381,7 +381,7 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    num = 3
+    num = 1
     list_current = [3]
     generate_folders_individual_current(list_current, num)
     #

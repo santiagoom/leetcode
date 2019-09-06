@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.14)
+project(CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(_033_SearchInRotatedSortedArray_std _033_SearchInRotatedSortedArray_std.cpp)
+add_executable(_033_SearchInRotatedSortedArray_std_debug _033_SearchInRotatedSortedArray_std_debug.cpp)
+add_executable(_033_SearchInRotatedSortedArray_practise _033_SearchInRotatedSortedArray_practise.cpp)
+add_executable(Solutions_033 Solutions.cpp)

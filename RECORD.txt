@@ -101,3 +101,16 @@ _993_CousinsinBinaryTree
 _334_IncreasingTripletSubsequence
 _121_BestTimetoBuyandSellStock
 _122_BestTimetoBuyandSellStockII
+
+
+_033_SearchInRotatedSortedArray
+_153_FindMinimuminRotatedSortedArray
+_154_FindMinimuminRotatedSortedArrayII
+
+
+not submit = 5
+
+
+
+_300_LongestIncreasingSubsequenc
+_003_LongestSubstringWithoutRepeatingCharacters

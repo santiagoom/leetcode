@@ -23,8 +23,6 @@ public:
 };
 
 int main() {
-//    2019-09-06 17:32:47
-//2019-09-06 17:53:21
     auto *so = new Solution();
     string s = "pwwkew";
     int res = so->lengthOfLongestSubstring(s);

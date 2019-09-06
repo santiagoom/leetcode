@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(algorithms)
+project(leetcode-algorithms)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -83,3 +83,8 @@ add_subdirectory(cpp/_993_CousinsinBinaryTree)
 add_subdirectory(cpp/_334_IncreasingTripletSubsequence)
 add_subdirectory(cpp/_121_BestTimetoBuyandSellStock)
 add_subdirectory(cpp/_122_BestTimetoBuyandSellStockII)
+add_subdirectory(cpp/_033_SearchInRotatedSortedArray)
+add_subdirectory(cpp/_153_FindMinimuminRotatedSortedArray)
+add_subdirectory(cpp/_300_LongestIncreasingSubsequenc)
+add_subdirectory(cpp/_154_FindMinimuminRotatedSortedArrayII)
+add_subdirectory(cpp/_003_LongestSubstringWithoutRepeatingCharacters)
