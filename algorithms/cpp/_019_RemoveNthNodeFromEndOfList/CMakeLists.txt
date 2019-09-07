@@ -25,6 +25,12 @@ file(GLOB SOURCES
 
         ../utils/myTreeNode.h
         ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
         )
 
 add_executable(_019_RemoveNthNodeFromEndOfList_std _019_RemoveNthNodeFromEndOfList_std.cpp ${SOURCE_FILES} ${SOURCES})

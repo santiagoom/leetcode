@@ -3,7 +3,37 @@ project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(_022_GenerateParentheses_std _022_GenerateParentheses_std.cpp)
-add_executable(_022_GenerateParentheses_std_debug _022_GenerateParentheses_std_debug.cpp)
-add_executable(_022_GenerateParentheses_practise _022_GenerateParentheses_practise.cpp)
-add_executable(Solutions_022 Solutions.cpp)
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
+
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
+        )
+
+add_executable(_022_GenerateParentheses_std _022_GenerateParentheses_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_022_GenerateParentheses_std_debug _022_GenerateParentheses_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_022_GenerateParentheses_practise _022_GenerateParentheses_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_022_Gen Solutions.cpp ${SOURCE_FILES} ${SOURCES})

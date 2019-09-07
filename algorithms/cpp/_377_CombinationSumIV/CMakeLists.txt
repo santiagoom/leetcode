@@ -3,8 +3,37 @@ project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(_377_CombinationSumIV_std _377_CombinationSumIV_std.cpp)
-add_executable(_377_CombinationSumIV_std_debug _377_CombinationSumIV_std_debug.cpp)
-add_executable(_377_CombinationSumIV_practise _377_CombinationSumIV_practise.cpp)
-add_executable(_377_CombinationSumIV_practise_v2 _377_CombinationSumIV_practise_v2.cpp)
-add_executable(Solutions_377 Solutions.cpp)
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
+
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
+        )
+
+add_executable(_377_CombinationSumIV_std _377_CombinationSumIV_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_377_CombinationSumIV_std_debug _377_CombinationSumIV_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_377_CombinationSumIV_practise _377_CombinationSumIV_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_377_Com Solutions.cpp ${SOURCE_FILES} ${SOURCES})

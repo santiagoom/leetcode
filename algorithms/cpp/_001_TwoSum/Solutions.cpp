@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <myutils.h>
 
 using namespace std;
 
@@ -24,9 +25,7 @@ int main() {
 
     auto *so = new Solution();
     vector<int> res = so->twoSum(nums, target);
-
-    for (int &x : res)
-        cout << x << " ";
+    print_1d_vector(res);
     delete so;
     return 0;
 }

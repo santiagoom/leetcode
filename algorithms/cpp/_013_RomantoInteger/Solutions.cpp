@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_map>
+#include <myutils.h>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ int main() {
     auto *so = new Solution();
     string s = "MCMXCIV";
     int res = so->romanToInt(s);
-    cout << res << endl;
+    print(res);
     delete so;
     return 0;
 }

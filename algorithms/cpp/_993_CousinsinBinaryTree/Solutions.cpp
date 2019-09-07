@@ -2,6 +2,7 @@
 #include <vector>
 #include <map>
 #include <myTreeNode.h>
+#include <myutils.h>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ int main() {
     root->left->left = new TreeNode(4);
     root->right->right = new TreeNode(5);
     bool res = so->isCousins(root, 4, 5);
-    cout << res << endl;
+    print(res);
     delete so;
     return 0;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <myListNode.h>
+#include <myutils.h>
 
 using namespace std;
 
@@ -38,6 +39,6 @@ int main() {
 //    l1->next->next->next = new ListNode(4);
 //    l1->next->next->next->next = new ListNode(5);
     bool res = so->isPalindrome(l1);
-    cout << res << endl;
+    print(res);
     return 0;
 }

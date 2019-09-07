@@ -28,6 +28,9 @@ file(GLOB SOURCES
         
         ../utils/myVector.h
         ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
         )
 
 add_executable(_094_BinaryTreeInorderTraversal_std _094_BinaryTreeInorderTraversal_std.cpp ${SOURCE_FILES} ${SOURCES})

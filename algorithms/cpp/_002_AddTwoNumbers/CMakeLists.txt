@@ -25,11 +25,15 @@ file(GLOB SOURCES
 
         ../utils/myTreeNode.h
         ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
         )
 
-add_executable(Solutions_002 Solutions.cpp ${SOURCE_FILES} ${SOURCES})
-
-
-add_executable(_002_AddTwoNumbers_practise _002_AddTwoNumbers_practise.cpp)
-add_executable(_002_AddTwoNumbers _002_AddTwoNumbers.cpp)
-
+add_executable(_002_AddTwoNumbers_std _002_AddTwoNumbers_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_002_AddTwoNumbers_std_debug _002_AddTwoNumbers_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_002_AddTwoNumbers_practise _002_AddTwoNumbers_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_002_Add Solutions.cpp ${SOURCE_FILES} ${SOURCES})

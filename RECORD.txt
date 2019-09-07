@@ -109,9 +109,3 @@ _300_LongestIncreasingSubsequenc
 not submit = 5
 empty = 0
 
-_033_SearchInRotatedSortedArray
-_153_FindMinimuminRotatedSortedArray
-_154_FindMinimuminRotatedSortedArrayII
-
-_706_DesignHashMap
-_705_DesignHashSet

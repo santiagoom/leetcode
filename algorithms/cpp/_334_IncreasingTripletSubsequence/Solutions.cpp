@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <myutils.h>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int main() {
     auto *so = new Solution();
     vector<int> nums{2, 3, 3};
     bool res = so->increasingTriplet(nums);
-    cout << res << endl;
+    print(res);
     delete so;
     return 0;
 }

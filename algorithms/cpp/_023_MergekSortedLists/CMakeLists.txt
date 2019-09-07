@@ -25,6 +25,12 @@ file(GLOB SOURCES
 
         ../utils/myTreeNode.h
         ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
         )
 
 add_executable(_023_MergekSortedLists_std _023_MergekSortedLists_std.cpp ${SOURCE_FILES} ${SOURCES})

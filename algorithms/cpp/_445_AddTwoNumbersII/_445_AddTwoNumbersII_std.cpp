@@ -1,5 +1,7 @@
 
 # include <iostream>
+#include <stack>
+#include <myListNode.h>
 
 using namespace std;
 

@@ -25,6 +25,12 @@ file(GLOB SOURCES
 
         ../utils/myTreeNode.h
         ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
         )
 
 add_executable(_092_ReverseLinkedListII_std _092_ReverseLinkedListII_std.cpp ${SOURCE_FILES} ${SOURCES})

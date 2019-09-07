@@ -1,4 +1,5 @@
 #include <iostream>
+#include <myutils.h>
 
 using namespace std;
 
@@ -24,6 +25,6 @@ int main() {
     auto *so = new Solution();
     int num = -8765;
     int res = so->reverse(num);
-    cout << res << endl;
+    print(res);
     return 0;
 }

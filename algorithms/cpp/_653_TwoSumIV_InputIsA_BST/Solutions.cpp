@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <myTreeNode.h>
+#include <myutils.h>
 
 using namespace std;
 
@@ -72,7 +73,7 @@ int main() {
     so.insert(root, 7);
 
     int target = 9;
-    bool res = so.findTarget(root, 9);
-    cout << res << endl;
+    bool res = so.findTarget(root, target);
+    print(res);
     delete root;
 }

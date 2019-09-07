@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <myTreeNode.h>
+#include <myutils.h>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ int main() {
     root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
     int res = so->minDepth(root);
-    cout << res << endl;
+    print(res);
     delete so;
     return 0;
 }

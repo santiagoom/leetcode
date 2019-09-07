@@ -3,9 +3,37 @@ project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
-#add_executable(_003_LongestSubstringWithoutRepeatingCharacters_std _003_LongestSubstringWithoutRepeatingCharacters_std.cpp)
-#add_executable(_003_LongestSubstringWithoutRepeatingCharacters_std_debug _003_LongestSubstringWithoutRepeatingCharacters_std_debug.cpp)
-#add_executable(_003_LongestSubstringWithoutRepeatingCharacters_practise _003_LongestSubstringWithoutRepeatingCharacters_practise.cpp)
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
 
-add_executable(_003_LongestSubstringWithoutRepeatingCharacters_practise _003_LongestSubstringWithoutRepeatingCharacters_practise.cpp)
-add_executable(Solutions_003 Solutions.cpp)
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
+        )
+
+add_executable(_003_LongestSubstringWithoutRepeatingCharacters_std _003_LongestSubstringWithoutRepeatingCharacters_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_003_LongestSubstringWithoutRepeatingCharacters_std_debug _003_LongestSubstringWithoutRepeatingCharacters_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_003_LongestSubstringWithoutRepeatingCharacters_practise _003_LongestSubstringWithoutRepeatingCharacters_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_003_Lon Solutions.cpp ${SOURCE_FILES} ${SOURCES})
