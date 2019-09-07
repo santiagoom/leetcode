@@ -16,12 +16,12 @@ public:
         map.insert({'M', 1000});
 
         int ans = 0;
-        ans += (*map.find(s[0])).second;
+        ans += map.find(s[0])->second;
 
         for (int i = 1; i < s.length(); i++) {
-            ans += (*map.find(s[i])).second;
-            if ((*map.find(s[i - 1])).second < (*map.find(s[i])).second)
-                ans -= (*map.find(s[i - 1])).second * 2;
+            ans += map.find(s[i])->second;
+            if (map.find(s[i - 1])->second < map.find(s[i])->second)
+                ans -= map.find(s[i - 1])->second * 2;
         }
         return ans;
     }

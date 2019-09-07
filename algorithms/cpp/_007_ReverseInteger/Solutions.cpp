@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
     /*
-     * -24 / 10 = -4
+     * -24 / 10 = -2
      */
 public:
     int reverse(int x) {
