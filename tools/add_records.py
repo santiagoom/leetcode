@@ -424,7 +424,7 @@ def Run():
     # list_so = [3]
     # generate_folders_individual_so(list_so, num)
     #
-    # add_java_records(True)
+    add_java_records(True)
     # add_java_records(False)
 
 

@@ -5,10 +5,6 @@ using namespace std;
 
 class Solution {
 public:
-    int max(int a, int b) {
-        return a > b ? a : b;
-    }
-
     int longestPalindromeSubseq(string &s) {
         int length = s.size();
         int table[length][length];
