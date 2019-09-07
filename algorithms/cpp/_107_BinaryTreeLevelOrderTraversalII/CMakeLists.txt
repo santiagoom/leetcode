@@ -3,7 +3,34 @@ project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(_107_Binary_Tree_Level_Order_Traversal_II_std _107_Binary_Tree_Level_Order_Traversal_II_std.cpp)
-add_executable(_107_Binary_Tree_Level_Order_Traversal_II_std_debug _107_Binary_Tree_Level_Order_Traversal_II_std_debug.cpp)
-add_executable(_107_Binary_Tree_Level_Order_Traversal_II_practise _107_Binary_Tree_Level_Order_Traversal_II_practise.cpp)
-add_executable(Solutions_107 Solutions.cpp)
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
+
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        )
+
+add_executable(_107_BinaryTreeLevelOrderTraversalII_std _107_BinaryTreeLevelOrderTraversalII_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_107_BinaryTreeLevelOrderTraversalII_std_debug _107_BinaryTreeLevelOrderTraversalII_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_107_BinaryTreeLevelOrderTraversalII_practise _107_BinaryTreeLevelOrderTraversalII_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_107_Bin Solutions.cpp ${SOURCE_FILES} ${SOURCES})

@@ -7,7 +7,7 @@ public:
     int mySqrt(int x) {
         int start = 0, end = x;
         while (start + 1 < end) {
-            int mid = start + (end - start) / 2;
+            int mid = (end + start) / 2;
             int div = x / mid;
             if (div == mid)
                 return mid;

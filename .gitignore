@@ -21,4 +21,13 @@ out/
 
 algorithms/java/classes/
 algorithms/java/java.iml
-algorithms/java/production/
+algorithms/java/production/# 1.24M
+algorithms/cmake-build-debug/leetcode-algorithms.cbp
+# 1.07M
+algorithms/cmake-build-debug/algorithms.cbp
+# 1.23M
+algorithms/cmake-build-debug/cpp/_000_topics/merge/_006_MergeTwoSortedArrays/CXX.cbp
+# 4.55M
+.git/objects/pack/pack-7c4ce0d60b0281cc4058f833b91837e13a0c8930.pack
+# 2019-09-07 18:16:27.738024
+

@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 #include_directories(algorithms/cpp)
 
+
+include_directories(cpp/utils)
 add_subdirectory(cpp/_000_topics/merge/_006_MergeTwoSortedArrays)
 add_subdirectory(cpp/_000_topics/merge/_486_MergeKSortedArrays)
 add_subdirectory(cpp/_000_Algos/DynamicProgramming/LongestCommonSubsequence)
@@ -88,3 +90,5 @@ add_subdirectory(cpp/_153_FindMinimuminRotatedSortedArray)
 add_subdirectory(cpp/_300_LongestIncreasingSubsequenc)
 add_subdirectory(cpp/_154_FindMinimuminRotatedSortedArrayII)
 add_subdirectory(cpp/_003_LongestSubstringWithoutRepeatingCharacters)
+add_subdirectory(cpp/utils)
+

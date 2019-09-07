@@ -1,0 +1,12 @@
+
+
+
+二分查找的时间复杂度为log(n)
+
+
+
+Input: numbers = [2,7,11,15], target = 9
+
+定位最佳边界的Time complexity: log(n), 总的时间复杂度为nlog(n)
+
+所以用two-pointer是一个不错的选择。

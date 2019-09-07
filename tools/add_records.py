@@ -38,6 +38,7 @@ class %s {
 
 CPP_HEADER = '''#include <iostream>
 #include <vector>
+#include <myVector.h>
 
 using namespace std;
 
@@ -57,6 +58,36 @@ CMakeLists = '''cmake_minimum_required(VERSION 3.14)
 project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
+
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
+
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
+        )
 
 '''
 
@@ -235,8 +266,8 @@ def generate_folders_individual_current(lists, num=1):
     with open(record_txt) as file:
         records = file.readlines()
 
-    if (num == 0 or num > 3):
-        raise IndexError
+    # if (num == 0 or num > 3):
+    #     raise IndexError
     selects = records[-(num):]
 
     for current in selects:
@@ -320,13 +351,18 @@ def generate_folders_individual_current(lists, num=1):
                 if not os.path.exists(solutison_cpp_practise):
                     with open(solutison_cpp_practise, "w") as file:
                         file.write(CPP_HEADER)
-                if not os.path.exists(solutison_cpp_CMakeLists):
+                # if not os.path.exists(solutison_cpp_CMakeLists):
+                if True:
                     with open(solutison_cpp_CMakeLists, "w") as file:
                         file.write(CMakeLists)
-                        file.write("add_executable(" + current + "_std " + current + "_std.cpp)\n")
-                        file.write("add_executable(" + current + "_std_debug " + current + "_std_debug.cpp)\n")
-                        file.write("add_executable(" + current + "_practise " + current + "_practise.cpp)\n")
-                        file.write("add_executable(" + "Solutions" + current[:4] + " Solutions.cpp)\n")
+                        file.write(
+                            "add_executable(" + current + "_std " + current + "_std.cpp ${SOURCE_FILES} ${SOURCES})\n")
+                        file.write(
+                            "add_executable(" + current + "_std_debug " + current + "_std_debug.cpp ${SOURCE_FILES} ${SOURCES})\n")
+                        file.write(
+                            "add_executable(" + current + "_practise " + current + "_practise.cpp ${SOURCE_FILES} ${SOURCES})\n")
+                        file.write("add_executable(" + "Solutions" + current[
+                                                                     :8] + " Solutions.cpp ${SOURCE_FILES} ${SOURCES})\n")
                 if not os.path.exists(solutison_info):
                     with open(solutison_info, "w") as file:
                         file.write("")
@@ -381,14 +417,14 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    num = 1
+    num = 2
     list_current = [3]
     generate_folders_individual_current(list_current, num)
     #
-    list_so = [3]
-    generate_folders_individual_so(list_so, num)
-
-    add_java_records(True)
+    # list_so = [3]
+    # generate_folders_individual_so(list_so, num)
+    #
+    # add_java_records(True)
     # add_java_records(False)
 
 

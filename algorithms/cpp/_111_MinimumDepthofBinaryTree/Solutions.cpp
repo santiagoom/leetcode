@@ -1,16 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <myTreeNode.h>
 
 using namespace std;
-
-//Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-
-    explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
 
 class Solution {
 public:
@@ -28,11 +20,6 @@ public:
 
         return min(left, right) + 1;
     }
-
-private:
-    int min(int a, int b) {
-        return a > b ? b : a;
-    }
 };
 
 int main() {
@@ -48,7 +35,7 @@ int main() {
     root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
     int res = so->minDepth(root);
-    cout << res << " ";
+    cout << res << endl;
     delete so;
     return 0;
 }

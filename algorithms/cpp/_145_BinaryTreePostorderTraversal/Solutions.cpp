@@ -1,16 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <myVector.h>
+#include <myTreeNode.h>
 
 using namespace std;
-
-//Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-
-    explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
 
 class Solution {
 public:
@@ -43,8 +36,7 @@ int main() {
     root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
     vector<int> res = so->postorderTraversal(root);
-    for (int &x:res)
-        cout << x << " ";
+    print_1d_vector(res);
     delete so;
     return 0;
 }

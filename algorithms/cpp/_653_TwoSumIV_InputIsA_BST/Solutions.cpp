@@ -1,23 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <myTreeNode.h>
 
 using namespace std;
-
-/**
- * Definition for a binary tree node.
- */
-
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-
-    explicit TreeNode(int val) {
-        this->val = val;
-        this->left = NULL;
-        this->right = NULL;
-    }
-};
 
 class Solution {
     vector<int> vect;

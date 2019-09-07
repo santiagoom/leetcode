@@ -1,14 +1,39 @@
 cmake_minimum_required(VERSION 3.14)
-project(cpp-705_DesignHashSet)
+project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
 
-add_executable(_705_DesignHashSet DoubleHash.cpp)
-add_executable(_705_DesignHashSet_2 "OpenAddressing.cpp")
-add_executable(Solutions Solutions.cpp)
-add_executable(hashingwithchaining hashingwithchaining.cpp)
-add_executable(OpenAddressing_debug OpenAddressing_debug.cpp)
-#add_executable(_705_DesignHashSet_2 cpp/_705_DesignHashSet/_705_DesignHashSet_2.cpp)
-#add_executable(Solutions_705 cpp/_705_DesignHashSet/Solutions.cpp)
-#add_executable(test cpp/_705_DesignHashSet/temp.cpp)
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
+        )
+
+add_executable(_705_DesignHashSet_std _705_DesignHashSet_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_705_DesignHashSet_std_debug _705_DesignHashSet_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_705_DesignHashSet_practise _705_DesignHashSet_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_705_Des Solutions.cpp ${SOURCE_FILES} ${SOURCES})

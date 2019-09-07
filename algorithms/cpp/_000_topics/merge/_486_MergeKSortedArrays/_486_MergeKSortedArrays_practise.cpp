@@ -21,7 +21,7 @@ public:
     vector<int> mergeHelper(vector<vector<int>> &arrays, int start, int end) {
         if (start >= end)
             return arrays[start];
-        int mid = (end - start) / 2 + start;
+        int mid = (end + start) / 2;
 
         vector<int> left = mergeHelper(arrays, start, mid);
         vector<int> right = mergeHelper(arrays, mid + 1, end);

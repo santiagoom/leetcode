@@ -10,7 +10,7 @@ public:
         map<int, int> m;
         for (int i = 0; i < nums.size(); i++) {
             if (m.find(target - nums[i]) != m.end()) {
-                return vector<int>{(*m.find(target - nums[i])).second, i};
+                return vector<int>{m.find(target - nums[i])->second, i};
             }
             m.insert({nums[i], i});
         }

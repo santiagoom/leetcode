@@ -1,11 +1,39 @@
 cmake_minimum_required(VERSION 3.14)
-project(cpp-706_DesignHashMap)
+project(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
+file(GLOB SOURCES
+        ../Utilities/Array.h
+        ../Utilities/Array.cpp
 
-add_executable(HashTable HashTable.cpp)
-add_executable(SeparateChaining SeparateChaining.cpp)
-add_executable(SeparateChaining_debug SeparateChaining_debug.cpp)
-add_executable(Solutions706 Solutions.cpp)
-#add_executable(test cpp/_705_DesignHashSet/temp.cpp)
+        ../Utilities/BinaryTree.h
+        ../Utilities/BinaryTree.cpp
+
+        ../Utilities/List.h
+        ../Utilities/List.cpp
+
+        ../Utilities/StringUtil.h
+        ../Utilities/StringUtil.cpp
+
+        ../Utilities/Tree.h
+        ../Utilities/Tree.cpp
+
+
+        ../utils/myListNode.h
+        ../utils/myListNode.cpp
+
+        ../utils/myTreeNode.h
+        ../utils/myTreeNode.cpp
+        
+        ../utils/myVector.h
+        ../utils/myVector.cpp
+        
+        ../utils/myutils.h
+        ../utils/myutils.cpp
+        )
+
+add_executable(_706_DesignHashMap_std _706_DesignHashMap_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_706_DesignHashMap_std_debug _706_DesignHashMap_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_706_DesignHashMap_practise _706_DesignHashMap_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_706_Des Solutions.cpp ${SOURCE_FILES} ${SOURCES})
