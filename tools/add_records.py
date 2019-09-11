@@ -38,17 +38,16 @@ class %s {
 
 CPP_HEADER = '''#include <iostream>
 #include <vector>
-#include <myVector.h>
+#include <myutils.h>
 
 using namespace std;
 
 class Solution {
-
 };
 
 int main() {
     auto *so = new Solution();
-    cout << "new file!" << endl;
+    vector<int> nums{};
     delete so;
     return 0;
 }
@@ -351,8 +350,8 @@ def generate_folders_individual_current(lists, num=1):
                 if not os.path.exists(solutison_cpp_practise):
                     with open(solutison_cpp_practise, "w") as file:
                         file.write(CPP_HEADER)
-                # if not os.path.exists(solutison_cpp_CMakeLists):
-                if True:
+                if not os.path.exists(solutison_cpp_CMakeLists):
+                    # if True:
                     with open(solutison_cpp_CMakeLists, "w") as file:
                         file.write(CMakeLists)
                         file.write(
@@ -421,10 +420,10 @@ def Run():
     list_current = [3]
     generate_folders_individual_current(list_current, num)
     #
-    # list_so = [3]
-    # generate_folders_individual_so(list_so, num)
+    list_so = [3]
+    generate_folders_individual_so(list_so, num)
     #
-    add_java_records(True)
+    # add_java_records(True)
     # add_java_records(False)
 
 

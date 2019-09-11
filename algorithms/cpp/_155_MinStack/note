@@ -1,0 +1,9 @@
+使用两个仅支持 pop 和 push 的栈就可以完成, stack 储存压入的数据, minStack 储存最小值.
+
+push 直接把元素压入 stack, 对于 minStack, 如果它为空则直接压入, 反之压入当前元素与 minStack 栈顶的最小值
+pop 两个栈都弹出一个元素, 返回 stack 弹出的元素
+min 返回 minStack 的栈顶
+还可以令 minStack 为单调栈, 即push时只有元素更小的时候才放入这个栈, 而pop时只有栈顶与stack栈顶相同时才弹出
+
+这样可以节约一定的空间, 但是实质上空间复杂度仍然是 O(n), 且多了一些判断, 并不一定更优
+

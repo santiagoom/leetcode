@@ -33,7 +33,7 @@ file(GLOB SOURCES
         ../utils/myutils.cpp
         )
 
-add_executable(_std _std.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(_std_debug _std_debug.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(_practise _practise.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(Solutions Solutions.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_300_LongestIncreasingSubsequence_std _300_LongestIncreasingSubsequence_std.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_300_LongestIncreasingSubsequence_std_debug _300_LongestIncreasingSubsequence_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_300_LongestIncreasingSubsequence_practise _300_LongestIncreasingSubsequence_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(Solutions_300_Lon Solutions.cpp ${SOURCE_FILES} ${SOURCES})

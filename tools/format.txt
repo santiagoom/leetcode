@@ -1,2 +1,2 @@
-_153_FindMinimuminRotatedSortedArray
-_300_LongestIncreasingSubsequenc
+_946_ValidateStackSequences
+_255_VerifyPreorderSequenceinBinarySearchTree

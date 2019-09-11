@@ -1,2 +1,2 @@
-153. Find Minimum in Rotated Sorted Array
-300. Longest Increasing Subsequence
+946. Validate Stack Sequences
+255. Verify Preorder Sequence in Binary Search Tree

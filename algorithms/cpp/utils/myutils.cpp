@@ -10,6 +10,10 @@
 using namespace std;
 
 
+void print() {
+    cout << endl;
+}
+
 void print(bool v) {
     cout << v << endl;
 }
@@ -21,6 +25,7 @@ void print(char v) {
 void print(int v) {
     cout << v << endl;
 }
+
 
 void print(uint32_t v) {
     cout << v << endl;
@@ -44,6 +49,13 @@ void print(char v[]) {
 void print_1d_vector(vector<int> &vect) {
     for (int &x:vect)
         cout << x << " ";
+    cout << endl;
+}
+
+void print_1d_vector(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
     cout << endl;
 }
 
