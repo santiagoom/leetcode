@@ -1,6 +1,6 @@
-package _028_027_RemoveElement;
+package _027_RemoveElement;
 
-public class Solutions {
+ class Solutions {
 
 	/*
 	 * // nums is passed in by reference. (i.e., without making a copy) int len =

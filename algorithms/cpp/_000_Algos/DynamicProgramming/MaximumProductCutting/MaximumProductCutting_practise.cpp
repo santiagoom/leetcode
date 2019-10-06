@@ -5,6 +5,7 @@
 using namespace std;
 
 class Solution {
+//    (i - j) * j 用来初始化值的大小
 public:
     int maxProd(int n) {
         vector<int> dp(n + 1, 0);

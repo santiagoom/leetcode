@@ -117,3 +117,15 @@ _300_LongestIncreasingSubsequence
 _155_MinStack
 _946_ValidateStackSequences
 _255_VerifyPreorderSequenceinBinarySearchTree
+_105_ConstructBinaryTreefromPreorderandInorderTraversal
+_106_ConstructBinaryTreefromInorderandPostorderTraversal
+
+
+_123_BestTimetoBuyandSellStockIII
+_188_BestTimetoBuyandSellStockIV
+
+
+_115_DistinctSubsequences
+_149_MaxPointsonaLine
+
+_188_BestTimetoBuyandSellStockIV

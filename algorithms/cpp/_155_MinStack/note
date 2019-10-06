@@ -7,3 +7,6 @@ min 返回 minStack 的栈顶
 
 这样可以节约一定的空间, 但是实质上空间复杂度仍然是 O(n), 且多了一些判断, 并不一定更优
 
+Next challenges:
+Sliding Window Maximum
+Max Stack

@@ -37,3 +37,6 @@ add_executable(_122_BestTimetoBuyandSellStockII_std _122_BestTimetoBuyandSellSto
 add_executable(_122_BestTimetoBuyandSellStockII_std_debug _122_BestTimetoBuyandSellStockII_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
 add_executable(_122_BestTimetoBuyandSellStockII_practise _122_BestTimetoBuyandSellStockII_practise.cpp ${SOURCE_FILES} ${SOURCES})
 add_executable(Solutions_122_Bes Solutions.cpp ${SOURCE_FILES} ${SOURCES})
+
+
+add_executable(_122_BestTimetoBuyandSellStockII_std_III _122_BestTimetoBuyandSellStockII_std_III.cpp ${SOURCE_FILES} ${SOURCES})

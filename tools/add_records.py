@@ -19,7 +19,10 @@ cmake_path = home_path + "/algorithms/"
 python_path = home_path + "/algorithms/python/"
 readme_path = home_path + "/leetcode_1127.md"
 
-record_txt = home_path + "/record.txt"
+# record_txt = home_path + "/record.txt"
+# update cmakefiles
+record_txt = home_path + "/record_to_leet.txt"
+
 to_leet_record = home_path + "/record_to_leet.txt"
 record_path = home_path + "/readme.md"
 
@@ -59,33 +62,33 @@ project(CXX)
 set(CMAKE_CXX_STANDARD 14)
 
 file(GLOB SOURCES
-        ../Utilities/Array.h
-        ../Utilities/Array.cpp
+        ../cppUtils/Utilities/Array.h
+        ../cppUtils/Utilities/Array.cpp
 
-        ../Utilities/BinaryTree.h
-        ../Utilities/BinaryTree.cpp
+        ../cppUtils/Utilities/BinaryTree.h
+        ../cppUtils/Utilities/BinaryTree.cpp
 
-        ../Utilities/List.h
-        ../Utilities/List.cpp
+        ../cppUtils/Utilities/List.h
+        ../cppUtils/Utilities/List.cpp
 
-        ../Utilities/StringUtil.h
-        ../Utilities/StringUtil.cpp
+        ../cppUtils/Utilities/StringUtil.h
+        ../cppUtils/Utilities/StringUtil.cpp
 
-        ../Utilities/Tree.h
-        ../Utilities/Tree.cpp
+        ../cppUtils/Utilities/Tree.h
+        ../cppUtils/Utilities/Tree.cpp
 
 
-        ../utils/myListNode.h
-        ../utils/myListNode.cpp
+        ../cppUtils/utils/myListNode.h
+        ../cppUtils/utils/myListNode.cpp
 
-        ../utils/myTreeNode.h
-        ../utils/myTreeNode.cpp
+        ../cppUtils/utils/myTreeNode.h
+        ../cppUtils/utils/myTreeNode.cpp
         
-        ../utils/myVector.h
-        ../utils/myVector.cpp
+        ../cppUtils/utils/myVector.h
+        ../cppUtils/utils/myVector.cpp
         
-        ../utils/myutils.h
-        ../utils/myutils.cpp
+        ../cppUtils/utils/myutils.h
+        ../cppUtils/utils/myutils.cpp
         )
 
 '''
@@ -350,8 +353,8 @@ def generate_folders_individual_current(lists, num=1):
                 if not os.path.exists(solutison_cpp_practise):
                     with open(solutison_cpp_practise, "w") as file:
                         file.write(CPP_HEADER)
-                if not os.path.exists(solutison_cpp_CMakeLists):
-                    # if True:
+                # if not os.path.exists(solutison_cpp_CMakeLists):
+                if True:
                     with open(solutison_cpp_CMakeLists, "w") as file:
                         file.write(CMakeLists)
                         file.write(
@@ -416,12 +419,12 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    num = 1
+    num = 80
     list_current = [3]
     generate_folders_individual_current(list_current, num)
     #
-    list_so = [3]
-    generate_folders_individual_so(list_so, num)
+    # list_so = [3]
+    # generate_folders_individual_so(list_so, num)
     #
     # add_java_records(True)
     # add_java_records(False)

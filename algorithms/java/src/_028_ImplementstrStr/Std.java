@@ -1,7 +1,5 @@
 package _028_ImplementstrStr;
 
-public class Solutions {
-}
 
 class SolutionBruteForce {
 	/*
