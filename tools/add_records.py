@@ -19,9 +19,9 @@ cmake_path = home_path + "/algorithms/"
 python_path = home_path + "/algorithms/python/"
 readme_path = home_path + "/leetcode_1127.md"
 
-# record_txt = home_path + "/record.txt"
+record_txt = home_path + "/record.txt"
 # update cmakefiles
-record_txt = home_path + "/record_to_leet.txt"
+# record_txt = home_path + "/record_to_leet.txt"
 
 to_leet_record = home_path + "/record_to_leet.txt"
 record_path = home_path + "/readme.md"
@@ -419,7 +419,7 @@ def Run():
         print("args error ...")
         sys.exit(0)
 
-    num = 80
+    num = 1
     list_current = [3]
     generate_folders_individual_current(list_current, num)
     #
