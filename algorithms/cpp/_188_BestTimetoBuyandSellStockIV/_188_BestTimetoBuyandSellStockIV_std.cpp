@@ -58,6 +58,20 @@ private:
     }
 };
 
+//假设一共有 n 天, 那么这 n 天最多能够完成 n / 2 比交易, 也就是说, 当 k * 2 >= n 时, 就变成了 买卖股票的最佳时机 II, 反之, 我们可以作为动态规划问题解决:
+//
+//定义:
+//
+//globalbest[i][j] 表示前i天，至多进行j次交易时的最大获益
+//        mustsell[i][j] 表示前i天，至多进行j次交易，并且第i天卖出手中的股票时的最大获益
+//        状态转移:
+//
+//mustsell[i][j] = max(globalbest[i - 1][j - 1], mustsell[i - 1][j]) + prices[i] - prices[i - 1]
+//globalbest[i][j] = max(globalbest[i - 1][j], mustsell[i][j])
+//边界: mustsell[0][i] = globalbest[0][i] = 0
+//
+//优化: 滚动数组优化两个状态的空间至一维数组.
+
 /**
 * This reference program is provided by @jiuzhang.com
 * Copyright is reserved. Please indicate the source for forwarding

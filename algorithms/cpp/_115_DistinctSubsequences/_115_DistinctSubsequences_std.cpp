@@ -44,6 +44,37 @@ public:
     }
 };
 
+class Solution1 {
+public:
+    /**
+     * @param S: A string
+     * @param T: A string
+     * @return: Count the number of distinct subsequences
+     */
+    int numDistinct(string &S, string &T) {
+        // write your code here
+        if (T.length() == 0) {
+            return 1;
+        }
+        auto m=S.length(),n=T.length();
+        vector<int>cnt(m+1,1);
+        // for(auto i=0;i<n;++i)
+        //     for(auto j=i,prev=cnt[i],tmp=cnt[i]=0;j<m;){
+        //         tmp=cnt[j];
+        //         if(S[j]==T[i])
+        //             tmp+=prev;
+        //         prev=cnt[++j];
+        //         cnt[j]=tmp;
+        //     }
+        // return cnt[m];
+
+        for(auto i=0;i<n;++i)
+            for(auto j=0,prev=0;j<m-i;++j)
+                prev=cnt[j]=prev+(S[j+i]==T[i]?cnt[j]:0);
+        return cnt[m-n];
+    }
+};
+
 int main() {
     auto *so = new Solution();
     vector<int> nums{};

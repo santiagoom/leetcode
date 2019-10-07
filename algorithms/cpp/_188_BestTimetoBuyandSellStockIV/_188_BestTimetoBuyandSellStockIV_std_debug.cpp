@@ -4,12 +4,57 @@
 
 using namespace std;
 
+
+/**
+* This reference program is provided by @jiuzhang.com
+* Copyright is reserved. Please indicate the source for forwarding
+*/
+
 class Solution {
+public:
+    int maxProfit(int k, vector<int> &prices) {
+        if (prices.empty())
+            return 0;
+
+        int ans = 0;
+        if (k >= prices.size() / 2) {
+            for (int i = 1; i < prices.size(); ++i) {
+                if (prices[i] - prices[i - 1] > 0) {
+                    ans += prices[i] - prices[i - 1];
+                }
+            }
+        } else {
+            vector<int> local(k + 1);
+            vector<int> global(k + 1);
+//            vector<int> prices{1, 2, 6, 5, 0, 3};
+
+            for (int i = 0; i < prices.size() - 1; ++i) {
+                print(prices[i]);
+                int increase = prices[i + 1] - prices[i];
+
+                for (int j = k; j >= 1; --j) {
+                    local[j] = max(global[j - 1] + max(increase, 0), local[j] + increase);
+//                    local[j] = global[j - 1] + max(increase, 0);
+                    global[j] = max(global[j], local[j]);
+                    print_1d_vector(local);
+                    print_1d_vector(global);
+                }
+
+                print();
+            }
+            ans = global[k];
+        }
+        return ans;
+    }
 };
 
 int main() {
     auto *so = new Solution();
-    vector<int> nums{};
+//    vector<int> prices{3, 2, 6, 5, 0, 3};
+    vector<int> prices{1, 2, 6, 5, 3, 2, 1, 0};
+    int k = 2;
+    int res = so->maxProfit(k, prices);
+    print(res);
     delete so;
     return 0;
 }
