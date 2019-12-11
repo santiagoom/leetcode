@@ -127,3 +127,7 @@ _188_BestTimetoBuyandSellStockIV
 
 _115_DistinctSubsequences  -wrong
 _149_MaxPointsonaLine  -wrong
+
+
+384. Shuffle an Array
+

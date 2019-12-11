@@ -102,4 +102,5 @@ add_subdirectory(cpp/_123_BestTimetoBuyandSellStockIII)
 add_subdirectory(cpp/_188_BestTimetoBuyandSellStockIV)
 add_subdirectory(cpp/_115_DistinctSubsequences)
 add_subdirectory(cpp/_149_MaxPointsonaLine)
-add_subdirectory(cpp/_106_ConstructBinaryTreefromInorderandPostorderTraversal)add_subdirectory(cpp/_149_MaxPointsonaLine  -wrong)
+add_subdirectory(cpp/_106_ConstructBinaryTreefromInorderandPostorderTraversal)
+
