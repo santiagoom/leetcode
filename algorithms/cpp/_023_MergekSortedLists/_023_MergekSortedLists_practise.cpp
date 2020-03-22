@@ -59,13 +59,6 @@ public:
         return dummy->next;
     }
 
-    void printList(ListNode *node) {
-        while (node != NULL) {
-            cout << node->val << " ";
-            node = node->next;
-        }
-        cout << endl;
-    }
 };
 
 int main() {
@@ -85,7 +78,6 @@ int main() {
     lists.push_back(l3);
 
     ListNode *res = so->mergeKLists(lists);
-    so->printList(res);
     delete so;
     return 0;
 }

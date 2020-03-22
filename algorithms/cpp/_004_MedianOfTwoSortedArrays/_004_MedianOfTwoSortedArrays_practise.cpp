@@ -5,6 +5,18 @@ using namespace std;
 
 class Solution {
 public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
+        int sum = nums1.size() + nums2.size();
+        double ret;
+        if (sum & 1) {
+            ret = findKth(nums1, nums2, 0, 0, sum / 2 + 1);
+        } else {
+            ret = ((findKth(nums1, nums2, 0, 0, sum / 2)) +
+                   findKth(nums1, nums2, 0, 0, sum / 2 + 1)) / 2.0;
+        }
+        return ret;
+    }
+
     double findKth(vector<int> &A, vector<int> &B, int A_st, int B_st, int k) {
         if (A_st >= A.size()) {
             return B[B_st + k - 1];
@@ -20,18 +32,6 @@ public:
         } else {
             return findKth(A, B, A_st, B_st + k / 2, k - k / 2);
         }
-    }
-
-    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
-        int sum = nums1.size() + nums2.size();
-        double ret;
-        if (sum & 1) {
-            ret = findKth(nums1, nums2, 0, 0, sum / 2 + 1);
-        } else {
-            ret = ((findKth(nums1, nums2, 0, 0, sum / 2)) +
-                   findKth(nums1, nums2, 0, 0, sum / 2 + 1)) / 2.0;
-        }
-        return ret;
     }
 };
 

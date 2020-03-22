@@ -39,7 +39,7 @@ public:
 int main() {
     auto *so = new Solution();
     vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
-    int target = 0;
+    int target = 2;
     int res = so->search(nums, target);
     print(res);
     delete so;

@@ -1,15 +1,16 @@
 #include <iostream>
 #include <stack>
+#include <myListNode.h>
 
 using namespace std;
 
 //Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-
-    explicit ListNode(int x) : val(x), next(nullptr) {}
-};
+//struct ListNode {
+//    int val;
+//    ListNode *next;
+//
+//    explicit ListNode(int x) : val(x), next(nullptr) {}
+//};
 
 class Solution {
 public:
@@ -35,14 +36,6 @@ public:
         }
         return true;
     }
-
-    void printList(ListNode *node) {
-        while (node != NULL) {
-            cout << node->val << " ";
-            node = node->next;
-        }
-        cout << endl;
-    }
 };
 
 int main() {
@@ -53,6 +46,5 @@ int main() {
 //    l1->next->next->next = new ListNode(4);
 //    l1->next->next->next->next = new ListNode(5);
     bool res = so->isPalindrome(l1);
-    cout << res << endl;
     return 0;
 }

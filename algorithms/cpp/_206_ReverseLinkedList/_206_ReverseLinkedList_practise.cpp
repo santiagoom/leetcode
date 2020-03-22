@@ -1,15 +1,15 @@
 #include <iostream>
 #include <stack>
-
+#include <myListNode.h>
 using namespace std;
 
 //Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-
-    explicit ListNode(int x) : val(x), next(nullptr) {}
-};
+//struct ListNode {
+//    int val;
+//    ListNode *next;
+//
+//    explicit ListNode(int x) : val(x), next(nullptr) {}
+//};
 
 class Solution {
 public:

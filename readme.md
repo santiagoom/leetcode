@@ -5,7 +5,7 @@
 - [Articles](https://leetcode.com/articles/)
 
 (*) means that you need a LeetCode subscription.
- 
+
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---- |

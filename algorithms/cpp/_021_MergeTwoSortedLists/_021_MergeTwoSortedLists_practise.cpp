@@ -41,14 +41,6 @@ public:
         }
         return dummy->next;
     }
-
-    void printList(ListNode *node) {
-        while (node != NULL) {
-            cout << node->val << " ";
-            node = node->next;
-        }
-        cout << endl;
-    }
 };
 
 int main() {
@@ -60,8 +52,6 @@ int main() {
     ListNode *l2 = new ListNode(1);
     l2->next = new ListNode(3);
     l2->next->next = new ListNode(4);
-    so->printList(l1);
     ListNode *res = so->mergeTwoLists(l1, l2);
-    so->printList(res);
     return 0;
 }

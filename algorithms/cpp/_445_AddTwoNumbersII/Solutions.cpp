@@ -36,7 +36,6 @@ public:
         }
         return res->val == 0 ? res->next : res;
     }
-
 };
 
 int main() {

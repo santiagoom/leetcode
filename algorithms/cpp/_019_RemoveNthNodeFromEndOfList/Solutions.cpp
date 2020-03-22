@@ -37,10 +37,9 @@ int main() {
     l1->next->next = new ListNode(3);
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
-    printList(l1);
+
 
     ListNode *res = so->removeNthFromEnd(l1, 2);
-    printList(res);
     delete res;
     delete so;
     return 0;

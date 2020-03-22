@@ -36,4 +36,5 @@ file(GLOB SOURCES
 add_executable(_190_ReverseBits_std _190_ReverseBits_std.cpp ${SOURCE_FILES} ${SOURCES})
 add_executable(_190_ReverseBits_std_debug _190_ReverseBits_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
 add_executable(_190_ReverseBits_practise _190_ReverseBits_practise.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(_190_ReverseBits_practise_opt _190_ReverseBits_practise_opt.cpp ${SOURCE_FILES} ${SOURCES})
 add_executable(Solutions_190_Rev Solutions.cpp ${SOURCE_FILES} ${SOURCES})

@@ -42,14 +42,6 @@ public:
         premNode->next = nNode;
         return dummy->next;
     }
-
-    void printList(ListNode *node) {
-        while (node != NULL) {
-            cout << node->val << " ";
-            node = node->next;
-        }
-        cout << endl;
-    }
 };
 
 int main() {
@@ -62,8 +54,6 @@ int main() {
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
     int m = 2, n = 4;
-    so->printList(l1);
     ListNode *res = so->reverseBetween(l1, m, n);
-    so->printList(res);
     return 0;
 }

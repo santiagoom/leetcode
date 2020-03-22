@@ -3,11 +3,15 @@
 using namespace std;
 
 class Solution {
+    // not
 public:
     uint32_t reverseBits(uint32_t n) {
         uint32_t res = 0;
+        unsigned int flag = 1;
         for (int i = 0; i < 32; i++) {
-            res = (res << 1) + (n >> i & 1);
+            res = (res << 1) + (n & flag);
+            print(n & flag);
+            flag = flag << 1;
         }
         return res;
     }

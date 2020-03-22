@@ -22,8 +22,7 @@ public:
         int left = helper(nums, start, mid);
         int right = helper(nums, mid + 1, end);
         int crossingSum = maxCrossingSum(nums, start, end, mid);
-
-
+        
         return max(left, right, crossingSum);
 
 
