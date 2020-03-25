@@ -29,7 +29,7 @@ public:
         map<int, vector<int>>::iterator itr;
         q.push({root, 0});
         while (!q.empty()) {
-            vector<int> level;
+//            vector<int> level;
             pair<TreeNode *, int> curr = q.front();
             m[curr.second].push_back(curr.first->val);
             q.pop();
