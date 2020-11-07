@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 #include_directories(algorithms/cpp)
 
 
-include_directories(cpp/cppUtils/utils)
+#include_directories(cpp/cppUtils/utils)
 add_subdirectory(cpp/_000_cppUtilsTest)
 add_subdirectory(cpp/_000_topics/merge/_006_MergeTwoSortedArrays)
 add_subdirectory(cpp/_000_topics/merge/_486_MergeKSortedArrays)

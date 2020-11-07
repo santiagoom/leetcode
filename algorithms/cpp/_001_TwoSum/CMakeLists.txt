@@ -25,15 +25,20 @@ file(GLOB SOURCES
 
         ../cppUtils/utils/myTreeNode.h
         ../cppUtils/utils/myTreeNode.cpp
-        
+
         ../cppUtils/utils/myVector.h
         ../cppUtils/utils/myVector.cpp
-        
+
         ../cppUtils/utils/myutils.h
         ../cppUtils/utils/myutils.cpp
         )
 
-add_executable(_001_TwoSum_std _001_TwoSum_std.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(_001_TwoSum_std_debug _001_TwoSum_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
+include_directories(../cppUtils/utils)
+
+#add_executable(_001_TwoSum_std _001_TwoSum_std.cpp ${SOURCE_FILES} ${SOURCES})
+#add_executable(_001_TwoSum_std_debug _001_TwoSum_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
 add_executable(_001_TwoSum_practise _001_TwoSum_practise.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(Solutions_001_Two Solutions.cpp ${SOURCE_FILES} ${SOURCES})
+#add_executable(Solutions_001_Two Solutions.cpp ${SOURCE_FILES} ${SOURCES})
+
+
+#add_executable(_001_TwoSum_practise _001_TwoSum_practise.cpp)
