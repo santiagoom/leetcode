@@ -1,40 +1,51 @@
-cmake_minimum_required(VERSION 3.14)
-project(CXX)
+cmake_minimum_required(VERSION 3.17)
+project(cpp_utils)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
-file(GLOB SOURCES
-        ../Utilities/Array.h
-        ../Utilities/Array.cpp
+set(UseCppUtils ON)
+#set(UseQtUtils ON)
+#set(UseVTKUtils ON)
+#set(UseCodingInterviewUtils ON)
 
-        ../Utilities/BinaryTree.h
-        ../Utilities/BinaryTree.cpp
+if (MSVC)
+    list(APPEND CMAKE_PREFIX_PATH "D:\\gitrepoe\\lang-tutorial\\02-utils\\cppUtils")
+else ()
+    list(APPEND CMAKE_PREFIX_PATH "/Users/tianm/repos/lang-tutorial/02-utils/cppUtils")
+endif (MSVC)
 
-        ../Utilities/List.h
-        ../Utilities/List.cpp
+find_package(Utils REQUIRED)
 
-        ../Utilities/StringUtil.h
-        ../Utilities/StringUtil.cpp
+file(GLOB ALL_FILES *.cpp)
+foreach (SOURCE_FILE ${ALL_FILES})
+    string(REPLACE ".cpp" "" TMP ${SOURCE_FILE})
+    string(REPLACE ${CMAKE_CURRENT_SOURCE_DIR}/ "" EXAMPLE ${TMP})
+    add_executable(${EXAMPLE} ${EXAMPLE}.cpp)
+    target_link_libraries(${EXAMPLE} ${Utils_LIBRARIES})
+endforeach ()
 
-        ../Utilities/Tree.h
-        ../Utilities/Tree.cpp
+file(GLOB ALL_FILES *.cxx)
+foreach (SOURCE_FILE ${ALL_FILES})
+    string(REPLACE ".cxx" "" TMP ${SOURCE_FILE})
+    string(REPLACE ${CMAKE_CURRENT_SOURCE_DIR}/ "" EXAMPLE ${TMP})
+    add_executable(${EXAMPLE} ${EXAMPLE}.cxx)
+    target_link_libraries(${EXAMPLE} ${Utils_LIBRARIES})
+endforeach ()
+
+if (MSVC AND UseVTKUtils)
+    set(TARGET_NAME VTKUtils)
+    add_custom_command(TARGET ${TARGET_NAME}
+            POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${VTK_INSTALL_PREFIX}/bin/"
+            $<TARGET_FILE_DIR:${TARGET_NAME}>
+            )
+endif (MSVC AND UseVTKUtils)
 
 
-        ../utils/myListNode.h
-        ../utils/myListNode.cpp
-
-        ../utils/myTreeNode.h
-        ../utils/myTreeNode.cpp
-
-        ../utils/myVector.h
-        ../utils/myVector.cpp
-
-
-        ../../../utils/myutils.h
-        ../../../utils/myutils.cpp
-        )
-
-add_executable(MaximumProductCutting_std MaximumProductCutting_std.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(MaximumProductCutting_std_debug MaximumProductCutting_std_debug.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(MaximumProductCutting_practise MaximumProductCutting_practise.cpp ${SOURCE_FILES} ${SOURCES})
-add_executable(SolutionsMaximumP Solutions.cpp ${SOURCE_FILES} ${SOURCES})
+#message(STATUS "print_all_variables------------------------------------------{")
+#get_cmake_property(_variableNames VARIABLES)
+#foreach (_variableName ${_variableNames})
+#    message(STATUS "${_variableName}=${${_variableName}}")
+#endforeach ()
+#message(STATUS "print_all_variables------------------------------------------}")
