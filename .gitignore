@@ -32,6 +32,7 @@ temp.txt
 
 
 cmake-build-debug/
+cmake-build-release/
 out/
 
 

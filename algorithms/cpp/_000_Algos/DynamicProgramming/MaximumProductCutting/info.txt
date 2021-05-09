@@ -1,9 +1,0 @@
-1) Optimal Substructure:
-This problem is similar to Rod Cutting Problem. We can get the maximum product by making a cut at different positions and comparing the values obtained after a cut. We can recursively call the same function for a piece obtained after a cut.
-
-Let maxProd(n) be the maximum product for a rope of length n. maxProd(n) can be written as following.
-
-maxProd(n) = max(i*(n-i), maxProdRec(n-i)*i) for all i in {1, 2, 3 .. n}
-
-
-
