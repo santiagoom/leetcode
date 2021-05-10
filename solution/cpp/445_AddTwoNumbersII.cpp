@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
-#include <myListNode.h>
+//#include <myListNode.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -52,10 +53,9 @@ int main() {
 
     auto *so = new Solution();
     ListNode *res = so->addTwoNumbers(l1, l2);
-
-    printList(l1);
-    printList(l2);
-    printList(res);
+    CppUtils::printLinklist(l1);
+    CppUtils::printLinklist(l2);
+    CppUtils::printLinklist(res);
 
     delete l1;
     delete l2;

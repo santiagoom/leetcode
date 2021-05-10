@@ -33,20 +33,20 @@ int main() {
 //    Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 //    Output: 7 -> 0 -> 8
 //    Explanation: 342 + 465 = 807.
-    ListNode *l1 = createListNode(2);
+    ListNode *l1 = new ListNode(2);
     l1->next = new ListNode(4);
     l1->next->next = new ListNode(6);
 
-    ListNode *l2 = createListNode(5);
+    ListNode *l2 = new ListNode(5);
     l2->next = new ListNode(6);
     l2->next->next = new ListNode(4);
 
     auto *so = new Solution();
     ListNode *res = so->addTwoNumbers(l1, l2);
 
-    printList(l1);
-    printList(l2);
-    printList(res);
+    CppUtils::printLinklist(l1);
+    CppUtils::printLinklist(l2);
+    CppUtils::printLinklist(res);
     delete l1;
     delete l2;
     delete res;

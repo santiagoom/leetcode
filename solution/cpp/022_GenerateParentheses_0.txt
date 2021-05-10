@@ -1,0 +1,28 @@
+22. Generate Parentheses
+Medium
+
+3138
+
+192
+
+Favorite
+
+Share
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+[
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()"
+]
+Accepted
+377,699
+Submissions
+668,388
+
+
+Valid Parentheses

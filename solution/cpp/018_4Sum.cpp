@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -43,7 +43,7 @@ int main() {
 
     auto *so = new Solution();
     vector<vector<int>> res = so->fourSum(nums, target);
-    print_2d_vector(res);
+    CppUtils::print_2d_vector(res);
     delete so;
     return 0;
 }

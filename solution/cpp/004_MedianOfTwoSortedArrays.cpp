@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
+
 
 using namespace std;
 
@@ -41,7 +42,7 @@ int main() {
     vector<int> num2{3, 4};
     auto *so = new Solution();
     double res = so->findMedianSortedArrays(num1, num2);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

@@ -8,8 +8,3 @@ datatype **data
 datatype *data
 &data
 
-
-
-
-
-

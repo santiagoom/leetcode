@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <set>
-#include <myutils.h>
+#include <cppUtils.h>
 
 
 using namespace std;
@@ -28,7 +28,7 @@ int main() {
     auto *so = new Solution();
     string s = "pwwkew";
     int res = so->lengthOfLongestSubstring(s);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

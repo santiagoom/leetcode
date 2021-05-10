@@ -1,7 +1,9 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
+
+// Fibonacci list 需要前两项
 
 class Solution {
 public:
@@ -10,8 +12,9 @@ public:
         if (length == 0)
             return "";
 
-        bool table[length][length];
-        memset(table, 0, sizeof(table));
+//        bool table[length][length];
+//        memset(table, 0, sizeof(table));
+        vector<vector<int>> table(length, vector<int>(length, 0));
 
         int start = 0;
         int maxLength = 1;
@@ -46,6 +49,6 @@ int main() {
     string s = "bbbb";
     auto so = new Solution();
     string res = so->longestPalindrome(s);
-    print(res);
+    CppUtils::print(res);
     delete so;
 }

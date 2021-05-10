@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ int main() {
     int target = 1;
     auto *so = new Solution();
     int res = so->threeSumClosest(nums, target);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

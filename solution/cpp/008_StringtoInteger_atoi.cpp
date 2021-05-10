@@ -1,5 +1,5 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -37,7 +37,7 @@ int main() {
     string s1 = "4193 with words";
     string s2 = "words and 987";
     int res = so->myAtoi(s2);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

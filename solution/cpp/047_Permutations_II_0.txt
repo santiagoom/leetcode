@@ -1,0 +1,31 @@
+47. Permutations II
+Medium
+
+1153
+
+46
+
+Favorite
+
+Share
+Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
+Example:
+
+Input: [1,1,2]
+Output:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
+Accepted
+264,810
+Submissions
+634,281
+
+Next Permutation
+Palindrome Permutation II
+Number of Squareful Arrays
+
+
