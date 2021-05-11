@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -36,7 +36,7 @@ int main() {
     vector<int> nums{2, 3, 4, 5, 7};
     int target = 7;
     vector<vector<int>> res = so->combinationSum(nums, target);
-    print_2d_vector(res);
+    CppUtils::print_2d_vector(res);
     delete so;
     return 0;
 }

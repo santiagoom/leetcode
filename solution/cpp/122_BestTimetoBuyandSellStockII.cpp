@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int main() {
     auto *so = new Solution();
     vector<int> prices{7, 1, 5, 3, 6, 4};
     int res = so->maxProfit(prices);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

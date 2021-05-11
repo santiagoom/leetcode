@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stack>
-#include <myListNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -33,7 +32,6 @@ public:
         premNode->next = nNode;
         return dummy->next;
     }
-
 };
 
 int main() {
@@ -44,8 +42,8 @@ int main() {
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
     int m = 2, n = 4;
-    printList(l1);
+    CppUtils::printLinklist(l1);
     ListNode *res = so->reverseBetween(l1, m, n);
-    printList(res);
+    CppUtils::printLinklist(res);
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -45,6 +45,6 @@ int main() {
     int m = 10;
     int n = 3;
     int ans = so->divide(m, n);
-    print(index);
+    CppUtils::print(ans);
     return 0;
 }

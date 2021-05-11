@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -9,15 +9,14 @@ public:
     vector<vector<int>> combinationSum2(vector<int> &nums, int target) {
         vector<vector<int>> res;
         vector<int> templist;
-        vector<int> visit(nums.size(), 0);
         sort(nums.begin(), nums.end());
-        backtracking(res, templist, visit, nums, target, 0);
+        backtracking(res, templist, nums, target, 0);
         return res;
     }
 
 private:
     void
-    backtracking(vector<vector<int>> &res, vector<int> &templist, vector<int> &visit, vector<int> &nums, int target,
+    backtracking(vector<vector<int>> &res, vector<int> &templist, vector<int> &nums, int target,
                  int start) {
         if (target < 0)
             return;
@@ -28,10 +27,8 @@ private:
                 if (i > start && nums[i - 1] == nums[i]) {
                     continue;
                 }
-                visit[i] = 1;
                 templist.push_back(nums[i]);
-                backtracking(res, templist, visit, nums, target - nums[i], i + 1);
-                visit[i] = 0;
+                backtracking(res, templist, nums, target - nums[i], i + 1);
                 templist.pop_back();
             }
         }
@@ -40,10 +37,14 @@ private:
 
 int main() {
     auto *so = new Solution();
-    vector<int> nums{10, 1, 2, 7, 6, 1, 5};
-    int target = 8;
+//    vector<int> nums{10, 1, 2, 7, 6, 1, 5};
+//    int target = 8;
+    vector<int> nums{2, 5, 2, 1, 1, 2};
+    int target = 5;
     vector<vector<int>> res = so->combinationSum2(nums, target);
-    print_2d_vector(res);
+    CppUtils::print_2d_vector(res);
     delete so;
     return 0;
 }
+
+

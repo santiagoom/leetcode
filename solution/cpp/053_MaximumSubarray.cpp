@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -23,11 +23,7 @@ public:
         int left = helper(nums, start, mid);
         int right = helper(nums, mid + 1, end);
         int crossingSum = maxCrossingSum(nums, start, end, mid);
-
-
         return max(left, right, crossingSum);
-
-
     }
 
     int maxCrossingSum(vector<int> &nums, int start, int end, int mid) {
@@ -48,7 +44,6 @@ public:
         return left_sum + right_sum;
     }
 
-
     int max(int a, int b, int c) {
         return (a > b ? a : b) > c ? (a > b ? a : b) : c;
     }
@@ -58,7 +53,8 @@ int main() {
     auto *so = new Solution();
     vector<int> nums{-2, 1, -3, 4, -1, 2, 1, -5, 4};
     int res = so->maxSubArray(nums);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }
+

@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myTreeNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -29,7 +28,14 @@ public:
 
 int main() {
     auto *so = new Solution();
-    vector<int> nums{};
+
+    vector<int> post{9, 15, 7, 20, 3};
+    vector<int> vin{9, 3, 15, 20, 7};
+
+    auto res = so->buildTree(vin, post);
+    CppUtils::preorderTraversal(res);
+    cout << endl;
+    CppUtils::inorderTraversal(res);
     delete so;
     return 0;
 }

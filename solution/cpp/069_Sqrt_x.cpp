@@ -1,5 +1,5 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -27,7 +27,9 @@ int main() {
     auto *so = new Solution();
     int x = 8;
     int ans = so->mySqrt(x);
-    print(ans);
+    CppUtils::print(ans);
     delete so;
     return 0;
 }
+
+

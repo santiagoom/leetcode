@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <myVector.h>
-#include <myTreeNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -53,7 +51,9 @@ int main() {
     root->right->left = new TreeNode(6);
     root->right->right = new TreeNode(7);
     vector<vector<int>> res = so->zigzagLevelOrder(root);
-    print_2d_vector(res);
+    CppUtils::print_2d_vector(res);
     delete so;
     return 0;
 }
+
+

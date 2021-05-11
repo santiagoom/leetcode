@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -37,7 +37,8 @@ int main() {
     auto *so = new Solution();
     vector<int> nums{1, 2, 2};
     vector<vector<int>> res = so->permuteUnique(nums);
-    print_2d_vector(res);
+    CppUtils::print_2d_vector(res);
     delete so;
     return 0;
 }
+

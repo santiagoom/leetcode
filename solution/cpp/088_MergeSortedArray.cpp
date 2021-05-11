@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -40,6 +40,6 @@ int main() {
     vector<int> B{2, 5, 6};
     int m = 3, n = 3;
     so->merge(A, m, B, n);
-    print_1d_vector(A);
+    CppUtils::print_1d_vector(A);
     return 0;
 }

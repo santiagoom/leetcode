@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -17,17 +17,22 @@ private:
     void backtracking(vector<vector<int>> &res, vector<int> &templist, int n, int k, int start) {
         if (templist.size() == k)
             res.push_back(templist);
-        for (int i = start; i <= n; i++) {
-            templist.push_back(i);
-            backtracking(res, templist, n, k, i + 1);
-            templist.pop_back();
+        else {
+            for (int i = start; i <= n; i++) {
+                templist.push_back(i);
+                backtracking(res, templist, n, k, i + 1);
+                templist.pop_back();
+            }
         }
     }
 };
 
 int main() {
     auto *so = new Solution();
-    vector<vector<int>> res = so->combine(4, 2);
-    print_2d_vector(res);
+    int n = 4;
+    int k = 3;
+    vector<vector<int>> res = so->combine(n, k);
+    CppUtils::print_2d_vector(res);
     return 0;
 }
+

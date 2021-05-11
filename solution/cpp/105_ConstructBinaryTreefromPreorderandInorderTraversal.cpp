@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myTreeNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -55,11 +54,9 @@ int main() {
     vector<int> vin{4, 7, 2, 1, 5, 3, 8, 6};
 
     auto res = so->buildTree(pre, vin);
-    preorderTraversal(res);
+    CppUtils::preorderTraversal(res);
     cout << endl;
-    inorderTraversal(res);
+    CppUtils::inorderTraversal(res);
     delete so;
     return 0;
 }
-
-

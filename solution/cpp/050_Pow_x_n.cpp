@@ -1,21 +1,16 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
 class Solution {
 public:
     double myPow(double x, int n) {
-        bool isNegative = false;
         if (n < 0) {
-            isNegative = true;
-            n = -(n + 1);
+            n = -n;
             x = 1 / x;
         }
-        double ans = powUtil(x, n);
-        if (isNegative)
-            return ans * x;
-        return ans;
+        return powUtil(x, n);
     }
 
 private:
@@ -31,7 +26,8 @@ int main() {
     double x = 2.0;
     int n = -2;
     double res = so->myPow(x, n);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }
+
