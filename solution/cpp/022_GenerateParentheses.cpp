@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -24,11 +24,31 @@ public:
     }
 };
 
+class Solution_p1 {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> res;
+        backtracking(res, "", 0, 0, n);
+        return res;
+    }
+
+    void backtracking(vector<string> &res, string curr, int open, int close, int max) {
+        if (curr.length() == 2 * max)
+            res.push_back(curr);
+
+        if (open < max)
+            backtracking(res, curr + "(", open + 1, close, max);
+        if (close < open)
+            backtracking(res, curr + ")", open, close + 1, max);
+    }
+};
+
 int main() {
-    auto *so = new Solution();
+//    auto *so = new Solution();
+    auto *so = new Solution_p1();
     int n = 3;
     vector<string> res = so->generateParenthesis(n);
-    print_1d_vector(res);
+    CppUtils::print_1d_vector(res);
     delete so;
     return 0;
 }

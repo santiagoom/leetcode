@@ -1,6 +1,5 @@
 #include <iostream>
-#include <myListNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -37,8 +36,6 @@ int main() {
     l1->next->next = new ListNode(3);
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
-
-
     ListNode *res = so->removeNthFromEnd(l1, 2);
     delete res;
     delete so;

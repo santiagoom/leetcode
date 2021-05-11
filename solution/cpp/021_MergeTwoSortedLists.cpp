@@ -1,6 +1,5 @@
 #include <iostream>
-#include <myListNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -46,6 +45,6 @@ int main() {
     l2->next = new ListNode(3);
     l2->next->next = new ListNode(4);
     ListNode *res = so->mergeTwoLists(l1, l2);
-    printList(res);
+    CppUtils::printLinklist(res);
     return 0;
 }

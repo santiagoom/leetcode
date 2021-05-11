@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stack>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ int main() {
     auto *so = new Solution();
     string s = "(])";
     bool res = so->isValid(s);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

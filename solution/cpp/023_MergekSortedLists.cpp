@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myListNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -72,7 +71,7 @@ int main() {
     lists.push_back(l3);
 
     ListNode *res = so->mergeKLists(lists);
-    printList(res);
+    CppUtils::printLinklist(res);
     delete so;
     return 0;
 }
