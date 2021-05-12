@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -24,6 +24,10 @@ private:
                     backtracking(res, templist, s, i + 1);
                     templist.pop_back();
                 }
+//                templist.push_back(s.substr(start, i - start + 1));
+//                backtracking(res, templist, s, i + 1);
+//                templist.pop_back();
+
             }
         }
     }
@@ -42,9 +46,10 @@ private:
 
 int main() {
     auto *so = new Solution();
-    string s = "abbaabba";
+//    string s = "abbaabba";
+    string s = "aabbab";
     vector<vector<string>> res = so->partition(s);
-    print_2d_vector(res);
+    CppUtils::print_2d_vector(res);
     delete so;
     return 0;
 }

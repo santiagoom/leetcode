@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unordered_set>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ int main() {
     so->add(3);
     so->add(5);
 
-    print(so->find(4));
-    print(so->find(7));
+    CppUtils::print(so->find(4));
+    CppUtils::print(so->find(6));
     delete so;
 }

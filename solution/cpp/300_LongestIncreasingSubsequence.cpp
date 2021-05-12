@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -28,7 +28,7 @@ int main() {
     auto *so = new Solution();
     vector<int> nums{10, 9, 2, 5, 3, 7, 101, 18};
     int res = so->lengthOfLIS(nums);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

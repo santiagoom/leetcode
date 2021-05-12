@@ -1,5 +1,5 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -28,6 +28,6 @@ int main() {
 
     auto *so = new Solution();
     int res = so->lengthOfLongestSubstringKDistinct(s, k);
-    print(res);
+    CppUtils::print(res);
     return 0;
 }

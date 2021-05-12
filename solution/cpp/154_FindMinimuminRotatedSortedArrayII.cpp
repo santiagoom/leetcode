@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -43,7 +43,7 @@ int main() {
     auto *so = new Solution();
     vector<int> nums = {2, 2, 2, 0, 1};
     int res = so->findMin(nums);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -16,9 +16,10 @@ public:
 
 int main() {
     auto *so = new Solution();
-    uint32_t n = 43261596;
+//    uint32_t n = 43261596;
+    uint32_t n = 12;
     uint32_t res = so->reverseBits(n);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

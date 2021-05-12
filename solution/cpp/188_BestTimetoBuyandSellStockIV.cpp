@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ int main() {
     vector<int> prices{1, 2, 6, 5, 3, 2, 1, 0};
     int k = 2;
     int res = so->maxProfit(k, prices);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

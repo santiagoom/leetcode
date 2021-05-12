@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -28,7 +28,7 @@ int main() {
 
     auto *so = new Solution();
     vector<int> res = so->twoSum(numbers, target);
-    print_1d_vector(res);
+    CppUtils::print_1d_vector(res);
     delete so;
     return 0;
 }

@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
 class Solution {
+//    vector<int> prices{7, 1, 5, 3, 6, 4};
+
 public:
     int maxProfit(vector<int> &prices) {
         if (prices.size() <= 1) return 0;
@@ -14,12 +16,15 @@ public:
         for (int i = 1, valley = prices[0]; i < n; ++i) {
             profit_front[i] = max(profit_front[i - 1], prices[i] - valley);
             valley = min(valley, prices[i]);
+            CppUtils::print_1d_vector(profit_front);
         }
+        CppUtils::print();
 
         vector<int> profit_back = vector<int>(n, 0);
         for (int i = n - 2, peak = prices[n - 1]; i >= 0; --i) {
             profit_back[i] = max(profit_back[i + 1], peak - prices[i]);
             peak = max(peak, prices[i]);
+            CppUtils::print_1d_vector(profit_back);
         }
 
         int profit = 0;

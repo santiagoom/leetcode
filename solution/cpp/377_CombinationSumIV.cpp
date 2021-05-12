@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -27,7 +27,7 @@ int main() {
     vector<int> nums{3, 33, 333};
     int target = 10000;
     int res = so->combinationSum4(nums, target);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

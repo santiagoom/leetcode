@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myTreeNode.h>
-#include <myVector.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -37,7 +35,7 @@ int main() {
     root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
     vector<int> res = so->preorderTraversal(root);
-    print_1d_vector(res);
+    CppUtils::print_1d_vector(res);
     delete so;
     return 0;
 }

@@ -1,14 +1,9 @@
-
-# include <iostream>
+#include <iostream>
+#include <cppUtils.h>
 
 using namespace std;
 
-int main() {
-    cout << "new file!" << endl;
-    return 0;
-}
-
-class Solution1 {
+class Solution {
 public:
     /**
      * @param nums a sorted integer array
@@ -16,7 +11,7 @@ public:
      * @param upper an integer
      * @return a list of its missing ranges
      */
-    string getString(long long st,long long ed) {
+    string getString(long long st, long long ed) {
         if (st > ed) {
             return "";
         }
@@ -26,7 +21,7 @@ public:
         return to_string(st) + "->" + to_string(ed);
     }
 
-    vector<string> findMissingRanges(vector<int>& nums, int lower, int upper) {
+    vector<string> findMissingRanges(vector<int> &nums, int lower, int upper) {
         // Write your code here
         vector<string> ans;
         string tmp;
@@ -51,7 +46,7 @@ public:
         }
 
         for (int i = 1; i < nums2.size(); i++) {
-            tmp = getString(nums2[i-1] + 1, nums2[i] - 1);
+            tmp = getString(nums2[i - 1] + 1, nums2[i] - 1);
             if (tmp != "") {
                 ans.push_back(tmp);
             }
@@ -61,7 +56,17 @@ public:
         if (tmp != "") {
             ans.push_back(tmp);
         }
-
         return ans;
     }
 };
+
+int main() {
+    auto *so = new Solution();
+    vector<int> nums = {0, 1, 3, 50, 75};
+    int lower = 0;
+    int upper = 99;
+    vector<string> res = so->findMissingRanges(nums, lower, upper);
+    CppUtils::print_1d_vector(res);
+    delete so;
+    return 0;
+}

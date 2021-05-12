@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -27,7 +27,7 @@ int main() {
     auto *so = new Solution();
     vector<int> preorder{1, 3, 2};
     bool res = so->verifyPreorder(preorder);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }
