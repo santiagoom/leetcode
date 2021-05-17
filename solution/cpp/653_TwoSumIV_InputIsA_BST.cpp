@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <myTreeNode.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -74,6 +73,6 @@ int main() {
 
     int target = 9;
     bool res = so.findTarget(root, target);
-    print(res);
+    CppUtils::print(res);
     delete root;
 }

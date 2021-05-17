@@ -1,6 +1,6 @@
 #include <iostream>
 #include <math.h>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -32,7 +32,7 @@ int main() {
     string s = "bbbbbb";
     auto *so = new Solution();
     int res = so->longestPalindromeSubseq(s);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

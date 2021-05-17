@@ -1,5 +1,5 @@
 #include <iostream>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -113,8 +113,8 @@ int main() {
         cout << obj->contains(c) << endl;
 
     string str = "size: ";
-    print(str);
-    print(obj->size);
+    CppUtils::print(str);
+    CppUtils::print(obj->size);
     delete obj;
     return 0;
 //    output:

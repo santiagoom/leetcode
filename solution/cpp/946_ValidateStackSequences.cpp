@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -30,7 +30,7 @@ int main() {
     vector<int> pushed{1, 2, 3, 4, 5};
     vector<int> popped{4, 5, 3, 2, 1};
     bool res = so->validateStackSequences(pushed, popped);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }

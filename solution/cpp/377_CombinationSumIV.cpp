@@ -24,8 +24,9 @@ public:
 
 int main() {
     auto *so = new Solution();
-    vector<int> nums{3, 33, 333};
-    int target = 10000;
+//    vector<int> nums{3, 33, 333};
+    vector<int> nums{1, 2, 3};
+    int target = 4;
     int res = so->combinationSum4(nums, target);
     CppUtils::print(res);
     delete so;

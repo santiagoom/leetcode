@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <myutils.h>
+#include <cppUtils.h>
 
 using namespace std;
 
@@ -32,7 +32,7 @@ int main() {
 
     auto *so = new Solution();
     int res = so->fourSumCount(A, B, C, D);
-    print(res);
+    CppUtils::print(res);
     delete so;
     return 0;
 }
