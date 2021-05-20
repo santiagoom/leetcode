@@ -26,6 +26,12 @@ private:
         }
     }
 };
+class Solution_p1 {
+public:
+    vector<vector<int>> combine(int n, int k) {
+    }
+
+};
 
 int main() {
     auto *so = new Solution();
@@ -35,4 +41,3 @@ int main() {
     CppUtils::print_2d_vector(res);
     return 0;
 }
-

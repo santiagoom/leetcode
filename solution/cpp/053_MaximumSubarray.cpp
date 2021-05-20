@@ -49,8 +49,28 @@ public:
     }
 };
 
+class Solution_p1 {
+public:
+    int maxSubArray(vector<int> &nums) {
+        if (nums.empty()) return 0;
+        int maxValue = nums[0];
+        int curr = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            if (curr < 0)
+                curr = nums[i];
+            else {
+                curr += nums[i];
+            }
+            if (curr > maxValue)
+                maxValue = curr;
+        }
+        return maxValue;
+    }
+};
+
 int main() {
-    auto *so = new Solution();
+//    auto *so = new Solution();
+    auto *so = new Solution_p1();
     vector<int> nums{-2, 1, -3, 4, -1, 2, 1, -5, 4};
     int res = so->maxSubArray(nums);
     CppUtils::print(res);
