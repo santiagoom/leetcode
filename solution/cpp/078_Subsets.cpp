@@ -24,10 +24,33 @@ private:
     }
 };
 
+class Solution_p1 {
+public:
+    vector<vector<int>> subsets(vector<int> &nums) {
+        vector<vector<int>> res;
+        vector<int> curr;
+        backtracking(res, curr, nums, 0);
+        return res;
+    }
+
+    void backtracking(vector<vector<int>> &res, vector<int> &curr, vector<int> &nums, int start) {
+        res.push_back(curr);
+        for (int i = start; i < nums.size(); ++i) {
+            curr.push_back(nums[i]);
+            backtracking(res, curr, nums, i + 1);
+            curr.pop_back();
+        }
+    }
+
+};
+
 int main() {
-    auto *so = new Solution();
+//    auto *so = new Solution();
+    auto *so = new Solution_p1();
     vector<int> nums{1, 2, 3};
     vector<vector<int>> res = so->subsets(nums);
     CppUtils::print_2d_vector(res);
     return 0;
 }
+
+
