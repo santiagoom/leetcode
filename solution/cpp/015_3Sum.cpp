@@ -23,8 +23,8 @@ public:
                     k--;
                 else
                     j++;
-                while (i + 1 < nums.size() && nums[i] == nums[i + 1]) i++;
             }
+            while (i + 1 < nums.size() && nums[i] == nums[i + 1]) i++;
         }
         return res;
     }

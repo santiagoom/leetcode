@@ -3,6 +3,8 @@
 
 using namespace std;
 
+//int i = 0; 记录length, i>n
+
 class Solution {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
@@ -37,6 +39,7 @@ int main() {
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
     ListNode *res = so->removeNthFromEnd(l1, 2);
+    CppUtils::printLinklist(res);
     delete res;
     delete so;
     return 0;

@@ -29,7 +29,7 @@ public:
 };
 
 int main() {
-    string s = "bbbbbb";
+    string s = "bbabbb";
     auto *so = new Solution();
     int res = so->longestPalindromeSubseq(s);
     CppUtils::print(res);
