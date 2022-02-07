@@ -26,7 +26,7 @@ public:
 
 class Solution_p1 {
 public:
-    int trap(vector<int> &height) {
+     int trap(vector<int> &height) {
         int left = 0, right = height.size() - 1;
         int left_max = INT32_MIN, right_max = INT32_MIN;
         int res = 0;

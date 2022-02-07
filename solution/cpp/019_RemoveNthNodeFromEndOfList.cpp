@@ -15,12 +15,18 @@ public:
         int i = 0;
         while (first->next && i++ < n) {
             first = first->next;
+//            CppUtils::print(i);
+//            CppUtils::print(first->val);
         }
+        CppUtils::print(i);
+
         while (first->next) {
             first = first->next;
             second = second->next;
             i++;
         }
+        CppUtils::print(i);
+
         if (n > i)
             return nullptr;
         else {
@@ -38,7 +44,7 @@ int main() {
     l1->next->next = new ListNode(3);
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
-    ListNode *res = so->removeNthFromEnd(l1, 2);
+    ListNode *res = so->removeNthFromEnd(l1, 6);
     CppUtils::printLinklist(res);
     delete res;
     delete so;
