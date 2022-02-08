@@ -9,16 +9,17 @@ public:
     int minDepth(TreeNode *root) {
         if (root == nullptr)
             return 0;
-        if (root->left == nullptr && root->right == nullptr)
-            return 1;
+//        if (root->left == nullptr && root->right == nullptr)
+//            return 1;
 
-        int left = INT_MAX, right = INT_MAX;
-        if (root->left)
-            left = minDepth(root->left);
-        if (root->right)
-            right = minDepth(root->right);
+//        int left = INT_MAX, right = INT_MAX;
+//        if (root->left)
+            int left = minDepth(root->left);
+//        if (root->right)
+            int right = minDepth(root->right);
 
         return min(left, right) + 1;
+//        return max(left, right) + 1;
     }
 };
 
