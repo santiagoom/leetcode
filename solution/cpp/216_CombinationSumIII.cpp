@@ -15,9 +15,13 @@ public:
 
 private:
     void backtracking(vector<vector<int>> &res, vector<int> &templist, int k, int n, int start) {
-        if (templist.size() > k || n < 0)
+//        if (templist.size() > k || n < 0)
+//            return;
+//        else if (templist.size() == k && n == 0)
+//            res.push_back(templist);
+        if (n < 0)
             return;
-        else if (templist.size() == k && n == 0)
+        else if (n == 0)
             res.push_back(templist);
         else {
             for (int i = start; i < 10; i++) {
@@ -31,7 +35,7 @@ private:
 
 int main() {
     auto *so = new Solution();
-    vector<vector<int>> res = so->combinationSum3(3, 9);
+    vector<vector<int>> res = so->combinationSum3(2, 8);
     CppUtils::print_2d_vector(res);
     delete so;
     return 0;

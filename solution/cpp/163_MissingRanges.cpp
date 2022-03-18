@@ -26,7 +26,8 @@ public:
         vector<string> ans;
         string tmp;
 
-        vector<long long> nums2;
+//        vector<long long> nums2;
+        vector<int> nums2;
         for (int i = 0; i < nums.size(); i++) {
             nums2.push_back(nums[i]);
         }
@@ -51,6 +52,8 @@ public:
                 ans.push_back(tmp);
             }
         }
+
+        CppUtils::print(nums2.back());
 
         tmp = getString(nums2.back() + 1, upper);
         if (tmp != "") {
