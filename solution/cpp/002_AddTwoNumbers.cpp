@@ -34,7 +34,7 @@ int main() {
 //    Output: 7 -> 0 -> 8
 //    Explanation: 342 + 465 = 807.
     ListNode *l1 = new ListNode(2);
-    l1->next = new ListNode(4);
+    l1->next = new ListNode(3);
     l1->next->next = new ListNode(6);
 
     ListNode *l2 = new ListNode(5);
