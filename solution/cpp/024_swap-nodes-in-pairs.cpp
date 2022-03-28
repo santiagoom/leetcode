@@ -25,13 +25,14 @@ public:
 
 class Solution1 {
 public:
-    ListNode* swapPairs(ListNode* head) {
+    ListNode *swapPairs(ListNode *head) {
         if (!head || !head->next) return head;
         ListNode *t = head->next;
         head->next = swapPairs(head->next->next);
         t->next = head;
         return t;
-    } };
+    }
+};
 
 int main() {
     auto *so = new Solution1();
