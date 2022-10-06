@@ -44,7 +44,7 @@ int main() {
     l1->next->next = new ListNode(3);
     l1->next->next->next = new ListNode(4);
     l1->next->next->next->next = new ListNode(5);
-    ListNode *res = so->removeNthFromEnd(l1, 6);
+    ListNode *res = so->removeNthFromEnd(l1, 2);
     CppUtils::printLinklist(res);
     delete res;
     delete so;

@@ -34,19 +34,16 @@ public:
         int length = pre.size();
         return constructHelper(pre, 0, length - 1, vin, 0, length - 1);
     }
-
     TreeNode *constructHelper(vector<int> pre, int preStart, int preEnd, vector<int> vin, int vinStart, int vinEnd) {
 //        int rootVal = pre[preStart];
         int rootVal = pre[preEnd];
         TreeNode *root = new TreeNode(rootVal);
-
         if (pre[preStart] == pre[preEnd]) {
             if (vin[vinStart] == vin[vinEnd] && pre[preStart] == vin[vinStart])
                 return root;
             else
                 throw invalid_argument("invalid input");
         }
-
         int rootPos = vinStart;
 //        wrong
 //        for (int i = 0; i <= vin.size(); ++i) {
@@ -55,14 +52,12 @@ public:
 //            }
 //            rootPos++;
 //        }
-
         for (int i = vinStart; i <= vinEnd; ++i) {
             if (vin[i] == rootVal) {
                 break;
             }
             rootPos++;
         }
-
 //        while (vinStart <= vinEnd && rootVal != vin[rootPos])
 //            rootPos++;
         if (rootPos == vinEnd && rootVal != vin[rootPos])
