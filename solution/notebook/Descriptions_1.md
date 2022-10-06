@@ -1,12 +1,54 @@
 ## 001_TwoSum
 ```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[j] == target - nums[i]:
+                    return [i, j]
 ```
 ```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            hashmap[nums[i]] = i
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap and hashmap[complement] != i:
+                return [i, hashmap[complement]] 
 ```
 ```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[nums[i]] = i
 ```
 ## 002_AddTwoNumbers
 ```
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* dummyHead = new ListNode(0);
+        ListNode* curr = dummyHead;
+        int carry = 0;
+        while (l1 != NULL || l2 != NULL || carry != 0) {
+            int x = l1 ? l1->val : 0;
+            int y = l2 ? l2->val : 0;
+            int sum = carry + x + y;
+            carry = sum / 10;
+            curr->next = new ListNode(sum % 10);
+            curr = curr->next;
+            l1 = l1 ? l1->next : nullptr;
+            l2 = l2 ? l2->next : nullptr;
+        }
+        return dummyHead->next;
+    }
+};
 ```
 ```
 ```
@@ -14,20 +56,198 @@
 ```
 ## 003_LongestSubstringWithoutRepeatingCharacters
 ```
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.length();
+
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (checkRepetition(s, i, j)) {
+                    res = max(res, j - i + 1);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    bool checkRepetition(string& s, int start, int end) {
+        unordered_set<char> chars;
+
+        for (int i = start; i <= end; i++) {
+            char c = s[i];
+            if(chars.count(c)){
+                return false;
+            }
+            chars.insert(c);
+        }
+
+        return true;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> chars;
+
+        int left = 0;
+        int right = 0;
+
+        int res = 0;
+        while (right < s.length()) {
+            char r = s[right];
+            chars[r]++;
+
+            while (chars[r] > 1) {
+                char l = s[left];
+                chars[l]--;
+                left++;
+            }
+
+            res = max(res, right - left + 1);
+
+            right++;
+        }
+
+        return res;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = int(s.length()), res = 0;
+        unordered_map<char, int> mp;
+
+        for (int j = 0, i = 0; j < n; j++){
+            if(mp[s[j]] > 0) {
+                i = max(mp[s[j]], i);
+            }
+            res = max(res, j - i + 1);
+            mp[s[j]] = j + 1;
+        }
+        return res;
+    }
+};
 ```
+```
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        // we will store a senitel value of -1 to simulate 'null'/'None' in C++
+        vector<int> chars(128, -1);
+
+        int left = 0;
+        int right = 0;
+
+        int res = 0;
+        while (right < s.length()) {
+            char r = s[right];
+
+            int index = chars[r];
+            if (index != -1 and index >= left and index < right) {
+                left = index + 1;
+            }
+            res = max(res, right - left + 1);
+
+            chars[r] = right;
+            right++;
+        }
+        return res;
+    }
+};
+```
+
+
+
 ## 004_MedianofTwoSortedArrays
+
+```
+class Solution {
+public:
+double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    int N1 = nums1.size();
+    int N2 = nums2.size();
+    if (N1 < N2) return findMedianSortedArrays(nums2, nums1);	// Make sure A2 is the shorter one.
+    
+    int lo = 0, hi = N2 * 2;
+    while (lo <= hi) {
+        int mid2 = (lo + hi) / 2;   // Try Cut 2 
+        int mid1 = N1 + N2 - mid2;  // Calculate Cut 1 accordingly
+        
+        double L1 = (mid1 == 0) ? INT_MIN : nums1[(mid1-1)/2];	// Get L1, R1, L2, R2 respectively
+        double L2 = (mid2 == 0) ? INT_MIN : nums2[(mid2-1)/2];
+        double R1 = (mid1 == N1 * 2) ? INT_MAX : nums1[(mid1)/2];
+        double R2 = (mid2 == N2 * 2) ? INT_MAX : nums2[(mid2)/2];
+        
+        if (L1 > R2) lo = mid2 + 1;		// A1's lower half is too big; need to move C1 left (C2 right)
+        else if (L2 > R1) hi = mid2 - 1;	// A2's lower half too big; need to move C2 left.
+        else return (max(L1,L2) + min(R1, R2)) / 2;	// Otherwise, that's the right cut.
+    }
+    return -1;
+} 
+}
+
 ```
 ```
-```
+class Solution {
+public:
+    int kth(int a[], int m, int b[], int n, int k) {
+        if (m < n) return kth(b,n,a,m,k);
+        if (n==0) return a[k-1];
+        if (k==1) return min(a[0],b[0]);
+
+        int j = min(n,k/2);
+        int i = k-j;
+        if (a[i-1] > b[j-1]) return kth(a,i,b+j,n-j,k-j);
+        return kth(a+i,m-i,b,j,k-i);
+    }
+
+    double findMedianSortedArrays(int a[], int m, int b[], int n) {
+        int k = (m+n)/2;
+        int m1 = kth(a,m,b,n,k+1);
+        if ((m+n)%2==0) {
+            int m2 = kth(a,m,b,n,k);
+            return ((double)m1+m2)/2.0;
+        }
+        return m1;
+    }
+};
 ```
 ```
 ```
 ## 005_LongestPalindromicSubstring
 ```
+class Solution {
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) return "";
+        int start = 0, end = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int len1 = expandAroundCenter(s, i, i);
+            int len2 = expandAroundCenter(s, i, i + 1);
+            int len = Math.max(len1, len2);
+            if (len > end - start) {
+                start = i - (len - 1) / 2;
+                end = i + len / 2;
+            }
+        }
+        return s.substring(start, end + 1);
+    }
+
+    private int expandAroundCenter(String s, int left, int right) {
+        int L = left, R = right;
+        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+            L--;
+            R++;
+        }
+        return R - L - 1;
+    }
+}
 ```
 ```
 ```
@@ -35,13 +255,68 @@
 ```
 ## 006_ZigzagConversion
 ```
+class Solution {
+public:
+    string convert(string s, int numRows) {
+
+        if (numRows == 1) return s;
+
+        vector<string> rows(min(numRows, int(s.size())));
+        int curRow = 0;
+        bool goingDown = false;
+
+        for (char c : s) {
+            rows[curRow] += c;
+            if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown;
+            curRow += goingDown ? 1 : -1;
+        }
+
+        string ret;
+        for (string row : rows) ret += row;
+        return ret;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    string convert(string s, int numRows) {
+
+        if (numRows == 1) return s;
+
+        string ret;
+        int n = s.size();
+        int cycleLen = 2 * numRows - 2;
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j + i < n; j += cycleLen) {
+                ret += s[j + i];
+                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n)
+                    ret += s[j + cycleLen - i];
+            }
+        }
+        return ret;
+    }
+};
 ```
 ```
 ```
 ## 007_ReverseInteger
 ```
+class Solution {
+public:
+    int reverse(int x) {
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > INT_MAX/10 || (rev == INT_MAX / 10 && pop > 7)) return 0;
+            if (rev < INT_MIN/10 || (rev == INT_MIN / 10 && pop < -8)) return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
+    }
+};
 ```
 ```
 ```
@@ -49,13 +324,187 @@
 ```
 ## 008_StringtoInteger(atoi)
 ```
+class Solution {
+public:
+    int myAtoi(string input) {
+        int sign = 1; 
+        int result = 0; 
+        int index = 0;
+        int n = input.size();
+        
+        // Discard all spaces from the beginning of the input string.
+        while (index < n && input[index] == ' ') { 
+            index++; 
+        }
+        
+        // sign = +1, if it's positive number, otherwise sign = -1. 
+        if (index < n && input[index] == '+') {
+            sign = 1;
+            index++;
+        } else if (index < n && input[index] == '-') {
+            sign = -1;
+            index++;
+        }
+        
+        // Traverse next digits of input and stop if it is not a digit. 
+        // End of string is also non-digit character.
+        while (index < n && isdigit(input[index])) {
+            int digit = input[index] - '0';
+
+            // Check overflow and underflow conditions. 
+            if ((result > INT_MAX / 10) || (result == INT_MAX / 10 && digit > INT_MAX % 10)) { 
+                // If integer overflowed return 2^31-1, otherwise if underflowed return -2^31.    
+                return sign == 1 ? INT_MAX : INT_MIN;
+            }
+            
+            // Append current digit to the result.
+            result = 10 * result + digit;
+            index++;
+        }
+        
+        // We have formed a valid number without any overflow/underflow.
+        // Return it after multiplying it with its sign.
+        return sign * result;
+    }
+};
 ```
 ```
+enum State { q0, q1, q2, qd };
+
+class StateMachine {
+    // Store current state value.
+    State currentState;
+    // Store result formed and it's sign.
+    int result, sign;
+    
+    // Transition to state q1.
+    void toStateQ1(char& ch) {
+        sign = (ch == '-') ? -1 : 1;
+        currentState = q1;
+    }
+    
+    // Transition to state q2.
+    void toStateQ2(int digit) {
+        currentState = q2;
+        appendDigit(digit);
+    }
+    
+    // Transition to dead state qd.
+    void toStateQd() {
+        currentState = qd;
+    }
+    
+    // Append digit to result, if out of range return clamped value.
+    void appendDigit(int& digit) {
+        if ((result > INT_MAX / 10) || 
+            (result == INT_MAX / 10 && digit > INT_MAX % 10)) {
+            if (sign == 1) {
+                // If sign is 1, clamp result to INT_MAX.
+                result = INT_MAX;
+            } else {
+                // If sign is -1, clamp result to INT_MIN.
+                result = INT_MIN;
+                sign = 1;
+            }
+            
+            // When the 32-bit int range is exceeded, a dead state is reached.
+            toStateQd();
+        } else {
+            // Append current digit to the result. 
+            result = result * 10 + digit;
+        }
+    }
+
+public:
+    StateMachine() {
+        currentState = q0;
+        result = 0;
+        sign = 1;
+    }
+
+    // Change state based on current input character.
+    void transition(char& ch) {
+        if (currentState == q0) {
+            // Beginning state of the string (or some whitespaces are skipped).
+            if (ch == ' ') {
+                // Current character is a whitespaces.
+                // We stay in same state. 
+                return;
+            } else if (ch == '-' || ch == '+') {
+                // Current character is a sign.
+                toStateQ1(ch);
+            } else if (isdigit(ch)) {
+                // Current character is a digit.
+                toStateQ2(ch - '0');
+            } else {
+                // Current character is not a space/sign/digit.
+                // Reached a dead state.
+                toStateQd();
+            }
+        } else if (currentState == q1 || currentState == q2) {
+            // Previous character was a sign or digit.
+            if (isdigit(ch)) {
+                // Current character is a digit.
+                toStateQ2(ch - '0');
+            } else {
+                // Current character is not a digit.
+                // Reached a dead state.
+                toStateQd();
+            }
+        }
+    }
+    
+    // Return the final result formed with it's sign.
+    int getInteger() {
+        return sign * result;
+    }
+    
+    // Get current state.
+    State getState() {
+        return currentState;
+    }
+};
+
+class Solution {
+public:
+    int myAtoi(string s) {
+        StateMachine Q;
+        
+        for (int i = 0; i < s.size() && Q.getState() != qd; ++i) {
+            Q.transition(s[i]);
+        }
+        
+        return Q.getInteger();
+    }
+};
 ```
 ```
 ```
 ## 009_PalindromeNumber
 ```
+public class Solution {
+    public bool IsPalindrome(int x) {
+        // Special cases:
+        // As discussed above, when x < 0, x is not a palindrome.
+        // Also if the last digit of the number is 0, in order to be a palindrome,
+        // the first digit of the number also needs to be 0.
+        // Only 0 satisfy this property.
+        if(x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int revertedNumber = 0;
+        while(x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
+        }
+
+        // When the length is an odd number, we can get rid of the middle digit by revertedNumber/10
+        // For example when the input is 12321, at the end of the while loop we get x = 12, revertedNumber = 123,
+        // since the middle digit doesn't matter in palidrome(it will always equal to itself), we can simply get rid of it.
+        return x == revertedNumber || x == revertedNumber/10;
+    }
+}
 ```
 ```
 ```
@@ -63,55 +512,508 @@
 ```
 ## 010_RegularExpressionMatching
 ```
+class Solution(object):
+    def isMatch(self, text, pattern):
+        if not pattern:
+            return not text
+
+        first_match = bool(text) and pattern[0] in {text[0], '.'}
+
+        if len(pattern) >= 2 and pattern[1] == '*':
+            return (self.isMatch(text, pattern[2:]) or
+                    first_match and self.isMatch(text[1:], pattern))
+        else:
+            return first_match and self.isMatch(text[1:], pattern[1:])
 ```
 ```
+class Solution(object):
+    def isMatch(self, text, pattern):
+        memo = {}
+        def dp(i, j):
+            if (i, j) not in memo:
+                if j == len(pattern):
+                    ans = i == len(text)
+                else:
+                    first_match = i < len(text) and pattern[j] in {text[i], '.'}
+                    if j+1 < len(pattern) and pattern[j+1] == '*':
+                        ans = dp(i, j+2) or first_match and dp(i+1, j)
+                    else:
+                        ans = first_match and dp(i+1, j+1)
+
+                memo[i, j] = ans
+            return memo[i, j]
+
+        return dp(0, 0)
 ```
 ```
+class Solution(object):
+    def isMatch(self, text, pattern):
+        dp = [[False] * (len(pattern) + 1) for _ in range(len(text) + 1)]
+
+        dp[-1][-1] = True
+        for i in range(len(text), -1, -1):
+            for j in range(len(pattern) - 1, -1, -1):
+                first_match = i < len(text) and pattern[j] in {text[i], '.'}
+                if j+1 < len(pattern) and pattern[j+1] == '*':
+                    dp[i][j] = dp[i][j+2] or first_match and dp[i+1][j]
+                else:
+                    dp[i][j] = first_match and dp[i+1][j+1]
+
+        return dp[0][0]
 ```
 ## 011_ContainerWithMostWater
 ```
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        maxarea = 0
+        for left in range(len(height)):
+            for right in range(left + 1, len(height)):
+                width = right - left
+                maxarea = max(maxarea, min(height[left], height[right]) * width)
+
+        return maxarea
 ```
 ```
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        maxarea = 0
+        left = 0
+        right = len(height) - 1
+        
+        while left < right:
+            width = right - left
+            maxarea = max(maxarea, min(height[left], height[right]) * width)
+            if height[left] <= height[right]:
+                left += 1
+            else:
+                right -= 1
+                
+        return maxarea
 ```
 ```
 ```
 ## 012_IntegertoRoman
 ```
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        digits = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"), 
+                  (90, "XC"), (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), 
+                  (5, "V"), (4, "IV"), (1, "I")]
+        
+        roman_digits = []
+        # Loop through each symbol.
+        for value, symbol in digits:
+            # We don't want to continue looping if we're done.
+            if num == 0: break
+            count, num = divmod(num, value)
+            # Append "count" copies of "symbol" to roman_digits.
+            roman_digits.append(symbol * count)
+        return "".join(roman_digits)
 ```
 ```
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        thousands = ["", "M", "MM", "MMM"]
+        hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+        tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+        ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+        return (thousands[num // 1000] + hundreds[num % 1000 // 100] 
+               + tens[num % 100 // 10] + ones[num % 10])
 ```
 ```
 ```
 ## 013_RomantoInteger
 ```
+values = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+}
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        total = 0
+        i = 0
+        while i < len(s):
+            # If this is the subtractive case.
+            if i + 1 < len(s) and values[s[i]] < values[s[i + 1]]:
+                total += values[s[i + 1]] - values[s[i]]
+                i += 2
+            # Else this is NOT the subtractive case.
+            else:
+                total += values[s[i]]
+                i += 1
+        return total
 ```
 ```
+values = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+    "IV": 4,
+    "IX": 9,
+    "XL": 40, 
+    "XC": 90,
+    "CD": 400,
+    "CM": 900
+}
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        total = 0
+        i = 0
+        while i < len(s):
+            # This is the subtractive case.
+            if i < len(s) - 1 and s[i:i+2] in values:
+                total += values[s[i:i+2]] 
+                i += 2
+            else:
+                total += values[s[i]]
+                i += 1
+        return total
 ```
 ```
+values = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+}
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        total = values.get(s[-1])
+        for i in reversed(range(len(s) - 1)):
+            if values[s[i]] < values[s[i + 1]]:
+                total -= values[s[i]]
+            else:
+                total += values[s[i]]
+        return total
+
 ```
 ## 014_LongestCommonPrefix
 ```
+ public String longestCommonPrefix(String[] strs) {
+    if (strs.length == 0) return "";
+    String prefix = strs[0];
+    for (int i = 1; i < strs.length; i++)
+        while (strs[i].indexOf(prefix) != 0) {
+            prefix = prefix.substring(0, prefix.length() - 1);
+            if (prefix.isEmpty()) return "";
+        }        
+    return prefix;
+}
 ```
 ```
+public String longestCommonPrefix(String[] strs) {
+    if (strs == null || strs.length == 0) return "";
+    for (int i = 0; i < strs[0].length() ; i++){
+        char c = strs[0].charAt(i);
+        for (int j = 1; j < strs.length; j ++) {
+            if (i == strs[j].length() || strs[j].charAt(i) != c)
+                return strs[0].substring(0, i);             
+        }
+    }
+    return strs[0];
+}
 ```
 ```
+public String longestCommonPrefix(String[] strs) {
+    if (strs == null || strs.length == 0) return "";    
+        return longestCommonPrefix(strs, 0 , strs.length - 1);
+}
+
+private String longestCommonPrefix(String[] strs, int l, int r) {
+    if (l == r) {
+        return strs[l];
+    }
+    else {
+        int mid = (l + r)/2;
+        String lcpLeft =   longestCommonPrefix(strs, l , mid);
+        String lcpRight =  longestCommonPrefix(strs, mid + 1,r);
+        return commonPrefix(lcpLeft, lcpRight);
+   }
+}
+
+String commonPrefix(String left,String right) {
+    int min = Math.min(left.length(), right.length());       
+    for (int i = 0; i < min; i++) {
+        if ( left.charAt(i) != right.charAt(i) )
+            return left.substring(0, i);
+    }
+    return left.substring(0, min);
+}
 ```
+```
+public String longestCommonPrefix(String[] strs) {
+    if (strs == null || strs.length == 0)
+        return "";
+    int minLen = Integer.MAX_VALUE;
+    for (String str : strs)
+        minLen = Math.min(minLen, str.length());
+    int low = 1;
+    int high = minLen;
+    while (low <= high) {
+        int middle = (low + high) / 2;
+        if (isCommonPrefix(strs, middle))
+            low = middle + 1;
+        else
+            high = middle - 1;
+    }
+    return strs[0].substring(0, (low + high) / 2);
+}
+
+private boolean isCommonPrefix(String[] strs, int len){
+    String str1 = strs[0].substring(0,len);
+    for (int i = 1; i < strs.length; i++)
+        if (!strs[i].startsWith(str1))
+            return false;
+    return true;
+}
+```
+
+```
+public String longestCommonPrefix(String q, String[] strs) {
+    if (strs == null || strs.length == 0)
+         return "";  
+    if (strs.length == 1)
+         return strs[0];
+    Trie trie = new Trie();      
+    for (int i = 1; i < strs.length ; i++) {
+        trie.insert(strs[i]);
+    }
+    return trie.searchLongestPrefix(q);
+}
+
+class TrieNode {
+
+    // R links to node children
+    private TrieNode[] links;
+
+    private final int R = 26;
+
+    private boolean isEnd;
+
+    // number of children non null links
+    private int size;    
+    public void put(char ch, TrieNode node) {
+        links[ch -'a'] = node;
+        size++;
+    }
+
+    public int getLinks() {
+        return size;
+    }
+    //assume methods containsKey, isEnd, get, put are implemented as it is described
+   //in  https://leetcode.com/articles/implement-trie-prefix-tree/)
+}
+
+public class Trie {
+
+    private TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+//assume methods insert, search, searchPrefix are implemented as it is described
+//in  https://leetcode.com/articles/implement-trie-prefix-tree/)
+    private String searchLongestPrefix(String word) {
+        TrieNode node = root;
+        StringBuilder prefix = new StringBuilder();
+        for (int i = 0; i < word.length(); i++) {
+            char curLetter = word.charAt(i);
+            if (node.containsKey(curLetter) && (node.getLinks() == 1) && (!node.isEnd())) {
+                prefix.append(curLetter);
+                node = node.get(curLetter);
+            }
+            else
+                return prefix.toString();
+
+         }
+         return prefix.toString();
+    }
+}
+```
+
 ## 015_3Sum
+
+```
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(begin(nums), end(nums));
+        vector<vector<int>> res;
+        for (int i = 0; i < nums.size() && nums[i] <= 0; ++i)
+            if (i == 0 || nums[i - 1] != nums[i]) {
+                twoSumII(nums, i, res);
+            }
+        return res;
+    }
+    void twoSumII(vector<int>& nums, int i, vector<vector<int>> &res) {
+        int lo = i + 1, hi = nums.size() - 1;
+        while (lo < hi) {
+            int sum = nums[i] + nums[lo] + nums[hi];
+            if (sum < 0) {
+                ++lo;
+            } else if (sum > 0) {
+                --hi;
+            } else {
+                res.push_back({ nums[i], nums[lo++], nums[hi--] });
+                while (lo < hi && nums[lo] == nums[lo - 1])
+                    ++lo;
+            }
+        }
+    }
+};
 ```
 ```
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(begin(nums), end(nums));
+        vector<vector<int>> res;
+        for (int i = 0; i < nums.size() && nums[i] <= 0; ++i)
+            if (i == 0 || nums[i - 1] != nums[i]) {
+                twoSum(nums, i, res);
+            }
+        return res;
+    }
+    void twoSum(vector<int>& nums, int i, vector<vector<int>> &res) {
+        unordered_set<int> seen;
+        for (int j = i + 1; j < nums.size(); ++j) {
+            int complement = -nums[i] - nums[j];
+            if (seen.count(complement)) {
+                res.push_back({nums[i], complement, nums[j]});
+                while (j + 1 < nums.size() && nums[j] == nums[j + 1]) {
+                    ++j;
+                }
+            }
+            seen.insert(nums[j]);
+        }
+    }
+};
 ```
 ```
-```
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        set<vector<int>> res;
+        unordered_set<int> dups;
+        unordered_map<int, int> seen;
+        for (int i = 0; i < nums.size(); ++i)
+            if (dups.insert(nums[i]).second) {
+                for (int j = i + 1; j < nums.size(); ++j) {
+                    int complement = -nums[i] - nums[j];
+                    auto it = seen.find(complement);
+                    if (it != end(seen) && it->second == i) {
+                        vector<int> triplet = {nums[i], nums[j], complement};
+                        sort(begin(triplet), end(triplet));
+                        res.insert(triplet);
+                    }
+                    seen[nums[j]] = i;
+                }
+            }
+        return vector<vector<int>>(begin(res), end(res));
+    }
+};
 ```
 ## 016_3SumClosest
 ```
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        int diff = INT_MAX;
+        int sz = nums.size();
+        sort(begin(nums), end(nums));
+        for (int i = 0; i < sz && diff != 0; ++i) {
+            int lo = i + 1;
+            int hi = sz - 1;
+            while (lo < hi) {
+                int sum = nums[i] + nums[lo] + nums[hi];
+                if (abs(target - sum) < abs(diff)) {
+                    diff = target - sum;
+                }
+                if (sum < target) {
+                    ++lo;
+                } else {
+                    --hi;
+                }
+            }
+        }
+        return target - diff;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        int diff = INT_MAX;
+        int sz = nums.size();
+        sort(begin(nums), end(nums));
+        for (int i = 0; i < sz && diff != 0; ++i) {
+            for (int j = i + 1; j < sz - 1; ++j) {
+                int complement = target - nums[i] - nums[j];
+                auto it = upper_bound(begin(nums) + j + 1, end(nums), complement);
+                int hi = it - begin(nums), lo = hi - 1;
+                if (hi < sz && abs(complement - nums[hi]) < abs(diff)) {
+                    diff = complement - nums[hi];
+                }
+                if (lo > j && abs(complement - nums[lo]) < abs(diff)) {
+                    diff = complement - nums[lo];
+                }
+            }
+        }
+        return target - diff;
+    }
+};
 ```
 ```
 ```
 ## 017_LetterCombinationsofaPhoneNumber
 ```
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        # If the input is empty, immediately return an empty answer array
+        if len(digits) == 0: 
+            return []
+        
+        # Map all the digits to their corresponding letters
+        letters = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", 
+                   "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        
+        def backtrack(index, path):
+            # If the path is the same length as digits, we have a complete combination
+            if len(path) == len(digits):
+                combinations.append("".join(path))
+                return # Backtrack
+            
+            # Get the letters that the current digit maps to, and loop through them
+            possible_letters = letters[digits[index]]
+            for letter in possible_letters:
+                # Add the letter to our current path
+                path.append(letter)
+                # Move on to the next digit
+                backtrack(index + 1, path)
+                # Backtrack by removing the letter before moving onto the next
+                path.pop()
+
+        # Initiate backtracking with an empty path and starting index of 0
+        combinations = []
+        backtrack(0, [])
+        return combinations
 ```
 ```
 ```
@@ -119,20 +1021,208 @@
 ```
 ## 018_4Sum
 ```
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        sort(begin(nums), end(nums));
+        return kSum(nums, target, 0, 4);
+    }
+	
+    vector<vector<int>> kSum(vector<int>& nums, long long target, int start, int k) {
+        vector<vector<int>> res;
+        
+        // If we have run out of numbers to add, return res.
+        if (start == nums.size()) {
+            return res;
+        }
+        
+        // There are k remaining values to add to the sum. The 
+        // average of these values is at least target / k.
+        long long average_value = target / k;
+        
+        // We cannot obtain a sum of target if the smallest value
+        // in nums is greater than target / k or if the largest 
+        // value in nums is smaller than target / k.
+        if  (nums[start] > average_value || average_value > nums.back()) {
+            return res;
+        }
+            
+        if (k == 2) {
+            return twoSum(nums, target, start);
+        }
+    
+        for (int i = start; i < nums.size(); ++i) {
+            if (i == start || nums[i - 1] != nums[i]) {
+                for (vector<int>& subset : kSum(nums, static_cast<long long>(target) - nums[i], i + 1, k - 1)) {
+                    res.push_back({nums[i]});
+                    res.back().insert(end(res.back()), begin(subset), end(subset));
+                }
+            }
+        }
+                                            
+        return res;
+    }
+	
+    vector<vector<int>> twoSum(vector<int>& nums, long long target, int start) {
+        vector<vector<int>> res;
+        int lo = start, hi = int(nums.size()) - 1;
+    
+        while (lo < hi) {
+            int curr_sum = nums[lo] + nums[hi];
+            if (curr_sum < target || (lo > start && nums[lo] == nums[lo - 1])) {
+                ++lo;
+            } else if (curr_sum > target || (hi < nums.size() - 1 && nums[hi] == nums[hi + 1])) {
+                --hi;
+            } else {
+                res.push_back({ nums[lo++], nums[hi--] });
+            }
+        }
+                                                           
+        return res;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        sort(begin(nums), end(nums));
+        return kSum(nums, target, 0, 4);
+    }
+	
+    vector<vector<int>> kSum(vector<int>& nums, long long target, int start, int k) {
+        vector<vector<int>> res;
+        
+        // If we have run out of numbers to add, return res.
+        if (start == nums.size()) {
+            return res;
+        }
+        
+        // There are k remaining values to add to the sum. The 
+        // average of these values is at least target / k.
+        long long average_value = target / k;
+        
+        // We cannot obtain a sum of target if the smallest value
+        // in nums is greater than target / k or if the largest 
+        // value in nums is smaller than target / k.
+        if  (nums[start] > average_value || average_value > nums.back()) {
+            return res;
+        }
+            
+        if (k == 2) {
+            return twoSum(nums, target, start);
+        }
+    
+        for (int i = start; i < nums.size(); ++i) {
+            if (i == start || nums[i - 1] != nums[i]) {
+                for (vector<int>& subset : kSum(nums, static_cast<long>(target) - nums[i], i + 1, k - 1)) {
+                    res.push_back({nums[i]});
+                    res.back().insert(end(res.back()), begin(subset), end(subset));
+                }
+            }
+        }
+                                            
+        return res;
+    }
+	
+    vector<vector<int>> twoSum(vector<int>& nums, long long target, int start) {
+        vector<vector<int>> res;
+        unordered_set<long long> s;
+    
+        for (int i = start; i < nums.size(); ++i) {
+            if (res.empty() || res.back()[1] != nums[i]) {
+                if (s.count(target - nums[i])) {
+                    res.push_back({int(target - nums[i]), nums[i]});
+                }
+            }
+            s.insert(nums[i]);
+        }
+                                             
+        return res;
+    }  
+};
 ```
 ```
 ```
 ## 019_RemoveNthNodeFromEndofList
 ```
+public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    int length  = 0;
+    ListNode first = head;
+    while (first != null) {
+        length++;
+        first = first.next;
+    }
+    length -= n;
+    first = dummy;
+    while (length > 0) {
+        length--;
+        first = first.next;
+    }
+    first.next = first.next.next;
+    return dummy.next;
+}
 ```
 ```
+public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode first = dummy;
+    ListNode second = dummy;
+    // Advances first pointer so that the gap between first and second is n nodes apart
+    for (int i = 1; i <= n + 1; i++) {
+        first = first.next;
+    }
+    // Move first to the end, maintaining the gap
+    while (first != null) {
+        first = first.next;
+        second = second.next;
+    }
+    second.next = second.next.next;
+    return dummy.next;
+}
 ```
 ```
 ```
 ## 020_ValidParentheses
 ```
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+
+        # The stack to keep track of opening brackets.
+        stack = []
+
+        # Hash map for keeping track of mappings. This keeps the code very clean.
+        # Also makes adding more types of parenthesis easier
+        mapping = {")": "(", "}": "{", "]": "["}
+
+        # For every bracket in the expression.
+        for char in s:
+
+            # If the character is an closing bracket
+            if char in mapping:
+
+                # Pop the topmost element from the stack, if it is non empty
+                # Otherwise assign a dummy value of '#' to the top_element variable
+                top_element = stack.pop() if stack else '#'
+
+                # The mapping for the opening bracket in our hash and the top
+                # element of the stack don't match, return False
+                if mapping[char] != top_element:
+                    return False
+            else:
+                # We have an opening bracket, simply push it onto the stack.
+                stack.append(char)
+
+        # In the end, if the stack is empty, then we have a valid expression.
+        # The stack won't be empty for cases like ((()
+        return not stack
 ```
 ```
 ```
@@ -140,41 +1230,396 @@
 ```
 ## 021_MergeTwoSortedLists
 ```
+class Solution:
+    def mergeTwoLists(self, l1, l2):
+        if l1 is None:
+            return l2
+        elif l2 is None:
+            return l1
+        elif l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
 ```
 ```
+class Solution:
+    def mergeTwoLists(self, l1, l2):
+        # maintain an unchanging reference to node ahead of the return node.
+        prehead = ListNode(-1)
+
+        prev = prehead
+        while l1 and l2:
+            if l1.val <= l2.val:
+                prev.next = l1
+                l1 = l1.next
+            else:
+                prev.next = l2
+                l2 = l2.next            
+            prev = prev.next
+
+        # At least one of l1 and l2 can still have nodes at this point, so connect
+        # the non-null list to the end of the merged list.
+        prev.next = l1 if l1 is not None else l2
+
+        return prehead.next
 ```
 ```
 ```
 ## 022_GenerateParentheses
 ```
+class Solution(object):
+    def generateParenthesis(self, n):
+        def generate(A = []):
+            if len(A) == 2*n:
+                if valid(A):
+                    ans.append("".join(A))
+            else:
+                A.append('(')
+                generate(A)
+                A.pop()
+                A.append(')')
+                generate(A)
+                A.pop()
+
+        def valid(A):
+            bal = 0
+            for c in A:
+                if c == '(': bal += 1
+                else: bal -= 1
+                if bal < 0: return False
+            return bal == 0
+
+        ans = []
+        generate()
+        return ans
 ```
 ```
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        ans = []
+        def backtrack(S = [], left = 0, right = 0):
+            if len(S) == 2 * n:
+                ans.append("".join(S))
+                return
+            if left < n:
+                S.append("(")
+                backtrack(S, left+1, right)
+                S.pop()
+            if right < left:
+                S.append(")")
+                backtrack(S, left, right+1)
+                S.pop()
+        backtrack()
+        return ans
 ```
 ```
+class Solution(object):
+    def generateParenthesis(self, N):
+        if N == 0: return ['']
+        ans = []
+        for c in xrange(N):
+            for left in self.generateParenthesis(c):
+                for right in self.generateParenthesis(N-1-c):
+                    ans.append('({}){}'.format(left, right))
+        return ans
 ```
 ## 023_MergekSortedLists
 ```
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        self.nodes = []
+        head = point = ListNode(0)
+        for l in lists:
+            while l:
+                self.nodes.append(l.val)
+                l = l.next
+        for x in sorted(self.nodes):
+            point.next = ListNode(x)
+            point = point.next
+        return head.next
 ```
 ```
+from Queue import PriorityQueue
+
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        head = point = ListNode(0)
+        q = PriorityQueue()
+        for l in lists:
+            if l:
+                q.put((l.val, l))
+        while not q.empty():
+            val, node = q.get()
+            point.next = ListNode(val)
+            point = point.next
+            node = node.next
+            if node:
+                q.put((node.val, node))
+        return head.next
 ```
 ```
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        amount = len(lists)
+        interval = 1
+        while interval < amount:
+            for i in range(0, amount - interval, interval * 2):
+                lists[i] = self.merge2Lists(lists[i], lists[i + interval])
+            interval *= 2
+        return lists[0] if amount > 0 else None
+
+    def merge2Lists(self, l1, l2):
+        head = point = ListNode(0)
+        while l1 and l2:
+            if l1.val <= l2.val:
+                point.next = l1
+                l1 = l1.next
+            else:
+                point.next = l2
+                l2 = l1
+                l1 = point.next.next
+            point = point.next
+        if not l1:
+            point.next=l2
+        else:
+            point.next=l1
+        return head.next
 ```
 ## 024_SwapNodesinPairs
 ```
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+class Solution(object):
+    def swapPairs(self, head: ListNode) -> ListNode:
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+
+        # If the list has no node or has only one node left.
+        if not head or not head.next:
+            return head
+
+        # Nodes to be swapped
+        first_node = head
+        second_node = head.next
+
+        # Swapping
+        first_node.next  = self.swapPairs(second_node.next)
+        second_node.next = first_node
+
+        # Now the head is the second node
+        return second_node
 ```
 ```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # Dummy node acts as the prevNode for the head node
+        # of the list and hence stores pointer to the head node.
+        dummy = ListNode(-1)
+        dummy.next = head
+
+        prev_node = dummy
+
+        while head and head.next:
+
+            # Nodes to be swapped
+            first_node = head;
+            second_node = head.next;
+
+            # Swapping
+            prev_node.next = second_node
+            first_node.next = second_node.next
+            second_node.next = first_node
+
+            # Reinitializing the head and prev_node for next swap
+            prev_node = first_node
+            head = first_node.next
+
+        # Return the new head node.
+        return dummy.next
 ```
 ```
 ```
 ## 025_ReverseNodesink-Group
 ```
+class Solution:
+    
+    def reverseLinkedList(self, head, k):
+        
+        # Reverse k nodes of the given linked list.
+        # This function assumes that the list contains 
+        # atleast k nodes.
+        new_head, ptr = None, head
+        while k:
+            
+            # Keep track of the next node to process in the
+            # original list
+            next_node = ptr.next
+            
+            # Insert the node pointed to by "ptr"
+            # at the beginning of the reversed list
+            ptr.next = new_head
+            new_head = ptr
+            
+            # Move on to the next node
+            ptr = next_node
+            
+            # Decrement the count of nodes to be reversed by 1
+            k -= 1
+        
+        # Return the head of the reversed list
+        return new_head
+                
+    
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        
+        count = 0
+        ptr = head
+        
+        # First, see if there are atleast k nodes
+        # left in the linked list.
+        while count < k and ptr:
+            ptr = ptr.next
+            count += 1
+        
+        # If we have k nodes, then we reverse them
+        if count == k: 
+            
+            # Reverse the first k nodes of the list and
+            # get the reversed list's head.
+            reversedHead = self.reverseLinkedList(head, k)
+            
+            # Now recurse on the remaining linked list. Since
+            # our recursion returns the head of the overall processed
+            # list, we use that and the "original" head of the "k" nodes
+            # to re-wire the connections.
+            head.next = self.reverseKGroup(ptr, k)
+            return reversedHead
+        return head
 ```
 ```
+class Solution:
+    
+    def reverseLinkedList(self, head, k):
+        
+        # Reverse k nodes of the given linked list.
+        # This function assumes that the list contains 
+        # atleast k nodes.
+        new_head, ptr = None, head
+        while k:
+            
+            # Keep track of the next node to process in the
+            # original list
+            next_node = ptr.next
+            
+            # Insert the node pointed to by "ptr"
+            # at the beginning of the reversed list
+            ptr.next = new_head
+            new_head = ptr
+            
+            # Move on to the next node
+            ptr = next_node
+            
+            # Decrement the count of nodes to be reversed by 1
+            k -= 1
+        
+        # Return the head of the reversed list
+        return new_head
+                
+    
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        
+        ptr = head
+        ktail = None
+        
+        # Head of the final, moified linked list
+        new_head = None
+        
+        # Keep going until there are nodes in the list
+        while ptr:
+            count = 0
+            
+            # Start counting nodes from the head
+            ptr = head
+            
+            # Find the head of the next k nodes
+            while count < k and ptr:
+                ptr = ptr.next
+                count += 1
+
+            # If we counted k nodes, reverse them        
+            if count == k:
+                
+                # Reverse k nodes and get the new head
+                revHead = self.reverseLinkedList(head, k)
+                
+                # new_head is the head of the final linked list
+                if not new_head:
+                    new_head = revHead
+                
+                # ktail is the tail of the previous block of 
+                # reversed k nodes
+                if ktail:
+                    ktail.next = revHead
+                    
+                ktail = head 
+                head = ptr
+        
+        # attach the final, possibly un-reversed portion
+        if ktail:
+            ktail.next = head
+        
+        return new_head if new_head else head
 ```
 ```
 ```
 ## 026_RemoveDuplicatesfromSortedArray
 ```
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int insertIndex = 1;
+        for(int i = 1; i < nums.size(); i++){
+            // We skip to next index if we see a duplicate element
+            if(nums[i - 1] != nums[i]) {    
+                // Storing the unique element at insertIndex index and incrementing the insertIndex by 1 
+                nums[insertIndex] = nums[i];     
+                insertIndex++;
+            }
+        }
+        return insertIndex;
+    }
+};
 ```
 ```
 ```
@@ -182,8 +1627,32 @@
 ```
 ## 027_RemoveElement
 ```
+public int removeElement(int[] nums, int val) {
+    int i = 0;
+    for (int j = 0; j < nums.length; j++) {
+        if (nums[j] != val) {
+            nums[i] = nums[j];
+            i++;
+        }
+    }
+    return i;
+}
 ```
 ```
+public int removeElement(int[] nums, int val) {
+    int i = 0;
+    int n = nums.length;
+    while (i < n) {
+        if (nums[i] == val) {
+            nums[i] = nums[n - 1];
+            // reduce array size by one
+            n--;
+        } else {
+            i++;
+        }
+    }
+    return n;
+}
 ```
 ```
 ```
@@ -196,12 +1665,284 @@
 ```
 ## 029_DivideTwoIntegers
 ```
+int divide(int dividend, int divisor) {
+
+    // Special case: overflow.
+    if (dividend == INT_MIN && divisor == -1) {
+        return INT_MAX;
+    }
+
+    /* We need to convert both numbers to negatives
+     * for the reasons explained above.
+     * Also, we count the number of negatives signs. */
+    int negatives = 2;
+    if (dividend > 0) {
+        negatives--;
+        dividend = -dividend;
+    }
+    if (divisor > 0) {
+        negatives--;
+        divisor = -divisor;
+    }
+
+    /* Count how many times the divisor has to be added
+     * to get the dividend. This is the quotient. */
+    int quotient = 0;
+    while (dividend - divisor <= 0) {
+        dividend -= divisor;
+        quotient--;
+    }
+
+    /* If there was originally one negative sign, then
+     * the quotient remains negative. Otherwise, switch
+     * it to positive. */
+    if (negatives != 1) {
+        return -quotient;
+    }
+    return quotient;
+}
 ```
 ```
+int HALF_INT_MIN = -1073741824;
+
+int divide(int dividend, int divisor) {
+
+    // Special case: overflow.
+    if (dividend == INT_MIN && divisor == -1) {
+        return INT_MAX;
+    }
+
+    /* We need to convert both numbers to negatives.
+     * Also, we count the number of negatives signs. */
+    int negatives = 2;
+    if (dividend > 0) {
+        negatives--;
+        dividend = -dividend;
+    }
+    if (divisor > 0) {
+        negatives--;
+        divisor = -divisor;
+    }
+
+    int quotient = 0;
+    /* Once the divisor is bigger than the current dividend,
+     * we can't fit any more copies of the divisor into it. */
+    while (divisor >= dividend) {
+        /* We know it'll fit at least once as divivend >= divisor.
+         * Note: We use a negative powerOfTwo as it's possible we might have
+         * the case divide(INT_MIN, -1). */
+        int powerOfTwo = -1;
+        int value = divisor;
+        /* Check if double the current value is too big. If not, continue doubling.
+        * If it is too big, stop doubling and continue with the next step */
+        while (value >= HALF_INT_MIN && value + value >= dividend) {
+            value += value;
+            powerOfTwo += powerOfTwo;
+        }
+        // We have been able to subtract divisor another powerOfTwo times.
+        quotient += powerOfTwo;
+        // Remove value so far so that we can continue the process with remainder.
+        dividend -= value;
+    }
+
+    /* If there was originally one negative sign, then
+     * the quotient remains negative. Otherwise, switch
+     * it to positive. */
+    if (negatives != 1) {
+        quotient = -quotient;
+    }
+    return quotient;
+}
 ```
 ```
+int HALF_INT_MIN = -1073741824;
+
+int divide(int dividend, int divisor) {
+
+    // Special case: overflow.
+    if (dividend == INT_MIN && divisor == -1) {
+        return INT_MAX;
+    }
+
+    /* We need to convert both numbers to negatives.
+     * Also, we count the number of negatives signs. */
+    int negatives = 2;
+    if (dividend > 0) {
+        negatives--;
+        dividend = -dividend;
+    }
+    if (divisor > 0) {
+        negatives--;
+        divisor = -divisor;
+    }
+
+    std::vector<int> doubles;
+    std::vector<int> powersOfTwo;
+
+    /* Nothing too exciting here, we're just making a list of doubles of 1 and
+     * the divisor. This is pretty much the same as Approach 2, except we're
+     * actually storing the values this time. */
+    int powerOfTwo = -1;
+    while (divisor >= dividend) {
+        doubles.push_back(divisor);
+        powersOfTwo.push_back(powerOfTwo);
+        // Prevent needless overflows from occurring...
+        if (divisor < HALF_INT_MIN) {
+            break;
+        }
+        divisor += divisor;
+        powerOfTwo += powerOfTwo;
+    }
+
+    int quotient = 0;
+    /* Go from largest double to smallest, checking if the current double fits.
+     * into the remainder of the dividend */
+    for (int i = doubles.size() - 1; i >= 0; i--) {
+        if (doubles[i] >= dividend) {
+            // If it does fit, add the current powerOfTwo to the quotient.
+            quotient += powersOfTwo[i];
+            // Update dividend to take into account the bit we've now removed.
+            dividend -= doubles[i];
+        }
+    }
+
+    /* If there was originally one negative sign, then
+     * the quotient remains negative. Otherwise, switch
+     * it to positive. */
+    if (negatives != 1) {
+        return -quotient;
+    }
+    return quotient;
+}
 ```
+```
+
+int HALF_INT_MIN = -1073741824;
+
+int divide(int dividend, int divisor) {
+
+    // Special case: overflow.
+    if (dividend == INT_MIN && divisor == -1) {
+        return INT_MAX;
+    }
+
+    /* We need to convert both numbers to negatives.
+     * Also, we count the number of negatives signs. */
+    int negatives = 2;
+    if (dividend > 0) {
+        negatives--;
+        dividend = -dividend;
+    }
+    if (divisor > 0) {
+        negatives--;
+        divisor = -divisor;
+    }
+
+     /* In the first loop, we simply find the largest double of divisor. This is
+     * very similar to the start of what we did in Approach 2.
+     * The >= is because we're working in negatives. In essence, that
+     * piece of code is checking that we're still nearer to 0 than we
+     * are to INT_MIN. */
+    int highestDouble = divisor;
+    int highestPowerOfTwo = -1;
+    while (highestDouble >= HALF_INT_MIN && dividend <= highestDouble + highestDouble) {
+        highestPowerOfTwo += highestPowerOfTwo;
+        highestDouble += highestDouble;
+    }
+
+    /* In the second loop, we work out which powers of two fit in, by
+     * halving highestDouble and highestPowerOfTwo repeatedly.
+     * We can do this using bit shifting so that we don't break the
+     * rules of the question :-) */
+    int quotient = 0;
+    while (dividend <= divisor) {
+        if (dividend <= highestDouble) {
+            quotient += highestPowerOfTwo;
+            dividend -= highestDouble;
+        }
+        /* We know that these are always even, so no need to worry about the
+         * annoying "bit-shift-odd-negative-number" case. */
+        highestPowerOfTwo >>= 1;
+        highestDouble >>= 1;
+    }
+
+    /* If there was originally one negative sign, then
+     * the quotient remains negative. Otherwise, switch
+     * it to positive. */
+    if (negatives != 1) {
+        return -quotient;
+    }
+    return quotient;
+}
+```
+
+```
+int HALF_INT_MIN = -1073741824;
+
+int divide(int dividend, int divisor) {
+
+    // Special cases: overflow.
+    if (dividend == INT_MIN && divisor == -1) {
+        return INT_MAX;
+    }
+    if (dividend == INT_MIN && divisor == 1) {
+        return INT_MIN;
+    }
+
+    /* We need to convert both numbers to negatives.
+     * Also, we count the number of negatives signs. */
+    int negatives = 2;
+    if (dividend > 0) {
+        negatives--;
+        dividend = -dividend;
+    }
+    if (divisor > 0) {
+        negatives--;
+        divisor = -divisor;
+    }
+
+    /* We want to find the largest doubling of the divisor in the negative 32-bit
+     * integer range that could fit into the dividend.
+     * Note if it would cause an overflow by being less than HALF_INT_MIN,
+     * then we just stop as we know double it would not fit into INT_MIN anyway. */
+    int maxBit = 0;
+    while (divisor >= HALF_INT_MIN && divisor + divisor >= dividend) {
+        maxBit += 1;
+        divisor += divisor;
+    }
+
+    int quotient = 0;
+    /* We start from the biggest bit and shift our divisor to the right
+     * until we can't shift it any further */
+    for (int bit = maxBit; bit >= 0; bit--) {
+        /* If the divisor fits into the dividend, then we should set the current
+         * bit to 1. We can do this by subtracting a 1 shifted by the appropriate
+         * number of bits. */
+        if (divisor >= dividend) {
+            quotient -= (1 << bit);
+            /* Remove the current divisor from the dividend, as we've now
+             * considered this part. */
+            dividend -= divisor;
+        }
+        /* Shift the divisor to the right so that it's in the right place
+         * for the next positon we're checking at. */
+        divisor = (divisor + 1) >> 1;
+    }
+
+    /* If there was originally one negative sign, then
+     * the quotient remains negative. Otherwise, switch
+     * it to positive. */
+    if (negatives != 1) {
+        quotient = -quotient;
+    }
+    return quotient;
+}
+```
+
+
+
 ## 030_SubstringwithConcatenationofAllWords
+
 ```
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
@@ -445,6 +2186,24 @@ public class Solution {
 ## 033_SearchinRotatedSortedArray
 
 ```
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        start, end = 0, len(nums) - 1
+        while start <= end:
+            mid = start + (end - start) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] >= nums[start]:
+                if target >= nums[start] and target < nums[mid]:
+                    end = mid - 1
+                else:
+                    start = mid + 1
+            else:
+                if target <= nums[end] and target > nums[mid]:
+                    start = mid + 1
+                else:
+                    end = mid - 1
+        return -1
 ```
 ```
 ```
@@ -765,6 +2524,31 @@ public:
 ```
 ## 039_CombinationSum
 ```
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+
+        results = []
+
+        def backtrack(remain, comb, start):
+            if remain == 0:
+                # make a deep copy of the current combination
+                results.append(list(comb))
+                return
+            elif remain < 0:
+                # exceed the scope, stop exploration.
+                return
+
+            for i in range(start, len(candidates)):
+                # add the number into the combination
+                comb.append(candidates[i])
+                # give the current number another chance, rather than moving on
+                backtrack(remain - candidates[i], comb, i)
+                # backtrack, remove the number from the combination
+                comb.pop()
+
+        backtrack(target, [], 0)
+
+        return results
 ```
 ```
 ```
@@ -772,8 +2556,77 @@ public:
 ```
 ## 040_CombinationSumII
 ```
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+
+        def backtrack(comb, remain, curr, counter, results):
+            if remain == 0:
+                # make a deep copy of the current combination
+                #   rather than keeping the reference.
+                results.append(list(comb))
+                return
+            elif remain < 0:
+                return
+
+            for next_curr in range(curr, len(counter)):
+                candidate, freq = counter[next_curr]
+
+                if freq <= 0:
+                    continue
+
+                # add a new element to the current combination
+                comb.append(candidate)
+                counter[next_curr] = (candidate, freq-1)
+
+                # continue the exploration with the updated combination
+                backtrack(comb, remain - candidate, next_curr, counter, results)
+
+                # backtrack the changes, so that we can try another candidate
+                counter[next_curr] = (candidate, freq)
+                comb.pop()
+
+        results = []  # container to hold the final combinations
+        counter = Counter(candidates)
+        # convert the counter table to a list of (num, count) tuples
+        counter = [(c, counter[c]) for c in counter]
+
+        backtrack(comb = [], remain = target, curr = 0,
+                  counter = counter, results = results)
+
+        return results
 ```
 ```
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+
+        def backtrack(comb, remain, curr, results):
+
+            if remain == 0:
+                # make a deep copy of the resulted combination
+                results.append(list(comb))
+                return
+
+            for next_curr in range(curr, len(candidates)):
+
+                if next_curr > curr \
+                  and candidates[next_curr] == candidates[next_curr-1]:
+                    continue
+
+                pick = candidates[next_curr]
+                # optimization: skip the rest of elements starting from 'curr' index
+                if remain - pick < 0:
+                    break
+
+                comb.append(pick)
+                backtrack(comb, remain - pick, next_curr + 1, results)
+                comb.pop()
+
+        candidates.sort()
+
+        comb, results = [], []
+        backtrack(comb, target, 0, results)
+
+        return results
 ```
 ```
 ```
@@ -825,10 +2678,65 @@ class Solution:
 ```
 ## 042_TrappingRainWater
 ```
+int trap(vector<int>& height)
+{
+    if(height.empty())
+        return 0;
+    int ans = 0;
+    int size = height.size();
+    vector<int> left_max(size), right_max(size);
+    left_max[0] = height[0];
+    for (int i = 1; i < size; i++) {
+        left_max[i] = max(height[i], left_max[i - 1]);
+    }
+    right_max[size - 1] = height[size - 1];
+    for (int i = size - 2; i >= 0; i--) {
+        right_max[i] = max(height[i], right_max[i + 1]);
+    }
+    for (int i = 1; i < size - 1; i++) {
+        ans += min(left_max[i], right_max[i]) - height[i];
+    }
+    return ans;
+}
 ```
 ```
+int trap(vector<int>& height)
+{
+    int ans = 0, current = 0;
+    stack<int> st;
+    while (current < height.size()) {
+        while (!st.empty() && height[current] > height[st.top()]) {
+            int top = st.top();
+            st.pop();
+            if (st.empty())
+                break;
+            int distance = current - st.top() - 1;
+            int bounded_height = min(height[current], height[st.top()]) - height[top];
+            ans += distance * bounded_height;
+        }
+        st.push(current++);
+    }
+    return ans;
+}
 ```
 ```
+int trap(vector<int>& height)
+{
+    int left = 0, right = height.size() - 1;
+    int ans = 0;
+    int left_max = 0, right_max = 0;
+    while (left < right) {
+        if (height[left] < height[right]) {
+            height[left] >= left_max ? (left_max = height[left]) : ans += (left_max - height[left]);
+            ++left;
+        }
+        else {
+            height[right] >= right_max ? (right_max = height[right]) : ans += (right_max - height[right]);
+            --right;
+        }
+    }
+    return ans;
+}
 ```
 ## 043_MultiplyStrings
 ```
@@ -1200,6 +3108,29 @@ class Solution:
 ```
 ## 046_Permutations
 ```
+class Solution:
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        def backtrack(first = 0):
+            # if all integers are used up
+            if first == n:  
+                output.append(nums[:])
+            for i in range(first, n):
+                # place i-th integer first 
+                # in the current permutation
+                nums[first], nums[i] = nums[i], nums[first]
+                # use next integers to complete the permutations
+                backtrack(first + 1)
+                # backtrack
+                nums[first], nums[i] = nums[i], nums[first]
+        
+        n = len(nums)
+        output = []
+        backtrack()
+        return output
 ```
 ```
 ```
@@ -1207,6 +3138,30 @@ class Solution:
 ```
 ## 047_PermutationsII
 ```
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        results = []
+        def backtrack(comb, counter):
+            if len(comb) == len(nums):
+                # make a deep copy of the resulting permutation,
+                # since the permutation would be backtracked later.
+                results.append(list(comb))
+                return
+
+            for num in counter:
+                if counter[num] > 0:
+                    # add this number into the current combination
+                    comb.append(num)
+                    counter[num] -= 1
+                    # continue the exploration
+                    backtrack(comb, counter)
+                    # revert the choice for the next exploration
+                    comb.pop()
+                    counter[num] += 1
+
+        backtrack([], Counter(nums))
+
+        return results
 ```
 ```
 ```
@@ -1272,10 +3227,65 @@ class Solution:
 ```
 ## 050_Pow(x,n)
 ```
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long N = n;
+        if (N < 0) {
+            x = 1 / x;
+            N = -N;
+        }
+        double ans = 1;
+        for (long long i = 0; i < N; i++)
+            ans = ans * x;
+        return ans;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    double fastPow(double x, long long n) {
+        if (n == 0) {
+            return 1.0;
+        }
+        double half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        } else {
+            return half * half * x;
+        }
+    }
+    double myPow(double x, int n) {
+        long long N = n;
+        if (N < 0) {
+            x = 1 / x;
+            N = -N;
+        }
+        return fastPow(x, N);
+    }
+};
 ```
 ```
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long N = n;
+        if (N < 0) {
+            x = 1 / x;
+            N = -N;
+        }
+        double ans = 1;
+        double current_product = x;
+        for (long long i = N; i ; i /= 2) {
+            if ((i % 2) == 1) {
+                ans = ans * current_product;
+            }
+            current_product = current_product * current_product;
+        }
+        return ans;
+    }
+};
 ```
 ## 051_N-Queens
 ```
@@ -1372,10 +3382,68 @@ class Solution:
 ```
 ## 053_MaximumSubarray
 ```
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        max_subarray = -math.inf
+        for i in range(len(nums)):
+            current_subarray = 0
+            for j in range(i, len(nums)):
+                current_subarray += nums[j]
+                max_subarray = max(max_subarray, current_subarray)
+        
+        return max_subarray
 ```
 ```
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        # Initialize our variables using the first element.
+        current_subarray = max_subarray = nums[0]
+        
+        # Start with the 2nd element since we already used the first one.
+        for num in nums[1:]:
+            # If current_subarray is negative, throw it away. Otherwise, keep adding to it.
+            current_subarray = max(num, current_subarray + num)
+            max_subarray = max(max_subarray, current_subarray)
+        
+        return max_subarray
 ```
 ```
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        def findBestSubarray(nums, left, right):
+            # Base case - empty array.
+            if left > right:
+                return -math.inf
+
+            mid = (left + right) // 2
+            curr = best_left_sum = best_right_sum = 0
+
+            # Iterate from the middle to the beginning.
+            for i in range(mid - 1, left - 1, -1):
+                curr += nums[i]
+                best_left_sum = max(best_left_sum, curr)
+
+            # Reset curr and iterate from the middle to the end.
+            curr = 0
+            for i in range(mid + 1, right + 1):
+                curr += nums[i]
+                best_right_sum = max(best_right_sum, curr)
+
+            # The best_combined_sum uses the middle element and
+            # the best possible sum from each half.
+            best_combined_sum = nums[mid] + best_left_sum + best_right_sum
+
+            # Find the best subarray possible from both halves.
+            left_half = findBestSubarray(nums, left, mid - 1)
+            right_half = findBestSubarray(nums, mid + 1, right)
+
+            # The largest of the 3 is the answer for any given input array.
+            return max(best_combined_sum, left_half, right_half)
+        
+        # Our helper function is designed to solve this problem for
+        # any array - so just call it using the entire input!
+        return findBestSubarray(nums, 0, len(nums) - 1)
+
 ```
 ## 054_SpiralMatrix
 ```
@@ -2175,12 +4243,65 @@ class Solution:
 ```
 ## 069_Sqrt(x)
 ```
+from math import e, log
+class Solution:
+    def mySqrt(self, x):
+        if x < 2:
+            return x
+        
+        left = int(e**(0.5 * log(x)))
+        right = left + 1
+        return left if right * right > x else right
 ```
 ```
+class Solution:
+    def mySqrt(self, x):
+        if x < 2:
+            return x
+        
+        left, right = 2, x // 2
+        
+        while left <= right:
+            pivot = left + (right - left) // 2
+            num = pivot * pivot
+            if num > x:
+                right = pivot -1
+            elif num < x:
+                left = pivot + 1
+            else:
+                return pivot
+            
+        return right
 ```
 ```
+class Solution:
+    def mySqrt(self, x):
+        if x < 2:
+            return x
+        
+        left = self.mySqrt(x >> 2) << 1
+        right = left + 1
+        return left if right * right > x else right
 ```
+```
+class Solution:
+    def mySqrt(self, x):
+        if x < 2:
+            return x
+        
+        x0 = x
+        x1 = (x0 + x / x0) / 2
+        while abs(x0 - x1) >= 1:
+            x0 = x1
+            x1 = (x0 + x / x0) / 2        
+            
+        return int(x1)
+```
+
+
+
 ## 070_ClimbingStairs
+
 ```
 public class Solution {
     public int climbStairs(int n) {
@@ -2581,18 +4702,101 @@ def minWindow(self, s, t):
 ```
 ## 077_Combinations
 ```
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        def backtrack(first = 1, curr = []):
+            # if the combination is done
+            if len(curr) == k:  
+                output.append(curr[:])
+            for i in range(first, n + 1):
+                # add i into the current combination
+                curr.append(i)
+                # use next integers to complete the combination
+                backtrack(i + 1, curr)
+                # backtrack
+                curr.pop()
+        
+        output = []
+        backtrack()
+        return output
 ```
 ```
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        # init first combination
+        nums = list(range(1, k + 1)) + [n + 1]
+        
+        output, j = [], 0
+        while j < k:
+            # add current combination
+            output.append(nums[:k])
+            # increase first nums[j] by one
+            # if nums[j] + 1 != nums[j + 1]
+            j = 0
+            while j < k and nums[j + 1] == nums[j] + 1:
+                nums[j] = j + 1
+                j += 1
+            nums[j] += 1
+            
+        return output
 ```
 ```
 ```
 ## 078_Subsets
 ```
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        output = [[]]
+        
+        for num in nums:
+            output += [curr + [num] for curr in output]
+        
+        return output
 ```
 ```
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        def backtrack(first = 0, curr = []):
+            # if the combination is done
+            if len(curr) == k:  
+                output.append(curr[:])
+                return
+            for i in range(first, n):
+                # add nums[i] into the current combination
+                curr.append(nums[i])
+                # use next integers to complete the combination
+                backtrack(i + 1, curr)
+                # backtrack
+                curr.pop()
+        
+        output = []
+        n = len(nums)
+        for k in range(n + 1):
+            backtrack()
+        return output
 ```
 ```
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        output = []
+        
+        for i in range(2**n, 2**(n + 1)):
+            # generate bitmask, from 0..00 to 1..11
+            bitmask = bin(i)[3:]
+            
+            # append subset corresponding to that bitmask
+            output.append([nums[j] for j in range(n) if bitmask[j] == '1'])
+        
+        return output
 ```
+```
+
+```
+
+
+
 ## 079_WordSearch
 
 ```
@@ -2728,8 +4932,78 @@ class Solution(object):
 ```
 ## 080_RemoveDuplicatesfromSortedArrayII
 ```
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        # Initialize the counter and the array index.
+        i, count = 1, 1
+        
+        # Start from the second element of the array and process
+        # elements one by one.
+        while i < len(nums):
+            
+            # If the current element is a duplicate, 
+            # increment the count.
+            if nums[i] == nums[i - 1]:
+                count += 1
+                
+                # If the count is more than 2, this is an
+                # unwanted duplicate element and hence we 
+                # remove it from the array.
+                if count > 2:
+                    nums.pop(i)
+                    
+                    # Note that we have to decrement the
+                    # array index value to keep it consistent
+                    # with the size of the array.
+                    i-= 1
+                
+            else:
+                
+                # Reset the count since we encountered a different element
+                # than the previous one
+                count = 1
+           
+            # Move on to the next element in the array
+            i += 1    
+                
+        return len(nums)
 ```
 ```
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        # Initialize the counter and the second pointer.
+        j, count = 1, 1
+        
+        # Start from the second element of the array and process
+        # elements one by one.
+        for i in range(1, len(nums)):
+            
+            # If the current element is a duplicate, 
+            # increment the count.
+            if nums[i] == nums[i - 1]:
+                count += 1
+            else:
+                # Reset the count since we encountered a different element
+                # than the previous one
+                count = 1
+            
+            # For a count <= 2, we copy the element over thus
+            # overwriting the element at index "j" in the array
+            if count <= 2:
+                nums[j] = nums[i]
+                j += 1
+                
+        return j
 ```
 ```
 ```
@@ -3118,10 +5392,65 @@ class Solution(object):
 ```
 ## 088_MergeSortedArray
 ```
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        # Write the elements of num2 into the end of nums1.
+        for i in range(n):
+            nums1[i + m] = nums2[i]
+        
+        # Sort nums1 list in-place.
+        nums1.sort()
 ```
 ```
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        # Make a copy of the first m elements of nums1.
+        nums1_copy = nums1[:m] 
+        
+        # Read pointers for nums1Copy and nums2 respectively.
+        p1 = 0
+        p2 = 0
+        
+        # Compare elements from nums1Copy and nums2 and write the smallest to nums1.
+        for p in range(n + m):
+            # We also need to ensure that p1 and p2 aren't over the boundaries
+            # of their respective arrays.
+            if p2 >= n or (p1 < m and nums1_copy[p1] <= nums2[p2]):
+                nums1[p] = nums1_copy[p1] 
+                p1 += 1
+            else:
+                nums1[p] = nums2[p2]
+                p2 += 1
 ```
 ```
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        
+        # Set p1 and p2 to point to the end of their respective arrays.
+        p1 = m - 1
+        p2 = n - 1
+    
+        # And move p backwards through the array, each time writing
+        # the smallest value pointed at by p1 or p2.
+        for p in range(n + m - 1, -1, -1):
+            if p2 < 0:
+                break
+            if p1 >= 0 and nums1[p1] > nums2[p2]:
+                nums1[p] = nums1[p1]
+                p1 -= 1
+            else:
+                nums1[p] = nums2[p2]
+                p2 -= 1
+                
 ```
 ## 089_GrayCode
 ```
@@ -3444,8 +5773,95 @@ public:
 ```
 ## 092_ReverseLinkedListII
 ```
+class Solution:
+    def reverseBetween(self, head, m, n):
+        """
+        :type head: ListNode
+        :type m: int
+        :type n: int
+        :rtype: ListNode
+        """
+
+        if not head:
+            return None
+
+        left, right = head, head
+        stop = False
+        def recurseAndReverse(right, m, n):
+            nonlocal left, stop
+
+            # base case. Don't proceed any further
+            if n == 1:
+                return
+
+            # Keep moving the right pointer one step forward until (n == 1)
+            right = right.next
+
+            # Keep moving left pointer to the right until we reach the proper node
+            # from where the reversal is to start.
+            if m > 1:
+                left = left.next
+
+            # Recurse with m and n reduced.
+            recurseAndReverse(right, m - 1, n - 1)
+
+            # In case both the pointers cross each other or become equal, we
+            # stop i.e. don't swap data any further. We are done reversing at this
+            # point.
+            if left == right or right.next == left:
+                stop = True
+
+            # Until the boolean stop is false, swap data between the two pointers     
+            if not stop:
+                left.val, right.val = right.val, left.val
+
+                # Move left one step to the right.
+                # The right pointer moves one step back via backtracking.
+                left = left.next           
+
+        recurseAndReverse(right, m, n)
+        return head
 ```
 ```
+class Solution:
+    def reverseBetween(self, head, m, n):
+        """
+        :type head: ListNode
+        :type m: int
+        :type n: int
+        :rtype: ListNode
+        """
+
+        # Empty list
+        if not head:
+            return None
+
+        # Move the two pointers until they reach the proper starting point
+        # in the list.
+        cur, prev = head, None
+        while m > 1:
+            prev = cur
+            cur = cur.next
+            m, n = m - 1, n - 1
+
+        # The two pointers that will fix the final connections.
+        tail, con = cur, prev
+
+        # Iteratively reverse the nodes until n becomes 0.
+        while n:
+            third = cur.next
+            cur.next = prev
+            prev = cur
+            cur = third
+            n -= 1
+
+        # Adjust the final connections as explained in the algorithm
+        if con:
+            con.next = prev
+        else:
+            head = prev
+        tail.next = cur
+        return head
 ```
 ```
 ```
@@ -3568,10 +5984,65 @@ class Solution {
 ```
 ## 094_BinaryTreeInorderTraversal
 ```
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        helper(root, res);
+        return res;
+    }
+
+    public void helper(TreeNode root, List<Integer> res) {
+        if (root != null) {
+            helper(root.left, res);
+            res.add(root.val);
+            helper(root.right, res);
+        }
+    }
+}
 ```
 ```
+public class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            res.add(curr.val);
+            curr = curr.right;
+        }
+        return res;
+    }
+}
 ```
 ```
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        TreeNode curr = root;
+        TreeNode pre;
+        while (curr != null) {
+            if (curr.left == null) {
+                res.add(curr.val);
+                curr = curr.right; // move to next right node
+            } else { // has a left subtree
+                pre = curr.left;
+                while (pre.right != null) { // find rightmost
+                    pre = pre.right;
+                }
+                pre.right = curr; // put cur after the pre node
+                TreeNode temp = curr; // store cur node
+                curr = curr.left; // move cur to the top of the new tree
+                temp.left = null; // original cur left be null, avoid infinite loops
+            }
+        }
+        return res;
+    }
+}
 ```
 ## 095_UniqueBinarySearchTreesII
 ```
