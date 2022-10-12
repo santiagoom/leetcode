@@ -1,0 +1,700 @@
+## 301_RemoveInvalidParentheses
+```
+```
+```
+```
+```
+```
+## 302_SmallestRectangleEnclosingBlackPixels
+```
+```
+```
+```
+```
+```
+## 303_RangeSumQuery-Immutable
+```
+```
+```
+```
+```
+```
+## 304_RangeSumQuery2D-Immutable
+```
+```
+```
+```
+```
+```
+## 305_NumberofIslandsII
+```
+```
+```
+```
+```
+```
+## 306_AdditiveNumber
+```
+```
+```
+```
+```
+```
+## 307_RangeSumQuery-Mutable
+```
+```
+```
+```
+```
+```
+## 308_RangeSumQuery2D-Mutable
+```
+```
+```
+```
+```
+```
+## 309_BestTimetoBuyandSellStockwithCooldown
+```
+```
+```
+```
+```
+```
+## 310_MinimumHeightTrees
+```
+```
+```
+```
+```
+```
+## 311_SparseMatrixMultiplication
+```
+```
+```
+```
+```
+```
+## 312_BurstBalloons
+```
+```
+```
+```
+```
+```
+## 313_SuperUglyNumber
+```
+```
+```
+```
+```
+```
+## 314_BinaryTreeVerticalOrderTraversal
+```
+```
+```
+```
+```
+```
+## 315_CountofSmallerNumbersAfterSelf
+```
+```
+```
+```
+```
+```
+## 316_RemoveDuplicateLetters
+```
+```
+```
+```
+```
+```
+## 317_ShortestDistancefromAllBuildings
+```
+```
+```
+```
+```
+```
+## 318_MaximumProductofWordLengths
+```
+```
+```
+```
+```
+```
+## 319_BulbSwitcher
+```
+```
+```
+```
+```
+```
+## 320_GeneralizedAbbreviation
+```
+```
+```
+```
+```
+```
+## 321_CreateMaximumNumber
+```
+```
+```
+```
+```
+```
+## 322_CoinChange
+```
+```
+```
+```
+```
+```
+## 323_NumberofConnectedComponentsinanUndirectedGraph
+```
+```
+```
+```
+```
+```
+## 324_WiggleSortII
+```
+```
+```
+```
+```
+```
+## 325_MaximumSizeSubarraySumEqualsk
+```
+```
+```
+```
+```
+```
+## 326_PowerofThree
+```
+```
+```
+```
+```
+```
+## 327_CountofRangeSum
+```
+```
+```
+```
+```
+```
+## 328_OddEvenLinkedList
+```
+```
+```
+```
+```
+```
+## 329_LongestIncreasingPathinaMatrix
+```
+```
+```
+```
+```
+```
+## 330_PatchingArray
+```
+```
+```
+```
+```
+```
+## 331_VerifyPreorderSerializationofaBinaryTree
+```
+```
+```
+```
+```
+```
+## 332_ReconstructItinerary
+```
+```
+```
+```
+```
+```
+## 333_LargestBSTSubtree
+```
+```
+```
+```
+```
+```
+## 334_IncreasingTripletSubsequence
+```
+```
+```
+```
+```
+```
+## 335_SelfCrossing
+```
+```
+```
+```
+```
+```
+## 336_PalindromePairs
+```
+```
+```
+```
+```
+```
+## 337_HouseRobberIII
+```
+```
+```
+```
+```
+```
+## 338_CountingBits
+```
+```
+```
+```
+```
+```
+## 339_NestedListWeightSum
+```
+```
+```
+```
+```
+```
+## 340_LongestSubstringwithAtMostKDistinctCharacters
+```
+```
+```
+```
+```
+```
+## 341_FlattenNestedListIterator
+```
+```
+```
+```
+```
+```
+## 342_PowerofFour
+```
+```
+```
+```
+```
+```
+## 343_IntegerBreak
+```
+```
+```
+```
+```
+```
+## 344_ReverseString
+```
+```
+```
+```
+```
+```
+## 345_ReverseVowelsofaString
+```
+```
+```
+```
+```
+```
+## 346_MovingAveragefromDataStream
+```
+```
+```
+```
+```
+```
+## 347_TopKFrequentElements
+```
+```
+```
+```
+```
+```
+## 348_DesignTic-Tac-Toe
+```
+```
+```
+```
+```
+```
+## 349_IntersectionofTwoArrays
+```
+```
+```
+```
+```
+```
+## 350_IntersectionofTwoArraysII
+```
+```
+```
+```
+```
+```
+## 351_AndroidUnlockPatterns
+```
+```
+```
+```
+```
+```
+## 352_DataStreamasDisjointIntervals
+```
+```
+```
+```
+```
+```
+## 353_DesignSnakeGame
+```
+```
+```
+```
+```
+```
+## 354_RussianDollEnvelopes
+```
+```
+```
+```
+```
+```
+## 355_DesignTwitter
+```
+```
+```
+```
+```
+```
+## 356_LineReflection
+```
+```
+```
+```
+```
+```
+## 357_CountNumberswithUniqueDigits
+```
+```
+```
+```
+```
+```
+## 358_RearrangeStringkDistanceApart
+```
+```
+```
+```
+```
+```
+## 359_LoggerRateLimiter
+```
+```
+```
+```
+```
+```
+## 360_SortTransformedArray
+```
+```
+```
+```
+```
+```
+## 361_BombEnemy
+```
+```
+```
+```
+```
+```
+## 362_DesignHitCounter
+```
+```
+```
+```
+```
+```
+## 363_MaxSumofRectangleNoLargerThanK
+```
+```
+```
+```
+```
+```
+## 364_NestedListWeightSumII
+```
+```
+```
+```
+```
+```
+## 365_WaterandJugProblem
+```
+```
+```
+```
+```
+```
+## 366_FindLeavesofBinaryTree
+```
+```
+```
+```
+```
+```
+## 367_ValidPerfectSquare
+```
+```
+```
+```
+```
+```
+## 368_LargestDivisibleSubset
+```
+```
+```
+```
+```
+```
+## 369_PlusOneLinkedList
+```
+```
+```
+```
+```
+```
+## 370_RangeAddition
+```
+```
+```
+```
+```
+```
+## 371_SumofTwoIntegers
+```
+```
+```
+```
+```
+```
+## 372_SuperPow
+```
+```
+```
+```
+```
+```
+## 373_FindKPairswithSmallestSums
+```
+```
+```
+```
+```
+```
+## 374_GuessNumberHigherorLower
+```
+```
+```
+```
+```
+```
+## 375_GuessNumberHigherorLowerII
+```
+```
+```
+```
+```
+```
+## 376_WiggleSubsequence
+```
+```
+```
+```
+```
+```
+## 377_CombinationSumIV
+```
+```
+```
+```
+```
+```
+## 378_KthSmallestElementinaSortedMatrix
+```
+```
+```
+```
+```
+```
+## 379_DesignPhoneDirectory
+```
+```
+```
+```
+```
+```
+## 380_InsertDeleteGetRandomO(1)
+```
+```
+```
+```
+```
+```
+## 381_InsertDeleteGetRandomO(1)-Duplicatesallowed
+```
+```
+```
+```
+```
+```
+## 382_LinkedListRandomNode
+```
+```
+```
+```
+```
+```
+## 383_RansomNote
+```
+```
+```
+```
+```
+```
+## 384_ShuffleanArray
+```
+```
+```
+```
+```
+```
+## 385_MiniParser
+```
+```
+```
+```
+```
+```
+## 386_LexicographicalNumbers
+```
+```
+```
+```
+```
+```
+## 387_FirstUniqueCharacterinaString
+```
+```
+```
+```
+```
+```
+## 388_LongestAbsoluteFilePath
+```
+```
+```
+```
+```
+```
+## 389_FindtheDifference
+```
+```
+```
+```
+```
+```
+## 390_EliminationGame
+```
+```
+```
+```
+```
+```
+## 391_PerfectRectangle
+```
+```
+```
+```
+```
+```
+## 392_IsSubsequence
+```
+```
+```
+```
+```
+```
+## 393_UTF-8Validation
+```
+```
+```
+```
+```
+```
+## 394_DecodeString
+```
+```
+```
+```
+```
+```
+## 395_LongestSubstringwithAtLeastKRepeatingCharacters
+```
+```
+```
+```
+```
+```
+## 396_RotateFunction
+```
+```
+```
+```
+```
+```
+## 397_IntegerReplacement
+```
+```
+```
+```
+```
+```
+## 398_RandomPickIndex
+```
+```
+```
+```
+```
+```
+## 399_EvaluateDivision
+```
+```
+```
+```
+```
+```
+## 400_NthDigit
+```
+```
+```
+```
+```
+```
