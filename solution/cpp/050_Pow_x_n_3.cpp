@@ -4,8 +4,8 @@
 
 using namespace std;
 
-                    
-class Solution {
+
+class Solution_050_Pow_x_n_3 {
 public:
     double myPow(double x, int n) {
         long long N = n;
@@ -15,7 +15,7 @@ public:
         }
         double ans = 1;
         double current_product = x;
-        for (long long i = N; i ; i /= 2) {
+        for (long long i = N; i; i /= 2) {
             if ((i % 2) == 1) {
                 ans = ans * current_product;
             }
@@ -25,17 +25,12 @@ public:
     }
 };
 
-                    
 int main() {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 26;
-    string s = "aa";
-    auto *so = new Solution();
-    vector<vector<int>> arrays;
-    CppUtils::print(s);
-    CppUtils::print_1d_vector(nums);
-    CppUtils::print_2d_vector(arrays);
-    delete so;
+    double  x = 2;
+    int n = 3;
+    auto *so = new Solution_050_Pow_x_n_3();
+    double res = so->myPow(x,n);
+    CppUtils::print(res);
     return 0;
 }
                     

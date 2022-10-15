@@ -3331,7 +3331,7 @@ public:
         }
         return ans;
     }
-};
+}
 ```
 ## 051_N-Queens
 ```
@@ -3676,6 +3676,20 @@ public class Solution {
 }
 ```
 
+```
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int n = nums.size(), reach = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i > reach || reach >= n - 1) break;
+            reach = max(reach, i + nums[i]);
+        }
+        return reach >= n - 1;
+    }
+};
+```
+
 
 
 ## 056_MergeIntervals
@@ -4013,6 +4027,18 @@ class Solution:
         return factorial(m + n - 2) // factorial(n - 1) // factorial(m - 1)
 ```
 ```
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<int> dp(n, 1);
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                dp[j] += dp[j - 1]; 
+            }
+        }
+        return dp[n - 1];
+    }
+};
 ```
 ## 063_UniquePathsII
 ```

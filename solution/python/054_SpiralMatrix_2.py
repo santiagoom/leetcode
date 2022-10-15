@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_054_SpiralMatrix_2:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         VISITED = 101
@@ -47,10 +47,10 @@ class Solution_054_SpiralMatrix_2:
 
         return result
 
+
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

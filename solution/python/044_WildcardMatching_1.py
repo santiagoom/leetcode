@@ -1,10 +1,10 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
-class Solution_044_WildcardMatching_1:        
+
+
+class Solution_044_WildcardMatching_1:
     def isMatch(self, s: str, p: str) -> bool:
-        
+
         def remove_duplicate_stars(p: str) -> str:
             new_string = []
             for char in p:
@@ -17,7 +17,7 @@ class Solution_044_WildcardMatching_1:
         def helper(s: str, p: str) -> bool:
             if (s, p) in dp:
                 return dp[(s, p)]
-            
+
             if p == s or p == '*':
                 dp[(s, p)] = True
             elif p == '' or s == '':
@@ -28,12 +28,13 @@ class Solution_044_WildcardMatching_1:
                 dp[(s, p)] = helper(s, p[1:]) or helper(s[1:], p)
             else:
                 dp[(s, p)] = False
-                
+
             return dp[(s, p)]
-        
+
         dp = {}
-        p = remove_duplicate_stars(p)        
+        p = remove_duplicate_stars(p)
         return helper(s, p)
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -41,4 +42,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

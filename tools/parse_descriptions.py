@@ -20,17 +20,23 @@ def func():
     problems = content.split("##")
 
     cpp_flag = True
-    cpp_flag = False
-    java_flag = True
+    # cpp_flag = False
+    # java_flag = True
     java_flag = False
-    py_flag = True
+    # py_flag = True
     py_flag = False
 
     for solutions in problems[:]:
-
         solutions = solutions.split("```")
-        print(solutions)
         title = solutions[0].strip()
+
+        solution_number = title[:3]
+        specific = ["062"]
+
+        if solution_number not in specific:
+            continue
+
+        print(solution_number)
 
         count = 0
         for i, solution in enumerate(solutions):
@@ -48,9 +54,13 @@ def func():
                     # if not os.path.exists(solution_path):
                     #     os.makedirs(solution_path)
 
-                    filename = "{}/_{}_{}.{}".format(java_path, title, count, lang)
+                    filename = "{}/_{}_{}.{}".format(java_path, title, count, lang).replace("(", "_").replace(")",
+                                                                                                              "").replace(
+                        ",", "_").replace("'", "_")
 
-                    classname = "_{}_{}".format(title, count)
+                    classname = "_{}_{}".format(title, count).replace("(", "_").replace(")", "").replace(",",
+                                                                                                         "_").replace(
+                        "'", "_")
                     package = """
                     import java.util.*;
                     import utils.TreeNode;
@@ -113,8 +123,12 @@ def func():
                     if not cpp_flag:
                         continue
                     lang = "cpp"
-                    filename = "{}/{}_{}.{}".format(cpp_path, title, count, lang)
-                    classname = "_{}_{}".format(title, count)
+                    filename = "{}/{}_{}.{}".format(cpp_path, title, count, lang).replace("(", "_").replace(")",
+                                                                                                            "").replace(
+                        ",", "_").replace("'", "_")
+                    classname = "_{}_{}".format(title, count).replace("(", "_").replace(")", "").replace(",",
+                                                                                                         "_").replace(
+                        "'", "_")
                     cpp_head = """
 #include <iostream>
 #include <cppUtils.h>
@@ -135,14 +149,18 @@ return 0;
                     """
                     with open(filename, mode="w", encoding="utf8") as f:
                         f.write(cpp_head)
-                        f.write(solution.replace("class Solution","class Solution{}".format(classname)))
+                        f.write(solution.replace("class Solution", "class Solution{}".format(classname)))
                         f.write(cpp_main)
                 if solution.find("def") > -1:
                     if not py_flag:
                         continue
                     lang = "py"
-                    filename = "{}/{}_{}.{}".format(py_path, title, count, lang)
-                    classname = "_{}_{}".format(title, count)
+                    filename = "{}/{}_{}.{}".format(py_path, title, count, lang).replace("(", "_").replace(")",
+                                                                                                           "").replace(
+                        ",", "_").replace("'", "_")
+                    classname = "_{}_{}".format(title, count).replace("(", "_").replace(")", "").replace(",",
+                                                                                                         "_").replace(
+                        "'", "_")
                     py_head = """
 from typing import List  
 from utils import *
@@ -158,8 +176,10 @@ if __name__ == "__main__":
                     """
                     with open(filename, mode="w", encoding="utf8") as f:
                         f.write(py_head)
-                        f.write(solution.replace("class Solution:","class Solution{}:".format(classname)).replace("class Solution(object):","class Solution{}:".format(classname)))
+                        f.write(solution.replace("class Solution:", "class Solution{}:".format(classname)).replace(
+                            "class Solution(object):", "class Solution{}:".format(classname)))
                         f.write(py_main)
+
 
 def run():
     func()

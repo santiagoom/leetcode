@@ -1,8 +1,8 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
-class Solution_051_N-Queens_1:
+
+
+class Solution_051_N_Queens_1:
     def solveNQueens(self, n):
         # Making use of a helper function to get the
         # solutions in the correct output format
@@ -11,7 +11,7 @@ class Solution_051_N-Queens_1:
             for row in state:
                 board.append("".join(row))
             return board
-        
+
         def backtrack(row, diagonals, anti_diagonals, cols, state):
             # Base case - N queens have been placed
             if row == n:
@@ -22,9 +22,9 @@ class Solution_051_N-Queens_1:
                 curr_diagonal = row - col
                 curr_anti_diagonal = row + col
                 # If the queen is not placeable
-                if (col in cols 
-                      or curr_diagonal in diagonals 
-                      or curr_anti_diagonal in anti_diagonals):
+                if (col in cols
+                        or curr_diagonal in diagonals
+                        or curr_anti_diagonal in anti_diagonals):
                     continue
 
                 # "Add" the queen to the board
@@ -48,10 +48,9 @@ class Solution_051_N-Queens_1:
         backtrack(0, set(), set(), set(), empty_board)
         return ans
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    n = 8
+    so = Solution_051_N_Queens_1()
+    ans = so.solveNQueens(n)
+    print(ans)

@@ -4,13 +4,18 @@
 using namespace std;
 
                     
-class Solution_035_SearchInsertPosition_1 {
+class Solution_050_Pow_x_n_1 {
 public:
-    int searchInsert(vector<int>& nums, int target) {
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] >= target) return i;
+    double myPow(double x, int n) {
+        long long N = n;
+        if (N < 0) {
+            x = 1 / x;
+            N = -N;
         }
-        return nums.size();
+        double ans = 1;
+        for (long long i = 0; i < N; i++)
+            ans = ans * x;
+        return ans;
     }
 };
 

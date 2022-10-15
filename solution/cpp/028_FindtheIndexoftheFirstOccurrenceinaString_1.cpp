@@ -1,10 +1,9 @@
 
 #include <iostream>
 #include <cppUtils.h>
-
 using namespace std;
 
-
+                    
 class Solution_028_FindtheIndexoftheFirstOccurrenceinaString_1 {
 public:
     int strStr(string haystack, string needle) {
@@ -25,13 +24,13 @@ public:
 };
 
 int main() {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 26;
-    string s = "aa";
-    vector<vector<int>> arrays;
-    CppUtils::print(s);
-    CppUtils::print_1d_vector(nums);
-    CppUtils::print_2d_vector(arrays);
-    return 0;
+vector<int> nums{2, 7, 11, 15};
+int target = 26;
+string s = "aa";
+vector<vector<int>> arrays;
+CppUtils::print(s);
+CppUtils::print_1d_vector(nums);
+CppUtils::print_2d_vector(arrays);
+return 0;
 }
                     

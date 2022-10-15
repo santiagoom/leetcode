@@ -1,8 +1,8 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
-class Solution_052_N-QueensII_1:
+
+
+class Solution_052_N_QueensII_1:
     def totalNQueens(self, n):
         def backtrack(row, diagonals, anti_diagonals, cols):
             # Base case - N queens have been placed
@@ -14,9 +14,9 @@ class Solution_052_N-QueensII_1:
                 curr_diagonal = row - col
                 curr_anti_diagonal = row + col
                 # If the queen is not placeable
-                if (col in cols 
-                      or curr_diagonal in diagonals 
-                      or curr_anti_diagonal in anti_diagonals):
+                if (col in cols
+                        or curr_diagonal in diagonals
+                        or curr_anti_diagonal in anti_diagonals):
                     continue
 
                 # "Add" the queen to the board
@@ -37,10 +37,10 @@ class Solution_052_N-QueensII_1:
 
         return backtrack(0, set(), set(), set())
 
+
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

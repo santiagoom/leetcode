@@ -4,7 +4,7 @@
 using namespace std;
 
                     
-class Solution_119_Pascal'sTriangleII_2 {
+class Solution_119_Pascal_sTriangleII_2 {
   unordered_map<size_t, int> cache;
 
   // use a better hashing function like `boost::hash_combine` in the real world.

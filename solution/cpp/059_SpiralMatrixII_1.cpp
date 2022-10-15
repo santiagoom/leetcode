@@ -1,15 +1,16 @@
 
 #include <iostream>
 #include <cppUtils.h>
+
 using namespace std;
 
-                    
+
 class Solution_059_SpiralMatrixII_1 {
 public:
 
     vector<vector<int>> generateMatrix(int n) {
 
-        vector<vector<int>> result (n, vector<int>(n));
+        vector<vector<int>> result(n, vector<int>(n));
         int cnt = 1;
         for (int layer = 0; layer < (n + 1) / 2; layer++) {
             // direction 1 - traverse from left to right
@@ -35,13 +36,10 @@ public:
 };
 
 int main() {
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+    int n = 3;
+    auto *so = new Solution_059_SpiralMatrixII_1();
+    auto res = so->generateMatrix(n);
+    CppUtils::print_2d_vector(res);
+    return 0;
 }
                     

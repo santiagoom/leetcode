@@ -1,12 +1,12 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_048_RotateImage_2:
     def rotate(self, matrix: List[List[int]]) -> None:
         self.transpose(matrix)
         self.reflect(matrix)
-    
+
     def transpose(self, matrix):
         n = len(matrix)
         for i in range(n):
@@ -21,9 +21,14 @@ class Solution_048_RotateImage_2:
 
 
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    matrix =[
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ],
+
+    so = Solution_048_RotateImage_2()
+
+    res = so.rotate(*matrix)
+
+    print(matrix)

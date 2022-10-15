@@ -4,14 +4,14 @@
 using namespace std;
 
                     
-class Solution_119_Pascal'sTriangleII_4 {
- public:
-  vector<int> getRow(int rowIndex) {
-    vector<int> ans = vector<int>(rowIndex + 1, 1);
 
-    for (int i = 1; i < rowIndex; i++)
-      for (int j = i; j > 0; j--)
-        ans[j] += ans[j - 1];  // ans[j] = ans[j-1] + ans[j]
+class Solution_119_Pascal_sTriangleII_5 {
+ public:
+  vector<int> getRow(int n) {
+    vector<int> ans = {1};
+
+    for (int k = 1; k <= n; k++)
+      ans.push_back((int)((ans.back() * (long long)(n - k + 1)) / k));
 
     return ans;
   }

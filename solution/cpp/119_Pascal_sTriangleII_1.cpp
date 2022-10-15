@@ -4,14 +4,20 @@
 using namespace std;
 
                     
-
-class Solution_119_Pascal'sTriangleII_5 {
+class Solution_119_Pascal_sTriangleII_1 {
  public:
-  vector<int> getRow(int n) {
-    vector<int> ans = {1};
+  int getNum(int row, int col) {
+    if (row == 0 || col == 0 || row == col)
+      return 1;
 
-    for (int k = 1; k <= n; k++)
-      ans.push_back((int)((ans.back() * (long long)(n - k + 1)) / k));
+    return getNum(row - 1, col - 1) + getNum(row - 1, col);
+  }
+
+  vector<int> getRow(int rowIndex) {
+    vector<int> ans;
+
+    for (int i = 0; i <= rowIndex; i++)
+      ans.push_back(getNum(rowIndex, i));
 
     return ans;
   }
