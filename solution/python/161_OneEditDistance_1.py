@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_161_OneEditDistance_1:
     def isOneEditDistance(self, s: 'str', t: 'str') -> 'bool':
         ns, nt = len(s), len(t)
 
@@ -25,3 +28,11 @@ class Solution:
         # the strings are one edit away only if
         # t has one more character. 
         return ns + 1 == nt
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

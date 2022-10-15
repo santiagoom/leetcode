@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_020_ValidParentheses_1:
     def isValid(self, s):
         """
         :type s: str
@@ -34,3 +37,11 @@ class Solution(object):
         # In the end, if the stack is empty, then we have a valid expression.
         # The stack won't be empty for cases like ((()
         return not stack
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

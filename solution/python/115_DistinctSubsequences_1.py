@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_115_DistinctSubsequences_1:
     def numDistinct(self, s: str, t: str) -> int:
         
         # Dictionary for memoization
@@ -30,3 +33,11 @@ class Solution:
             return ans                
         
         return uniqueSubsequences(0, 0)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

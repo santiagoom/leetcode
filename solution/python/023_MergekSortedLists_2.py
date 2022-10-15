@@ -1,7 +1,10 @@
 
+from typing import List  
+from utils import *
+                    
 from Queue import PriorityQueue
 
-class Solution(object):
+class Solution_023_MergekSortedLists_2:
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
@@ -20,3 +23,11 @@ class Solution(object):
             if node:
                 q.put((node.val, node))
         return head.next
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

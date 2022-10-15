@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 def evalRPN(self, tokens: List[str]) -> int:
 
         operations = {
@@ -33,3 +36,11 @@ def evalRPN(self, tokens: List[str]) -> int:
         
         return tokens[0]
 
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

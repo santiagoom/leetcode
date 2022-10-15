@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_068_TextJustification_1:
     def fullJustify(self, words, maxWidth):
         res, cur, num_of_letters = [], [], 0
         for w in words:
@@ -11,3 +14,11 @@ class Solution:
             cur += [w]
             num_of_letters += len(w)
         return res + [' '.join(cur).ljust(maxWidth)]
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

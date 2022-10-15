@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_095_UniqueBinarySearchTreesII_1:
     def generateTrees(self, n):
         """
         :type n: int
@@ -28,3 +31,11 @@ class Solution:
             return all_trees
         
         return generate_trees(1, n) if n else []
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_065_ValidNumber_2:
     def isNumber(self, s):
         # This is the DFA we have designed above
         dfa = [
@@ -32,3 +35,11 @@ class Solution(object):
             current_state = dfa[current_state][group]
         
         return current_state in [1, 4, 7]
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

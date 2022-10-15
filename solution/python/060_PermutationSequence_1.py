@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_060_PermutationSequence_1:
     def getPermutation(self, n: int, k: int) -> str:
         factorials, nums = [1], ['1']
         for i in range(1, n):
@@ -21,3 +24,11 @@ class Solution:
             del nums[idx]
         
         return ''.join(output)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

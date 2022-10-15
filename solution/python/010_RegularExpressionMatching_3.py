@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_010_RegularExpressionMatching_3:
     def isMatch(self, text, pattern):
         dp = [[False] * (len(pattern) + 1) for _ in range(len(text) + 1)]
 
@@ -13,3 +16,11 @@ class Solution(object):
                     dp[i][j] = first_match and dp[i+1][j+1]
 
         return dp[0][0]
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

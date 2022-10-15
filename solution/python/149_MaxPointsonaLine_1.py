@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_149_MaxPointsonaLine_1:
     def maxPoints(self, points):
         """
         :type points: List[List[int]]
@@ -82,3 +85,11 @@ class Solution(object):
         for i in range(n - 1):
             max_count = max(max_points_on_a_line_containing_point_i(i), max_count)
         return max_count
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

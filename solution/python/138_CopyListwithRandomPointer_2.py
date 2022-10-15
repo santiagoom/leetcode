@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_138_CopyListwithRandomPointer_2:
     def __init__(self):
         # Creating a visited dictionary to hold old node reference as "key" and new node reference as the "value"
         self.visited = {}
@@ -43,3 +46,11 @@ class Solution(object):
             new_node = new_node.next
 
         return self.visited[head]
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

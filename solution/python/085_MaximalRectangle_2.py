@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_085_MaximalRectangle_2:
 
     # Get the maximum area in a histogram given its heights
     def leetcode84(self, heights):
@@ -34,3 +37,11 @@ class Solution:
             # update maxarea with the maximum area from this row's histogram
             maxarea = max(maxarea, self.leetcode84(dp))
         return maxarea
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

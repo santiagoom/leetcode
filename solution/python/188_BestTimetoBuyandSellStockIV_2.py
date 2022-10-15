@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_188_BestTimetoBuyandSellStockIV_2:
     def maxProfit(self, k: int, prices) -> int:
         n = len(prices)
 
@@ -51,3 +54,11 @@ class Solution:
                 transactions.pop(merge_index)
 
         return sum(prices[j]-prices[i] for i, j in transactions)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

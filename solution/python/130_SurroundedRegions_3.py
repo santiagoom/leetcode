@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_130_SurroundedRegions_3:
     def solve(self, board):
         """
         :type board: List[List[str]]
@@ -42,3 +45,11 @@ class Solution(object):
             if row < self.ROWS-1: queue.append((row+1, col))
             if col > 0: queue.append((row, col-1))
             if row > 0: queue.append((row-1, col))
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

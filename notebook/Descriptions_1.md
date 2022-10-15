@@ -1658,6 +1658,24 @@ public int removeElement(int[] nums, int val) {
 ```
 ## 028_FindtheIndexoftheFirstOccurrenceinaString
 ```
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (needle.length() == 0)
+            return 0;
+
+        for (int i = 0;; i++) {
+            for (int j = 0;; j++) {
+                if (needle.length() == j)
+                    return i;
+                if (haystack.length() < i + j)
+                    return -1;
+                if (needle[j] != haystack[i + j])
+                    break;
+            }
+        }
+    }
+};
 ```
 ```
 ```
@@ -1665,6 +1683,8 @@ public int removeElement(int[] nums, int val) {
 ```
 ## 029_DivideTwoIntegers
 ```
+class Solution {
+public:
 int divide(int dividend, int divisor) {
 
     // Special case: overflow.
@@ -1700,9 +1720,11 @@ int divide(int dividend, int divisor) {
         return -quotient;
     }
     return quotient;
-}
+}}
 ```
 ```
+class Solution {
+public:
 int HALF_INT_MIN = -1073741824;
 
 int divide(int dividend, int divisor) {
@@ -1752,9 +1774,11 @@ int divide(int dividend, int divisor) {
         quotient = -quotient;
     }
     return quotient;
-}
+}}
 ```
 ```
+class Solution {
+public:
 int HALF_INT_MIN = -1073741824;
 
 int divide(int dividend, int divisor) {
@@ -1813,10 +1837,11 @@ int divide(int dividend, int divisor) {
         return -quotient;
     }
     return quotient;
-}
+}}
 ```
 ```
-
+class Solution {
+public:
 int HALF_INT_MIN = -1073741824;
 
 int divide(int dividend, int divisor) {
@@ -1873,10 +1898,12 @@ int divide(int dividend, int divisor) {
         return -quotient;
     }
     return quotient;
-}
+}}
 ```
 
 ```
+class Solution {
+public:
 int HALF_INT_MIN = -1073741824;
 
 int divide(int dividend, int divisor) {
@@ -1936,7 +1963,7 @@ int divide(int dividend, int divisor) {
         quotient = -quotient;
     }
     return quotient;
-}
+}}
 ```
 
 
@@ -2259,6 +2286,21 @@ class Solution:
 ```
 ```
 ## 035_SearchInsertPosition
+
+```
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] >= target) return i;
+        }
+        return nums.size();
+    }
+};
+```
+
+
+
 ```
 class Solution {
   public:
@@ -2273,8 +2315,6 @@ class Solution {
     return left;
   }
 };
-```
-```
 ```
 ```
 ```
@@ -2509,7 +2549,7 @@ public:
         regex e("(.)\\1*");
         string s = "1";
         for (int i = 2; i <= n; i++) {
-            string t;
+            string t; 
             for (sregex_iterator it = sregex_iterator(s.begin(), s.end(), e);
                  it != sregex_iterator(); it++) {
                 t += to_string(it->str().size()) + it->str(1);
@@ -2678,6 +2718,8 @@ class Solution:
 ```
 ## 042_TrappingRainWater
 ```
+class Solution {
+public:
 int trap(vector<int>& height)
 {
     if(height.empty())
@@ -2697,9 +2739,11 @@ int trap(vector<int>& height)
         ans += min(left_max[i], right_max[i]) - height[i];
     }
     return ans;
-}
+}}
 ```
 ```
+class Solution {
+public:
 int trap(vector<int>& height)
 {
     int ans = 0, current = 0;
@@ -2717,9 +2761,11 @@ int trap(vector<int>& height)
         st.push(current++);
     }
     return ans;
-}
+}}
 ```
 ```
+class Solution {
+public:
 int trap(vector<int>& height)
 {
     int left = 0, right = height.size() - 1;
@@ -2736,7 +2782,7 @@ int trap(vector<int>& height)
         }
     }
     return ans;
-}
+}}
 ```
 ## 043_MultiplyStrings
 ```

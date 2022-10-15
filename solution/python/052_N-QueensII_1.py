@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_052_N-QueensII_1:
     def totalNQueens(self, n):
         def backtrack(row, diagonals, anti_diagonals, cols):
             # Base case - N queens have been placed
@@ -33,3 +36,11 @@ class Solution:
             return solutions
 
         return backtrack(0, set(), set(), set())
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

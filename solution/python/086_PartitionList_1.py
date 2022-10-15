@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_086_PartitionList_1:
     def partition(self, head, x):
         """
         :type head: ListNode
@@ -35,3 +38,11 @@ class Solution(object):
         before.next = after_head.next
 
         return before_head.next
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

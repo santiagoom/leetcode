@@ -1,11 +1,10 @@
 
 #include <iostream>
 #include <cppUtils.h>
-
 using namespace std;
 
                     
-class Solution {
+class Solution_245_ShortestWordDistanceIII_1 {
 public:
 int shortestWordDistance(vector<string>& words, string word1, string word2) {
     long long dist = INT_MAX, i1 = dist, i2 = -dist;
@@ -24,17 +23,14 @@ int shortestWordDistance(vector<string>& words, string word1, string word2) {
 }
 };
 
-                    
 int main() {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 26;
-    string s = "aa";
-    auto *so = new Solution();
-    vector<vector<int>> arrays;
-    CppUtils::print(s);
-    CppUtils::print_1d_vector(nums);
-    CppUtils::print_2d_vector(arrays);
-    delete so;
-    return 0;
+vector<int> nums{2, 7, 11, 15};
+int target = 26;
+string s = "aa";
+vector<vector<int>> arrays;
+CppUtils::print(s);
+CppUtils::print_1d_vector(nums);
+CppUtils::print_2d_vector(arrays);
+return 0;
 }
                     

@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_120_Triangle_2:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         prev_row = triangle[0]
         for row in range(1, len(triangle)):
@@ -13,3 +16,11 @@ class Solution:
                 curr_row.append(triangle[row][col] + smallest_above)
             prev_row = curr_row
         return min(prev_row)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

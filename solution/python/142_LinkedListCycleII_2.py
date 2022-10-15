@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_142_LinkedListCycleII_2:
     def getIntersect(self, head):
         tortoise = head
         hare = head
@@ -36,3 +39,11 @@ class Solution(object):
 
         return ptr1
 
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_165_CompareVersionNumbers_2:
     def get_next_chunk(self, version: str, n: int, p: int) -> List[int]:
         # if pointer is set to the end of string
         # return 0
@@ -30,3 +33,11 @@ class Solution:
         
         # the versions are equal
         return 0    
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

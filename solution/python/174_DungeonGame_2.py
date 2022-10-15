@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 class MyCircularQueue:
     def __init__(self, capacity):
         """
@@ -19,7 +22,7 @@ class MyCircularQueue:
         return self.queue[index % self.capacity]
 
 
-class Solution(object):
+class Solution_174_DungeonGame_2:
     def calculateMinimumHP(self, dungeon):
         """
         :type dungeon: List[List[int]]
@@ -54,3 +57,11 @@ class Solution(object):
                 dp.enQueue(min_health)
         # return the last element in the queue
         return dp.get(cols-1)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

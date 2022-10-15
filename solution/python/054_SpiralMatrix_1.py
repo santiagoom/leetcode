@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_054_SpiralMatrix_1:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         result = []
         rows, columns = len(matrix), len(matrix[0])
@@ -34,3 +37,11 @@ class Solution:
             down -= 1
 
         return result
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

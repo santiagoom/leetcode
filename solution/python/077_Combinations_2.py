@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_077_Combinations_2:
     def combine(self, n: int, k: int) -> List[List[int]]:
         # init first combination
         nums = list(range(1, k + 1)) + [n + 1]
@@ -17,3 +20,11 @@ class Solution:
             nums[j] += 1
             
         return output
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

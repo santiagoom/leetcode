@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_046_Permutations_1:
     def permute(self, nums):
         """
         :type nums: List[int]
@@ -22,3 +25,11 @@ class Solution:
         output = []
         backtrack()
         return output
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

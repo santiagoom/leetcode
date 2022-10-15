@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_017_LetterCombinationsofaPhoneNumber_1:
     def letterCombinations(self, digits: str) -> List[str]:
         # If the input is empty, immediately return an empty answer array
         if len(digits) == 0: 
@@ -29,3 +32,11 @@ class Solution:
         combinations = []
         backtrack(0, [])
         return combinations
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

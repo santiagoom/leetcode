@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -6,7 +9,7 @@
 #         self.left = None
 #         self.right = None
 
-class Solution:
+class Solution_113_PathSumII_1:
     
     def recurseTree(self, node, remainingSum, pathNodes, pathsList):
         
@@ -34,3 +37,11 @@ class Solution:
         pathsList = []
         self.recurseTree(root, sum, [], pathsList)
         return pathsList
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

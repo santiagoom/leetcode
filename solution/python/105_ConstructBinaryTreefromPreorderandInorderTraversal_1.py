@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_105_ConstructBinaryTreefromPreorderandInorderTraversal_1:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
 
         def array_to_tree(left, right):
@@ -29,3 +32,11 @@ class Solution:
             inorder_index_map[value] = index
 
         return array_to_tree(0, len(preorder) - 1)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

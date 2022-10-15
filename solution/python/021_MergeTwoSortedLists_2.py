@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_021_MergeTwoSortedLists_2:
     def mergeTwoLists(self, l1, l2):
         # maintain an unchanging reference to node ahead of the return node.
         prehead = ListNode(-1)
@@ -19,3 +22,11 @@ class Solution:
         prev.next = l1 if l1 is not None else l2
 
         return prehead.next
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_036_ValidSudoku_2:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         N = 9
 
@@ -33,3 +36,11 @@ class Solution:
                 boxes[idx][pos] = 1
 
         return True
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

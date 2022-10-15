@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_128_LongestConsecutiveSequence_3:
     def longestConsecutive(self, nums):
         longest_streak = 0
         num_set = set(nums)
@@ -16,3 +19,11 @@ class Solution:
                 longest_streak = max(longest_streak, current_streak)
 
         return longest_streak
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

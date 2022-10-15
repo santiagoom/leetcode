@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_022_GenerateParentheses_1:
     def generateParenthesis(self, n):
         def generate(A = []):
             if len(A) == 2*n:
@@ -24,3 +27,11 @@ class Solution(object):
         ans = []
         generate()
         return ans
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

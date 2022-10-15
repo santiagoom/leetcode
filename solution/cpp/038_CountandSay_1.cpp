@@ -4,8 +4,8 @@
 
 using namespace std;
 
-                    
-class Solution {
+
+class Solution_038_CountandSay_1 {
 public:
     string countAndSay(int n) {
         string currentString = "1";
@@ -21,17 +21,12 @@ public:
     }
 };
 
-                    
 int main() {
     vector<int> nums{2, 7, 11, 15};
-    int target = 26;
-    string s = "aa";
-    auto *so = new Solution();
-    vector<vector<int>> arrays;
+    int target = 1;
+    auto *so = new Solution_038_CountandSay_1();
+    string s = so->countAndSay(target);
     CppUtils::print(s);
-    CppUtils::print_1d_vector(nums);
-    CppUtils::print_2d_vector(arrays);
-    delete so;
     return 0;
 }
                     

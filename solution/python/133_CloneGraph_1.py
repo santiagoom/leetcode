@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 """
 # Definition for a Node.
 class Node(object):
@@ -6,7 +9,7 @@ class Node(object):
         self.val = val
         self.neighbors = neighbors
 """
-class Solution(object):
+class Solution_133_CloneGraph_1:
 
     def __init__(self):
         # Dictionary to save the visited node and it's respective clone
@@ -39,3 +42,11 @@ class Solution(object):
             clone_node.neighbors = [self.cloneGraph(n) for n in node.neighbors]
 
         return clone_node
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

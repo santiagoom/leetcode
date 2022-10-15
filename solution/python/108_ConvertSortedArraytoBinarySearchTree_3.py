@@ -1,6 +1,9 @@
 
+from typing import List  
+from utils import *
+                    
 from random import randint
-class Solution:
+class Solution_108_ConvertSortedArraytoBinarySearchTree_3:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:        
         def helper(left, right):
             if left > right:
@@ -18,3 +21,11 @@ class Solution:
             return root
         
         return helper(0, len(nums) - 1)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

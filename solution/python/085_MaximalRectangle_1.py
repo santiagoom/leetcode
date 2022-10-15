@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_085_MaximalRectangle_1:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:
         maxarea = 0
 
@@ -17,3 +20,11 @@ class Solution:
                     maxarea = max(maxarea, width * (i-k+1))
         return maxarea
 
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

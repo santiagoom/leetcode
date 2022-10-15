@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_106_ConstructBinaryTreefromInorderandPostorderTraversal_1:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         def helper(in_left, in_right):
             # if there is no elements to construct subtrees
@@ -23,3 +26,11 @@ class Solution:
         # build a hashmap value -> its index
         idx_map = {val:idx for idx, val in enumerate(inorder)} 
         return helper(0, len(inorder) - 1)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

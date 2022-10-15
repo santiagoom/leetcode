@@ -1,6 +1,9 @@
 
+from typing import List  
+from utils import *
+                    
 from collections import defaultdict
-class Solution(object):
+class Solution_127_WordLadder_1:
     def ladderLength(self, beginWord, endWord, wordList):
         """
         :type beginWord: str
@@ -47,3 +50,11 @@ class Solution(object):
                         queue.append((word, level + 1))
                 all_combo_dict[intermediate_word] = []
         return 0
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

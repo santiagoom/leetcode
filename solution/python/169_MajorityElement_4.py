@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_169_MajorityElement_4:
     def majorityElement(self, nums: List[int]) -> int:
         n = len(nums)
         majority_element = 0
@@ -30,3 +33,11 @@ class Solution:
             majority_element -= bit
         
         return majority_element
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

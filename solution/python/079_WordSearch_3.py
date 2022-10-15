@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 
     def backtrack(self, row, col, suffix):
         """
@@ -27,3 +30,11 @@
 
         # Tried all directions, and did not find any match
         return False
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

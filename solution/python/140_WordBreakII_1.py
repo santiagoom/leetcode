@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_140_WordBreakII_1:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
         wordSet = set(wordDict)
         # table to map a string to its corresponding words break
@@ -29,3 +32,11 @@ class Solution:
 
         # chain up the lists of words into sentences.
         return [" ".join(words) for words in memo[s]]
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

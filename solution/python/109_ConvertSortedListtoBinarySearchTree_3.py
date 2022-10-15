@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -12,7 +15,7 @@
 #         self.left = None
 #         self.right = None
 
-class Solution:
+class Solution_109_ConvertSortedListtoBinarySearchTree_3:
 
     def findSize(self, head):
         ptr = head
@@ -57,3 +60,11 @@ class Solution:
             node.right = convert(mid + 1, r)
             return node
         return convert(0, size - 1)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

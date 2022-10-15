@@ -1,5 +1,8 @@
+from typing import List
+from utils import *
 
-class Solution:
+
+class Solution_040_CombinationSumII_1:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 
         def backtrack(comb, remain, curr, counter, results):
@@ -19,7 +22,7 @@ class Solution:
 
                 # add a new element to the current combination
                 comb.append(candidate)
-                counter[next_curr] = (candidate, freq-1)
+                counter[next_curr] = (candidate, freq - 1)
 
                 # continue the exploration with the updated combination
                 backtrack(comb, remain - candidate, next_curr, counter, results)
@@ -33,7 +36,15 @@ class Solution:
         # convert the counter table to a list of (num, count) tuples
         counter = [(c, counter[c]) for c in counter]
 
-        backtrack(comb = [], remain = target, curr = 0,
-                  counter = counter, results = results)
+        backtrack(comb=[], remain=target, curr=0,
+                  counter=counter, results=results)
 
         return results
+
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)

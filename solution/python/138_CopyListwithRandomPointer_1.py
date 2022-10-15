@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_138_CopyListwithRandomPointer_1:
     """
     :type head: Node
     :rtype: Node
@@ -32,3 +35,11 @@ class Solution(object):
         node.random = self.copyRandomList(head.random)
 
         return node
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

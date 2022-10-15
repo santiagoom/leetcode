@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_153_FindMinimuminRotatedSortedArray_1:
     def findMin(self, nums: List[int]) -> int:
         # If the list has just one element then return that element.
         if len(nums) == 1:
@@ -35,3 +38,11 @@ class Solution:
             # if nums[0] is greater than the mid value then this means the smallest value is somewhere to the left
             else:
                 right = mid - 1
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

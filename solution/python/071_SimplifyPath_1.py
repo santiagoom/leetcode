@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_071_SimplifyPath_1:
     def simplifyPath(self, path: str) -> str:
 
         # Initialize a stack
@@ -25,3 +28,11 @@ class Solution:
         # Stich together all the directory names together
         final_str = "/" + "/".join(stack)
         return final_str
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

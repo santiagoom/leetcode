@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_092_ReverseLinkedListII_1:
     def reverseBetween(self, head, m, n):
         """
         :type head: ListNode
@@ -47,3 +50,11 @@ class Solution:
 
         recurseAndReverse(right, m, n)
         return head
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

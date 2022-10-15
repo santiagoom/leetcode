@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_169_MajorityElement_6:
     def majorityElement(self, nums, lo=0, hi=None):
         def majority_element_rec(lo, hi):
             # base case; the only element in an array of size 1 is the majority
@@ -24,3 +27,11 @@ class Solution:
 
         return majority_element_rec(0, len(nums)-1)
 
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

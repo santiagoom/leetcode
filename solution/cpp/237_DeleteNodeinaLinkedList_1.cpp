@@ -1,11 +1,10 @@
 
 #include <iostream>
 #include <cppUtils.h>
-
 using namespace std;
 
                     
-class Solution {
+class Solution_237_DeleteNodeinaLinkedList_1 {
 public:
     void deleteNode(ListNode* node) {
         // Since we know input node is not last node, so nextNode will not be null
@@ -19,17 +18,14 @@ public:
     }
 };
 
-                    
 int main() {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 26;
-    string s = "aa";
-    auto *so = new Solution();
-    vector<vector<int>> arrays;
-    CppUtils::print(s);
-    CppUtils::print_1d_vector(nums);
-    CppUtils::print_2d_vector(arrays);
-    delete so;
-    return 0;
+vector<int> nums{2, 7, 11, 15};
+int target = 26;
+string s = "aa";
+vector<vector<int>> arrays;
+CppUtils::print(s);
+CppUtils::print_1d_vector(nums);
+CppUtils::print_2d_vector(arrays);
+return 0;
 }
                     

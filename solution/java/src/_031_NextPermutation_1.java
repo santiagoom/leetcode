@@ -1,10 +1,12 @@
 
-                        
-                    import java.util.*;
-                    import utils.TreeNode;
-                    import utils.ListNode;
-                                            
-                                                
+
+import java.util.*;
+
+import utils.TreeNode;
+import utils.ListNode;
+import utils.JavaUtils;
+
+
 class Solution_031_NextPermutation_1 {
     public void nextPermutation(int[] nums) {
         int i = nums.length - 2;
@@ -37,9 +39,13 @@ class Solution_031_NextPermutation_1 {
     }
 }
 
-                                                public class _031_NextPermutation_1 {
-                                                    public static void main(String[] args) {
-                                                        Solution_031_NextPermutation_1 so = new Solution_031_NextPermutation_1();
-                                                    }
-                                                }
+public class _031_NextPermutation_1 {
+    public static void main(String[] args) {
+        Solution_031_NextPermutation_1 so = new Solution_031_NextPermutation_1();
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        JavaUtils.print_1d_array(nums);
+        so.nextPermutation(nums);
+        JavaUtils.print_1d_array(nums);
+    }
+}
                                                 

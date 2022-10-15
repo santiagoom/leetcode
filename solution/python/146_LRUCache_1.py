@@ -1,4 +1,7 @@
 
+from typing import List  
+from utils import *
+                    
 from collections import OrderedDict
 class LRUCache(OrderedDict):
 
@@ -35,3 +38,11 @@ class LRUCache(OrderedDict):
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
 # obj.put(key,value)
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

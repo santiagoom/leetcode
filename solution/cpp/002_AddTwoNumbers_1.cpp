@@ -1,15 +1,14 @@
 
 #include <iostream>
 #include <cppUtils.h>
-
 using namespace std;
 
-
-class Solution {
+                    
+class Solution_002_AddTwoNumbers_1 {
 public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-        ListNode *dummyHead = new ListNode(0);
-        ListNode *curr = dummyHead;
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* dummyHead = new ListNode(0);
+        ListNode* curr = dummyHead;
         int carry = 0;
         while (l1 != NULL || l2 != NULL || carry != 0) {
             int x = l1 ? l1->val : 0;
@@ -25,17 +24,14 @@ public:
     }
 };
 
-
 int main() {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 26;
-    string s = "aa";
-    auto *so = new Solution();
-    vector<vector<int>> arrays;
-    CppUtils::print(s);
-    CppUtils::print_1d_vector(nums);
-    CppUtils::print_2d_vector(arrays);
-    delete so;
-    return 0;
+vector<int> nums{2, 7, 11, 15};
+int target = 26;
+string s = "aa";
+vector<vector<int>> arrays;
+CppUtils::print(s);
+CppUtils::print_1d_vector(nums);
+CppUtils::print_2d_vector(arrays);
+return 0;
 }
                     

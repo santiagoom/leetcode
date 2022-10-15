@@ -1,6 +1,9 @@
 
+from typing import List  
+from utils import *
+                    
 from collections import defaultdict
-class Solution(object):
+class Solution_127_WordLadder_2:
     def __init__(self):
         self.length = 0
         # Dictionary to hold combination of words that can be formed,
@@ -69,3 +72,11 @@ class Solution(object):
                 return ans
 
         return 0
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_061_RotateList_1:
     def rotateRight(self, head: 'ListNode', k: 'int') -> 'ListNode':
         # base cases
         if not head:
@@ -26,3 +29,11 @@ class Solution:
         new_tail.next = None
         
         return new_head
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

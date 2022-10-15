@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_129_SumRoottoLeafNumbers_3:
     def sumNumbers(self, root: TreeNode):
         root_to_leaf = curr_number = 0
         
@@ -46,3 +49,11 @@ class Solution:
                 root = root.right
                         
         return root_to_leaf
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

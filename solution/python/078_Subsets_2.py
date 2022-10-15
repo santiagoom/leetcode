@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_078_Subsets_2:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def backtrack(first = 0, curr = []):
             # if the combination is done
@@ -19,3 +22,11 @@ class Solution:
         for k in range(n + 1):
             backtrack()
         return output
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

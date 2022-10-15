@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_051_N-Queens_1:
     def solveNQueens(self, n):
         # Making use of a helper function to get the
         # solutions in the correct output format
@@ -44,3 +47,11 @@ class Solution:
         empty_board = [["."] * n for _ in range(n)]
         backtrack(0, set(), set(), set(), empty_board)
         return ans
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

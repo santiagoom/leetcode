@@ -1,5 +1,8 @@
 
-class Solution(object):
+from typing import List  
+from utils import *
+                    
+class Solution_079_WordSearch_2:
     def exist(self, board, word):
         """
         :type board: List[List[str]]
@@ -44,3 +47,11 @@ class Solution(object):
         # Tried all directions, and did not find any match
         return ret
 
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

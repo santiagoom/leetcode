@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_154_FindMinimuminRotatedSortedArrayII_1:
     def findMin(self, nums: List[int]) -> int:    
         low = 0
         high = len(nums)-1
@@ -20,3 +23,11 @@ class Solution:
                 high -= 1
         # the 'low' and 'high' index converge to the inflection point.
         return nums[low]
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

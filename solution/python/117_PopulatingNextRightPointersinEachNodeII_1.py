@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_117_PopulatingNextRightPointersinEachNodeII_1:
     def connect(self, root: Optional['Node']) -> Optional['Node']:
         
         if not root:
@@ -40,3 +43,11 @@ class Solution:
         
         # Since the tree has now been modified, return the root node
         return root
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    

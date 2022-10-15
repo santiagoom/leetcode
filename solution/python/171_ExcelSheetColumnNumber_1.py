@@ -1,5 +1,8 @@
 
-class Solution:
+from typing import List  
+from utils import *
+                    
+class Solution_171_ExcelSheetColumnNumber_1:
     def titleToNumber(self, s: str) -> int:
         result = 0
         
@@ -11,3 +14,11 @@ class Solution:
             cur_char = s[n - 1 - i]
             result += (alpha_map[cur_char] * (26 ** i))
         return result
+
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    s = "aa"
+    arrays = [[1, 2, 3], [4, 5, 6]]
+    print(arrays)
+                    
