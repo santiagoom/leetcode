@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_065_ValidNumber_2:
     def isNumber(self, s):
         # This is the DFA we have designed above
@@ -15,7 +15,7 @@ class Solution_065_ValidNumber_2:
             {"digit": 7},
             {"digit": 7}
         ]
-        
+
         current_state = 0
         for c in s:
             if c.isdigit():
@@ -31,10 +31,11 @@ class Solution_065_ValidNumber_2:
 
             if group not in dfa[current_state]:
                 return False
-            
+
             current_state = dfa[current_state][group]
-        
+
         return current_state in [1, 4, 7]
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -42,4 +43,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

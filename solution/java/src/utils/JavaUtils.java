@@ -13,6 +13,9 @@ public class JavaUtils {
             print_1d_array(array);
         }
     }
+    public static void print(int n){
+        System.out.println(n);
+    }
 
 
 //    int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
