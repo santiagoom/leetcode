@@ -1,15 +1,19 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
-class Solution_069_Sqrt(x)_3:
+import collections
+
+from math import e, log
+
+
+class Solution_069_Sqrt_x_1:
     def mySqrt(self, x):
         if x < 2:
             return x
-        
-        left = self.mySqrt(x >> 2) << 1
+
+        left = int(e ** (0.5 * log(x)))
         right = left + 1
         return left if right * right > x else right
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -17,4 +21,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_073_SetMatrixZeroes_2:
     def setZeroes(self, matrix):
         """
@@ -20,7 +20,7 @@ class Solution_073_SetMatrixZeroes_2:
                 is_col = True
             for j in range(1, C):
                 # If an element is zero, we set the first element of the corresponding row and column to 0
-                if matrix[i][j]  == 0:
+                if matrix[i][j] == 0:
                     matrix[0][j] = 0
                     matrix[i][0] = 0
 
@@ -40,10 +40,10 @@ class Solution_073_SetMatrixZeroes_2:
             for i in range(R):
                 matrix[i][0] = 0
 
+
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

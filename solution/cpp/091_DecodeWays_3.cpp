@@ -1,9 +1,10 @@
 
 #include <iostream>
 #include <cppUtils.h>
+
 using namespace std;
 
-                    
+
 class Solution_091_DecodeWays_3 {
 public:
     int numDecodings(string s) {
@@ -33,13 +34,11 @@ public:
 };
 
 int main() {
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+//    string s = "226";
+    string s = "12";
+    auto* so  = new Solution_091_DecodeWays_3();
+    int res = so->numDecodings(s);
+    CppUtils::print(res);
+    return 0;
 }
                     

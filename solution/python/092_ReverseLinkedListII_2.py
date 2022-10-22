@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_092_ReverseLinkedListII_2:
     def reverseBetween(self, head, m, n):
         """
@@ -42,10 +42,19 @@ class Solution_092_ReverseLinkedListII_2:
         tail.next = cur
         return head
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+
+    l1 = ListNode(1)
+    l1.next = ListNode(2)
+    l1.next.next = ListNode(3)
+    l1.next.next.next = ListNode(4)
+    l1.next.next.next.next = ListNode(5)
+
+    so = Solution_092_ReverseLinkedListII_2()
+
+    res = so.reverseBetween(l1,2,4)
+
+
+    print(res)
+

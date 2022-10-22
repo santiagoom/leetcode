@@ -1,12 +1,13 @@
 
 #include <iostream>
 #include <cppUtils.h>
+
 using namespace std;
 
-                    
+
 class Solution_081_SearchinRotatedSortedArrayII_1 {
 public:
-    bool search(vector<int>& nums, int target) {
+    bool search(vector<int> &nums, int target) {
         int n = nums.size();
         if (n == 0) return false;
         int end = n - 1;
@@ -47,24 +48,24 @@ public:
     }
 
     // returns true if we can reduce the search space in current binary search space
-    bool isBinarySearchHelpful(vector<int>& nums, int start, int element) {
+    bool isBinarySearchHelpful(vector<int> &nums, int start, int element) {
         return nums[start] != element;
     }
 
     // returns true if element exists in first array, false if it exists in second
-    bool existsInFirst(vector<int>& nums, int start, int element) {
+    bool existsInFirst(vector<int> &nums, int start, int element) {
         return nums[start] <= element;
     }
 };
 
 int main() {
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+    vector<int> nums{2, 7, 11, 15};
+    int target = 26;
+    string s = "aa";
+    vector<vector<int>> arrays;
+    CppUtils::print(s);
+    CppUtils::print_1d_vector(nums);
+    CppUtils::print_2d_vector(arrays);
+    return 0;
 }
                     

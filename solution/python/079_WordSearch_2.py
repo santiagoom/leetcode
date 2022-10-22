@@ -1,7 +1,8 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+import collections
+
+
 class Solution_079_WordSearch_2:
     def exist(self, board, word):
         """
@@ -21,12 +22,13 @@ class Solution_079_WordSearch_2:
         # no match found after all exploration
         return False
 
-
     def backtrack(self, row, col, suffix):
         # bottom case: we find match for each letter in the word
         if len(suffix) == 0:
             return True
 
+        print(self.board[row][col])
+        print(suffix[0])
         # Check the current status, before jumping into backtracking
         if row < 0 or row == self.ROWS or col < 0 or col == self.COLS \
                 or self.board[row][col] != suffix[0]:
@@ -49,9 +51,10 @@ class Solution_079_WordSearch_2:
 
 
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    so = Solution_079_WordSearch_2()
+    board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
+    word = "ABCCED"
+
+    res = so.exist(board, word)
+
+    print(res)

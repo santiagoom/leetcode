@@ -19,19 +19,20 @@ def func():
 
     problems = content.split("##")
 
-    cpp_flag = True
-    # cpp_flag = False
-    # java_flag = True
+    cpp_flag = False
     java_flag = False
-    # py_flag = True
     py_flag = False
+
+    # cpp_flag = True
+    # java_flag = True
+    py_flag = True
 
     for solutions in problems[:]:
         solutions = solutions.split("```")
         title = solutions[0].strip()
 
         solution_number = title[:3]
-        specific = ["062"]
+        specific = ["079"]
 
         if solution_number not in specific:
             continue
@@ -155,12 +156,8 @@ return 0;
                     if not py_flag:
                         continue
                     lang = "py"
-                    filename = "{}/{}_{}.{}".format(py_path, title, count, lang).replace("(", "_").replace(")",
-                                                                                                           "").replace(
-                        ",", "_").replace("'", "_")
-                    classname = "_{}_{}".format(title, count).replace("(", "_").replace(")", "").replace(",",
-                                                                                                         "_").replace(
-                        "'", "_")
+                    filename = replace_char("{}/{}_{}.{}".format(py_path, title, count, lang))
+                    classname = replace_char("_{}_{}".format(title, count))
                     py_head = """
 from typing import List  
 from utils import *
@@ -170,15 +167,29 @@ import collections
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution{}()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    """
+                    """.format(classname)
                     with open(filename, mode="w", encoding="utf8") as f:
                         f.write(py_head)
                         f.write(solution.replace("class Solution:", "class Solution{}:".format(classname)).replace(
                             "class Solution(object):", "class Solution{}:".format(classname)))
                         f.write(py_main)
+
+
+def replace_char(solution):
+    res = solution \
+        .replace("(", "_") \
+        .replace(")", "") \
+        .replace(",", "_") \
+        .replace("'", "_") \
+        .replace("'", "_")
+
+    return res
+
+    pass
 
 
 def run():

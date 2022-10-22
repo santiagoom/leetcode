@@ -1,7 +1,26 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+import collections
+
+
+class Solution_079_WordSearch_3:
+    def exist(self, board, word):
+        """
+        :type board: List[List[str]]
+        :type word: str
+        :rtype: bool
+        """
+        self.ROWS = len(board)
+        self.COLS = len(board[0])
+        self.board = board
+
+        for row in range(self.ROWS):
+            for col in range(self.COLS):
+                if self.backtrack(row, col, word):
+                    return True
+
+        # no match found after all exploration
+        return False
 
     def backtrack(self, row, col, suffix):
         """
@@ -31,10 +50,10 @@ from utils import *
         # Tried all directions, and did not find any match
         return False
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    so = Solution_079_WordSearch_3()
+    board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
+    word = "ABCCED"
+
+    res = so.exist(board, word)

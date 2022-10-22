@@ -1,6 +1,7 @@
 
 from typing import List  
 from utils import *
+import collections
                     
 class Solution_071_SimplifyPath_1:
     def simplifyPath(self, path: str) -> str:
@@ -26,13 +27,14 @@ class Solution_071_SimplifyPath_1:
                 stack.append(portion)
 
         # Stich together all the directory names together
+        aa = "".join(stack)
+        bb = "/".join(stack)
         final_str = "/" + "/".join(stack)
         return final_str
 
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
+    so = Solution_071_SimplifyPath_1()
+    s = "/a/./b/../../c/"
+    res = so.simplifyPath(s)
+    print(res)
                     

@@ -1,13 +1,14 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_093_RestoreIPAddresses_1:
     def restoreIpAddresses(self, s):
         """
         :type s: str
         :rtype: List[str]
         """
+
         def valid(segment):
             """
             Check if the current segment is valid :
@@ -16,7 +17,7 @@ class Solution_093_RestoreIPAddresses_1:
                only if the segment is equal to '0'
             """
             return int(segment) <= 255 if segment[0] != '0' else len(segment) == 1
-            
+
         def update_output(curr_pos):
             """
             Append the current list of segments 
@@ -26,9 +27,9 @@ class Solution_093_RestoreIPAddresses_1:
             if valid(segment):
                 segments.append(segment)
                 output.append('.'.join(segments))
-                segments.pop()    
-            
-        def backtrack(prev_pos = -1, dots = 3):
+                segments.pop()
+
+        def backtrack(prev_pos=-1, dots=3):
             """
             prev_pos : the position of the previously placed dot
             dots : number of dots to place
@@ -46,10 +47,11 @@ class Solution_093_RestoreIPAddresses_1:
                     else:
                         backtrack(curr_pos, dots - 1)  # continue to place dots
                     segments.pop()  # remove the last placed dot
-        
+
         n = len(s)
         output, segments = [], []
-        backtrack() 
+        backtrack()
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -57,4 +59,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

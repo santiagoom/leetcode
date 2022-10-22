@@ -1,8 +1,9 @@
 
 from typing import List  
 from utils import *
+import collections
                     
-class Solution_069_Sqrt(x)_2:
+class Solution_069_Sqrt_x_2:
     def mySqrt(self, x):
         if x < 2:
             return x

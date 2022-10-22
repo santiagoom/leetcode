@@ -1,12 +1,12 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_077_Combinations_1:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        def backtrack(first = 1, curr = []):
+        def backtrack(first=1, curr=[]):
             # if the combination is done
-            if len(curr) == k:  
+            if len(curr) == k:
                 output.append(curr[:])
             for i in range(first, n + 1):
                 # add i into the current combination
@@ -15,10 +15,11 @@ class Solution_077_Combinations_1:
                 backtrack(i + 1, curr)
                 # backtrack
                 curr.pop()
-        
+
         output = []
         backtrack()
         return output
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -26,4 +27,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_066_PlusOne_1:
     def plusOne(self, digits: List[int]) -> List[int]:
         n = len(digits)
@@ -22,10 +22,9 @@ class Solution_066_PlusOne_1:
         # we're here because all the digits are nines
         return [1] + digits
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    nums = [2, 7, 9, 9]
+    so = Solution_066_PlusOne_1()
+    res = so.plusOne(nums)
+    print(res)
