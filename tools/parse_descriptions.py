@@ -2,8 +2,8 @@ import os
 
 
 def func():
-    path = "../notebook/Descriptions_1.md"
-    # path = "../notebook/Descriptions_2.md"
+    # path = "../notebook/Descriptions_1.md"
+    path = "../notebook/Descriptions_2.md"
     # path = "../notebook/Descriptions_3.md"
     with open(path, mode="r") as f:
         content = f.read()
@@ -32,7 +32,7 @@ def func():
         title = solutions[0].strip()
 
         solution_number = title[:3]
-        specific = ["079"]
+        specific = ["118"]
 
         if solution_number not in specific:
             continue
@@ -184,6 +184,7 @@ def replace_char(solution):
         .replace("(", "_") \
         .replace(")", "") \
         .replace(",", "_") \
+        .replace("'", "_") \
         .replace("'", "_") \
         .replace("'", "_")
 

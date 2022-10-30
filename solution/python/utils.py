@@ -1,3 +1,7 @@
+import collections
+import math
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -16,19 +20,46 @@ class TreeNode:
         self.left = left
         self.right = right
 
+        # root = TreeNode(1)
+        # root.left = TreeNode(2)
+        # root.left.left = TreeNode(3)
+        # root.left.right = TreeNode(4)
+        #
+        # root.right = TreeNode(5)
+        # root.right.right = TreeNode(6)
 
 
-tree_list = []
-def BinaryTreeInorderTraversal(treeNode):
+def BinaryTreeInorderTraversal(treeNode, tree_list):
     if (treeNode == None):
         return
     if (treeNode.left):
-        BinaryTreeInorderTraversal(treeNode.left)
+        BinaryTreeInorderTraversal(treeNode.left, tree_list)
 
     tree_list.append(treeNode.val)
 
+    if (treeNode.right):
+        BinaryTreeInorderTraversal(treeNode.right, tree_list)
+
+
+def BinaryTreePreorderTraversal(treeNode, tree_list):
+    if (treeNode == None):
+        return
+    tree_list.append(treeNode.val)
+
+    if (treeNode.left):
+        BinaryTreePreorderTraversal(treeNode.left, tree_list)
 
     if (treeNode.right):
-        BinaryTreeInorderTraversal(treeNode.right)
+        BinaryTreePreorderTraversal(treeNode.right, tree_list)
 
-    return tree_list
+
+def BinaryTreePostorderTraversal(treeNode, tree_list):
+    if (treeNode == None):
+        return
+    if (treeNode.left):
+        BinaryTreePostorderTraversal(treeNode.left, tree_list)
+
+    if (treeNode.right):
+        BinaryTreePostorderTraversal(treeNode.right, tree_list)
+
+    tree_list.append(treeNode.val)

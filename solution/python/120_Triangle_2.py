@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_120_Triangle_2:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         prev_row = triangle[0]
@@ -17,10 +17,16 @@ class Solution_120_Triangle_2:
             prev_row = curr_row
         return min(prev_row)
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    nums = [
+        [2],
+        [3, 4],
+        [6, 5, 7],
+        # [4, 1, 8, 3],
+        [4, 2, 8, 1],
+    ]
+
+    so = Solution_120_Triangle_2()
+    res = so.minimumTotal(nums)
+    print(res)

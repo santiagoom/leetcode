@@ -1,8 +1,9 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
-class Solution_118_Pascal'sTriangle_1:
+import collections
+
+
+class Solution_118_Pascal_sTriangle_1:
     def generate(self, num_rows: int) -> List[List[int]]:
         triangle = []
 
@@ -20,10 +21,11 @@ class Solution_118_Pascal'sTriangle_1:
 
         return triangle
 
+
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution_118_Pascal_sTriangle_1()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    
