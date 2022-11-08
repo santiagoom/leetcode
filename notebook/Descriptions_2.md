@@ -2245,15 +2245,41 @@ class Solution(object):
         if row > 0: self.DFS(board, row-1, col)
 ```
 ```
-def DFS(self, board, row, col):
-    if row < 0 or row >= self.ROWS or col < 0 or col >= self.COLS:
-        return
-    if board[row][col] != 'O':
-        return
-    board[row][col] = 'E'
-    # jump to the neighbors without boundary checks
-    for ro, co in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-        self.DFS(board, row+ro, col+co)
+class Solution(object):
+    def solve(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: None Do not return anything, modify board in-place instead.
+        """
+        if not board or not board[0]:
+            return
+
+        self.ROWS = len(board)
+        self.COLS = len(board[0])
+
+        # Step 1). retrieve all border cells
+        from itertools import product
+        borders = list(product(range(self.ROWS), [0, self.COLS-1])) \
+                + list(product([0, self.ROWS-1], range(self.COLS)))
+
+        # Step 2). mark the "escaped" cells, with any placeholder, e.g. 'E'
+        for row, col in borders:
+            self.DFS(board, row, col)
+
+        # Step 3). flip the captured cells ('O'->'X') and the escaped one ('E'->'O')
+        for r in range(self.ROWS):
+            for c in range(self.COLS):
+                if board[r][c] == 'O':   board[r][c] = 'X'  # captured
+                elif board[r][c] == 'E': board[r][c] = 'O'  # escaped
+    def DFS(self, board, row, col):
+        if row < 0 or row >= self.ROWS or col < 0 or col >= self.COLS:
+            return
+        if board[row][col] != 'O':
+            return
+        board[row][col] = 'E'
+        # jump to the neighbors without boundary checks
+        for ro, co in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            self.DFS(board, row+ro, col+co)
 ```
 ```
 class Solution(object):
@@ -2301,6 +2327,33 @@ class Solution(object):
             if row > 0: queue.append((row-1, col))
 ```
 ```
+class Solution(object):
+    def solve(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: None Do not return anything, modify board in-place instead.
+        """
+        if not board or not board[0]:
+            return
+
+        self.ROWS = len(board)
+        self.COLS = len(board[0])
+
+        # Step 1). retrieve all border cells
+        from itertools import product
+        borders = list(product(range(self.ROWS), [0, self.COLS-1])) \
+                + list(product([0, self.ROWS-1], range(self.COLS)))
+
+        # Step 2). mark the "escaped" cells, with any placeholder, e.g. 'E'
+        for row, col in borders:
+            #self.DFS(board, row, col)
+            self.BFS(board, row, col)
+
+        # Step 3). flip the captured cells ('O'->'X') and the escaped one ('E'->'O')
+        for r in range(self.ROWS):
+            for c in range(self.COLS):
+                if board[r][c] == 'O':   board[r][c] = 'X'  # captured
+                elif board[r][c] == 'E': board[r][c] = 'O'  # escaped    
     def DFS(self, board, row, col):
         from collections import deque
         queue = deque([(row, col)])
@@ -2461,50 +2514,8 @@ public:
             (s[start] == s[end]) && isPalindrome(s, start + 1, end - 1);
         return (memoPalindrome[start][end] == true);
     }
-};class Solution {
-public:
-    vector<vector<int>> memoCuts;
-    vector<vector<optional<bool>>> memoPalindrome;
-
-    int minCut(string s) {
-        memoCuts.resize(s.length(), vector<int>(s.length(), -1));
-        memoPalindrome.resize(s.length(),
-                              vector<optional<bool>>(s.length(), nullopt));
-        return findMinimumCut(s, 0, s.length() - 1, s.length() - 1);
-    }
-
-    int findMinimumCut(string &s, int start, int end, int minimumCut) {
-        // base case
-        if (start == end || isPalindrome(s, start, end)) {
-            return 0;
-        }
-
-        // check for results in memoCuts
-        if (memoCuts[start][end] != -1) {
-            return memoCuts[start][end];
-        }
-
-        for (int currentEndIndex = start; currentEndIndex <= end;
-             currentEndIndex++) {
-            if (isPalindrome(s, start, currentEndIndex)) {
-                minimumCut =
-                    min(minimumCut, 1 + findMinimumCut(s, currentEndIndex + 1,
-                                                       end, minimumCut));
-            }
-        }
-        return memoCuts[start][end] = minimumCut;
-    }
-
-    bool isPalindrome(string &s, int start, int end) {
-        if (start >= end) return true;
-        // check for results in memoPalindrome
-        if (memoPalindrome[start][end] != nullopt)
-            return (memoPalindrome[start][end] == true);
-        memoPalindrome[start][end] =
-            (s[start] == s[end]) && isPalindrome(s, start + 1, end - 1);
-        return (memoPalindrome[start][end] == true);
-    }
 };
+
 ```
 ```
 class Solution {

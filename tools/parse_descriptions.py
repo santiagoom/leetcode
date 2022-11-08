@@ -23,9 +23,9 @@ def func():
     java_flag = False
     py_flag = False
 
-    # cpp_flag = True
+    cpp_flag = True
     # java_flag = True
-    py_flag = True
+    # py_flag = True
 
     for solutions in problems[:]:
         solutions = solutions.split("```")
@@ -136,9 +136,10 @@ def func():
 using namespace std;
 
                     """
-                    cpp_main = """
-int main() {
-vector<int> nums{2, 7, 11, 15};
+                    cpp_main = f"""
+int main() {{
+auto *so = new Solution{classname}();
+vector<int> nums{{2, 7, 11, 15}};
 int target = 26;
 string s = "aa";
 vector<vector<int>> arrays;
@@ -146,7 +147,7 @@ CppUtils::print(s);
 CppUtils::print_1d_vector(nums);
 CppUtils::print_2d_vector(arrays);
 return 0;
-}
+}}
                     """
                     with open(filename, mode="w", encoding="utf8") as f:
                         f.write(cpp_head)

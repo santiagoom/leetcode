@@ -1,7 +1,11 @@
 
 from typing import List  
 from utils import *
-                    
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
 class Solution_138_CopyListwithRandomPointer_2:
     def __init__(self):
         # Creating a visited dictionary to hold old node reference as "key" and new node reference as the "value"

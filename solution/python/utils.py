@@ -1,6 +1,7 @@
 import collections
 import math
 import sys
+from collections import *
 
 
 class ListNode:
@@ -52,3 +53,10 @@ def BinaryTreePostorderTraversal(treeNode, tree_list):
         BinaryTreePostorderTraversal(treeNode.right, tree_list)
 
     tree_list.append(treeNode.val)
+
+
+def printList(head):
+    while head:
+        print(head.val, end=" ")
+        head = head.next
+    print()
