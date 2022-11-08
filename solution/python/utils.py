@@ -1,3 +1,6 @@
+import math
+import sys
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -17,8 +20,9 @@ class TreeNode:
         self.right = right
 
 
-
 tree_list = []
+
+
 def BinaryTreeInorderTraversal(treeNode):
     if (treeNode == None):
         return
@@ -26,7 +30,6 @@ def BinaryTreeInorderTraversal(treeNode):
         BinaryTreeInorderTraversal(treeNode.left)
 
     tree_list.append(treeNode.val)
-
 
     if (treeNode.right):
         BinaryTreeInorderTraversal(treeNode.right)
