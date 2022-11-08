@@ -1,24 +1,26 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_149_MaxPointsonaLine_1:
     def maxPoints(self, points):
         """
         :type points: List[List[int]]
         :rtype: int
         """
+
         def max_points_on_a_line_containing_point_i(i):
             """
             Compute the max number of points
             for a line containing point i.
             """
+
             def slope_coprime(x1, y1, x2, y2):
                 """ to avoid the precision issue with the float/double number,
                     using a pair of co-prime numbers to represent the slope.
                 """
                 delta_x, delta_y = x1 - x2, y1 - y2
-                if delta_x == 0:    # vertical line
+                if delta_x == 0:  # vertical line
                     return (0, 0)
                 elif delta_y == 0:  # horizontal line
                     return (sys.maxsize, sys.maxsize)
@@ -29,7 +31,6 @@ class Solution_149_MaxPointsonaLine_1:
                 gcd = math.gcd(delta_x, delta_y)
                 slope = (delta_x / gcd, delta_y / gcd)
                 return slope
-
 
             def add_line(i, j, count, duplicates):
                 """
@@ -43,7 +44,7 @@ class Solution_149_MaxPointsonaLine_1:
                 x2 = points[j][0]
                 y2 = points[j][1]
                 # add a duplicate point
-                if x1 == x2 and y1 == y2:  
+                if x1 == x2 and y1 == y2:
                     duplicates += 1
                 # add a horisontal line : y = const
                 elif y1 == y2:
@@ -58,7 +59,7 @@ class Solution_149_MaxPointsonaLine_1:
                     lines[slope] = lines.get(slope, 1) + 1
                     count = max(lines[slope], count)
                 return count, duplicates
-            
+
             # init lines passing through point i
             lines, horizontal_lines = {}, 1
             # One starts with just one point on a line : point i.
@@ -72,13 +73,13 @@ class Solution_149_MaxPointsonaLine_1:
             for j in range(i + 1, n):
                 count, duplicates = add_line(i, j, count, duplicates)
             return count + duplicates
-            
+
         # If the number of points is less than 3
         # they are all on the same line.
         n = len(points)
         if n < 3:
             return n
-        
+
         max_count = 1
         # Compute in a loop a max number of points 
         # on a line containing point i.
@@ -86,10 +87,20 @@ class Solution_149_MaxPointsonaLine_1:
             max_count = max(max_points_on_a_line_containing_point_i(i), max_count)
         return max_count
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    points = [[1, 1], [3, 2], [5, 3], [4, 1], [2, 3], [1, 4]]
+    import numpy as np
+
+    points_array = np.array(points)
+
+    so = Solution_149_MaxPointsonaLine_1()
+    res = so.maxPoints(points)
+    print(res)
+
+    x = points_array[:, 0]
+    y = points_array[:, 1]
+    import matplotlib.pyplot as plt
+
+    plt.scatter(x, y)
+    plt.show()

@@ -1,5 +1,6 @@
 import collections
 import math
+import sys
 
 
 class ListNode:
@@ -27,18 +28,6 @@ class TreeNode:
         #
         # root.right = TreeNode(5)
         # root.right.right = TreeNode(6)
-
-
-def BinaryTreeInorderTraversal(treeNode, tree_list):
-    if (treeNode == None):
-        return
-    if (treeNode.left):
-        BinaryTreeInorderTraversal(treeNode.left, tree_list)
-
-    tree_list.append(treeNode.val)
-
-    if (treeNode.right):
-        BinaryTreeInorderTraversal(treeNode.right, tree_list)
 
 
 def BinaryTreePreorderTraversal(treeNode, tree_list):
