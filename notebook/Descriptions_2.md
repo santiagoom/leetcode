@@ -4394,6 +4394,23 @@ public:
 ```
 ## 158_ReadNCharactersGivenread4II-CallMultipleTimes
 ```
+class Solution(object):
+    def __init__(self):
+        self.q = []
+        
+    def read(self, buf, n):
+        i = 0
+        while i < n:
+            if self.q:
+                buf[i] = self.q.pop(0)
+                i += 1
+            else:
+                buf4 = ['']*4
+                v = read4(buf4)
+                if v == 0:
+                    break
+                self.q += buf4[:v]
+        return i
 ```
 ```
 ```
@@ -4627,6 +4644,8 @@ int maximumGap(vector<int>& nums)
 };
 ```
 ```
+class Solution{
+public:
 int maximumGap(vector<int>& nums)
 {
     if (nums.empty() || nums.size() < 2)
@@ -4665,6 +4684,7 @@ int maximumGap(vector<int>& nums)
 
     return maxGap;
 }
+};
 ```
 ```
 class Bucket {
@@ -4673,7 +4693,8 @@ public:
     int minval = numeric_limits<int>::max();        // same as INT_MAX
     int maxval = numeric_limits<int>::min();        // same as INT_MIN
 };
-
+class Solution{
+public:
 int maximumGap(vector<int>& nums)
 {
     if (nums.empty() || nums.size() < 2)
@@ -4704,6 +4725,7 @@ int maximumGap(vector<int>& nums)
 
     return maxGap;
 }
+};
 ```
 ## 165_CompareVersionNumbers
 ```

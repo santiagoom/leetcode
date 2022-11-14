@@ -32,7 +32,7 @@ def func():
         title = solutions[0].strip()
 
         solution_number = title[:3]
-        specific = ["150"]
+        specific = ["164"]
 
         if solution_number not in specific:
             continue

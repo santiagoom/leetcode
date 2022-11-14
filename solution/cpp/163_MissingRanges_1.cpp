@@ -1,12 +1,13 @@
 
 #include <iostream>
 #include <cppUtils.h>
+
 using namespace std;
 
-                    
+
 class Solution_163_MissingRanges_1 {
 public:
-    vector<string> findMissingRanges(vector<int>& nums, int lower, int upper) {
+    vector<string> findMissingRanges(vector<int> &nums, int lower, int upper) {
         vector<string> result;
         int prev = lower - 1;
         for (size_t i = 0; i <= nums.size(); i++) {
@@ -29,13 +30,13 @@ public:
 };
 
 int main() {
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+    auto *so = new Solution_163_MissingRanges_1();
+    vector<int> nums = {0, 1, 3, 50, 75};
+    int lower = 0;
+    int upper = 99;
+    vector<string> res = so->findMissingRanges(nums, lower, upper);
+    CppUtils::print_1d_vector(res);
+    delete so;
+    return 0;
 }
                     

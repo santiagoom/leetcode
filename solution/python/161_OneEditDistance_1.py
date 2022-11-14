@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_161_OneEditDistance_1:
     def isOneEditDistance(self, s: 'str', t: 'str') -> 'bool':
         ns, nt = len(s), len(t)
@@ -23,16 +23,16 @@ class Solution_161_OneEditDistance_1:
                 # if strings have different lengths
                 else:
                     return s[i:] == t[i + 1:]
-        
+
         # If there is no diffs on ns distance
         # the strings are one edit away only if
         # t has one more character. 
         return ns + 1 == nt
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
     s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    t = "aa"
+    so = Solution_161_OneEditDistance_1()
+    res = so.isOneEditDistance(s, t)
+    print(res)

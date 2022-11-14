@@ -1,9 +1,10 @@
 
 #include <iostream>
 #include <cppUtils.h>
+
 using namespace std;
 
-                    
+
 class Solution_159_LongestSubstringwithAtMostTwoDistinctCharacters_1 {
 public:
     int lengthOfLongestSubstringTwoDistinct(string s) {
@@ -28,7 +29,7 @@ public:
             // slidewindow contains 3 characters
             if (hashmap.size() == 3) {
                 int del_idx = INT_MAX;
-                for (pair<char, int> element : hashmap) {
+                for (pair<char, int> element: hashmap) {
                     del_idx = min(del_idx, element.second);
                 }
                 // delete the leftmost character
@@ -42,13 +43,13 @@ public:
 };
 
 int main() {
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+    vector<int> nums{2, 7, 11, 15};
+    int target = 26;
+    string s = "aa";
+    vector<vector<int>> arrays;
+    CppUtils::print(s);
+    CppUtils::print_1d_vector(nums);
+    CppUtils::print_2d_vector(arrays);
+    return 0;
 }
                     

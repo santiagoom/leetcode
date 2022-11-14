@@ -125,7 +125,7 @@ class Solution {
 ```
 ```
 ```
-## 204_CountPrimes
+## 204_CountPrime
 ```
 class Solution:
     def countPrimes(self, n: int) -> int:
@@ -4007,62 +4007,740 @@ class Solution:
 ```
 ## 265_PaintHouseII
 ```
+class Solution:
+    def minCostII(self, costs: List[List[int]]) -> int:
+        # Start by defining n and k to make the following code cleaner.
+        n = len(costs)
+        if n == 0: return 0 # No houses is a valid test case!
+        k = len(costs[0])
+
+        # If you're not familiar with lru_cache, look it up in the docs as it's
+        # essential to know about.
+        @lru_cache(maxsize=None)
+        def memo_solve(house_num, color):
+
+            # Base case.
+            if house_num == n - 1:
+                return costs[house_num][color]
+
+            # Recursive case.
+            cost = math.inf
+            for next_color in range(k):
+                if next_color == color:
+                    continue # Can't paint adjacent houses the same color!
+                cost = min(cost, memo_solve(house_num + 1, next_color))
+            return costs[house_num][color] + cost
+
+        # Consider all options for painting house 0 and find the minimum.
+        cost = math.inf
+        for color in range(k):
+            cost = min(cost, memo_solve(0, color))
+        return cost
 ```
 ```
+class Solution:
+    def minCostII(self, costs: List[List[int]]) -> int:
+
+        n = len(costs)
+        if n == 0: return 0
+        k = len(costs[0])
+
+        for house in range(1, n):
+            for color in range(k):
+                best = math.inf
+                for previous_color in range(k):
+                    if color == previous_color: continue
+                    best = min(best, costs[house - 1][previous_color])
+                costs[house][color] += best
+
+        return min(costs[-1])
 ```
 ```
+def minCostII(self, costs: List[List[int]]) -> int:
+
+    n = len(costs)
+    if n == 0: return 0
+    k = len(costs[0])
+
+    previous_row = costs[0]
+
+    for house in range(1, n):
+        current_row = [0] * k
+        for color in range(k):
+            best = math.inf
+            for previous_color in range(k):
+                if color == previous_color: continue
+                best = min(best, previous_row[previous_color])
+            current_row[color] += costs[house][color] + best
+        previous_row = current_row
+
+    return min(previous_row)
 ```
+```
+class Solution:
+    def minCostII(self, costs: List[List[int]]) -> int:
+
+        n = len(costs)
+        if n == 0: return 0
+        k = len(costs[0])
+
+        for house in range(1, n):
+            # Find the colors with the minimum and second to minimum
+            # in the previous row.
+            min_color = second_min_color = None
+            for color in range(k):
+                cost = costs[house - 1][color]
+                if min_color is None or cost < costs[house - 1][min_color]:
+                    second_min_color = min_color
+                    min_color = color
+                elif second_min_color is None or cost < costs[house - 1][second_min_color]:
+                    second_min_color = color
+            # And now update the costs for the current row.
+            for color in range(k):
+                if color == min_color:
+                    costs[house][color] += costs[house - 1][second_min_color]
+                else:
+                    costs[house][color] += costs[house - 1][min_color]
+
+        #The answer will now be the minimum of the last row.
+        return min(costs[-1])
+```
+
+```
+class Solution:
+    def minCostII(self, costs: List[List[int]]) -> int:
+        n = len(costs)
+        if n == 0: return 0 # This is a valid case.
+        k = len(costs[0])
+
+        # Firstly, we need to determine the 2 lowest costs of
+        # the first row. We also need to remember the color of
+        # the lowest.
+        prev_min_cost = prev_second_min_cost = prev_min_color = None
+        for color, cost in enumerate(costs[0]):
+            if prev_min_cost is None or cost < prev_min_cost:
+                prev_second_min_cost = prev_min_cost
+                prev_min_color = color
+                prev_min_cost = cost
+            elif prev_second_min_cost is None or cost < prev_second_min_cost:
+                prev_second_min_cost = cost
+
+        # And now, we need to work our way down, keeping track of the minimums.
+        for house in range(1, n):
+            min_cost = second_min_cost = min_color = None
+            for color in range(k):
+                # Determime cost for this cell (without writing it into input array.)
+                cost = costs[house][color]
+                if color == prev_min_color:
+                    cost += prev_second_min_cost
+                else:
+                    cost += prev_min_cost
+                # And work out whether or not it is a current minimum.
+                if min_cost is None or cost < min_cost:
+                    second_min_cost = min_cost
+                    min_color = color
+                    min_cost = cost
+                elif second_min_cost is None or cost < second_min_cost:
+                    second_min_cost = cost
+            # Transfer currents to be prevs.
+            prev_min_cost = min_cost
+            prev_min_color = min_color
+            prev_second_min_cost = second_min_cost
+
+        return prev_min_cost
+```
+
+
+
 ## 266_PalindromePermutation
+
+```
+public class Solution {
+    public boolean canPermutePalindrome(String s) {
+        int count = 0;
+        for (char i = 0; i < 128 && count <= 1; i++) {
+            int ct = 0;
+            for (int j = 0; j < s.length(); j++) {
+                if (s.charAt(j) == i)
+                    ct++;
+            }
+            count += ct % 2;
+        }
+        return count <= 1;
+    }
+}
+
 ```
 ```
+public class Solution {
+ public boolean canPermutePalindrome(String s) {
+     HashMap < Character, Integer > map = new HashMap < > ();
+     for (int i = 0; i < s.length(); i++) {
+         map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+     }
+     int count = 0;
+     for (char key: map.keySet()) {
+         count += map.get(key) % 2;
+     }
+     return count <= 1;
+ }
+}
+
 ```
 ```
+public class Solution {
+    public boolean canPermutePalindrome(String s) {
+        int[] map = new int[128];
+        for (int i = 0; i < s.length(); i++) {
+            map[s.charAt(i)]++;
+        }
+        int count = 0;
+        for (int key = 0; key < map.length && count <= 1; key++) {
+            count += map[key] % 2;
+        }
+        return count <= 1;
+    }
+}
 ```
 ```
+public class Solution {
+    public boolean canPermutePalindrome(String s) {
+        int[] map = new int[128];
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            map[s.charAt(i)]++;
+            if (map[s.charAt(i)] % 2 == 0)
+                count--;
+            else
+                count++;
+        }
+        return count <= 1;
+    }
+}
+```
+
+```
+public class Solution {
+    public boolean canPermutePalindrome(String s) {
+        Set < Character > set = new HashSet < > ();
+        for (int i = 0; i < s.length(); i++) {
+            if (!set.add(s.charAt(i)))
+                set.remove(s.charAt(i));
+        }
+        return set.size() <= 1;
+    }
+}
+
+```
+
+
+
 ## 267_PalindromePermutationII
+
+```
+public class Solution {
+    Set < String > set = new HashSet < > ();
+    public List < String > generatePalindromes(String s) {
+        permute(s.toCharArray(), 0);
+        return new ArrayList < String > (set);
+    }
+    public boolean isPalindrome(char[] s) {
+        for (int i = 0; i < s.length; i++) {
+            if (s[i] != s[s.length - 1 - i])
+                return false;
+        }
+        return true;
+    }
+    public void swap(char[] s, int i, int j) {
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+    void permute(char[] s, int l) {
+        if (l == s.length) {
+            if (isPalindrome(s))
+                set.add(new String(s));
+        } else {
+            for (int i = l; i < s.length; i++) {
+                swap(s, l, i);
+                permute(s, l + 1);
+                swap(s, l, i);
+            }
+        }
+    }
+}
+
+
 ```
 ```
-```
+public class Solution {
+    Set < String > set = new HashSet < > ();
+    public List < String > generatePalindromes(String s) {
+        int[] map = new int[128];
+        char[] st = new char[s.length() / 2];
+        if (!canPermutePalindrome(s, map))
+            return new ArrayList < > ();
+        char ch = 0;
+        int k = 0;
+        for (int i = 0; i < map.length; i++) {
+            if (map[i] % 2 == 1)
+                ch = (char) i;
+            for (int j = 0; j < map[i] / 2; j++) {
+                st[k++] = (char) i;
+            }
+        }
+        permute(st, 0, ch);
+        return new ArrayList < String > (set);
+    }
+    public boolean canPermutePalindrome(String s, int[] map) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            map[s.charAt(i)]++;
+            if (map[s.charAt(i)] % 2 == 0)
+                count--;
+            else
+                count++;
+        }
+        return count <= 1;
+    }
+    public void swap(char[] s, int i, int j) {
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+    void permute(char[] s, int l, char ch) {
+        if (l == s.length) {
+            set.add(new String(s) + (ch == 0 ? "" : ch) + new StringBuffer(new String(s)).reverse());
+        } else {
+            for (int i = l; i < s.length; i++) {
+                if (s[l] != s[i] || l == i) {
+                    swap(s, l, i);
+                    permute(s, l + 1, ch);
+                    swap(s, l, i);
+                }
+            }
+        }
+    }
+}
+
 ```
 ```
 ```
 ## 268_MissingNumber
 ```
+class Solution:
+    def missingNumber(self, nums):
+        nums.sort()
+
+        # Ensure that n is at the last index
+        if nums[-1] != len(nums):
+            return len(nums)
+        # Ensure that 0 is at the first index
+        elif nums[0] != 0:
+            return 0
+
+        # If we get here, then the missing number is on the range (0, n)
+        for i in range(1, len(nums)):
+            expected_num = nums[i-1] + 1
+            if nums[i] != expected_num:
+                return expected_num
 ```
 ```
+class Solution:
+    def missingNumber(self, nums):
+        num_set = set(nums)
+        n = len(nums) + 1
+        for number in range(n):
+            if number not in num_set:
+                return number
 ```
 ```
+class Solution:
+    def missingNumber(self, nums):
+        missing = len(nums)
+        for i, num in enumerate(nums):
+            missing ^= i ^ num
+        return missing
 ```
+```
+class Solution:
+    def missingNumber(self, nums):
+        expected_sum = len(nums)*(len(nums)+1)//2
+        actual_sum = sum(nums)
+        return expected_sum - actual_sum
+```
+
+
+
 ## 269_AlienDictionary
+
+```
+
+from collections import defaultdict, Counter, deque
+class Solution:
+    def alienOrder(self, words: List[str]) -> str:
+
+        # Step 0: create data structures + the in_degree of each unique letter to 0.
+        adj_list = defaultdict(set)
+        in_degree = Counter({c : 0 for word in words for c in word})
+
+        # Step 1: We need to populate adj_list and in_degree.
+        # For each pair of adjacent words...
+        for first_word, second_word in zip(words, words[1:]):
+            for c, d in zip(first_word, second_word):
+                if c != d:
+                    if d not in adj_list[c]:
+                        adj_list[c].add(d)
+                        in_degree[d] += 1
+                    break
+            else: # Check that second word isn't a prefix of first word.
+                if len(second_word) < len(first_word): return ""
+
+        # Step 2: We need to repeatedly pick off nodes with an indegree of 0.
+        output = []
+        queue = deque([c for c in in_degree if in_degree[c] == 0])
+        while queue:
+            c = queue.popleft()
+            output.append(c)
+            for d in adj_list[c]:
+                in_degree[d] -= 1
+                if in_degree[d] == 0:
+                    queue.append(d)
+
+        # If not all letters are in output, that means there was a cycle and so
+        # no valid ordering. Return "" as per the problem description.
+        if len(output) < len(in_degree):
+            return ""
+        # Otherwise, convert the ordering we found into a string and return it.
+        return "".join(output)
 ```
 ```
+class Solution:
+    def alienOrder(self, words: List[str]) -> str:
+
+        # Step 0: Put all unique letters into the adj list.
+        reverse_adj_list = {c : [] for word in words for c in word}
+
+        # Step 1: Find all edges and put them in reverse_adj_list.
+        for first_word, second_word in zip(words, words[1:]):
+            for c, d in zip(first_word, second_word):
+                if c != d: 
+                    reverse_adj_list[d].append(c)
+                    break
+            else: # Check that second word isn't a prefix of first word.
+                if len(second_word) < len(first_word): 
+                    return ""
+
+        # Step 2: Depth-first search.
+        seen = {} # False = grey, True = black.
+        output = []
+        def visit(node):  # Return True iff there are no cycles.
+            if node in seen:
+                return seen[node] # If this node was grey (False), a cycle was detected.
+            seen[node] = False # Mark node as grey.
+            for next_node in reverse_adj_list[node]:
+                result = visit(next_node)
+                if not result: 
+                    return False # Cycle was detected lower down.
+            seen[node] = True # Mark node as black.
+            output.append(node)
+            return True
+
+        if not all(visit(node) for node in reverse_adj_list):
+            return ""
+
+        return "".join(output)
 ```
-```
-```
-```
+
+
 ## 270_ClosestBinarySearchTreeValue
 ```
+class Solution:
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        def inorder(r: TreeNode):
+            return inorder(r.left) + [r.val] + inorder(r.right) if r else []
+        
+        return min(inorder(root), key = lambda x: abs(target - x))
 ```
 ```
+class Solution:
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        stack, pred = [], float('-inf')
+        
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            
+            if pred <= target and target < root.val:
+                return min(pred, root.val, key = lambda x: abs(target - x))
+                
+            pred = root.val
+            root = root.right
+
+        return pred
 ```
 ```
+class Solution:
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        closest = root.val
+        while root:
+            closest = min(root.val, closest, key = lambda x: abs(target - x))
+            root = root.left if target < root.val else root.right
+        return closest
 ```
 ## 271_EncodeandDecodeStrings
 ```
+public class Codec {
+  // Encodes a list of strings to a single string.
+  public String encode(List<String> strs) {
+    if (strs.size() == 0) return Character.toString((char)258);
+
+    String d = Character.toString((char)257);
+    StringBuilder sb = new StringBuilder();
+    for(String s: strs) {
+      sb.append(s);
+      sb.append(d);
+    }
+    sb.deleteCharAt(sb.length() - 1);
+    return sb.toString();
+  }
+
+  // Decodes a single string to a list of strings.
+  public List<String> decode(String s) {
+    String d = Character.toString((char)258);
+    if (s.equals(d)) return new ArrayList();
+
+    d = Character.toString((char)257);
+    return Arrays.asList(s.split(d, -1));
+  }
+}
 ```
 ```
+public class Codec {
+  // Encodes string length to bytes string
+  public String intToString(String s) {
+    int x = s.length();
+    char[] bytes = new char[4];
+    for(int i = 3; i > -1; --i) {
+      bytes[3 - i] = (char) (x >> (i * 8) & 0xff);
+    }
+    return new String(bytes);
+  }
+
+  // Encodes a list of strings to a single string.
+  public String encode(List<String> strs) {
+    StringBuilder sb = new StringBuilder();
+    for(String s: strs) {
+      sb.append(intToString(s));
+      sb.append(s);
+    }
+    return sb.toString();
+  }
+
+  // Decodes bytes string to integer
+  public int stringToInt(String bytesStr) {
+    int result = 0;
+    for(char b : bytesStr.toCharArray())
+      result = (result << 8) + (int)b;
+    return result;
+  }
+
+  // Decodes a single string to a list of strings.
+  public List<String> decode(String s) {
+    int i = 0, n = s.length();
+    List<String> output = new ArrayList();
+    while (i < n) {
+      int length = stringToInt(s.substring(i, i + 4));
+      i += 4;
+      output.add(s.substring(i, i + length));
+      i += length;
+    }
+    return output;
+  }
+}
 ```
 ```
 ```
 ## 272_ClosestBinarySearchTreeValueII
 ```
+class Solution:
+    def closestKValues(self, root: TreeNode, target: float, k: int) -> List[int]:
+        def inorder(r: TreeNode):
+            return inorder(r.left) + [r.val] + inorder(r.right) if r else []
+        
+        nums = inorder(root)
+        nums.sort(key = lambda x: abs(x - target))
+        return nums[:k]
 ```
 ```
+from heapq import heappush, heappop
+class Solution:
+    def closestKValues(self, root: TreeNode, target: float, k: int) -> List[int]:
+        def inorder(r: TreeNode):
+            if not r:
+                return
+            
+            inorder(r.left)
+            heappush(heap, (- abs(r.val - target), r.val))
+            if len(heap) > k:
+                heappop(heap)
+            inorder(r.right) 
+    
+        heap = []
+        inorder(root)
+        return [x for _, x in heap]
 ```
 ```
+class Solution:
+    def closestKValues(self, root: TreeNode, target: float, k: int) -> List[int]:
+        def inorder(r: TreeNode):
+            return inorder(r.left) + [r.val] + inorder(r.right) if r else []
+        
+        def partition(pivot_idx, left, right):
+            pivot_dist = dist(pivot_idx)
+            
+            # 1. move pivot to end
+            nums[right], nums[pivot_idx] = nums[pivot_idx], nums[right]
+            store_idx = left
+            
+            # 2. move more close elements to the left
+            for i in range(left, right):
+                if dist(i) < pivot_dist:
+                    nums[i], nums[store_idx] = nums[store_idx], nums[i]
+                    store_idx += 1
+                    
+            # 3. move pivot to its final place
+            nums[right], nums[store_idx] = nums[store_idx], nums[right]
+            
+            return store_idx
+            
+        def quickselect(left, right):
+            """
+            Sort a list within left..right till kth less close element
+            takes its place.
+            """
+            # base case: the list contains only one element
+            if left == right:
+                return 
+            
+            # select a random pivot_index
+            pivot_idx = randint(left, right)
+            
+            # find the pivot position in a sorted list
+            true_idx = partition(pivot_idx, left, right)
+            
+            # if the pivot is in its final sorted position
+            if true_idx == k:
+                return
+            
+            if true_idx < k:
+                # go left
+                quickselect(true_idx, right)
+            else:
+                # go right
+                quickselect(left, true_idx)
+        
+        nums = inorder(root)
+        dist = lambda idx : abs(nums[idx] - target)
+        quickselect(0, len(nums) - 1)
+        return nums[:k]
 ```
 ## 273_IntegertoEnglishWords
 ```
+class Solution:
+    def numberToWords(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        def one(num):
+            switcher = {
+                1: 'One',
+                2: 'Two',
+                3: 'Three',
+                4: 'Four',
+                5: 'Five',
+                6: 'Six',
+                7: 'Seven',
+                8: 'Eight',
+                9: 'Nine'
+            }
+            return switcher.get(num)
+
+        def two_less_20(num):
+            switcher = {
+                10: 'Ten',
+                11: 'Eleven',
+                12: 'Twelve',
+                13: 'Thirteen',
+                14: 'Fourteen',
+                15: 'Fifteen',
+                16: 'Sixteen',
+                17: 'Seventeen',
+                18: 'Eighteen',
+                19: 'Nineteen'
+            }
+            return switcher.get(num)
+        
+        def ten(num):
+            switcher = {
+                2: 'Twenty',
+                3: 'Thirty',
+                4: 'Forty',
+                5: 'Fifty',
+                6: 'Sixty',
+                7: 'Seventy',
+                8: 'Eighty',
+                9: 'Ninety'
+            }
+            return switcher.get(num)
+        
+
+        def two(num):
+            if not num:
+                return ''
+            elif num < 10:
+                return one(num)
+            elif num < 20:
+                return two_less_20(num)
+            else:
+                tenner = num // 10
+                rest = num - tenner * 10
+                return ten(tenner) + ' ' + one(rest) if rest else ten(tenner)
+        
+        def three(num):
+            hundred = num // 100
+            rest = num - hundred * 100
+            if hundred and rest:
+                return one(hundred) + ' Hundred ' + two(rest) 
+            elif not hundred and rest: 
+                return two(rest)
+            elif hundred and not rest:
+                return one(hundred) + ' Hundred'
+        
+        billion = num // 1000000000
+        million = (num - billion * 1000000000) // 1000000
+        thousand = (num - billion * 1000000000 - million * 1000000) // 1000
+        rest = num - billion * 1000000000 - million * 1000000 - thousand * 1000
+        
+        if not num:
+            return 'Zero'
+        
+        result = ''
+        if billion:        
+            result = three(billion) + ' Billion'
+        if million:
+            result += ' ' if result else ''    
+            result += three(million) + ' Million'
+        if thousand:
+            result += ' ' if result else ''
+            result += three(thousand) + ' Thousand'
+        if rest:
+            result += ' ' if result else ''
+            result += three(rest)
+        return result
 ```
 ```
 ```
@@ -4070,62 +4748,550 @@ class Solution:
 ```
 ## 274_H-Index
 ```
+public class Solution {
+    public int hIndex(int[] citations) {
+        // sorting the citations in ascending order
+        Arrays.sort(citations);
+        // finding h-index by linear search
+        int i = 0;
+        while (i < citations.length && citations[citations.length - 1 - i] > i) {
+            i++;
+        }
+        return i; // after the while loop, i = i' + 1
+    }
+}
 ```
 ```
+public class Solution {
+    public int hIndex(int[] citations) {
+        int n = citations.length;
+        int[] papers = new int[n + 1];
+        // counting papers for each citation number
+        for (int c: citations)
+            papers[Math.min(n, c)]++;
+        // finding the h-index
+        int k = n;
+        for (int s = papers[n]; k > s; s += papers[k])
+            k--;
+        return k;
+    }
+}
 ```
 ```
 ```
 ## 275_H-IndexII
 ```
+class Solution:
+    def hIndex(self, citations):
+        """
+        :type citations: List[int]
+        :rtype: int
+        """
+        n = len(citations)
+        for idx, c in enumerate(citations):
+            if c >= n - idx:
+                return n - idx
+        return 0
 ```
 ```
+class Solution:
+    def hIndex(self, citations):
+        """
+        :type citations: List[int]
+        :rtype: int
+        """
+        n = len(citations)
+        left, right = 0, n - 1
+
+        # We need to find the rightmost 'index' such that: (citations[index] <= n - index)
+        while left <= right:
+            mid = left + (right - left) // 2
+
+            # There's (n - mid) papers with an equal or higher citation count than citations[mid]
+            # If (citations[mid] == n - mid) it's the optimal result and can be returned right away
+            if citations[mid] == n - mid:
+                return n - mid
+
+            # If citations[mid] is less than (n - mid), narrow down on the right half to look for a paper
+            # at a future index that meets the h-index criteria. Otherwise, narrow down on the left half
+            if citations[mid] < n - mid:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        # We didn't find an exact match, so there's exactly (n - left) papers that have citations
+        # greater than or equal to citations[left] and that is our answer
+        return n - left
 ```
 ```
 ```
 ## 276_PaintFence
 ```
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        def total_ways(i):
+            if i == 1:
+                return k
+            if i == 2:
+                return k * k
+            
+            # Check if we have already calculated totalWays(i)
+            if i in memo:
+                return memo[i]
+            
+            # Use the recurrence relation to calculate total_ways(i)
+            memo[i] = (k - 1) * (total_ways(i - 1) + total_ways(i - 2))
+            return memo[i]
+
+        memo = {}
+        return total_ways(n)
 ```
 ```
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        @lru_cache(None)
+        def total_ways(i):
+            if i == 1: 
+                return k
+            if i == 2: 
+                return k * k
+            
+            return (k - 1) * (total_ways(i - 1) + total_ways(i - 2))
+        
+        return total_ways(n)
 ```
 ```
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        # Base cases for the problem to avoid index out of bound issues
+        if n == 1:
+            return k
+        if n == 2:
+            return k * k
+
+        total_ways = [0] * (n + 1)
+        total_ways[1] = k
+        total_ways[2] = k * k
+        
+        for i in range(3, n + 1):
+            total_ways[i] = (k - 1) * (total_ways[i - 1] + total_ways[i - 2])
+        
+        return total_ways[n]
 ```
+```
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        if n == 1:
+            return k
+        
+        two_posts_back = k
+        one_post_back = k * k
+        
+        for i in range(3, n + 1):
+            curr = (k - 1) * (one_post_back + two_posts_back)
+            two_posts_back = one_post_back
+            one_post_back = curr
+
+        return one_post_back
+```
+
+
+
 ## 277_FindtheCelebrity
+
+```
+class Solution:
+    def findCelebrity(self, n: int) -> int:
+        self.n = n
+        for i in range(n):
+            if self.is_celebrity(i):
+                return i
+        return -1
+    
+    def is_celebrity(self, i):
+        for j in range(self.n):
+            if i == j: continue # Don't ask if they know themselves.
+            if knows(i, j) or not knows(j, i):
+                return False
+        return True
 ```
 ```
+class Solution:
+    def findCelebrity(self, n: int) -> int:
+        self.n = n
+        celebrity_candidate = 0
+        for i in range(1, n):
+            if knows(celebrity_candidate, i):
+                celebrity_candidate = i
+        if self.is_celebrity(celebrity_candidate):
+            return celebrity_candidate
+        return -1
+
+    def is_celebrity(self, i):
+        for j in range(self.n):
+            if i == j: continue
+            if knows(i, j) or not knows(j, i):
+                return False
+        return True
 ```
 ```
-```
+from functools import lru_cache
+
+class Solution:
+    
+    @lru_cache(maxsize=None)
+    def cachedKnows(self, a, b):
+        return knows(a, b)
+    
+    def findCelebrity(self, n: int) -> int:
+        self.n = n
+        celebrity_candidate = 0
+        for i in range(1, n):
+            if self.cachedKnows(celebrity_candidate, i):
+                celebrity_candidate = i
+        if self.is_celebrity(celebrity_candidate):
+            return celebrity_candidate
+        return -1
+
+    def is_celebrity(self, i):
+        for j in range(self.n):
+            if i == j: continue
+            if self.cachedKnows(i, j) or not self.cachedKnows(j, i):
+                return False
+        return True
 ```
 ## 278_FirstBadVersion
 ```
+public class Solution{
+public int firstBadVersion(int n) {
+    for (int i = 1; i < n; i++) {
+        if (isBadVersion(i)) {
+            return i;
+        }
+    }
+    return n;
+}
+}
+
 ```
 ```
+public class Solution{
+public int firstBadVersion(int n) {
+    int left = 1;
+    int right = n;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (isBadVersion(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+}
+
 ```
 ```
+ public class Solution extends VersionControl {
+    public int firstBadVersion(int n) {
+        int l=1;
+        while(l<=n){
+            int m=l+(n-l)/2;
+            if(isBadVersion(m)){
+                n=m-1;
+            }else{
+                l=m+1;
+            }
+        }
+        return l;
+    }
+}
 ```
 ## 279_PerfectSquares
 ```
+class Solution(object):
+    def numSquares(self, n):
+        square_nums = [i**2 for i in range(1, int(math.sqrt(n))+1)]
+
+        def minNumSquares(k):
+            """ recursive solution """
+            # bottom cases: find a square number
+            if k in square_nums:
+                return 1
+            min_num = float('inf')
+
+            # Find the minimal value among all possible solutions
+            for square in square_nums:
+                if k < square:
+                    break
+                new_num = minNumSquares(k-square) + 1
+                min_num = min(min_num, new_num)
+            return min_num
+
+        return minNumSquares(n)
 ```
 ```
+class Solution(object):
+    def numSquares(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        square_nums = [i**2 for i in range(0, int(math.sqrt(n))+1)]
+        
+        dp = [float('inf')] * (n+1)
+        # bottom case
+        dp[0] = 0
+        
+        for i in range(1, n+1):
+            for square in square_nums:
+                if i < square:
+                    break
+                dp[i] = min(dp[i], dp[i-square] + 1)
+        
+        return dp[-1]
 ```
 ```
+class Solution:
+    def numSquares(self, n):
+        
+        def is_divided_by(n, count):
+            """
+                return: true if "n" can be decomposed into "count" number of perfect square numbers.
+                e.g. n=12, count=3:  true.
+                     n=12, count=2:  false
+            """
+            if count == 1:
+                return n in square_nums
+            
+            for k in square_nums:
+                if is_divided_by(n - k, count - 1):
+                    return True
+            return False
+
+        square_nums = set([i * i for i in range(1, int(n**0.5)+1)])
+    
+        for count in range(1, n+1):
+            if is_divided_by(n, count):
+                return count
 ```
+```
+class Solution:
+    def numSquares(self, n):
+
+        # list of square numbers that are less than `n`
+        square_nums = [i * i for i in range(1, int(n**0.5)+1)]
+    
+        level = 0
+        queue = {n}
+        while queue:
+            level += 1
+            #! Important: use set() instead of list() to eliminate the redundancy,
+            # which would even provide a 5-times speedup, 200ms vs. 1000ms.
+            next_queue = set()
+            # construct the queue for the next level
+            for remainder in queue:
+                for square_num in square_nums:    
+                    if remainder == square_num:
+                        return level  # find the node!
+                    elif remainder < square_num:
+                        break
+                    else:
+                        next_queue.add(remainder - square_num)
+            queue = next_queue
+        return level
+```
+
+```
+class Solution:
+    def isSquare(self, n: int) -> bool:
+        sq = int(math.sqrt(n))
+        return sq*sq == n
+
+    def numSquares(self, n: int) -> int:
+        # four-square and three-square theorems
+        while (n & 3) == 0:
+            n >>= 2      # reducing the 4^k factor from number
+        if (n & 7) == 7: # mod 8
+            return 4
+
+        if self.isSquare(n):
+            return 1
+        # check if the number can be decomposed into sum of two squares
+        for i in range(1, int(n**(0.5)) + 1):
+            if self.isSquare(n - i*i):
+                return 2
+        # bottom case from the three-square theorem
+        return 3
+```
+
+
+
 ## 280_WiggleSort
+
+```
+class Solution {
+public void wiggleSort(int[] nums) {
+    Arrays.sort(nums);
+    for (int i = 1; i < nums.length - 1; i += 2) {
+        swap(nums, i, i + 1);
+    }
+}
+
+private void swap(int[] nums, int i, int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+}
 ```
 ```
-```
+class Solution {
+public void wiggleSort(int[] nums) {
+    boolean less = true;
+    for (int i = 0; i < nums.length - 1; i++) {
+        if (less) {
+            if (nums[i] > nums[i + 1]) {
+                swap(nums, i, i + 1);
+            }
+        } else {
+            if (nums[i] < nums[i + 1]) {
+                swap(nums, i, i + 1);
+            }
+        }
+        less = !less;
+    }
+}
+private void swap(int[] nums, int i, int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+}
 ```
 ```
 ```
 ## 281_ZigzagIterator
 ```
+class ZigzagIterator:
+    def __init__(self, v1: List[int], v2: List[int]):
+        self.vectors = [v1, v2]
+        self.p_elem = 0   # pointer to the index of element
+        self.p_vec = 0    # pointer to the vector
+        # variables for hasNext() function
+        self.total_num = len(v1) + len(v2)
+        self.output_count = 0
+
+    def next(self) -> int:
+        iter_num = 0
+        ret = None
+
+        # Iterate over the vectors
+        while iter_num < len(self.vectors):
+            curr_vec = self.vectors[self.p_vec]
+            if self.p_elem < len(curr_vec):
+                ret = curr_vec[self.p_elem]
+
+            iter_num += 1
+            self.p_vec = (self.p_vec + 1) % len(self.vectors)
+            # increment the element pointer once iterating all vectors
+            if self.p_vec == 0:
+                self.p_elem += 1
+
+            if ret is not None:
+                self.output_count += 1
+                return ret
+
+        # no more element to output
+        raise Exception
+
+
+    def hasNext(self) -> bool:
+        return self.output_count < self.total_num
+
+# Your ZigzagIterator object will be instantiated and called as such:
+# i, v = ZigzagIterator(v1, v2), []
+# while i.hasNext(): v.append(i.next())
 ```
 ```
+class ZigzagIterator:
+    def __init__(self, v1: List[int], v2: List[int]):
+        self.vectors = [v1, v2]
+        self.queue = deque()
+        for index, vector in enumerate(self.vectors):
+            # <index_of_vector, index_of_element_to_output>
+            if len(vector) > 0:
+                self.queue.append((index, 0))
+
+    def next(self) -> int:
+
+        if self.queue:
+            vec_index, elem_index = self.queue.popleft()
+            next_elem_index = elem_index + 1
+            if next_elem_index < len(self.vectors[vec_index]):
+                # append the pointer for the next round
+                # if there are some elements left
+                self.queue.append((vec_index, next_elem_index))
+
+            return self.vectors[vec_index][elem_index]
+
+        # no more element to output
+        raise Exception
+
+    def hasNext(self) -> bool:
+        return len(self.queue) > 0
 ```
 ```
 ```
 ## 282_ExpressionAddOperators
 ```
+class Solution:
+    def addOperators(self, num: 'str', target: 'int') -> 'List[str]':
+
+        N = len(num)
+        answers = []
+        def recurse(index, prev_operand, current_operand, value, string):
+
+            # Done processing all the digits in num
+            if index == N:
+
+                # If the final value == target expected AND
+                # no operand is left unprocessed
+                if value == target and current_operand == 0:
+                    answers.append("".join(string[1:]))
+                return
+
+            # Extending the current operand by one digit
+            current_operand = current_operand*10 + int(num[index])
+            str_op = str(current_operand)
+
+            # To avoid cases where we have 1 + 05 or 1 * 05 since 05 won't be a
+            # valid operand. Hence this check
+            if current_operand > 0:
+
+                # NO OP recursion
+                recurse(index + 1, prev_operand, current_operand, value, string)
+
+            # ADDITION
+            string.append('+'); string.append(str_op)
+            recurse(index + 1, current_operand, 0, value + current_operand, string)
+            string.pop();string.pop()
+
+            # Can subtract or multiply only if there are some previous operands
+            if string:
+
+                # SUBTRACTION
+                string.append('-'); string.append(str_op)
+                recurse(index + 1, -current_operand, 0, value - current_operand, string)
+                string.pop();string.pop()
+
+                # MULTIPLICATION
+                string.append('*'); string.append(str_op)
+                recurse(index + 1, current_operand * prev_operand, 0, value - prev_operand + (current_operand * prev_operand), string)
+                string.pop();string.pop()
+        recurse(0, 0, 0, 0, [])    
+        return answers
 ```
 ```
 ```
@@ -4133,41 +5299,503 @@ class Solution:
 ```
 ## 283_MoveZeroes
 ```
+class Solution {
+public:
+void moveZeroes(vector<int>& nums) {
+    int n = nums.size();
+
+    // Count the zeroes
+    int numZeroes = 0;
+    for (int i = 0; i < n; i++) {
+        numZeroes += (nums[i] == 0);
+    }
+
+    // Make all the non-zero elements retain their original order.
+    vector<int> ans;
+    for (int i = 0; i < n; i++) {
+        if (nums[i] != 0) {
+            ans.push_back(nums[i]);
+        }
+    }
+
+    // Move all zeroes to the end
+    while (numZeroes--) {
+        ans.push_back(0);
+    }
+
+    // Combine the result
+    for (int i = 0; i < n; i++) {
+        nums[i] = ans[i];
+    }
+}
+};
 ```
 ```
+class Solution {
+public:
+void moveZeroes(vector<int>& nums) {
+    int lastNonZeroFoundAt = 0;
+    // If the current element is not 0, then we need to
+    // append it just in front of last non 0 element we found. 
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] != 0) {
+            nums[lastNonZeroFoundAt++] = nums[i];
+        }
+    }
+ 	// After we have finished processing new elements,
+ 	// all the non-zero elements are already at beginning of array.
+ 	// We just need to fill remaining array with 0's.
+    for (int i = lastNonZeroFoundAt; i < nums.size(); i++) {
+        nums[i] = 0;
+    }
+}
+};
 ```
 ```
+class Solution {
+public:
+void moveZeroes(vector<int>& nums) {
+    for (int lastNonZeroFoundAt = 0, cur = 0; cur < nums.size(); cur++) {
+        if (nums[cur] != 0) {
+            swap(nums[lastNonZeroFoundAt++], nums[cur]);
+        }
+    }
+}
+};
 ```
 ## 284_PeekingIterator
 ```
+class PeekingIterator:
+    def __init__(self, iterator):
+        self._iterator = iterator
+        self._peeked_value = None
+
+    def peek(self):
+        # If there's not already a peeked value, get one out and store
+        # it in the _peeked_value variable. We aren't told what to do if
+        # the iterator is actually empty -- here I have thrown an exception
+        # but in an interview you should definitely ask! This is the kind of
+        # thing they expect you to ask about.
+        if self._peeked_value is None:
+            if not self._iterator.hasNext():
+                raise StopIteration()
+            self._peeked_value = self._iterator.next()
+
+        return self._peeked_value
+
+    def next(self):
+        # Firstly, we need to check if we have a value already
+        # stored in the _peeked_value variable. If we do, we need to
+        # return it and also set _peeked_value to null so that the value
+        # isn't returned again.
+        if self._peeked_value is not None:
+            to_return = self._peeked_value
+            self._peeked_value = None
+            return to_return
+
+        if not self._iterator.hasNext():
+            raise StopIteration()
+
+        # Otherwise, we need to return a new value.
+        return self._iterator.next()
+
+    def hasNext(self):
+        # If there's a value waiting in _peeked_value, or if there are values
+        # remaining in the iterator, we should return true.
+        return self._peeked_value is not None or self._iterator.hasNext()
 ```
 ```
+class PeekingIterator:
+    def __init__(self, iterator):
+        self._next = iterator.next()
+        self._iterator = iterator
+
+    def peek(self):
+        return self._next
+
+    def next(self):
+        if self._next is None:
+            raise StopIteration()
+        to_return = self._next
+        self._next = None
+        if self._iterator.hasNext():
+            self._next = self._iterator.next()
+        return to_return
+
+    def hasNext(self):
+        return self._next is not None
 ```
 ```
 ```
 ## 285_InorderSuccessorinBST
 ```
+class Solution:
+    
+    previous = None
+    inorder_successor_node = None
+    
+    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+        
+        self.previous, self.inorder_successor_node = None, None
+        
+        # Case 1: We simply need to find the leftmost node in the subtree rooted at p.right.
+        if p.right:
+            leftmost = p.right
+            while leftmost.left:
+                leftmost = leftmost.left
+                
+            self.inorder_successor_node = leftmost
+        
+        # Case 2: We need to perform the standard inorder traversal and keep track of the previous node.
+        else:
+            self.inorderCase2(root, p)
+        
+        return self.inorder_successor_node
+        
+        
+    def inorderCase2(self, node: 'TreeNode', p: 'TreeNode'):
+        
+        if not node:
+            return
+        
+        # Recurse on the left side
+        self.inorderCase2(node.left, p)
+        
+        # Check if previous is the inorder predecessor of node
+        if self.previous == p and not self.inorder_successor_node:
+            self.inorder_successor_node = node
+            return
+        
+        # Keeping previous up-to-date for further recursions
+        self.previous = node
+        
+        # Recurse on the right side
+        self.inorderCase2(node.right, p)
 ```
 ```
+class Solution:
+    
+    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+        
+        successor = None
+        
+        while root:
+            
+            if p.val >= root.val:
+                root = root.right
+            else:
+                successor = root
+                root = root.left
+                
+        return successor
 ```
 ```
 ```
 ## 286_WallsandGates
 ```
+class Solution {
+    private static final int EMPTY = Integer.MAX_VALUE;
+private static final int GATE = 0;
+private static final int WALL = -1;
+private static final List<int[]> DIRECTIONS = Arrays.asList(
+        new int[] { 1,  0},
+        new int[] {-1,  0},
+        new int[] { 0,  1},
+        new int[] { 0, -1}
+);
+
+public void wallsAndGates(int[][] rooms) {
+    if (rooms.length == 0) return;
+    for (int row = 0; row < rooms.length; row++) {
+        for (int col = 0; col < rooms[0].length; col++) {
+            if (rooms[row][col] == EMPTY) {
+                rooms[row][col] = distanceToNearestGate(rooms, row, col);
+            }
+        }
+    }
+}
+
+private int distanceToNearestGate(int[][] rooms, int startRow, int startCol) {
+    int m = rooms.length;
+    int n = rooms[0].length;
+    int[][] distance = new int[m][n];
+    Queue<int[]> q = new LinkedList<>();
+    q.add(new int[] { startRow, startCol });
+    while (!q.isEmpty()) {
+        int[] point = q.poll();
+        int row = point[0];
+        int col = point[1];
+        for (int[] direction : DIRECTIONS) {
+            int r = row + direction[0];
+            int c = col + direction[1];
+            if (r < 0 || c < 0 || r >= m || c >= n || rooms[r][c] == WALL
+                    || distance[r][c] != 0) {
+                continue;
+            }
+            distance[r][c] = distance[row][col] + 1;
+            if (rooms[r][c] == GATE) {
+                return distance[r][c];
+            }
+            q.add(new int[] { r, c });
+        }
+    }
+    return Integer.MAX_VALUE;
+}
+}
 ```
 ```
+class Solution {
+private static final int EMPTY = Integer.MAX_VALUE;
+private static final int GATE = 0;
+private static final List<int[]> DIRECTIONS = Arrays.asList(
+        new int[] { 1,  0},
+        new int[] {-1,  0},
+        new int[] { 0,  1},
+        new int[] { 0, -1}
+);
+
+public void wallsAndGates(int[][] rooms) {
+    int m = rooms.length;
+    if (m == 0) return;
+    int n = rooms[0].length;
+    Queue<int[]> q = new LinkedList<>();
+    for (int row = 0; row < m; row++) {
+        for (int col = 0; col < n; col++) {
+            if (rooms[row][col] == GATE) {
+                q.add(new int[] { row, col });
+            }
+        }
+    }
+    while (!q.isEmpty()) {
+        int[] point = q.poll();
+        int row = point[0];
+        int col = point[1];
+        for (int[] direction : DIRECTIONS) {
+            int r = row + direction[0];
+            int c = col + direction[1];
+            if (r < 0 || c < 0 || r >= m || c >= n || rooms[r][c] != EMPTY) {
+                continue;
+            }
+            rooms[r][c] = rooms[row][col] + 1;
+            q.add(new int[] { r, c });
+        }
+    }
+}
+
+}
 ```
 ```
 ```
 ## 287_FindtheDuplicateNumber
 ```
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] == nums[i - 1])
+                return nums[i];
+        }
+        return -1;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        unordered_set<int> seen;
+        for (auto &num : nums) {
+            if (seen.count(num))
+                return num;
+            seen.insert(num);
+        }
+        return -1;
+    }
+};
 ```
 ```
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int duplicate = -1;
+        for (int i = 0; i < nums.size(); i++) {
+            int cur = abs(nums[i]);
+            if (nums[cur] < 0) {
+                duplicate = cur;
+                break;
+            }
+            nums[cur] *= -1;
+        }
+        
+        // Restore numbers
+        for (auto& num : nums)
+            num = abs(num);
+        
+        return duplicate;
+    }
+};
 ```
+```
+class Solution {
+public:
+    int store(vector<int>& nums, int cur) {
+        if (cur == nums[cur])
+            return cur;
+        int nxt = nums[cur];
+        nums[cur] = cur;
+        return store(nums, nxt);
+    }
+    
+    int findDuplicate(vector<int>& nums) {
+        return store(nums, 0);
+    }
+};
+```
+
+```
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        while (nums[0] != nums[nums[0]])
+            swap(nums[0], nums[nums[0]]);
+        return nums[0];
+    }
+};
+```
+
+```
+
+class Solution {
+    public:
+    
+    int findDuplicate(vector<int>& nums) {
+
+        // Lambda function to count how many numbers are less than or equal to 'cur'
+        auto small_or_equal = [&](int cur) {
+            int count = 0;
+            for (auto &num: nums) {
+                if (num <= cur)
+                    count++;
+            }
+            return count;
+        };
+        
+        // 'low' and 'high' represent the range of values of the target
+        int low = 1, high = nums.size();
+        int duplicate = -1;
+        while (low <= high) {
+            int cur = (low + high) / 2;
+            
+            if (small_or_equal(cur) > cur) { 
+                duplicate = cur;
+                high = cur - 1;
+            } else {
+                low = cur + 1;
+            }
+        }
+
+        return duplicate;
+    }
+};
+```
+
+```
+class Solution {
+public:
+    
+    // Find the position of the Most Significant Bit in num
+    int calcMaxBit(int num) {
+        int bits = 0;
+        while (num > 0) {
+            num /= 2;
+            bits++;
+        }
+        return bits;
+    }
+    
+    int findDuplicate(vector<int>& nums) {
+        int duplicate = 0;
+        int n = nums.size() - 1;
+        int max_num = *max_element(nums.begin(), nums.end());
+        int max_bit = calcMaxBit(max_num);
+        
+        // Iterate over each bit
+        for (int bit = 0; bit < max_bit; bit++) {
+            int mask = (1 << bit);
+            int base_count = 0, nums_count = 0;
+            
+            for (int i = 0; i <= n; i++) {
+                // If bit is set in number (i) then add 1 to base_count
+                if (i & mask) {
+                    base_count++;
+                }
+                // If bit is set in nums[i] then add 1 to nums_count
+                if (nums[i] & mask) {
+                    nums_count++;
+                }
+            }
+            
+            // If the current bit is more frequently set in nums than it is in 
+            // the range [1, 2, ..., n] then it must also be set in the duplicate number
+            if (nums_count > base_count) {
+                duplicate |= mask;
+            }
+        }
+        return duplicate;
+    }
+};
+```
+
+```
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+
+        // Find the intersection point of the two runners.
+        int tortoise = nums[0];
+        int hare = nums[0];
+
+        do {
+            tortoise = nums[tortoise];
+            hare = nums[nums[hare]];
+        } while (tortoise != hare);
+
+        // Find the "entrance" to the cycle.
+        tortoise = nums[0];
+        while (tortoise != hare) {
+            tortoise = nums[tortoise];
+            hare = nums[hare];
+        }
+
+        return hare;
+    }
+};
+```
+
+
+
 ## 288_UniqueWordAbbreviation
+
 ```
+class ValidWordAbbr {
+public:
+	ValidWordAbbr(vector<string> &dictionary) {
+		for (string& d : dictionary) {
+			int n = d.length();
+			string abbr = d[0] + to_string(n) + d[n - 1];
+			mp[abbr].insert(d);
+		}
+	}
+
+	bool isUnique(string word) {
+		int n = word.length();
+		string abbr = word[0] + to_string(n) + word[n - 1];
+		return mp[abbr].count(word) == mp[abbr].size(); 
+	}
+private:
+	unordered_map<string, unordered_set<string>> mp;
+};
 ```
 ```
 ```
@@ -4175,10 +5803,108 @@ class Solution:
 ```
 ## 289_GameofLife
 ```
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+
+        # Neighbors array to find 8 neighboring cells for a given cell
+        neighbors = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
+
+        rows = len(board)
+        cols = len(board[0])
+
+        # Create a copy of the original board
+        copy_board = [[board[row][col] for col in range(cols)] for row in range(rows)]
+
+        # Iterate through board cell by cell.
+        for row in range(rows):
+            for col in range(cols):
+
+                # For each cell count the number of live neighbors.
+                live_neighbors = 0
+                for neighbor in neighbors:
+
+                    r = (row + neighbor[0])
+                    c = (col + neighbor[1])
+
+                    # Check the validity of the neighboring cell and if it was originally a live cell.
+                    # The evaluation is done against the copy, since that is never updated.
+                    if (r < rows and r >= 0) and (c < cols and c >= 0) and (copy_board[r][c] == 1):
+                        live_neighbors += 1
+
+                # Rule 1 or Rule 3        
+                if copy_board[row][col] == 1 and (live_neighbors < 2 or live_neighbors > 3):
+                    board[row][col] = 0
+                # Rule 4
+                if copy_board[row][col] == 0 and live_neighbors == 3:
+                    board[row][col] = 1
 ```
 ```
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        # Neighbors array to find 8 neighboring cells for a given cell
+        neighbors = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
+
+        rows = len(board)
+        cols = len(board[0])
+
+        # Iterate through board cell by cell.
+        for row in range(rows):
+            for col in range(cols):
+
+                # For each cell count the number of live neighbors.
+                live_neighbors = 0
+                for neighbor in neighbors:
+
+                    # row and column of the neighboring cell
+                    r = (row + neighbor[0])
+                    c = (col + neighbor[1])
+
+                    # Check the validity of the neighboring cell and if it was originally a live cell.
+                    if (r < rows and r >= 0) and (c < cols and c >= 0) and abs(board[r][c]) == 1:
+                        live_neighbors += 1
+
+                # Rule 1 or Rule 3
+                if board[row][col] == 1 and (live_neighbors < 2 or live_neighbors > 3):
+                    # -1 signifies the cell is now dead but originally was live.
+                    board[row][col] = -1
+                # Rule 4
+                if board[row][col] == 0 and live_neighbors == 3:
+                    # 2 signifies the cell is now live but was originally dead.
+                    board[row][col] = 2
+
+        # Get the final representation for the newly updated board.
+        for row in range(rows):
+            for col in range(cols):
+                if board[row][col] > 0:
+                    board[row][col] = 1
+                else:
+                    board[row][col] = 0
 ```
 ```
+    
+class Solution:
+    def gameOfLifeInfinite(self, live):
+        ctr = collections.Counter((I, J)
+                                  for i, j in live
+                                  for I in range(i-1, i+2)
+                                  for J in range(j-1, j+2)
+                                  if I != i or J != j)
+        return {ij
+                for ij in ctr
+                if ctr[ij] == 3 or ctr[ij] == 2 and ij in live}
+
+    def gameOfLife(self, board):
+        live = {(i, j) for i, row in enumerate(board) for j, live in enumerate(row) if live}
+        live = self.gameOfLifeInfinite(live)
+        for i, row in enumerate(board):
+            for j in range(len(row)):
+                row[j] = int((i, j) in live)
 ```
 ## 290_WordPattern
 ```
