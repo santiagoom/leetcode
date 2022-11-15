@@ -5100,20 +5100,21 @@ class Solution:
 ```
 ## 172_FactorialTrailingZeroes
 ```
-def trailingZeroes(self, n: int) -> int:
-        
-    # Calculate n!
-    n_factorial = 1
-    for i in range(2, n + 1):
-        n_factorial *= i
-    
-    # Count how many 0's are on the end.
-    zero_count = 0
-    while n_factorial % 10 == 0:
-        zero_count += 1
-        n_factorial //= 10
-        
-    return zero_count
+class Solution:    
+    def trailingZeroes(self, n: int) -> int:
+
+        # Calculate n!
+        n_factorial = 1
+        for i in range(2, n + 1):
+            n_factorial *= i
+
+        # Count how many 0's are on the end.
+        zero_count = 0
+        while n_factorial % 10 == 0:
+            zero_count += 1
+            n_factorial //= 10
+
+        return zero_count
 ```
 ```
 class Solution:
@@ -5129,35 +5130,40 @@ class Solution:
         return zero_count
 ```
 ```
-def trailingZeroes(self, n: int) -> int:
-        
-    zero_count = 0
-    for i in range(5, n + 1, 5):
-        power_of_5 = 5
-        while i % power_of_5 == 0:
-            zero_count += 1
-            power_of_5 *= 5
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
 
-    return zero_count
+        zero_count = 0
+        for i in range(5, n + 1, 5):
+            power_of_5 = 5
+            while i % power_of_5 == 0:
+                zero_count += 1
+                power_of_5 *= 5
+
+        return zero_count
 ```
 ```
-def trailingZeroes(self, n: int) -> int:
-    zero_count = 0
-    current_multiple = 5
-    while n >= current_multiple:
-        zero_count += n // current_multiple
-        current_multiple *= 5
-    return zero_count
+class Solution:    
+    def trailingZeroes(self, n: int) -> int:
+        zero_count = 0
+        current_multiple = 5
+        while n >= current_multiple:
+            zero_count += n // current_multiple
+            current_multiple *= 5
+        return zero_count
 ```
 
 ```
-def trailingZeroes(self, n: int) -> int:
-    zero_count = 0
-    while n > 0:
-        n //= 5
-        zero_count += n
-    return zero_count
+class Solution:    
+    def trailingZeroes(self, n: int) -> int:
+        zero_count = 0
+        while n > 0:
+            n //= 5
+            zero_count += n
+        return zero_count
 ```
+
+
 
 
 

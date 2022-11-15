@@ -1,4 +1,4 @@
-## 101_SymmetricTree
+101_SymmetricTree
 ```
 class Solution {
 public boolean isSymmetric(TreeNode root) {
@@ -35,7 +35,7 @@ public boolean isSymmetric(TreeNode root) {
 ```
 ```
 ```
-## 102_BinaryTreeLevelOrderTraversal
+102_BinaryTreeLevelOrderTraversal
 ```
 class Solution:
     def levelOrder(self, root):
@@ -103,7 +103,7 @@ class Solution:
 ```
 ```
 ```
-## 103_BinaryTreeZigzagLevelOrderTraversal
+103_BinaryTreeZigzagLevelOrderTraversal
 ```
 # Definition for a binary tree node.
 # class TreeNode:
@@ -192,7 +192,7 @@ class Solution:
 ```
 ```
 ```
-## 104_MaximumDepthofBinaryTree
+104_MaximumDepthofBinaryTree
 ```
 class Solution {
   public:
@@ -288,7 +288,7 @@ class Solution {
   }
 };
 ```
-## 105_ConstructBinaryTreefromPreorderandInorderTraversal
+105_ConstructBinaryTreefromPreorderandInorderTraversal
 ```
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
@@ -325,7 +325,7 @@ class Solution:
 ```
 ```
 ```
-## 106_ConstructBinaryTreefromInorderandPostorderTraversal
+106_ConstructBinaryTreefromInorderandPostorderTraversal
 ```
 class Solution:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
@@ -356,7 +356,7 @@ class Solution:
 ```
 ```
 ```
-## 107_BinaryTreeLevelOrderTraversalII
+107_BinaryTreeLevelOrderTraversalII
 ```
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
@@ -405,7 +405,7 @@ class Solution:
 ```
 ```
 ```
-## 108_ConvertSortedArraytoBinarySearchTree
+108_ConvertSortedArraytoBinarySearchTree
 ```
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:        
@@ -465,7 +465,7 @@ class Solution:
         
         return helper(0, len(nums) - 1)
 ```
-## 109_ConvertSortedListtoBinarySearchTree
+109_ConvertSortedListtoBinarySearchTree
 ```
 # Definition for singly-linked list.
 # class ListNode:
@@ -642,7 +642,7 @@ class Solution:
             return node
         return convert(0, size - 1)
 ```
-## 110_BalancedBinaryTree
+110_BalancedBinaryTree
 ```
 class Solution {
 private:
@@ -703,7 +703,7 @@ public:
 ```
 ```
 ```
-## 111_MinimumDepthofBinaryTree
+111_MinimumDepthofBinaryTree
 ```
 class Solution:
     def minDepth(self, root):
@@ -770,7 +770,7 @@ class Solution:
                 if c:
                     node_deque.append((depth + 1, c))
 ```
-## 112_PathSum
+112_PathSum
 ```
 class Solution:
     def hasPathSum(self, root, sum):
@@ -811,7 +811,7 @@ class Solution:
 ```
 ```
 ```
-## 113_PathSumII
+113_PathSumII
 ```
 # Definition for a binary tree node.
 # class TreeNode:
@@ -853,7 +853,7 @@ class Solution:
 ```
 ```
 ```
-## 114_FlattenBinaryTreetoLinkedList
+114_FlattenBinaryTreetoLinkedList
 ```
 # Definition for a binary tree node.
 # class TreeNode:
@@ -993,7 +993,7 @@ class Solution:
             # move on to the right side of the tree
             node = node.right
 ```
-## 115_DistinctSubsequences
+115_DistinctSubsequences
 ```
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -1096,7 +1096,8 @@ class Solution:
         
         return dp[0]
 ```
-## 116_PopulatingNextRightPointersinEachNode
+116_PopulatingNextRightPointersinEachNode
+
 ```
 import collections 
 
@@ -1179,7 +1180,7 @@ class Solution:
 ```
 ```
 ```
-## 117_PopulatingNextRightPointersinEachNodeII
+117_PopulatingNextRightPointersinEachNodeII
 ```
 class Solution:
     def connect(self, root: Optional['Node']) -> Optional['Node']:
@@ -1282,7 +1283,7 @@ class Solution:
 ```
 ```
 ```
-## 118_Pascal'sTriangle
+118_Pascal'sTriangle
 ```
 class Solution:
     def generate(self, num_rows: int) -> List[List[int]]:
@@ -1306,7 +1307,7 @@ class Solution:
 ```
 ```
 ```
-## 119_Pascal'sTriangleII
+119_Pascal'sTriangleII
 ```
 class Solution {
  public:
@@ -1412,7 +1413,7 @@ class Solution {
 
 
 
-## 120_Triangle
+120_Triangle
 
 ```
 class Solution:
@@ -1484,7 +1485,7 @@ class Solution:
 
 
 
-## 121_BestTimetoBuyandSellStock
+121_BestTimetoBuyandSellStock
 
 ```
 class Solution:
@@ -1513,7 +1514,7 @@ class Solution:
 ```
 ```
 ```
-## 122_BestTimetoBuyandSellStockII
+122_BestTimetoBuyandSellStockII
 ```
 class Solution {
     public int maxProfit(int[] prices) {
@@ -1572,7 +1573,7 @@ class Solution {
     }
 }
 ```
-## 123_BestTimetoBuyandSellStockIII
+123_BestTimetoBuyandSellStockIII
 ```
 class Solution {
   public:
@@ -1629,7 +1630,7 @@ class Solution {
 ```
 ```
 ```
-## 124_BinaryTreeMaximumPathSum
+124_BinaryTreeMaximumPathSum
 ```
 class Solution:
     def maxPathSum(self, root):
@@ -1664,7 +1665,7 @@ class Solution:
 ```
 ```
 ```
-## 125_ValidPalindrome
+125_ValidPalindrome
 ```
 class Solution {
  public:
@@ -1705,7 +1706,7 @@ class Solution {
 ```
 ```
 ```
-## 126_WordLadderII
+126_WordLadderII
 ```
 class Solution {
 public:
@@ -1935,7 +1936,7 @@ public:
 ```
 ```
 ```
-## 127_WordLadder
+127_WordLadder
 ```
 from collections import defaultdict
 class Solution(object):
@@ -2060,7 +2061,7 @@ class Solution(object):
 ```
 ```
 ```
-## 128_LongestConsecutiveSequence
+128_LongestConsecutiveSequence
 ```
 class Solution:
     def longestConsecutive(self, nums):
@@ -2118,7 +2119,7 @@ class Solution:
 
         return longest_streak
 ```
-## 129_SumRoottoLeafNumbers
+129_SumRoottoLeafNumbers
 ```
 class Solution:
     def sumNumbers(self, root: TreeNode):
@@ -2205,7 +2206,7 @@ class Solution:
                         
         return root_to_leaf
 ```
-## 130_SurroundedRegions
+130_SurroundedRegions
 ```
 class Solution(object):
     def solve(self, board):
@@ -2320,7 +2321,7 @@ class Solution(object):
 
 
 
-## 131_PalindromePartitioning
+131_PalindromePartitioning
 
 ```
 class Solution {
@@ -2382,7 +2383,7 @@ public:
 ```
 ```
 ```
-## 132_PalindromePartitioningII
+132_PalindromePartitioningII
 ```
 
 class Solution {
@@ -2647,7 +2648,7 @@ public:
 
 
 
-## 133_CloneGraph
+133_CloneGraph
 
 ```
 """
@@ -2739,7 +2740,7 @@ class Solution(object):
 ```
 ```
 ```
-## 134_GasStation
+134_GasStation
 ```
 class Solution {
   public:
@@ -2768,7 +2769,7 @@ class Solution {
 ```
 ```
 ```
-## 135_Candy
+135_Candy
 ```
 public class Solution {
     public int candy(int[] ratings) {
@@ -2883,7 +2884,7 @@ public class Solution {
 
 
 
-## 136_SingleNumber
+136_SingleNumber
 
 ```
 class Solution(object):
@@ -2936,7 +2937,7 @@ class Solution(object):
 
 
 
-## 137_SingleNumberII
+137_SingleNumberII
 
 ```
 class Solution:
@@ -2975,7 +2976,7 @@ class Solution:
 
         return seen_once
 ```
-## 138_CopyListwithRandomPointer
+138_CopyListwithRandomPointer
 ```
 class Solution(object):
     """
@@ -3102,7 +3103,7 @@ class Solution(object):
             ptr_new_list = ptr_new_list.next
         return head_new
 ```
-## 139_WordBreak
+139_WordBreak
 ```
 class Solution {
 public:
@@ -3206,7 +3207,7 @@ public:
 
 
 
-## 140_WordBreakII
+140_WordBreakII
 
 ```
 class Solution:
@@ -3338,7 +3339,7 @@ class Solution:
 
 
 
-## 141_LinkedListCycle
+141_LinkedListCycle
 
 ```
 class Solution:
@@ -3367,7 +3368,8 @@ class Solution:
 ```
 ```
 ```
-## 142_LinkedListCycleII
+142_LinkedListCycleII
+
 ```
 class Solution(object):
     def detectCycle(self, head):
@@ -3424,7 +3426,7 @@ class Solution(object):
 ```
 ```
 ```
-## 143_ReorderList
+143_ReorderList
 ```
 class Solution:
     def reorderList(self, head: ListNode) -> None:
@@ -3456,7 +3458,8 @@ class Solution:
 ```
 ```
 ```
-## 144_BinaryTreePreorderTraversal
+144_BinaryTreePreorderTraversal
+
 ```
 class Solution(object):
     def preorderTraversal(self, root):
@@ -3510,14 +3513,14 @@ class Solution(object):
 ```
 ```
 ```
-## 145_BinaryTreePostorderTraversal
+145_BinaryTreePostorderTraversal
 ```
 ```
 ```
 ```
 ```
 ```
-## 146_LRUCache
+146_LRUCache
 ```
 from collections import OrderedDict
 class LRUCache(OrderedDict):
@@ -3657,7 +3660,8 @@ class LRUCache():
 ```
 ```
 ```
-## 147_InsertionSortList
+147_InsertionSortList
+
 ```
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
@@ -3686,7 +3690,8 @@ class Solution:
 ```
 ```
 ```
-## 148_SortList
+148_SortList
+
 ```
 
 class Solution {
@@ -3820,7 +3825,7 @@ public:
 ```
 ```
 ```
-## 149_MaxPointsonaLine
+149_MaxPointsonaLine
 ```
 class Solution(object):
     def maxPoints(self, points):
@@ -3910,41 +3915,42 @@ class Solution(object):
 ```
 ```
 ```
-## 150_EvaluateReversePolishNotation
+150_EvaluateReversePolishNotation
 ```
-def evalRPN(self, tokens: List[str]) -> int:
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
 
-        operations = {
-            "+": lambda a, b: a + b,
-            "-": lambda a, b: a - b,
-            "/": lambda a, b: int(a / b),
-            "*": lambda a, b: a * b
-        }
-        
-        current_position = 0
-        
-        while len(tokens) > 1:
-            
-            # Move the current position pointer to the next operator.
-            while tokens[current_position] not in "+-*/":
-                current_position += 1
-        
-            # Extract the operator and numbers from the list.
-            operator = tokens[current_position]
-            number_1 = int(tokens[current_position - 2])
-            number_2 = int(tokens[current_position - 1])
-            
-            # Calculate the result to overwrite the operator with.
-            operation = operations[operator]
-            tokens[current_position] = operation(number_1, number_2)
-            
-            # Remove the numbers and move the pointer to the position
-            # after the new number we just added.
-            tokens.pop(current_position - 2)
-            tokens.pop(current_position - 2)
-            current_position -= 1
-        
-        return tokens[0]
+            operations = {
+                "+": lambda a, b: a + b,
+                "-": lambda a, b: a - b,
+                "/": lambda a, b: int(a / b),
+                "*": lambda a, b: a * b
+            }
+
+            current_position = 0
+
+            while len(tokens) > 1:
+
+                # Move the current position pointer to the next operator.
+                while tokens[current_position] not in "+-*/":
+                    current_position += 1
+
+                # Extract the operator and numbers from the list.
+                operator = tokens[current_position]
+                number_1 = int(tokens[current_position - 2])
+                number_2 = int(tokens[current_position - 1])
+
+                # Calculate the result to overwrite the operator with.
+                operation = operations[operator]
+                tokens[current_position] = operation(number_1, number_2)
+
+                # Remove the numbers and move the pointer to the position
+                # after the new number we just added.
+                tokens.pop(current_position - 2)
+                tokens.pop(current_position - 2)
+                current_position -= 1
+
+            return tokens[0]
 
 ```
 ```
@@ -4034,7 +4040,7 @@ class Solution:
 
 
 
-## 151_ReverseWordsinaString
+151_ReverseWordsinaString
 
 ```
 class Solution:
@@ -4097,7 +4103,7 @@ class Solution:
         
         return ' '.join(d)
 ```
-## 152_MaximumProductSubarray
+152_MaximumProductSubarray
 ```
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -4137,7 +4143,7 @@ class Solution:
 ```
 ```
 ```
-## 153_FindMinimuminRotatedSortedArray
+153_FindMinimuminRotatedSortedArray
 ```
 class Solution:
     def findMin(self, nums: List[int]) -> int:
@@ -4180,7 +4186,7 @@ class Solution:
 ```
 ```
 ```
-## 154_FindMinimuminRotatedSortedArrayII
+154_FindMinimuminRotatedSortedArrayII
 ```
 class Solution:
     def findMin(self, nums: List[int]) -> int:    
@@ -4208,7 +4214,7 @@ class Solution:
 ```
 ```
 ```
-## 155_MinStack
+155_MinStack
 ```
 class MinStack:
 
@@ -4310,7 +4316,7 @@ class MinStack:
     def getMin(self) -> int:
         return self.min_stack[-1][0]   
 ```
-## 156_BinaryTreeUpsideDown
+156_BinaryTreeUpsideDown
 ```
 class Solution:
     def upsideDownBinaryTree(self, root):
@@ -4327,7 +4333,7 @@ class Solution:
 ```
 ```
 ```
-## 157_ReadNCharactersGivenRead4
+157_ReadNCharactersGivenRead4
 ```
 class Solution:
     def read(self, buf: List[str], n: int) -> int:
@@ -4378,14 +4384,14 @@ public:
 ```
 ```
 ```
-## 158_ReadNCharactersGivenread4II-CallMultipleTimes
+158_ReadNCharactersGivenread4II-CallMultipleTimes
 ```
 ```
 ```
 ```
 ```
 ```
-## 159_LongestSubstringwithAtMostTwoDistinctCharacters
+159_LongestSubstringwithAtMostTwoDistinctCharacters
 ```
 class Solution {
 public:
@@ -4428,7 +4434,7 @@ public:
 ```
 ```
 ```
-## 160_IntersectionofTwoLinkedLists
+160_IntersectionofTwoLinkedLists
 ```
 class Solution {
 public:
@@ -4487,7 +4493,7 @@ public:
     }
 };
 ```
-## 161_OneEditDistance
+161_OneEditDistance
 ```
 class Solution:
     def isOneEditDistance(self, s: 'str', t: 'str') -> 'bool':
@@ -4520,7 +4526,7 @@ class Solution:
 ```
 ```
 ```
-## 162_FindPeakElement
+162_FindPeakElement
 ```
 public class Solution {
     public int findPeakElement(int[] nums) {
@@ -4562,7 +4568,7 @@ public class Solution {
     }
 }
 ```
-## 163_MissingRanges
+163_MissingRanges
 ```
 class Solution {
 public:
@@ -4592,7 +4598,7 @@ public:
 ```
 ```
 ```
-## 164_MaximumGap
+164_MaximumGap
 ```
 class Solution{
 public:
@@ -4691,7 +4697,7 @@ int maximumGap(vector<int>& nums)
     return maxGap;
 }
 ```
-## 165_CompareVersionNumbers
+165_CompareVersionNumbers
 ```
 class Solution:
     def compareVersion(self, version1: str, version2: str) -> int:
@@ -4744,7 +4750,8 @@ class Solution:
 ```
 ```
 ```
-## 166_FractiontoRecurringDecimal
+166_FractiontoRecurringDecimal
+
 ```
 class Solution {
 public String fractionToDecimal(int numerator, int denominator) {
@@ -4785,7 +4792,8 @@ public String fractionToDecimal(int numerator, int denominator) {
 ```
 ```
 ```
-## 167_TwoSumII-InputArrayIsSorted
+167_TwoSumII-InputArrayIsSorted
+
 ```
 class Solution {
 public:
@@ -4812,7 +4820,7 @@ public:
 ```
 ```
 ```
-## 168_ExcelSheetColumnTitle
+168_ExcelSheetColumnTitle
 ```
 class Solution:
     # @return a string
@@ -4829,7 +4837,7 @@ class Solution:
 ```
 ```
 ```
-## 169_MajorityElement
+169_MajorityElement
 ```
 class Solution:
     def majorityElement(self, nums):
@@ -4941,7 +4949,7 @@ class Solution:
 
 
 
-## 170_TwoSumIII-Datastructuredesign
+170_TwoSumIII-Datastructuredesign
 
 ```
 class TwoSum(object):
@@ -5035,7 +5043,8 @@ class TwoSum(object):
 ```
 ```
 ```
-## 171_ExcelSheetColumnNumber
+171_ExcelSheetColumnNumber
+
 ```
 class Solution:
     def titleToNumber(self, s: str) -> int:
@@ -5062,22 +5071,24 @@ class Solution:
 ```
 ```
 ```
-## 172_FactorialTrailingZeroes
+172_FactorialTrailingZeroes
+
 ```
-def trailingZeroes(self, n: int) -> int:
-        
-    # Calculate n!
-    n_factorial = 1
-    for i in range(2, n + 1):
-        n_factorial *= i
-    
-    # Count how many 0's are on the end.
-    zero_count = 0
-    while n_factorial % 10 == 0:
-        zero_count += 1
-        n_factorial //= 10
-        
-    return zero_count
+class Solution:    
+    def trailingZeroes(self, n: int) -> int:
+
+        # Calculate n!
+        n_factorial = 1
+        for i in range(2, n + 1):
+            n_factorial *= i
+
+        # Count how many 0's are on the end.
+        zero_count = 0
+        while n_factorial % 10 == 0:
+            zero_count += 1
+            n_factorial //= 10
+
+        return zero_count
 ```
 ```
 class Solution:
@@ -5093,39 +5104,42 @@ class Solution:
         return zero_count
 ```
 ```
-def trailingZeroes(self, n: int) -> int:
-        
-    zero_count = 0
-    for i in range(5, n + 1, 5):
-        power_of_5 = 5
-        while i % power_of_5 == 0:
-            zero_count += 1
-            power_of_5 *= 5
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
 
-    return zero_count
+        zero_count = 0
+        for i in range(5, n + 1, 5):
+            power_of_5 = 5
+            while i % power_of_5 == 0:
+                zero_count += 1
+                power_of_5 *= 5
+
+        return zero_count
 ```
 ```
-def trailingZeroes(self, n: int) -> int:
-    zero_count = 0
-    current_multiple = 5
-    while n >= current_multiple:
-        zero_count += n // current_multiple
-        current_multiple *= 5
-    return zero_count
+class Solution:    
+    def trailingZeroes(self, n: int) -> int:
+        zero_count = 0
+        current_multiple = 5
+        while n >= current_multiple:
+            zero_count += n // current_multiple
+            current_multiple *= 5
+        return zero_count
 ```
 
 ```
-def trailingZeroes(self, n: int) -> int:
-    zero_count = 0
-    while n > 0:
-        n //= 5
-        zero_count += n
-    return zero_count
+class Solution:    
+    def trailingZeroes(self, n: int) -> int:
+        zero_count = 0
+        while n > 0:
+            n //= 5
+            zero_count += n
+        return zero_count
 ```
 
 
 
-## 173_BinarySearchTreeIterator
+173_BinarySearchTreeIterator
 
 ```
 # Definition for a binary tree node.
@@ -5217,7 +5231,7 @@ class BSTIterator:
 ```
 ```
 ```
-## 174_DungeonGame
+174_DungeonGame
 ```
 class Solution(object):
     def calculateMinimumHP(self, dungeon):
@@ -5311,7 +5325,7 @@ class Solution(object):
 ```
 ```
 ```
-## 175_CombineTwoTables
+175_CombineTwoTables
 ```
 select FirstName, LastName, City, State
 from Person left join Address
@@ -5322,7 +5336,7 @@ on Person.PersonId = Address.PersonId
 ```
 ```
 ```
-## 176_SecondHighestSalary
+176_SecondHighestSalary
 ```
 SELECT DISTINCT
     Salary AS SecondHighestSalary
@@ -5350,7 +5364,7 @@ SELECT
         LIMIT 1 OFFSET 1),
     NULL) AS SecondHighestSalary
 ```
-## 177_NthHighestSalary
+177_NthHighestSalary
 ```
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
@@ -5366,7 +5380,7 @@ END
 ```
 ```
 ```
-## 178_RankScores
+178_RankScores
 ```
 SELECT
   S.score,
@@ -5381,7 +5395,7 @@ FROM
 ```
 ```
 ```
-## 179_LargestNumber
+179_LargestNumber
 ```
 class LargerNumKey(str):
     def __lt__(x, y):
@@ -5396,7 +5410,7 @@ class Solution:
 ```
 ```
 ```
-## 180_ConsecutiveNumbers
+180_ConsecutiveNumbers
 ```
 # Write your MySQL query statement below
 SELECT DISTINCT
@@ -5416,7 +5430,7 @@ WHERE
 ```
 ```
 ```
-## 181_EmployeesEarningMoreThanTheirManagers
+181_EmployeesEarningMoreThanTheirManagers
 ```
 SELECT
     a.Name AS 'Employee'
@@ -5432,7 +5446,7 @@ WHERE
 ```
 ```
 ```
-## 182_DuplicateEmails
+182_DuplicateEmails
 ```
 select Email from
 (
@@ -5447,7 +5461,7 @@ where num > 1
 ```
 ```
 ```
-## 183_CustomersWhoNeverOrder
+183_CustomersWhoNeverOrder
 ```
 select customers.name as 'Customers'
 from customers
@@ -5460,7 +5474,7 @@ where customers.id not in
 ```
 ```
 ```
-## 184_DepartmentHighestSalary
+184_DepartmentHighestSalary
 ```
 SELECT
     Department.name AS 'Department',
@@ -5484,7 +5498,7 @@ WHERE
 ```
 ```
 ```
-## 185_DepartmentTopThreeSalaries
+185_DepartmentTopThreeSalaries
 ```
 select e1.Name as 'Employee', e1.Salary
 from Employee e1
@@ -5515,7 +5529,7 @@ WHERE
 ```
 ```
 ```
-## 186_ReverseWordsinaStringII
+186_ReverseWordsinaStringII
 ```
 class Solution {
 public:
@@ -5550,7 +5564,7 @@ public:
 ```
 ```
 ```
-## 187_RepeatedDNASequences
+187_RepeatedDNASequences
 ```
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
@@ -5631,7 +5645,7 @@ class Solution:
             seen.add(bitmask)
         return output
 ```
-## 188_BestTimetoBuyandSellStockIV
+188_BestTimetoBuyandSellStockIV
 ```
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -5723,7 +5737,7 @@ class Solution:
 ```
 ```
 ```
-## 189_RotateArray
+189_RotateArray
 ```
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
@@ -5783,7 +5797,7 @@ class Solution:
 
 
 
-## 190_ReverseBits
+190_ReverseBits
 
 ```
 class Solution {
@@ -5836,7 +5850,7 @@ public:
     }
 };
 ```
-## 191_Numberof1Bits
+191_Numberof1Bits
 ```
 public int hammingWeight(int n) {
     int bits = 0;
@@ -5862,7 +5876,7 @@ public int hammingWeight(int n) {
 ```
 ```
 ```
-## 192_WordFrequency
+192_WordFrequency
 ```
 cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{ print $2, $1 }'
 ```
@@ -5870,7 +5884,7 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{ print $2, $1 
 ```
 ```
 ```
-## 193_ValidPhoneNumbers
+193_ValidPhoneNumbers
 ```
 egrep "^(\([0-9]{3}\) |[0-9]{3}\-)[0-9]{3}\-[0-9]{4}$" file.txt
 ```
@@ -5878,7 +5892,7 @@ egrep "^(\([0-9]{3}\) |[0-9]{3}\-)[0-9]{3}\-[0-9]{4}$" file.txt
 ```
 ```
 ```
-## 194_TransposeFile
+194_TransposeFile
 ```
 awk '
 {
@@ -5900,7 +5914,7 @@ END {
 ```
 ```
 ```
-## 195_TenthLine
+195_TenthLine
 ```
 # Solution 1
 cnt=0
@@ -5927,7 +5941,7 @@ tail -n+10 file.txt|head -1
 ```
 ```
 ```
-## 196_DeleteDuplicateEmails
+196_DeleteDuplicateEmails
 ```
 DELETE p1 FROM Person p1,
     Person p2
@@ -5938,7 +5952,7 @@ WHERE
 ```
 ```
 ```
-## 197_RisingTemperature
+197_RisingTemperature
 ```
 SELECT
     weather.id AS 'Id'
@@ -5953,7 +5967,7 @@ FROM
 ```
 ```
 ```
-## 198_HouseRobber
+198_HouseRobber
 ```
 class Solution:
     
@@ -6034,7 +6048,7 @@ class Solution:
             
         return rob_next
 ```
-## 199_BinaryTreeRightSideView
+199_BinaryTreeRightSideView
 ```
 class Solution:
     def rightSideView(self, root: TreeNode) -> List[int]:
@@ -6144,7 +6158,7 @@ class Solution:
 
 
 
-## 200_NumberofIslands
+200_NumberofIslands
 
 ```
 class Solution {
@@ -6282,4 +6296,14 @@ public:
         if (grid[r][c] == '1') {
           grid[r][c] = '0';
           if (r - 1 >= 0 && grid[r-1][c] == '1') uf.Union(r * nc + c, (r-1) * nc + c);
-          if (r + 1 < nr && grid[r+1][c] == '1') uf.Union(r * nc + c, (r+1
+          if (r + 1 < nr && grid[r+1][c] == '1') uf.Union(r * nc + c, (r+1) * nc + c);
+          if (c - 1 >= 0 && grid[r][c-1] == '1') uf.Union(r * nc + c, r * nc + c - 1);
+          if (c + 1 < nc && grid[r][c+1] == '1') uf.Union(r * nc + c, r * nc + c + 1);
+        }
+      }
+    }
+
+    return uf.getCount();
+  }
+};
+```

@@ -13,10 +13,8 @@ class Solution_171_ExcelSheetColumnNumber_2:
         return result
 
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
     so = Solution_171_ExcelSheetColumnNumber_2()
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
+    s = "AD"
+    res = so.titleToNumber(s)
+    print(res)
                     
