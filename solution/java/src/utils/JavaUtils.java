@@ -1,20 +1,26 @@
 package utils;
 
 public class JavaUtils {
-    public static void print_1d_array(int[] array){
+    public static void print_1d_array(int[] array) {
         for (int num : array) {
             System.out.print(num);
             System.out.print(", ");
         }
         System.out.println();
     }
-    public static void print_2d_array(int[][] arrays){
+
+    public static void print_2d_array(int[][] arrays) {
         for (int[] array : arrays) {
             print_1d_array(array);
         }
     }
-    public static void print(int n){
+
+    public static void print(int n) {
         System.out.println(n);
+    }
+
+    public static void print(String s) {
+        System.out.println(s);
     }
 
 

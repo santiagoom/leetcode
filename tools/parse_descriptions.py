@@ -5,6 +5,7 @@ def func():
     # path = "../notebook/Descriptions_1.md"
     path = "../notebook/Descriptions_2.md"
     # path = "../notebook/Descriptions_3.md"
+    # path = "../notebook/Descriptions_4.md"
     with open(path, mode="r") as f:
         content = f.read()
     cpp_path = "../solution/cpp/"
@@ -24,8 +25,8 @@ def func():
     py_flag = False
 
     cpp_flag = True
-    # java_flag = True
-    # py_flag = True
+    java_flag = True
+    py_flag = True
 
     for solutions in problems[:]:
         solutions = solutions.split("```")
