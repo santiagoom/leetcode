@@ -83,6 +83,7 @@ class Solution_218_TheSkylineProblem_5 {
 };
 
 int main() {
+auto *so = new Solution_218_TheSkylineProblem_5();
 vector<int> nums{2, 7, 11, 15};
 int target = 26;
 string s = "aa";

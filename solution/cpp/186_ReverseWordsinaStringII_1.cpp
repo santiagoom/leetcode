@@ -34,6 +34,7 @@ public:
 };
 
 int main() {
+auto *so = new Solution_186_ReverseWordsinaStringII_1();
 vector<int> nums{2, 7, 11, 15};
 int target = 26;
 string s = "aa";

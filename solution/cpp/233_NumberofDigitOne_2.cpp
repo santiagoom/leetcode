@@ -18,6 +18,7 @@ int countDigitOne(int n)
 };
 
 int main() {
+auto *so = new Solution_233_NumberofDigitOne_2();
 vector<int> nums{2, 7, 11, 15};
 int target = 26;
 string s = "aa";

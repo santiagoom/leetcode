@@ -1,6 +1,7 @@
 
 from typing import List  
 from utils import *
+import collections
                     
 class Solution_240_Searcha2DMatrixII_4:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -30,6 +31,7 @@ class Solution_240_Searcha2DMatrixII_4:
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution_240_Searcha2DMatrixII_4()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)

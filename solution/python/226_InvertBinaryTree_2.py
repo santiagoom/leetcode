@@ -1,6 +1,7 @@
 
 from typing import List  
 from utils import *
+import collections
                     
 class Solution_226_InvertBinaryTree_2:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -23,6 +24,7 @@ class Solution_226_InvertBinaryTree_2:
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution_226_InvertBinaryTree_2()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)

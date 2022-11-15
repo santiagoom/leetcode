@@ -1,6 +1,7 @@
 
 from typing import List  
 from utils import *
+import collections
                     
 class Solution_246_StrobogrammaticNumber_3:
     def isStrobogrammatic(self, num: str) -> bool:
@@ -18,6 +19,7 @@ class Solution_246_StrobogrammaticNumber_3:
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution_246_StrobogrammaticNumber_3()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)

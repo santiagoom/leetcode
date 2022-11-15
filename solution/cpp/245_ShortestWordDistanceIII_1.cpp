@@ -24,6 +24,7 @@ int shortestWordDistance(vector<string>& words, string word1, string word2) {
 };
 
 int main() {
+auto *so = new Solution_245_ShortestWordDistanceIII_1();
 vector<int> nums{2, 7, 11, 15};
 int target = 26;
 string s = "aa";

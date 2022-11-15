@@ -1,6 +1,7 @@
 
 from typing import List  
 from utils import *
+import collections
                     
 class Solution_213_HouseRobberII_1:
     def rob(self, nums: List[int]) -> int:
@@ -25,6 +26,7 @@ class Solution_213_HouseRobberII_1:
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution_213_HouseRobberII_1()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)

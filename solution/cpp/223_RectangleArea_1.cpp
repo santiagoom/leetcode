@@ -16,6 +16,7 @@ int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
 };
 
 int main() {
+auto *so = new Solution_223_RectangleArea_1();
 vector<int> nums{2, 7, 11, 15};
 int target = 26;
 string s = "aa";

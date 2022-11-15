@@ -1,6 +1,7 @@
 
 from typing import List  
 from utils import *
+import collections
                     
 class Solution_238_ProductofArrayExceptSelf_1:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -45,6 +46,7 @@ class Solution_238_ProductofArrayExceptSelf_1:
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
+    so = Solution_238_ProductofArrayExceptSelf_1()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)

@@ -46,6 +46,7 @@ int strobogrammaticInRange(string low, string high) {
 };
 
 int main() {
+auto *so = new Solution_248_StrobogrammaticNumberIII_1();
 vector<int> nums{2, 7, 11, 15};
 int target = 26;
 string s = "aa";
