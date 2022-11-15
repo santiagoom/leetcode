@@ -5908,13 +5908,86 @@ class Solution:
 ```
 ## 290_WordPattern
 ```
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        map_char = {}
+        map_word = {}
+        
+        words = s.split(' ')
+        if len(words) != len(pattern):
+            return False
+        
+        for c, w in zip(pattern, words):
+            if c not in map_char:
+                if w in map_word:
+                    return False
+                else:
+                    map_char[c] = w
+                    map_word[w] = c
+            else:
+                if map_char[c] != w:
+                    return False
+        return True
 ```
 ```
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        map_index = {}
+        words = s.split()
+        
+        if len(pattern) != len(words):
+            return False
+        
+        for i in range(len(words)):
+            c = pattern[i]
+            w = words[i]
+
+            char_key = 'char_{}'.format(c)
+            char_word = 'word_{}'.format(w)
+            
+            if char_key not in map_index:
+                map_index[char_key] = i
+            
+            if char_word not in map_index:
+                map_index[char_word] = i 
+            
+            if map_index[char_key] != map_index[char_word]:
+                return False
+        
+        return True
 ```
 ```
 ```
 ## 291_WordPatternII
 ```
+class Solution:
+    def wordPatternMatch(self, pattern: str, s: str) -> bool:
+        mapping = {} # keep track of pattern to s mapping 
+		# keep track of what s is already being mapped 
+		# so you can avoid mapping two different pattern to same thing 
+        mapped = set() 
+        
+        def helper(i, j): 
+            if i == len(pattern) and j == len(s): 
+                return True 
+            if i >= len(pattern) or j >= len(s): # did not work, backtrack
+                return 
+            if pattern[i] not in mapping: 
+                for length in range(1, len(s)-j+1): 
+                    if s[j:j+length] not in mapped: # can't map to a mapped string
+                        mapped.add(s[j:j+length])
+                        mapping[pattern[i]] = s[j:j+length]
+                        if helper(i+1, j+length): 
+                            return True 
+                        mapping.pop(pattern[i])
+                        mapped.remove(s[j:j+length])
+			# current pattern[i] exists, see if it s[j:] starts with it
+            elif s[j:j+len(mapping[pattern[i]])] == mapping[pattern[i]]:  
+                if helper(i+1, j+len(mapping[pattern[i]])): 
+                    return True
+            return False 
+        
+        return helper(0, 0)
 ```
 ```
 ```
@@ -5922,6 +5995,11 @@ class Solution:
 ```
 ## 292_NimGame
 ```
+class Solution {
+    public boolean canWinNim(int n) {
+        return (n % 4 != 0);
+    }
+}
 ```
 ```
 ```
@@ -5929,6 +6007,9 @@ class Solution:
 ```
 ## 293_FlipGame
 ```
+class Solution(object):
+    def generatePossibleNextMoves(self, s):
+        return [s[:i] + "--" + s[i+2:] for i in range(len(s) - 1) if s[i] == s[i + 1] == "+"]
 ```
 ```
 ```
@@ -5936,27 +6017,435 @@ class Solution:
 ```
 ## 294_FlipGameII
 ```
+class Solution(object):
+    def canWin(self, s):
+        return any(s[i:i+2] == '++' and not self.canWin(s[:i] + '-' + s[i+2:])
+                   for i in range(len(s)))
 ```
 ```
+class Solution(object):
+    _memo = {}
+    def canWin(self, s):
+        memo = self._memo
+        if s not in memo:
+            memo[s] = any(s[i:i+2] == '++' and not self.canWin(s[:i] + '-' + s[i+2:])
+                          for i in range(len(s)))
+        return memo[s]
 ```
 ```
+class Solution(object):
+    def canWin(self, s):
+        memo = {}
+        def can(s):
+            if s not in memo:
+                memo[s] = any(s[i:i+2] == '++' and not can(s[:i] + '-' + s[i+2:])
+                              for i in range(len(s)))
+            return memo[s]
+        return can(s)
 ```
+```
+class Solution(object):
+    def canWin(self, s):
+        memo = {}
+        def can(piles):
+            piles = tuple(sorted(p for p in piles if p >= 2))
+            if piles not in memo:
+                memo[piles] = any(not can(piles[:i] + (j, pile-2-j) + piles[i+1:])
+                                  for i, pile in enumerate(piles)
+                                  for j in range(pile - 1))
+            return memo[piles]
+        return can(map(len, re.findall(r'\+\++', s)))
+```
+
+
+
 ## 295_FindMedianfromDataStream
+
+```
+class MedianFinder {
+    vector<int> store;
+
+public:
+    // Adds a number into the data structure.
+    void addNum(int num)
+    {
+        store.push_back(num);
+    }
+
+    // Returns the median of current data stream
+    double findMedian()
+    {
+        sort(store.begin(), store.end());
+
+        int n = store.size();
+        return (n & 1 ? store[n / 2] : ((double) store[n / 2 - 1] + store[n / 2]) * 0.5);
+    }
+};
 ```
 ```
+class MedianFinder {
+    vector<int> store; // resize-able container
+
+public:
+    // Adds a number into the data structure.
+    void addNum(int num)
+    {
+        if (store.empty())
+            store.push_back(num);
+        else
+            store.insert(lower_bound(store.begin(), store.end(), num), num);     // binary search and insertion combined
+    }
+
+    // Returns the median of current data stream
+    double findMedian()
+    {
+        int n = store.size();
+        return n & 1 ? store[n / 2] : ((double) store[n / 2 - 1] + store[n / 2]) * 0.5;
+    }
+};
 ```
 ```
+class MedianFinder {
+    priority_queue<int> lo;                              // max heap
+    priority_queue<int, vector<int>, greater<int>> hi;   // min heap
+
+public:
+    // Adds a number into the data structure.
+    void addNum(int num)
+    {
+        lo.push(num);                                    // Add to max heap
+
+        hi.push(lo.top());                               // balancing step
+        lo.pop();
+
+        if (lo.size() < hi.size()) {                     // maintain size property
+            lo.push(hi.top());
+            hi.pop();
+        }
+    }
+
+    // Returns the median of current data stream
+    double findMedian()
+    {
+        return lo.size() > hi.size() ? lo.top() : ((double) lo.top() + hi.top()) * 0.5;
+    }
+};
 ```
 ```
+class MedianFinder {
+    multiset<int> data;
+    multiset<int>::iterator lo_median, hi_median;
+
+public:
+    MedianFinder()
+        : lo_median(data.end())
+        , hi_median(data.end())
+    {
+    }
+
+    void addNum(int num)
+    {
+        const size_t n = data.size();   // store previous size
+
+        data.insert(num);               // insert into multiset
+
+        if (!n) {
+            // no elements before, one element now
+            lo_median = hi_median = data.begin();
+        }
+        else if (n & 1) {
+            // odd size before (i.e. lo == hi), even size now (i.e. hi = lo + 1)
+
+            if (num < *lo_median)       // num < lo
+                lo_median--;
+            else                        // num >= hi
+                hi_median++;            // insertion at end of equal range
+        }
+        else {
+            // even size before (i.e. hi = lo + 1), odd size now (i.e. lo == hi)
+
+            if (num > *lo_median && num < *hi_median) {
+                lo_median++;                    // num in between lo and hi
+                hi_median--;
+            }
+            else if (num >= *hi_median)         // num inserted after hi
+                lo_median++;
+            else                                // num <= lo < hi
+                lo_median = --hi_median;        // insertion at end of equal range spoils lo
+        }
+    }
+
+    double findMedian()
+    {
+        return ((double) *lo_median + *hi_median) * 0.5;
+    }
+};
+```
+
+```
+class MedianFinder {
+    multiset<int> data;
+    multiset<int>::iterator mid;
+
+public:
+    MedianFinder()
+        : mid(data.end())
+    {
+    }
+
+    void addNum(int num)
+    {
+        const int n = data.size();
+        data.insert(num);
+
+        if (!n)                                 // first element inserted
+            mid = data.begin();
+        else if (num < *mid)                    // median is decreased
+            mid = (n & 1 ? mid : prev(mid));
+        else                                    // median is increased
+            mid = (n & 1 ? next(mid) : mid);
+    }
+
+    double findMedian()
+    {
+        const int n = data.size();
+        return ((double) *mid + *next(mid, n % 2 - 1)) * 0.5;
+    }
+};
+```
+
+
+
 ## 296_BestMeetingPoint
+
+```
+public int minTotalDistance(int[][] grid) {
+    int minDistance = Integer.MAX_VALUE;
+    for (int row = 0; row < grid.length; row++) {
+        for (int col = 0; col < grid[0].length; col++) {
+            int distance = search(grid, row, col);
+            minDistance = Math.min(distance, minDistance);
+        }
+    }
+    return minDistance;
+}
+
+private int search(int[][] grid, int row, int col) {
+    Queue<Point> q = new LinkedList<>();
+    int m = grid.length;
+    int n = grid[0].length;
+    boolean[][] visited = new boolean[m][n];
+    q.add(new Point(row, col, 0));
+    int totalDistance = 0;
+    while (!q.isEmpty()) {
+        Point point = q.poll();
+        int r = point.row;
+        int c = point.col;
+        int d = point.distance;
+        if (r < 0 || c < 0 || r >= m || c >= n || visited[r][c]) {
+            continue;
+        }
+        if (grid[r][c] == 1) {
+            totalDistance += d;
+        }
+        visited[r][c] = true;
+        q.add(new Point(r + 1, c, d + 1));
+        q.add(new Point(r - 1, c, d + 1));
+        q.add(new Point(r, c + 1, d + 1));
+        q.add(new Point(r, c - 1, d + 1));
+    }
+    return totalDistance;
+}
+
+public class Point {
+    int row;
+    int col;
+    int distance;
+    public Point(int row, int col, int distance) {
+        this.row = row;
+        this.col = col;
+        this.distance = distance;
+    }
+}
 ```
 ```
+class Solution {
+public int minTotalDistance(int[][] grid) {
+    List<Point> points = getAllPoints(grid);
+    int minDistance = Integer.MAX_VALUE;
+    for (int row = 0; row < grid.length; row++) {
+        for (int col = 0; col < grid[0].length; col++) {
+            int distance = calculateDistance(points, row, col);
+            minDistance = Math.min(distance, minDistance);
+        }
+    }
+    return minDistance;
+}
+
+private int calculateDistance(List<Point> points, int row, int col) {
+    int distance = 0;
+    for (Point point : points) {
+        distance += Math.abs(point.row - row) + Math.abs(point.col - col);
+    }
+    return distance;
+}
+
+private List<Point> getAllPoints(int[][] grid) {
+    List<Point> points = new ArrayList<>();
+    for (int row = 0; row < grid.length; row++) {
+        for (int col = 0; col < grid[0].length; col++) {
+            if (grid[row][col] == 1) {
+                points.add(new Point(row, col));
+            }
+        }
+    }
+    return points;
+}
+
+public class Point {
+    int row;
+    int col;
+    public Point(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+}
+}
 ```
 ```
+class Solution {
+public int minTotalDistance(int[][] grid) {
+    List<Integer> rows = new ArrayList<>();
+    List<Integer> cols = new ArrayList<>();
+    for (int row = 0; row < grid.length; row++) {
+        for (int col = 0; col < grid[0].length; col++) {
+            if (grid[row][col] == 1) {
+                rows.add(row);
+                cols.add(col);
+            }
+        }
+    }
+    int row = rows.get(rows.size() / 2);
+    Collections.sort(cols);
+    int col = cols.get(cols.size() / 2);
+    return minDistance1D(rows, row) + minDistance1D(cols, col);
+}
+
+private int minDistance1D(List<Integer> points, int origin) {
+    int distance = 0;
+    for (int point : points) {
+        distance += Math.abs(point - origin);
+    }
+    return distance;
+}
+}
 ```
 ```
+class Solution {
+public int minTotalDistance(int[][] grid) {
+    List<Integer> rows = collectRows(grid);
+    List<Integer> cols = collectCols(grid);
+    int row = rows.get(rows.size() / 2);
+    int col = cols.get(cols.size() / 2);
+    return minDistance1D(rows, row) + minDistance1D(cols, col);
+}
+
+private int minDistance1D(List<Integer> points, int origin) {
+    int distance = 0;
+    for (int point : points) {
+        distance += Math.abs(point - origin);
+    }
+    return distance;
+}
+
+private List<Integer> collectRows(int[][] grid) {
+    List<Integer> rows = new ArrayList<>();
+    for (int row = 0; row < grid.length; row++) {
+        for (int col = 0; col < grid[0].length; col++) {
+            if (grid[row][col] == 1) {
+                rows.add(row);
+            }
+        }
+    }
+    return rows;
+}
+
+private List<Integer> collectCols(int[][] grid) {
+    List<Integer> cols = new ArrayList<>();
+    for (int col = 0; col < grid[0].length; col++) {
+        for (int row = 0; row < grid.length; row++) {
+            if (grid[row][col] == 1) {
+                cols.add(col);
+            }
+        }
+    }
+    return cols;
+}
+}
+```
+
+```
+```
+
+
+
 ## 297_SerializeandDeserializeBinaryTree
+
 ```
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Codec:
+
+    def serialize(self, root):
+        """ Encodes a tree to a single string.
+        :type root: TreeNode
+        :rtype: str
+        """
+        def rserialize(root, string):
+            """ a recursive helper function for the serialize() function."""
+            # check base case
+            if root is None:
+                string += 'None,'
+            else:
+                string += str(root.val) + ','
+                string = rserialize(root.left, string)
+                string = rserialize(root.right, string)
+            return string
+        
+        return rserialize(root, '')
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        :type data: str
+        :rtype: TreeNode
+        """
+        def rdeserialize(l):
+            """ a recursive helper function for deserialization."""
+            if l[0] == 'None':
+                l.pop(0)
+                return None
+                
+            root = TreeNode(l[0])
+            l.pop(0)
+            root.left = rdeserialize(l)
+            root.right = rdeserialize(l)
+            return root
+
+        data_list = data.split(',')
+        root = rdeserialize(data_list)
+        return root
+
+        
+
+# Your Codec object will be instantiated and called as such:
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))
 ```
 ```
 ```
@@ -5964,22 +6453,195 @@ class Solution:
 ```
 ## 298_BinaryTreeLongestConsecutiveSequence
 ```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+private int maxLength = 0;
+public int longestConsecutive(TreeNode root) {
+    dfs(root, null, 0);
+    return maxLength;
+}
+
+private void dfs(TreeNode p, TreeNode parent, int length) {
+    if (p == null) return;
+    length = (parent != null && p.val == parent.val + 1) ? length + 1 : 1;
+    maxLength = Math.max(maxLength, length);
+    dfs(p.left, p, length);
+    dfs(p.right, p, length);
+}
+}
 ```
 ```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+private int maxLength = 0;
+public int longestConsecutive(TreeNode root) {
+    dfs(root);
+    return maxLength;
+}
+
+private int dfs(TreeNode p) {
+    if (p == null) return 0;
+    int L = dfs(p.left) + 1;
+    int R = dfs(p.right) + 1;
+    if (p.left != null && p.val + 1 != p.left.val) {
+        L = 1;
+    }
+    if (p.right != null && p.val + 1 != p.right.val) {
+        R = 1;
+    }
+    int length = Math.max(L, R);
+    maxLength = Math.max(maxLength, length);
+    return length;
+}
+}
 ```
 ```
 ```
 ## 299_BullsandCows
 ```
+class Solution:
+    def getHint(self, secret: str, guess: str) -> str:
+        h = Counter(secret)
+            
+        bulls = cows = 0
+        for idx, ch in enumerate(guess):
+            if ch in h:
+                # corresponding characters match
+                if ch == secret[idx]:
+                    # update the bulls
+                    bulls += 1
+                    # update the cows 
+                    # if all ch characters from secret 
+                    # were used up
+                    cows -= int(h[ch] <= 0)
+                # corresponding characters don't match
+                else:
+                    # update the cows
+                    cows += int(h[ch] > 0)
+                # ch character was used
+                h[ch] -= 1
+                
+        return "{}A{}B".format(bulls, cows)
 ```
 ```
+class Solution:
+    def getHint(self, secret: str, guess: str) -> str:
+        h = defaultdict(int)
+        bulls = cows = 0
+
+        for idx, s in enumerate(secret):
+            g = guess[idx]
+            if s == g: 
+                bulls += 1
+            else:
+                cows += int(h[s] < 0) + int(h[g] > 0)
+                h[s] += 1
+                h[g] -= 1
+                
+        return "{}A{}B".format(bulls, cows)
 ```
 ```
+class Solution {
+    public String getHint(String secret, String guess) {
+        int[] h = new int[10];
+            
+        int bulls = 0, cows = 0;
+        int n = guess.length();
+        for (int idx = 0; idx < n; ++idx) {
+            char s = secret.charAt(idx);
+            char g = guess.charAt(idx);
+            if (s == g) {
+                bulls++;    
+            } else {
+                if (h[s - '0'] < 0) 
+                    cows++;
+                if (h[g - '0'] > 0)
+                    cows++;
+                h[s - '0']++;
+                h[g - '0']--;
+            }
+        } 
+                
+        StringBuilder sb = new StringBuilder();
+        sb.append(bulls); 
+        sb.append("A"); 
+        sb.append(cows); 
+        sb.append("B");
+        return sb.toString();
+    }
+}
 ```
 ## 300_LongestIncreasingSubsequence
 ```
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        dp = [1] * len(nums)
+        for i in range(1, len(nums)):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+
+        return max(dp)
 ```
 ```
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        sub = [nums[0]]
+        
+        for num in nums[1:]:
+            if num > sub[-1]:
+                sub.append(num)
+            else:
+                # Find the first element in sub that is greater than or equal to num
+                i = 0
+                while num > sub[i]:
+                    i += 1
+                sub[i] = num
+
+        return len(sub)
 ```
 ```
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        sub = []
+        for num in nums:
+            i = bisect_left(sub, num)
+
+            # If num is greater than any element in sub
+            if i == len(sub):
+                sub.append(num)
+            
+            # Otherwise, replace the first element in sub greater than or equal to num
+            else:
+                sub[i] = num
+        
+        return len(sub)
 ```
