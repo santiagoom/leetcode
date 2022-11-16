@@ -1,14 +1,15 @@
 
 #include <iostream>
 #include <cppUtils.h>
+
 using namespace std;
 
-                    
+
 class Solution_186_ReverseWordsinaStringII_1 {
 public:
 
     // Summary: Reverse entire string. Then reverse each word within the string.
-    void reverseWords(vector<char>& s) {
+    void reverseWords(vector<char> &s) {
         reverse(s.begin(), s.end());
 
         // 'start' points to the beginning of the current word
@@ -34,14 +35,13 @@ public:
 };
 
 int main() {
-auto *so = new Solution_186_ReverseWordsinaStringII_1();
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+    auto *so = new Solution_186_ReverseWordsinaStringII_1();
+    vector<int> nums{2, 7, 11, 15};
+    int target = 26;
+    string s = "aa";
+    vector<vector<int>> arrays;
+    CppUtils::print(s);
+    CppUtils::print_1d_vector(nums);
+    CppUtils::print_2d_vector(arrays);
+    return 0;
 }
-                    

@@ -1,8 +1,8 @@
-
-from typing import List  
+from typing import List
 from utils import *
 import collections
-                    
+
+
 class Solution_174_DungeonGame_1:
     def calculateMinimumHP(self, dungeon):
         """
@@ -23,8 +23,8 @@ class Solution_174_DungeonGame_1:
             for col in reversed(range(cols)):
                 currCell = dungeon[row][col]
 
-                right_health = get_min_health(currCell, row, col+1)
-                down_health = get_min_health(currCell, row+1, col)
+                right_health = get_min_health(currCell, row, col + 1)
+                down_health = get_min_health(currCell, row + 1, col)
                 next_health = min(right_health, down_health)
 
                 if next_health != float('inf'):
@@ -36,11 +36,9 @@ class Solution_174_DungeonGame_1:
 
         return dp[0][0]
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
+    dungeon = [[-2, -3, 3], [-5, -10, 1], [10, 30, -5]]
     so = Solution_174_DungeonGame_1()
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    res = so.calculateMinimumHP(dungeon)
+    print(res)
