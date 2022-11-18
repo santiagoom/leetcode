@@ -3,8 +3,8 @@ import os
 
 def func():
     # path = "../notebook/Descriptions_1.md"
-    path = "../notebook/Descriptions_2.md"
-    # path = "../notebook/Descriptions_3.md"
+    # path = "../notebook/Descriptions_2.md"
+    path = "../notebook/Descriptions_3.md"
     # path = "../notebook/Descriptions_4.md"
     with open(path, mode="r") as f:
         content = f.read()
@@ -34,7 +34,7 @@ def func():
 
         solution_number = title[:3]
 
-        specific = ["172"]
+        specific = ["274"]
         if solution_number not in specific:
             continue
 
@@ -59,13 +59,9 @@ def func():
                     # if not os.path.exists(solution_path):
                     #     os.makedirs(solution_path)
 
-                    filename = "{}/_{}_{}.{}".format(java_path, title, count, lang).replace("(", "_").replace(")",
-                                                                                                              "").replace(
-                        ",", "_").replace("'", "_")
+                    filename = replace_char("{}/_{}_{}.{}".format(java_path, title, count, lang))
+                    classname = replace_char("_{}_{}".format(title, count))
 
-                    classname = "_{}_{}".format(title, count).replace("(", "_").replace(")", "").replace(",",
-                                                                                                         "_").replace(
-                        "'", "_")
                     package = """
                     import java.util.*;
                     import utils.TreeNode;
@@ -128,12 +124,9 @@ def func():
                     if not cpp_flag:
                         continue
                     lang = "cpp"
-                    filename = "{}/{}_{}.{}".format(cpp_path, title, count, lang).replace("(", "_").replace(")",
-                                                                                                            "").replace(
-                        ",", "_").replace("'", "_")
-                    classname = "_{}_{}".format(title, count).replace("(", "_").replace(")", "").replace(",",
-                                                                                                         "_").replace(
-                        "'", "_")
+                    filename = replace_char("{}/{}_{}.{}".format(cpp_path, title, count, lang))
+                    classname = replace_char("_{}_{}".format(title, count))
+
                     cpp_head = """
 #include <iostream>
 #include <cppUtils.h>
@@ -191,6 +184,7 @@ def replace_char(solution):
         .replace(",", "_") \
         .replace("'", "_") \
         .replace("'", "_") \
+        .replace("-", "_") \
         .replace("'", "_")
 
     return res
