@@ -1,8 +1,8 @@
-
-from typing import List  
+from typing import List
 from utils import *
 import collections
-                    
+
+
 class Solution_207_CourseSchedule_1:
     def canFinish(self, numCourses, prerequisites):
         """
@@ -22,7 +22,6 @@ class Solution_207_CourseSchedule_1:
             if self.isCyclic(currCourse, courseDict, path):
                 return False
         return True
-
 
     def isCyclic(self, currCourse, courseDict, path):
         """
@@ -45,11 +44,10 @@ class Solution_207_CourseSchedule_1:
         path[currCourse] = False
         return ret
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
     so = Solution_207_CourseSchedule_1()
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    courses = 2
+    prerequisites = [[1, 0], [0, 1]]
+    res = so.canFinish(2, prerequisites)
+    print(res)

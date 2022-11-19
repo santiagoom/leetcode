@@ -1,13 +1,15 @@
-
-from typing import List  
+from typing import List
 from utils import *
 import collections
-                    
+
+
 class GNode(object):
     """  data structure represent a vertex in the graph."""
+
     def __init__(self):
         self.inDegrees = 0
         self.outNodes = []
+
 
 class Solution_207_CourseSchedule_3:
     def canFinish(self, numCourses, prerequisites):
@@ -54,6 +56,7 @@ class Solution_207_CourseSchedule_3:
             # Due to the dead-lock (dependencies), we cannot remove the cyclic edges
             return False
 
+
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
@@ -61,4 +64,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

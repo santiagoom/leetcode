@@ -5,34 +5,34 @@
                     import utils.ListNode;
                     import utils.JavaUtils;
                                             
-                        class Solution_304_RangeSumQuery2D-Immutable_2{
+                        class Solution_303_RangeSumQuery_Immutable_3{
                         
-class NumMatrix {
-    private int[][] dp;
+class NumArray {
 
-    public NumMatrix(int[][] matrix) {
-        if (matrix.length == 0 || matrix[0].length == 0) return;
-        dp = new int[matrix.length][matrix[0].length + 1];
-        for (int r = 0; r < matrix.length; r++) {
-            for (int c = 0; c < matrix[0].length; c++) {
-                dp[r][c + 1] = dp[r][c] + matrix[r][c];
-            }
-        }
-    }
+private int[] sum;
 
-    public int sumRegion(int row1, int col1, int row2, int col2) {
-        int sum = 0;
-        for (int row = row1; row <= row2; row++) {
-            sum += dp[row][col2 + 1] - dp[row][col1];
-        }
-        return sum;
+public NumArray(int[] nums) {
+    sum = new int[nums.length + 1];
+    for (int i = 0; i < nums.length; i++) {
+        sum[i + 1] = sum[i] + nums[i];
     }
 }
 
+public int sumRange(int i, int j) {
+    return sum[j + 1] - sum[i];
+}
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * int param_1 = obj.sumRange(left,right);
+ */
+
                         }
-                        public class _304_RangeSumQuery2D-Immutable_2 {
+                        public class _303_RangeSumQuery_Immutable_3 {
                             public static void main(String[] args) {
-                                Solution_304_RangeSumQuery2D-Immutable_2 so = new Solution_304_RangeSumQuery2D-Immutable_2();
+                                Solution_303_RangeSumQuery_Immutable_3 so = new Solution_303_RangeSumQuery_Immutable_3();
                                  int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
                                                         JavaUtils.print_1d_array(nums);
                                                         int[][] arrays = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};

@@ -4,8 +4,8 @@ import os
 def func():
     # path = "../notebook/Descriptions_1.md"
     # path = "../notebook/Descriptions_2.md"
-    path = "../notebook/Descriptions_3.md"
-    # path = "../notebook/Descriptions_4.md"
+    # path = "../notebook/Descriptions_3.md"
+    path = "../notebook/Descriptions_4.md"
     with open(path, mode="r") as f:
         content = f.read()
     cpp_path = "../solution/cpp/"
@@ -34,7 +34,12 @@ def func():
 
         solution_number = title[:3]
 
-        specific = ["274"]
+        specific = [
+            # "274",
+            "303",
+            "304",
+            "307",
+        ]
         if solution_number not in specific:
             continue
 

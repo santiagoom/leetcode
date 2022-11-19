@@ -19,6 +19,10 @@ public class JavaUtils {
         System.out.println(n);
     }
 
+    public static void print(boolean n) {
+        System.out.println(n);
+    }
+
     public static void print(String s) {
         System.out.println(s);
     }
