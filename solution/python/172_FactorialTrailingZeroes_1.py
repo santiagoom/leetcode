@@ -20,10 +20,7 @@ class Solution_172_FactorialTrailingZeroes_1:
         return zero_count
 
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
     so = Solution_172_FactorialTrailingZeroes_1()
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    num = 6
+    res = so.trailingZeroes(num)
+    print(res)

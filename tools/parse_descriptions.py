@@ -170,10 +170,12 @@ import collections
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
-    so = Solution{}()
-    s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
+    so = Solution{}()
+    s = "aa"
+    res = 1
+    print(res)
                     """.format(classname)
                     with open(filename, mode="w", encoding="utf8") as f:
                         f.write(py_head)
