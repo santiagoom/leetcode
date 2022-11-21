@@ -107,7 +107,7 @@ public class _208_ImplementTrie_PrefixTree_1 {
         boolean f1 = trie.search("apple");   // returns true
         JavaUtils.print(f1);
         boolean f2 = trie.search("app");     // returns false
-        boolean f3 = trie.startsWith("app"); // returns true
+        boolean f3 = trie.startsWith("apple"); // returns true
         trie.insert("app");
         boolean f4 = trie.search("app");     // returns true
         JavaUtils.print(f2);

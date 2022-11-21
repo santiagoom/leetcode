@@ -552,6 +552,8 @@ class Trie {
 ```
 ## 209_MinimumSizeSubarraySum
 ```
+class Solution {
+public:
 int minSubArrayLen(int s, vector<int>& nums)
 {
     int n = nums.size();
@@ -569,9 +571,11 @@ int minSubArrayLen(int s, vector<int>& nums)
         }
     }
     return (ans != INT_MAX) ? ans : 0;
-}
+}};
 ```
 ```
+class Solution {
+public:
 int minSubArrayLen(int s, vector<int>& nums)
 {
     int n = nums.size();
@@ -592,9 +596,11 @@ int minSubArrayLen(int s, vector<int>& nums)
         }
     }
     return (ans != INT_MAX) ? ans : 0;
-}
+}};
 ```
 ```
+class Solution {
+public:
 int minSubArrayLen(int s, vector<int>& nums)
 {
     int n = nums.size();
@@ -615,7 +621,7 @@ int minSubArrayLen(int s, vector<int>& nums)
         }
     }
     return (ans != INT_MAX) ? ans : 0;
-}
+}}
 ```
 ```
 class Solution {
@@ -787,9 +793,8 @@ class WordDictionary:
                 node[ch] = {}
             node = node[ch]
         node['$'] = True
-```
-```
-def search(self, word: str) -> bool:
+    
+    def search(self, word: str) -> bool:
     """
     Returns if the word is in the data structure. A word could contain the dot character '.' to represent any letter.
     """

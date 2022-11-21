@@ -1,9 +1,10 @@
-
-from typing import List  
+from typing import List
 from utils import *
 import collections
-                    
+
 from collections import defaultdict, deque
+
+
 class Solution_210_CourseScheduleII_2:
 
     def findOrder(self, numCourses, prerequisites):
@@ -45,6 +46,7 @@ class Solution_210_CourseScheduleII_2:
 
         return topological_sorted_order if len(topological_sorted_order) == numCourses else []
 
+
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
@@ -52,4 +54,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

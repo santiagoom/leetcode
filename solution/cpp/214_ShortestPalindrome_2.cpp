@@ -23,14 +23,11 @@ public:
 };
 
 int main() {
-auto *so = new Solution_214_ShortestPalindrome_2();
-vector<int> nums{2, 7, 11, 15};
-int target = 26;
-string s = "aa";
-vector<vector<int>> arrays;
-CppUtils::print(s);
-CppUtils::print_1d_vector(nums);
-CppUtils::print_2d_vector(arrays);
-return 0;
+    auto *so = new Solution_214_ShortestPalindrome_2();
+//    string s = "abc";
+    string s = "abccb";
+    auto ret = so->shortestPalindrome(s);
+    CppUtils::print(ret);
+    return 0;
 }
                     

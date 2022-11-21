@@ -4,7 +4,8 @@ from utils import *
 import collections
                     
 from collections import defaultdict
-class Solution_210_CourseScheduleII_1:
+# class Solution_210_CourseScheduleII_1:
+class Solution:
 
     WHITE = 1
     GRAY = 2
@@ -62,7 +63,7 @@ class Solution_210_CourseScheduleII_1:
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 26
-    so = Solution_210_CourseScheduleII_1()
+    so = Solution()
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
