@@ -1,11 +1,12 @@
-
-from typing import List  
+from typing import List
 from utils import *
 import collections
-                    
+
+
 class Solution_216_CombinationSumIII_1:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         results = []
+
         def backtrack(remain, comb, next_start):
             if remain == 0 and len(comb) == k:
                 # make a copy of current combination
@@ -18,14 +19,15 @@ class Solution_216_CombinationSumIII_1:
 
             # Iterate through the reduced list of candidates.
             for i in range(next_start, 9):
-                comb.append(i+1)
-                backtrack(remain-i-1, comb, i+1)
+                comb.append(i + 1)
+                backtrack(remain - i - 1, comb, i + 1)
                 # backtrack the current choice
                 comb.pop()
 
         backtrack(n, [], 0)
 
         return results
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -34,4 +36,3 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
-                    

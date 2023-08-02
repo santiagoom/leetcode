@@ -3,6 +3,8 @@ import math
 import sys
 from collections import *
 
+import heapq
+import random
 
 class ListNode:
     def __init__(self, val=0, next=None):

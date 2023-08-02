@@ -1107,6 +1107,34 @@ class Solution:
         return results
 ```
 ```
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector<vector<int>> res;
+        vector<int> templist;
+        backtracking(res, templist, k, n, 1);
+        return res;
+    }
+
+private:
+    void backtracking(vector<vector<int>> &res, vector<int> &templist, int k, int n, int start) {
+//        if (templist.size() > k || n < 0)
+//            return;
+//        else if (templist.size() == k && n == 0)
+//            res.push_back(templist);
+        if (n < 0)
+            return;
+        else if (n == 0)
+            res.push_back(templist);
+        else {
+            for (int i = start; i < 10; i++) {
+                templist.push_back(i);
+                backtracking(res, templist, k, n - i, i + 1);
+                templist.pop_back();
+            }
+        }
+    }
+};
 ```
 ```
 ```
@@ -2365,20 +2393,21 @@ class Solution:
     return vals == vals[::-1]
 ```
 ```
-def isPalindrome(self, head: ListNode) -> bool:
+class Solution:
+    def isPalindrome(self, head: ListNode) -> bool:
 
-    self.front_pointer = head
+        self.front_pointer = head
 
-    def recursively_check(current_node=head):
-        if current_node is not None:
-            if not recursively_check(current_node.next):
-                return False
-            if self.front_pointer.val != current_node.val:
-                return False
-            self.front_pointer = self.front_pointer.next
-        return True
+        def recursively_check(current_node=head):
+            if current_node is not None:
+                if not recursively_check(current_node.next):
+                    return False
+                if self.front_pointer.val != current_node.val:
+                    return False
+                self.front_pointer = self.front_pointer.next
+            return True
 
-    return recursively_check()
+        return recursively_check()
 ```
 ```
 class Solution:
