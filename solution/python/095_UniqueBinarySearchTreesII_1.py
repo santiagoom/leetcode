@@ -38,6 +38,8 @@ if __name__ == "__main__":
     n = 3
     so = Solution_095_UniqueBinarySearchTreesII_1()
     res = so.generateTrees(n)
+    print(res)
     for each in res:
-        list =  BinaryTreeInorderTraversal(each)
-        print(list)
+        list_a = []
+        BinaryTreeInorderTraversal(each,list_a)
+        print(list_a)

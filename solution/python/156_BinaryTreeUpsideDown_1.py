@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_156_BinaryTreeUpsideDown_1:
     def upsideDownBinaryTree(self, root):
         if not root or not root.left:
@@ -13,10 +13,21 @@ class Solution_156_BinaryTreeUpsideDown_1:
         root, rMost.left, rMost.right = lRoot, root.right, TreeNode(root.val)
         return root
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    t1 = TreeNode(1)
+    t1.left = TreeNode(2)
+    t1.right = TreeNode(3)
+    t1.left.left = TreeNode(4)
+    t1.left.right = TreeNode(5)
+
+    so = Solution_156_BinaryTreeUpsideDown_1()
+
+    res = so.upsideDownBinaryTree(t1)
+
+
+    output = []
+
+    BinaryTreeInorderTraversal(res,output)
+
+    print(output)

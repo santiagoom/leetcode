@@ -1,8 +1,9 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
 from collections import defaultdict
+
+
 class Solution_127_WordLadder_1:
     def ladderLength(self, beginWord, endWord, wordList):
         """
@@ -25,8 +26,7 @@ class Solution_127_WordLadder_1:
             for i in range(L):
                 # Key is the generic word
                 # Value is a list of words which have the same intermediate generic word.
-                all_combo_dict[word[:i] + "*" + word[i+1:]].append(word)
-
+                all_combo_dict[word[:i] + "*" + word[i + 1:]].append(word)
 
         # Queue for BFS
         queue = collections.deque([(beginWord, 1)])
@@ -36,7 +36,7 @@ class Solution_127_WordLadder_1:
             current_word, level = queue.popleft()
             for i in range(L):
                 # Intermediate words for current word
-                intermediate_word = current_word[:i] + "*" + current_word[i+1:]
+                intermediate_word = current_word[:i] + "*" + current_word[i + 1:]
 
                 # Next states are all the words which share the same intermediate state.
                 for word in all_combo_dict[intermediate_word]:
@@ -51,10 +51,11 @@ class Solution_127_WordLadder_1:
                 all_combo_dict[intermediate_word] = []
         return 0
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    beginWord = "hit"
+    endWord = "cog"
+    wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
+    so = Solution_127_WordLadder_1()
+    res = so.ladderLength(beginWord, endWord, wordList)
+    print(res)

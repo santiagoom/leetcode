@@ -38,7 +38,8 @@ public class _032_LongestValidParentheses_3 {
         JavaUtils.print_2d_array(arrays);
 
         int target = 26;
-        String s = ")()())";
+//        String s = ")()())";
+        String s = "(((())((()))())";
 
         int res = so.longestValidParentheses(s);
         System.out.println(res);

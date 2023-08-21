@@ -24,9 +24,13 @@ class Solution_063_UniquePathsII_1:
         for i in range(1, m):
             obstacleGrid[i][0] = int(obstacleGrid[i][0] == 0 and obstacleGrid[i - 1][0] == 1)
 
+        print(obstacleGrid)
+
         # Filling the values for the first row        
         for j in range(1, n):
             obstacleGrid[0][j] = int(obstacleGrid[0][j] == 0 and obstacleGrid[0][j - 1] == 1)
+
+        print(obstacleGrid)
 
         # Starting from cell(1,1) fill up the values
         # No. of ways of reaching cell[i][j] = cell[i - 1][j] + cell[i][j - 1]

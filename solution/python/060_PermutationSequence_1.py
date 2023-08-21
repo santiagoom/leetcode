@@ -28,7 +28,7 @@ class Solution_060_PermutationSequence_1:
 
 if __name__ == "__main__":
     n = 4
-    k = 17
+    k = 24
     so = Solution_060_PermutationSequence_1()
     res = so.getPermutation(n, k)
     print(res)

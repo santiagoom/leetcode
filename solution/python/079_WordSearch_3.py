@@ -57,3 +57,4 @@ if __name__ == "__main__":
     word = "ABCCED"
 
     res = so.exist(board, word)
+    print(res)

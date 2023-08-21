@@ -44,6 +44,18 @@ def BinaryTreePreorderTraversal(treeNode, tree_list):
     if (treeNode.right):
         BinaryTreePreorderTraversal(treeNode.right, tree_list)
 
+def BinaryTreeInorderTraversal(treeNode, tree_list):
+    if (treeNode == None):
+        tree_list.append("#")
+        return
+
+    if (treeNode.left):
+        BinaryTreeInorderTraversal(treeNode.left, tree_list)
+    tree_list.append(treeNode.val)
+
+    if (treeNode.right):
+        BinaryTreeInorderTraversal(treeNode.right, tree_list)
+
 
 def BinaryTreePostorderTraversal(treeNode, tree_list):
     if (treeNode == None):
