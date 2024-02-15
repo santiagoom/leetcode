@@ -1,7 +1,7 @@
-
-from typing import List  
+from typing import List
 from utils import *
-                    
+
+
 class Solution_105_ConstructBinaryTreefromPreorderandInorderTraversal_1:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
 
@@ -13,7 +13,6 @@ class Solution_105_ConstructBinaryTreefromPreorderandInorderTraversal_1:
             # select the preorder_index element as the root and increment it
             root_value = preorder[preorder_index]
             root = TreeNode(root_value)
-
 
             preorder_index += 1
 
@@ -33,10 +32,15 @@ class Solution_105_ConstructBinaryTreefromPreorderandInorderTraversal_1:
 
         return array_to_tree(0, len(preorder) - 1)
 
+
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
-    s = "aa"
-    arrays = [[1, 2, 3], [4, 5, 6]]
-    print(arrays)
-                    
+    preorder = [3, 9, 20, 15, 7]
+    inorder = [9, 3, 15, 20, 7]
+
+    so = Solution_105_ConstructBinaryTreefromPreorderandInorderTraversal_1()
+
+    res = so.buildTree(preorder, inorder)
+
+    l = []
+    BinaryTreeInorderTraversal(res, l)
+    print(l)
