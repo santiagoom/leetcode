@@ -52,6 +52,8 @@ class Solution_093_RestoreIPAddresses_1:
         output, segments = [], []
         backtrack()
 
+        return output, segments
+
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
@@ -59,3 +61,12 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
+
+    # s = "25525511135"
+    s = "000000000"
+    s = "0000"
+    so = Solution_093_RestoreIPAddresses_1()
+
+    output, segments = so.restoreIpAddresses(s)
+    print(output)
+    print(segments)

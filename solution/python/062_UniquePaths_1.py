@@ -19,3 +19,9 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
+
+    m, n = 7, 3
+
+    s = Solution_062_UniquePaths_1()
+    res = s.uniquePaths(m, n)
+    print(res)

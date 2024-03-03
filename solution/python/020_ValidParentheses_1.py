@@ -44,4 +44,9 @@ if __name__ == "__main__":
     s = "aa"
     arrays = [[1, 2, 3], [4, 5, 6]]
     print(arrays)
+    s = ")))"
+
+    so = Solution_020_ValidParentheses_1()
+    res = so.isValid(s)
+    print(res)
                     

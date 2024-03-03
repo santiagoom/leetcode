@@ -5,32 +5,48 @@ from collections import *
 
 import heapq
 import random
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-        # l1 = ListNode(1)
-        # l1.next = ListNode(2)
-        # l1.next.next = ListNode(3)
-        # l1.next.next.next = ListNode(4)
-        # l1.next.next.next.next = ListNode(5)
+from pydantic import BaseModel, Field, StrictStr, StrictInt
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-        # root = TreeNode(1)
-        # root.left = TreeNode(2)
-        # root.left.left = TreeNode(3)
-        # root.left.right = TreeNode(4)
-        #
-        # root.right = TreeNode(5)
-        # root.right.right = TreeNode(6)
+
+class ListNode(BaseModel):
+    val: int = 0
+    next: 'ListNode' = None
+
+
+l1 = ListNode(val=1)
+l1.next = ListNode(val=2)
+l1.next.next = ListNode(val=3)
+l1.next.next.next = ListNode(val=4)
+l1.next.next.next.next = ListNode(val=5)
+
+
+class TreeNode(BaseModel):
+    val: int = 0
+    left: 'TreeNode' = None
+    right: 'TreeNode' = None
+
+
+root = TreeNode(val=1)
+root.left = TreeNode(val=2)
+root.left.left = TreeNode(val=3)
+root.left.right = TreeNode(val=4)
+
+root.right = TreeNode(val=5)
+root.right.right = TreeNode(val=6)
+
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
 
 
 def BinaryTreePreorderTraversal(treeNode, tree_list):
@@ -43,6 +59,7 @@ def BinaryTreePreorderTraversal(treeNode, tree_list):
 
     if (treeNode.right):
         BinaryTreePreorderTraversal(treeNode.right, tree_list)
+
 
 def BinaryTreeInorderTraversal(treeNode, tree_list):
     if (treeNode == None):
